@@ -1,5 +1,5 @@
-# ${generateTime}
-# ${waaiuHome}
+﻿# ${generateTime}
+#
 
 ## ${ActionComment}[br]
 ## https://github.com/waaiu/wanet

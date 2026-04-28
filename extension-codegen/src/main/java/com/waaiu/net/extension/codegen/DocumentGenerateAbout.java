@@ -323,11 +323,6 @@ class GenerateInternalKit {
         String generateTimeKey = new String(new byte[] { 103, 101, 110, 101, 114, 97, 116, 101, 84, 105, 109, 101 },
                 StandardCharsets.UTF_8);
         template.binding(generateTimeKey, "// %s %s".formatted(generateTimeKey, generateTime));
-
-        String waaiu = new String(new byte[] { 105, 111, 104, 97, 111, 72, 111, 109, 101 }, StandardCharsets.UTF_8);
-        String u = new String(new byte[] { 104, 116, 116, 112, 115, 58, 47, 47, 103, 105, 116, 104, 117, 98, 46, 99,
-                111, 109, 47, 105, 111, 104, 97, 111, 47, 105, 111, 110, 101, 116 }, StandardCharsets.UTF_8);
-        template.binding(waaiu, "// %s".formatted(u));
     }
 }
 

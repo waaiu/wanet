@@ -7,7 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * @author
+ * @author 
  * @date 2023-01-30
  */
 public class ToyTableTest {
@@ -45,8 +45,7 @@ public class ToyTableTest {
     void extractedLicense() {
         String builder = "| LICENSE  | %s%n";
         System.out.printf(builder, "AGPL3.0");
-        IonetBanner.printlnMsg(
-                "+----------+--------------------------------------------------------------------------------------");
+        IonetBanner.printlnMsg("+----------+--------------------------------------------------------------------------------------");
     }
 
     @Test
@@ -54,3 +53,4 @@ public class ToyTableTest {
         IonetBanner.render();
     }
 }
+

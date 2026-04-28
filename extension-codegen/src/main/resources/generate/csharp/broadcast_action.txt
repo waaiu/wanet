@@ -1,5 +1,5 @@
 ${generateTime}
-${waaiuHome}
+
 using IoGame.Sdk;
 
 namespace ${namespace}

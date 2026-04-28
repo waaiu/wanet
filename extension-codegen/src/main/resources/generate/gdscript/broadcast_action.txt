@@ -1,5 +1,5 @@
 # ${generateTime}
-# ${waaiuHome}
+#
 
 ## Broadcast Listener[br]
 ## https://github.com/waaiu/wanet
