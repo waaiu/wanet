@@ -1,7 +1,7 @@
-/*
+﻿/*
  * wanet
  * Copyright (C) 2021 - present   () . All Rights Reserved.
- * # waaiu.com . 
+ * # waaiu.com .
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -50,12 +50,12 @@ record CommonEventHandler(DomainEventHandler<?> eventHandler) implements EventHa
 final class DefaultCommonEventProducer implements CommonEventProducer {
 
     private static final EventTranslatorOneArg<CommonEvent, DomainEventSource> TRANSLATOR_SOURCE = (commonEvent, _,
-            domainSource) -> {
+                                                                                                    domainSource) -> {
         commonEvent.setDomainEventSource(domainSource);
     };
 
-    private static final EventTranslatorOneArg<CommonEvent, Object> TRANSLATOR_VALUE = (commonEvent, _, value) -> {
-        commonEvent.setValue(value);
+    private static final EventTranslatorOneArg<CommonEvent, Object> TRANSLATOR_VALUE = (commonEvent, _, s) -> {
+        commonEvent.setValue(s);
     };
 
     @Override
