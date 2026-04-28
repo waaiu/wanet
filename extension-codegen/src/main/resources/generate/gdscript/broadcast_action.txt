@@ -1,8 +1,8 @@
-# ${generateTime}
-# ${iohaoHome}
+﻿# ${generateTime}
+# ${waaiuHome}
 
 ## Broadcast Listener[br]
-## https://github.com/iohao/ionet
+## https://github.com/waaiu/ionet
 class_name Listener
 extends RefCounted
 
@@ -48,3 +48,4 @@ static func listener_all() -> void:
 	)
 
 <%}%>
+

@@ -1,0 +1,103 @@
+﻿/*
+ * ionet
+ * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
+ * # waaiu.com . 渔民小镇
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+package com.waaiu.net.extension.client.join;
+
+import com.waaiu.net.common.kit.*;
+import com.waaiu.net.extension.client.*;
+import com.waaiu.net.extension.client.user.*;
+import io.netty.bootstrap.*;
+import io.netty.channel.*;
+import io.netty.channel.nio.*;
+import io.netty.channel.socket.*;
+import io.netty.channel.socket.nio.*;
+import io.netty.handler.codec.*;
+import java.net.*;
+import lombok.extern.slf4j.*;
+
+/**
+ * TCP client connector startup implementation.
+ *
+ * @author 渔民小镇
+ * @date 2023-07-05
+ */
+@Slf4j(topic = IonetLogName.CommonStdout)
+class TcpClientStartup implements ClientConnect {
+    static int PACKAGE_MAX_SIZE = 1024 * 1024;
+
+    static final EventLoopGroup group = new NioEventLoopGroup();
+
+    @Override
+    public void connect(ClientConnectOption option) {
+        ClientUser clientUser = option.getClientUser();
+        ClientMessageHandler clientMessageHandler = new ClientMessageHandler(clientUser);
+
+        var bootstrap = new Bootstrap();
+        bootstrap.group(group)
+                .channel(NioSocketChannel.class)
+                .option(ChannelOption.TCP_NODELAY, true)
+                .handler(new ChannelInitializer<SocketChannel>() {
+                    @Override
+                    protected void initChannel(SocketChannel ch) {
+                        // Configure the client pipeline.
+                        ChannelPipeline pipeline = ch.pipeline();
+
+                        // Frame length = length field value + offset + field length + adjustment.
+                        pipeline.addLast(new LengthFieldBasedFrameDecoder(PACKAGE_MAX_SIZE,
+                                // Length field offset (starts at 0).
+                                0,
+                                // Length field size (2 for short, 4 for int). This protocol uses 4.
+                                4,
+                                // Length adjustment: contentOffset - lengthFieldOffset - lengthFieldSize.
+                                0,
+                                // Initial bytes to strip: 0 (keep the length field for downstream codec).
+                                0));
+
+                        // Codec
+                        pipeline.addLast("codec", new ClientTcpExternalCodec());
+
+                        pipeline.addLast(clientMessageHandler);
+                    }
+                });
+
+        InetSocketAddress address = option.getSocketAddress();
+        String hostName = address.getHostName();
+        int port = address.getPort();
+        final ChannelFuture channelFuture = bootstrap.connect(hostName, port);
+
+        try {
+            Channel channel = channelFuture.sync().channel();
+
+            ClientUserChannel userChannel = clientUser.getClientUserChannel();
+            userChannel.setChannelAccept(channel::writeAndFlush);
+
+            userChannel.setCloseChannel(channel::close);
+
+            if (option.getConnectedCallback() != null) {
+                option.getConnectedCallback().run();
+            }
+
+            clientUser.getClientUserInputCommands().start();
+
+            channel.closeFuture().await();
+        } catch (InterruptedException e) {
+            log.error(e.getMessage(), e);
+        }
+    }
+}
+

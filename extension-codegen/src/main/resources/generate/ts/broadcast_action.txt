@@ -1,11 +1,11 @@
-${generateTime}
-${iohaoHome}
+﻿${generateTime}
+${waaiuHome}
 ${imports}
-import {CmdKit, ListenCommand, ResponseResult} from "iohao-sdk";
+import {CmdKit, ListenCommand, ResponseResult} from "waaiu-sdk";
 
 /**
  * Broadcast Listener
- * @author https://github.com/iohao/ionet
+ * @author https://github.com/waaiu/ionet
  */
 export class Listener {
 <%for(o in broadcastDocumentList) {%>
@@ -46,4 +46,5 @@ export class Listener {
     <%}%>
     }
 }
+
 

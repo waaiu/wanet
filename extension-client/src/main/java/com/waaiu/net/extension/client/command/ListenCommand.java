@@ -1,0 +1,60 @@
+﻿/*
+ * ionet
+ * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
+ * # waaiu.com . 渔民小镇
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+package com.waaiu.net.extension.client.command;
+
+import com.waaiu.net.extension.client.user.*;
+import com.waaiu.net.framework.core.*;
+import com.waaiu.net.framework.core.kit.*;
+import lombok.*;
+import lombok.experimental.*;
+
+/**
+ * 广播监听
+ *
+ * @author 渔民小镇
+ * @date 2023-07-09
+ */
+@Getter
+@Setter
+@Accessors(chain = true)
+@FieldDefaults(level = AccessLevel.PRIVATE)
+public class ListenCommand {
+    final CmdInfo cmdInfo;
+    String title;
+    CallbackDelegate callback;
+    ClientUserChannel clientUserChannel;
+
+    public ListenCommand(CmdInfo cmdInfo) {
+        this.cmdInfo = cmdInfo;
+    }
+
+    public void listen() {
+        clientUserChannel.addListen(this);
+    }
+
+    @Override
+    public String toString() {
+        int width = 7;
+        String inputNameFormat = "%-" + width + "s";
+        var inputName = CmdKit.toSimpleString(cmdInfo);
+        var format = inputNameFormat + ": %s";
+        return String.format(format, inputName, title);
+    }
+}
+

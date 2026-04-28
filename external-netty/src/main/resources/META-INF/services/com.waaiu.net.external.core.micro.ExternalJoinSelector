@@ -1,0 +1,2 @@
+﻿com.waaiu.net.external.core.netty.micro.join.TcpExternalJoinSelector
+com.waaiu.net.external.core.netty.micro.join.WebSocketExternalJoinSelector

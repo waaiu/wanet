@@ -1,10 +1,10 @@
-${generateTime}
-${iohaoHome}
-import {CmdKit} from "iohao-sdk";
+﻿${generateTime}
+${waaiuHome}
+import {CmdKit} from "waaiu-sdk";
 
 /**
  * GameCode, ErrorCode.
- * @author https://github.com/iohao/ionet
+ * @author https://github.com/waaiu/ionet
  */
 export class GameCode {
 <%for(o in errorCodeDocumentList) {%>

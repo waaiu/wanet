@@ -1,0 +1,55 @@
+﻿/*
+ * ionet
+ * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
+ * # waaiu.com . 渔民小镇
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+package com.waaiu.net.framework.communication;
+
+import com.waaiu.net.framework.annotations.*;
+import com.waaiu.net.framework.protocol.*;
+import java.util.concurrent.*;
+
+/**
+ * Communication interface for collecting aggregated responses from multiple logic servers.
+ * <p>
+ * Extends {@link PublisherCommunication} and provides both synchronous and asynchronous
+ * (future-based) methods for broadcasting a request to all logic servers that handle
+ * the target command and gathering their individual responses into a single
+ * {@link ResponseCollect}.
+ *
+ * @author 渔民小镇
+ * @date 2025-09-04
+ * @since 25.1
+ */
+@Enterprise
+public interface LogicCollectCommunication extends PublisherCommunication {
+    /**
+     * Asynchronously call all matching logic servers and collect their responses.
+     *
+     * @param message the request message to broadcast
+     * @return a future that completes with the aggregated response from all logic servers
+     */
+    CompletableFuture<ResponseCollect> callCollectFuture(RequestMessage message);
+
+    /**
+     * Synchronously call all matching logic servers and collect their responses.
+     *
+     * @param message the request message to broadcast
+     * @return the aggregated response from all logic servers
+     */
+    ResponseCollect callCollect(RequestMessage message);
+}
+

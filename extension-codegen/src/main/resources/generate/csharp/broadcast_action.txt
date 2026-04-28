@@ -1,5 +1,5 @@
-${generateTime}
-${iohaoHome}
+﻿${generateTime}
+${waaiuHome}
 using IoGame.Sdk;
 
 namespace ${namespace}
@@ -7,7 +7,7 @@ namespace ${namespace}
   /// <summary>
   /// Broadcast Listener
   /// </summary>
-  /// <remarks>Author: https://github.com/iohao/ionet</remarks>
+  /// <remarks>Author: https://github.com/waaiu/ionet</remarks>
   public static class Listener
   {
   <%for(o in broadcastDocumentList) {%>

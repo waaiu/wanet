@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <configuration debug="false">
     <statusListener class="ch.qos.logback.core.status.NopStatusListener"/>
 
@@ -86,7 +86,7 @@
         <appender-ref ref="file.all.other"/>
     </appender>
 
-    <logger name="com.iohao.net" additivity="false">
+    <logger name="com.waaiu.net" additivity="false">
         <level value="${log.root.level}"/>
         <appender-ref ref="async.stdout"/>
         <appender-ref ref="file.async"/>

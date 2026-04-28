@@ -1,0 +1,62 @@
+﻿/*
+ * ionet
+ * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
+ * # waaiu.com . 渔民小镇
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+package com.waaiu.net.framework.communication;
+
+import com.waaiu.net.common.kit.trace.*;
+import com.waaiu.net.framework.core.*;
+import com.waaiu.net.framework.core.flow.*;
+import java.util.concurrent.*;
+
+/**
+ * Base decorator interface providing access to the communication aggregation, trace ID, and current executor.
+ *
+ * @author 渔民小镇
+ * @date 2025-09-28
+ * @since 25.1
+ */
+public interface CommonDecorator {
+    /**
+     * Get the global communication aggregation instance.
+     *
+     * @return the shared {@link CommunicationAggregation} singleton
+     */
+    default CommunicationAggregation getCommunicationAggregation() {
+        return CommunicationKit.communicationAggregation;
+    }
+
+    /**
+     * Get the current trace ID from the MDC context.
+     *
+     * @return the trace ID string, or {@code null} if not set
+     */
+    default String getTraceId() {
+        return TraceKit.getTraceId();
+    }
+
+    /**
+     * Get the executor assigned to the current flow context.
+     *
+     * @return the {@link Executor} bound to the current thread's flow context
+     */
+    default Executor getCurrentExecutor() {
+        FlowContext flowContext = FlowContextKeys.getFlowContext();
+        return flowContext.getCurrentThreadExecutor().executor();
+    }
+}
+

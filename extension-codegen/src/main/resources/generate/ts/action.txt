@@ -1,12 +1,12 @@
-${generateTime}
-${iohaoHome}
+﻿${generateTime}
+${waaiuHome}
 ${imports}
 import {toBinary} from "@bufbuild/protobuf";
-import {CmdKit, RequestCommand, ResponseResult} from "iohao-sdk";
+import {CmdKit, RequestCommand, ResponseResult} from "waaiu-sdk";
 
 /**
  * ${ActionComment}
- * @author https://github.com/iohao/ionet
+ * @author https://github.com/waaiu/ionet
  */
 export class ${ActionName} {
 <%for(o in actionMemberCmdDocumentList) {%>

@@ -1,8 +1,8 @@
-# ${generateTime}
-# ${iohaoHome}
+﻿# ${generateTime}
+# ${waaiuHome}
 
 ## ${ActionComment}[br]
-## https://github.com/iohao/ionet
+## https://github.com/waaiu/ionet
 class_name ${ActionName}
 extends RefCounted
 

@@ -1,5 +1,5 @@
-${generateTime}
-${iohaoHome}
+﻿${generateTime}
+${waaiuHome}
 using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ namespace ${namespace}
   /// <summary>
   /// ${ActionComment}
   /// </summary>
-  /// <remarks>Author: https://github.com/iohao/ionet</remarks>
+  /// <remarks>Author: https://github.com/waaiu/ionet</remarks>
   public static class ${ActionName}
   {
   <%for(o in actionMemberCmdDocumentList) {%>

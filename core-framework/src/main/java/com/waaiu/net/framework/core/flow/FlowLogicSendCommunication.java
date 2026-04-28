@@ -1,0 +1,54 @@
+﻿/*
+ * ionet
+ * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
+ * # waaiu.com . 渔民小镇
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+package com.waaiu.net.framework.core.flow;
+
+import com.waaiu.net.framework.communication.*;
+import com.waaiu.net.framework.core.*;
+import com.waaiu.net.framework.core.kit.*;
+import com.waaiu.net.framework.protocol.*;
+
+/**
+ * Flow-level fire-and-forget message sending to other logic servers.
+ *
+ * @author 渔民小镇
+ * @date 2025-10-09
+ * @since 25.1
+ */
+public interface FlowLogicSendCommunication extends FlowCommon, LogicSendCommunicationDecorator {
+    /**
+     * Create a {@link SendMessage} for the given command, copying routing fields from the
+     * current request.
+     *
+     * @param cmdInfo the target command info
+     * @param data    the encoded byte data payload
+     * @return a new SendMessage with routing fields populated from the current request and server
+     */
+    @Override
+    default SendMessage ofSendMessage(CmdInfo cmdInfo, byte[] data) {
+        var message = SendMessage.of(cmdInfo, data);
+        BarMessageKit.employ(this.getRequest(), message);
+
+        var server = this.getServer();
+        message.setNetId(server.netId());
+        message.setSourceServerId(server.id());
+
+        return message;
+    }
+}
+

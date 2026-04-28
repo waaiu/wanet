@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <configuration debug="false">
     <!-- 关闭 logback 启动时打印的无效日志 -->
     <statusListener class="ch.qos.logback.core.status.NopStatusListener"/>
@@ -98,7 +98,7 @@
     </appender>
 
     <!-- 为某个包下的所有类的指定Appender 这里也可以指定类名称例如：com.aa.bb.ClassName -->
-    <logger name="com.iohao.game" additivity="false">
+    <logger name="com.waaiu.game" additivity="false">
         <level value="${log.root.level}"/>
         <appender-ref ref="stdout"/>
         <appender-ref ref="file.async"/>
@@ -112,3 +112,4 @@
         <appender-ref ref="file.error"/>
     </root>
 </configuration>
+

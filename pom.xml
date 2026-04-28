@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
 
-    <groupId>com.iohao.net</groupId>
+    <groupId>com.waaiu.net</groupId>
     <artifactId>ionet</artifactId>
     <version>25.4</version>
     <name>ionet</name>
@@ -15,7 +15,7 @@
         architecture design.
         For Java distributed network communication with nanosecond end-to-end latency, ionet is the choice.
     </description>
-    <url>https://iohao.github.io/ionet</url>
+    <url>https://waaiu.github.io/ionet</url>
     <modules>
         <module>common-kit</module>
         <module>core-framework</module>
@@ -118,7 +118,7 @@
 
     <issueManagement>
         <system>Github Issue</system>
-        <url>https://github.com/iohao/ionet/issues</url>
+        <url>https://github.com/waaiu/ionet/issues</url>
     </issueManagement>
 
     <licenses>
@@ -137,9 +137,9 @@
     </developers>
 
     <scm>
-        <url>https://github.com/iohao/ionet</url>
-        <connection>scm:git:https://github.com/iohao/ionet.git</connection>
-        <developerConnection>scm:git:https://github.com/iohao/ionet.git</developerConnection>
+        <url>https://github.com/waaiu/ionet</url>
+        <connection>scm:git:https://github.com/waaiu/ionet.git</connection>
+        <developerConnection>scm:git:https://github.com/waaiu/ionet.git</developerConnection>
     </scm>
 
     <build>
@@ -398,3 +398,4 @@
         </profile>
     </profiles>
 </project>
+
