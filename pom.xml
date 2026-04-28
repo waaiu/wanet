@@ -14,9 +14,6 @@
         A Java distributed server framework based on Aeron and Netty, featuring lock-free asynchronous and event-driven
         architecture design.
         For Java distributed network communication with nanosecond end-to-end latency, ionet is the choice.
-
-        基于 Aeron、Netty 的 java 分布式服务器框架，无锁异步化、事件驱动架构设计。
-        java 分布式网络通信，纳秒级端到端延迟就选 ionet。
     </description>
     <url>https://iohao.github.io/ionet</url>
     <modules>

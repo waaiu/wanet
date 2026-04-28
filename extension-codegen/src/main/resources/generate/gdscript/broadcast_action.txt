@@ -1,7 +1,7 @@
 # ${generateTime}
 # ${iohaoHome}
 
-## Broadcast Listener. cn:广播监听[br]
+## Broadcast Listener[br]
 ## https://github.com/iohao/ionet
 class_name Listener
 extends RefCounted

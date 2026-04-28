@@ -4,7 +4,7 @@ ${imports}
 import {CmdKit, ListenCommand, ResponseResult} from "iohao-sdk";
 
 /**
- * Broadcast Listener；广播监听；
+ * Broadcast Listener
  * @author https://github.com/iohao/ionet
  */
 export class Listener {

@@ -5,7 +5,7 @@ using IoGame.Sdk;
 namespace ${namespace}
 {
   /// <summary>
-  /// Broadcast Listener；广播监听；
+  /// Broadcast Listener
   /// </summary>
   /// <remarks>Author: https://github.com/iohao/ionet</remarks>
   public static class Listener

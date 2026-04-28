@@ -1,7 +1,7 @@
 /*
  * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # iohao.com . 渔民小镇
+ * Copyright (C) 2021 - present  iohao (262610965@qq.com, luoyizhu@gmail.com) . All Rights Reserved.
+ * # iohao.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -29,7 +29,7 @@ import org.beetl.core.*;
 /**
  * Generate TypeScript code, such as broadcast, error code, action
  *
- * @author 渔民小镇
+ * @author iohao
  * @date 2024-12-01
  * @since 21.21
  */

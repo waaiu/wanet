@@ -6,7 +6,7 @@ using IoGame.Sdk;
 namespace ${namespace}
 {
     /// <summary>
-    /// GameCode、ErrorCode. 响应错误码
+    /// GameCode, ErrorCode.
     /// </summary>
     /// <remarks>Author: https://github.com/iohao/ionet</remarks>
     public static class GameCode
@@ -20,7 +20,7 @@ namespace ${namespace}
     <%}%>
         public static void Init() {
             // trigger errorCodeMapping init.
-            // 调用一次方法，触发错误码的初始化操作。
+            // Call the method once to trigger the initialization of the error code.
             var ints = new List<int>
             {
             <%for(o in errorCodeDocumentList) {%>

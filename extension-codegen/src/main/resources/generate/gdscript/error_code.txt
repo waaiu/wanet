@@ -1,7 +1,7 @@
 # ${generateTime}
 # ${iohaoHome}
 
-## GameCode、ErrorCode. cn:响应错误码[br]
+## GameCode, ErrorCode.[br]
 ## https://github.com/iohao/ionet
 class_name GameCode
 extends RefCounted
@@ -12,5 +12,5 @@ static var ${o.name}: int = IoGame.CmdKit.mapping_error_code(${o.value}, "${o.de
 <%}%>
 
 static func init() -> void:
-	# trigger errorCodeMapping init. cn:调用一次方法，触发错误码的初始化操作。
+	# trigger errorCodeMapping init.
 	pass

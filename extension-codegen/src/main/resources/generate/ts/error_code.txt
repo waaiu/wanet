@@ -3,7 +3,7 @@ ${iohaoHome}
 import {CmdKit} from "iohao-sdk";
 
 /**
- * GameCode、ErrorCode. 响应错误码
+ * GameCode, ErrorCode.
  * @author https://github.com/iohao/ionet
  */
 export class GameCode {
@@ -14,6 +14,6 @@ export class GameCode {
 
     static init() {
         // trigger errorCodeMapping init.
-        // 调用一次方法，触发错误码的初始化操作。
+        // Call the method once to trigger the initialization of the error code.
     }
 }
