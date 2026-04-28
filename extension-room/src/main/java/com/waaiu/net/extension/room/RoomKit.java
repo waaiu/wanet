@@ -1,4 +1,4 @@
-﻿/*
+/*
  * wanet
  * Copyright (C) 2021 - present   () . All Rights Reserved.
  * 
