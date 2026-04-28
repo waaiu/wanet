@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 /**
  *
- * @author 渔民小镇
+ * @author
  * @date 2024-06-05
  * @since 25.1
  */
@@ -22,7 +22,7 @@ class AttrOptionDynamicTest {
     public void ifNull() {
         Assertions.assertNull(myAttrOptions.option(catAttrOption));
 
-        // 如果 catAttrOption 属性为 null，创建 AttrCat 对象，并赋值到属性中
+        // catAttrOption null， AttrCat ，
         myAttrOptions.ifNull(catAttrOption, AttrCat::new);
         Assertions.assertNotNull(myAttrOptions.option(catAttrOption));
 

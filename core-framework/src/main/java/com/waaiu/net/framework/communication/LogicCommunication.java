@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -27,20 +27,22 @@ import java.util.concurrent.*;
  * Extends {@link PublisherCommunication} and provides fire-and-forget sending,
  * asynchronous call, and blocking call methods for logic-to-logic messaging.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-04
  * @since 25.1
  */
 public interface LogicCommunication extends PublisherCommunication {
     /**
-     * Send a message to another logic server without expecting a response (fire-and-forget).
+     * Send a message to another logic server without expecting a response
+     * (fire-and-forget).
      *
      * @param message the send message
      */
     void send(SendMessage message);
 
     /**
-     * Call another logic server asynchronously and return a future for the response.
+     * Call another logic server asynchronously and return a future for the
+     * response.
      *
      * @param message the request message
      * @return a {@link CompletableFuture} that completes with the response
@@ -55,4 +57,3 @@ public interface LogicCommunication extends PublisherCommunication {
      */
     Response call(RequestMessage message);
 }
-

@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -24,13 +24,16 @@ import java.util.*;
 import lombok.*;
 
 /**
- * Internal response message used for logic-to-logic server communication via Aeron.
+ * Internal response message used for logic-to-logic server communication via
+ * Aeron.
  * <p>
- * Extends {@link CommonMessage} and implements {@link Response} to provide typed data
- * extraction from the serialized payload. Carries user identity and error information
+ * Extends {@link CommonMessage} and implements {@link Response} to provide
+ * typed data
+ * extraction from the serialized payload. Carries user identity and error
+ * information
  * alongside the decoded response data.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-03
  * @since 25.1
  */
@@ -56,11 +59,9 @@ public final class ResponseMessage extends CommonMessage implements Response {
     @SuppressWarnings("unchecked")
     public <T> List<T> listValue(Class<? extends T> clazz) {
         var codec = DataCodecManager.getInternalDataCodec();
-        return (List<T>) this.getValue(ByteValueList.class)
-                .values
+        return (List<T>) this.getValue(ByteValueList.class).values
                 .stream()
                 .map(v -> codec.decode(v, clazz))
                 .toList();
     }
 }
-

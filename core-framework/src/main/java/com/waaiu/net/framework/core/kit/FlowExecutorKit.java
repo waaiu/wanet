@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -22,10 +22,12 @@ import com.waaiu.net.framework.core.*;
 import com.waaiu.net.framework.core.flow.*;
 
 /**
- * Flow execution pipeline utility. Orchestrates the complete request processing:
- * interceptors -> controller instantiation -> method invocation -> response handling.
+ * Flow execution pipeline utility. Orchestrates the complete request
+ * processing:
+ * interceptors -> controller instantiation -> method invocation -> response
+ * handling
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-10-11
  * @since 25.1
  */
@@ -33,8 +35,9 @@ public final class FlowExecutorKit {
     /**
      * Execute the full action method processing pipeline.
      *
-     * @param flowContext  the current request flow context
-     * @param barSkeleton  the skeleton holding action commands, interceptors, and processors
+     * @param flowContext the current request flow context
+     * @param barSkeleton the skeleton holding action commands, interceptors, and
+     *                    processors
      */
     public static void execute(FlowContext flowContext, BarSkeleton barSkeleton) {
         // Pre-processing interceptors
@@ -64,4 +67,3 @@ public final class FlowExecutorKit {
         }
     }
 }
-

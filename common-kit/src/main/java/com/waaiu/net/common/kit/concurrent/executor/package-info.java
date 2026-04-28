@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   (
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -17,9 +17,12 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 /**
- * Utility tools - Thread executors for <a href="https://waaiu.github.io/ionet/docs/manual_high/thread_executor">ionet Thread Related</a>: User Thread Executor, User Virtual Thread Executor, Simple Thread Executor Region.
+ * Utility tools - Thread executors for <a href=
+ * "https://waaiu.github.io/wanet/docs/manual_high/thread_executor">wanet Thread
+ * Related<ad Executor, User Virtual Thread Executor, Simple
+ * Thread Executor Region.
  *
- * @author 渔民小镇
+ * @author
  * @date 2024-06-01
  */
 package com.waaiu.net.common.kit.concurrent.executor;

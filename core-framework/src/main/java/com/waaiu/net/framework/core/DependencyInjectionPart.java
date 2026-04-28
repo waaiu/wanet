@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -23,13 +23,16 @@ import lombok.*;
 import lombok.experimental.*;
 
 /**
- * Singleton bridge for third-party dependency injection frameworks (e.g. Spring).
+ * Singleton bridge for third-party dependency injection frameworks (e.g.
+ * Spring).
  * <p>
- * When {@link #injection} is {@code true}, controller instances are obtained from
- * the external container via the configured {@link ActionFactoryBean} instead of
+ * When {@link #injection} is {@code true}, controller instances are obtained
+ * from
+ * the external container via the configured {@link ActionFactoryBean} instead
+ * of
  * being instantiated directly by the framework.
  *
- * @author 渔民小镇
+ * @author
  * @date 2022-10-25
  */
 @SuppressWarnings("all")
@@ -45,7 +48,8 @@ public final class DependencyInjectionPart {
     ActionFactoryBean<?> actionFactoryBean;
 
     /**
-     * Check whether the given controller class is managed by the external container.
+     * Check whether the given controller class is managed by the external
+     * container.
      *
      * @param controllerClazz the controller class to check
      * @return {@code true} if the class carries the container annotation
@@ -55,7 +59,8 @@ public final class DependencyInjectionPart {
     }
 
     /**
-     * Obtain a controller bean from the external container for the given action command.
+     * Obtain a controller bean from the external container for the given action
+     * command.
      *
      * @param actionCommand the action command whose controller is requested
      * @param <T>           the controller type

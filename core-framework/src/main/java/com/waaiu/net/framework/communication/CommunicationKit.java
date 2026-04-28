@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -26,13 +26,16 @@ import lombok.*;
 import lombok.experimental.*;
 
 /**
- * Utility class providing static access to the global communication infrastructure.
+ * Utility class providing static access to the global communication
+ * infrastructure.
  * <p>
- * Holds the singleton {@link CommunicationAggregation} and {@link Communication} instances,
- * and offers convenience methods for common cross-server operations such as forced user
+ * Holds the singleton {@link CommunicationAggregation} and
+ * {@link Communication} instances,
+ * and offers convenience methods for common cross-server operations such as
+ * forced u
  * offline and user existence checks.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-28
  * @since 25.1
  */
@@ -47,7 +50,8 @@ public final class CommunicationKit {
     Supplier<Communication> communicationSupplier = DefaultCommunication::new;
 
     /**
-     * Set the global communication aggregation and initialize the communication instance.
+     * Set the global communication aggregation and initialize the communication
+     * instance.
      *
      * @param communicationAggregation the aggregation implementation to use
      */
@@ -57,7 +61,8 @@ public final class CommunicationKit {
     }
 
     /**
-     * Force a user offline by broadcasting a forced-offline request to all external servers.
+     * Force a user offline by broadcasting a forced-offline request to all external
+     * servers.
      *
      * @param userId the ID of the user to disconnect
      */
@@ -83,7 +88,8 @@ public final class CommunicationKit {
      *
      * @param userId     the target user ID
      * @param templateId the external template operation ID
-     * @return a new {@link ExternalRequestMessage} populated with user, template, net ID, and trace ID
+     * @return a new {@link ExternalRequestMessage} populated with user, template,
+     *         net ID, and trace ID
      */
     private ExternalRequestMessage ofExternalRequestMessage(long userId, int templateId) {
         var message = new ExternalRequestMessage();
@@ -99,4 +105,3 @@ public final class CommunicationKit {
         return message;
     }
 }
-

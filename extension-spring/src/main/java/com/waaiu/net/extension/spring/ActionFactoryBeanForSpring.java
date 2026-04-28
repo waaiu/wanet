@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -25,10 +25,12 @@ import org.springframework.context.*;
 import org.springframework.stereotype.*;
 
 /**
- * Spring-backed {@link ActionFactoryBean} implementation that resolves action controllers from the
- * {@link ApplicationContext} and enables the framework's component-based injection integration.
+ * Spring-backed {@link ActionFactoryBean} implementation that resolves action
+ * controllers from the
+ * {@link ApplicationContext} and enables the framework's component-based
+ * injection integration.
  *
- * @author 渔民小镇
+ * @author
  * @date 2022-03-22
  */
 @SuppressWarnings("all")
@@ -51,7 +53,8 @@ public class ActionFactoryBeanForSpring<T> implements ActionFactoryBean<T>, Appl
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         Objects.requireNonNull(applicationContext);
 
-        // Initialize framework-side injection hooks before actions are resolved from Spring.
+        // Initialize framework-side injection hooks before actions are resolved from
+        // Spring.
         initDependencyInjectionPart();
 
         this.applicationContext = applicationContext;
@@ -64,4 +67,3 @@ public class ActionFactoryBeanForSpring<T> implements ActionFactoryBean<T>, Appl
         dependencyInjectionPart.actionFactoryBean = this;
     }
 }
-

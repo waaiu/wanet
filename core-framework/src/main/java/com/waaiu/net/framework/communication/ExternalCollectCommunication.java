@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -23,13 +23,16 @@ import com.waaiu.net.framework.protocol.*;
 import java.util.concurrent.*;
 
 /**
- * Communication interface for collecting aggregated responses from multiple external (client-facing) servers.
+ * Communication interface for collecting aggregated responses from multiple
+ * external (client-facing) servers.
  * <p>
- * Provides both synchronous and asynchronous (future-based) methods for broadcasting requests
- * to all external servers and gathering their responses, as well as logic-server binding
+ * Provides both synchronous and asynchronous (future-based) methods for
+ * broadcasting requests
+ * to all external servers and gathering their responses, as well as
+ * logic-se
  * and direct message writing to user sessions.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-07
  * @since 25.1
  */
@@ -39,7 +42,8 @@ public interface ExternalCollectCommunication {
      * Asynchronously call all external servers and collect their responses.
      *
      * @param message the external request message to broadcast
-     * @return a future that completes with the aggregated response from all external servers
+     * @return a future that completes with the aggregated response from all
+     *         external servers
      */
     CompletableFuture<ResponseCollectExternal> callCollectExternalFuture(ExternalRequestMessage message);
 
@@ -74,4 +78,3 @@ public interface ExternalCollectCommunication {
      */
     void writeMessage(UserResponseMessage message);
 }
-

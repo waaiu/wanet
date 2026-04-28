@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -21,14 +21,17 @@ package com.waaiu.net.framework.core;
 import com.waaiu.net.framework.*;
 
 /**
- * Factory that produces cached {@link CmdInfo} instances using the flyweight pattern.
+ * Factory that produces cached {@link CmdInfo} instances using the flyweight
+ * pattern.
  * <p>
  * The underlying caching strategy is selected at class-load time based on
- * {@link CmdInfoFlyweightStrategy} configured in {@link CoreGlobalConfig#setting}.
- * When the command space exceeds 128 in either dimension the factory automatically
+ * {@link CmdInfoFlyweightStrategy} configured in
+ * {@link CoreGlobalConfig#setting}.
+ * When the command space exceeds 128 in either dimension the factory
+ * automati
  * falls back to a {@code Map}-based implementation.
  *
- * @author 渔民小镇
+ * @author
  * @date 2021-12-20
  */
 public final class CmdInfoFlyweightFactory {
@@ -70,4 +73,3 @@ public final class CmdInfoFlyweightFactory {
         return flyweight.of(cmdMerge);
     }
 }
-

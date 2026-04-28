@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -29,20 +29,22 @@ import lombok.*;
 import lombok.experimental.*;
 
 /**
- * Central helper for collecting action documentation, broadcast documents, error codes,
+ * Central helper for collecting action documentation, broadcast documents,
+ * error codes,
  * and triggering document generation.
  * <p>
  * Usage example:
+ * 
  * <pre>{@code
- *     // Add a custom document generator
- *     DocumentHelper.addDocumentGenerate(new YourDocumentGenerate());
- *     // Add error code enum class for error code documentation
- *     DocumentHelper.addErrorCodeClass(YourErrorCode.class);
- *     // Generate documents
- *     DocumentHelper.generateDocument();
+ * // Add a custom document generator
+ * DocumentHelper.addDocumentGenerate(new YourDocumentGenerate());
+ * // Add error code enum class for error code documentation
+ * DocumentHelper.addErrorCodeClass(YourErrorCode.class);
+ * // Generate documents
+ * DocumentHelper.generateDocument();
  * }</pre>
  *
- * @author 渔民小镇
+ * @author
  * @date 2024-07-05
  * @see DocumentGenerate
  */
@@ -50,10 +52,11 @@ import lombok.experimental.*;
 public class DocumentHelper {
     /**
      * Action documentation map.
+     * 
      * <pre>
      *      key : action controller class
      *      value : action doc
-     *  </pre>
+     * </pre>
      */
     private final Map<Class<?>, ActionDoc> actionDocMap = CollKit.ofConcurrentHashMap();
     /** Error code enum classes used for generating error code documentation. */
@@ -136,8 +139,8 @@ public class DocumentHelper {
                 .stream()
                 .sorted(Comparator
                         .comparingInt((ToIntFunction<ActionDoc>) o -> o.cmd)
-                        .thenComparing(o -> o.controllerClazz.getName())
-                ).toList();
+                        .thenComparing(o -> o.controllerClazz.getName()))
+                .toList();
 
         return document;
     }
@@ -179,7 +182,8 @@ public class DocumentHelper {
     }
 
     /**
-     * Obtain or create an {@link ActionDoc} for the given command and controller class.
+     * Obtain or create an {@link ActionDoc} for the given command and controller
+     * class.
      *
      * @param cmd             the primary command ID
      * @param controllerClazz the action controller class
@@ -195,4 +199,3 @@ public class DocumentHelper {
         return actionDocRegion;
     }
 }
-

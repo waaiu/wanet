@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -25,25 +25,29 @@ import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.*;
 
 /**
- * Immutable record representing a registered server instance in the ionet cluster.
+ * Immutable record representing a registered server instance in the wanet
+ * cluster.
  * <p>
- * Holds the server's identity (id, name, tag), network coordinates (ip, netId, pubName),
- * the set of command routes it handles ({@code cmdMerges}), an extensible payload map,
- * and a reference to its {@link BarSkeleton} execution engine. Equality and hashing
+ * Holds the server's identity (id, name, tag), network coordinates (ip, netId,
+ * pubName),
+ * the set of command routes it handles ({@code cmdMerges}), an extensible
+ * payload map,
+ * and a reference to its {@link BarSkeleton} execution engine. Equality and
+ * hashing
  * are based solely on the server {@link #id}.
  *
- * @param id           unique server identifier
- * @param name         human-readable server name
- * @param tag          grouping tag (defaults to name)
- * @param serverType   the type of this server (e.g., LOGIC, EXTERNAL)
- * @param netId        network-level identifier
- * @param ip           the IP address of this server
- * @param pubName      the publication name used for Aeron channels
- * @param cmdMerges    array of merged command route keys this server handles
- * @param payloadMap   extensible key-value payload storage
- * @param barSkeleton  the execution engine associated with this server
+ * @param id          unique server identifier
+ * @param name        human-readable server name
+ * @param tag         grouping tag (defaults to name)
+ * @param serverType  the type of this server (e.g., LOGIC, EXTERNAL)
+ * @param netId       network-level identifier
+ * @param ip          the IP address of this server
+ * @param pubName     the publication name used for Aeron channels
+ * @param cmdMerges   array of merged command route keys this server handles
+ * @param payloadMap  extensible key-value payload storage
+ * @param barSkeleton the execution engine associated with this server
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-08
  * @since 25.1
  */
@@ -58,8 +62,7 @@ public record Server(
         String pubName,
         int[] cmdMerges,
         Map<String, byte[]> payloadMap,
-        BarSkeleton barSkeleton
-) {
+        BarSkeleton barSkeleton) {
     /**
      * Retrieve a payload entry by name.
      *
@@ -109,4 +112,3 @@ public record Server(
                 '}';
     }
 }
-

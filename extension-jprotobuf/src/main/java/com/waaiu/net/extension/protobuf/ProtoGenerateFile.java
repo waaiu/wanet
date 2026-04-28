@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -31,7 +31,7 @@ import lombok.extern.slf4j.*;
 /**
  * Generates grouped `.proto` files by scanning annotated Java classes.
  *
- * @author 渔民小镇
+ * @author
  * @date 2022-01-25
  */
 @Slf4j
@@ -59,7 +59,7 @@ public class ProtoGenerateFile {
     private void checked() {
         if (StrKit.isEmpty(generateFolder)) {
             String currentDir = System.getProperty("user.dir");
-            this.generateFolder = ArrayKit.join(new String[]{currentDir, "target", "proto"}, File.separator);
+            this.generateFolder = ArrayKit.join(new String[] { currentDir, "target", "proto" }, File.separator);
         }
 
         mkdir(this.generateFolder);
@@ -103,17 +103,13 @@ public class ProtoGenerateFile {
 
             if (ProtoGenerateSetting.enableLog) {
                 log.info("""
-                        
+
                         ########## {} ########## protoSize:{}
                         {}
                         """, fileName, protoJavaList.size(), protoString);
             }
 
-            String protoFilePath = String.format("%s%s%s"
-                    , this.generateFolder
-                    , File.separator
-                    , fileName
-            );
+            String protoFilePath = String.format("%s%s%s", this.generateFolder, File.separator, fileName);
 
             FileKit.writeUtf8String(protoString, protoFilePath);
             log.info("\nprotoFilePath: {}", protoFilePath);
@@ -122,4 +118,3 @@ public class ProtoGenerateFile {
         regionMap.values().forEach(javaRegionConsumer);
     }
 }
-

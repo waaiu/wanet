@@ -11,7 +11,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-12-02
  * @since 25.1
  */
@@ -42,14 +42,14 @@ class TaskKitTest {
     @Test
     public void runOnce() {
 
-        // 只执行一次，2 秒后执行
+        // ，2
         TaskKit.runOnce(() -> log.info("2 Seconds"), 2, TimeUnit.SECONDS);
-        // 只执行一次，1 分钟后执行
+        // ，1
         TaskKit.runOnce(() -> log.info("1 Minute"), 1, TimeUnit.MINUTES);
-        // 只执行一次，500 milliseconds 后
+        // ，500 milliseconds
         TaskKit.runOnce(() -> log.info("500 delayMilliseconds"), 500, TimeUnit.MILLISECONDS);
 
-        // 只执行一次，1500 Milliseconds后执行，当 theTriggerUpdate 为 true 时，才执行 onUpdate
+        // ，1500 Milliseconds， theTriggerUpdate true ， onUpdate
         boolean theTriggerUpdate = RandomKit.randomBoolean();
         TaskKit.runOnce(new OnceTaskListener() {
             @Override
@@ -67,30 +67,29 @@ class TaskKitTest {
 
     @Test
     public void runInterval() {
-        // 每 2 秒调用一次
+        // 2
         TaskKit.runInterval(() -> log.info("tick 2 Seconds"), 2, TimeUnit.SECONDS);
-        // 每 30 分钟调用一次
+        // 30
         TaskKit.runInterval(() -> log.info("tick 30 Minute"), 30, TimeUnit.MINUTES);
 
-
-        //【示例 - 移除任务】每秒调用一次，当 hp 为 0 时就移除当前 Listener
+        // 【 - 】， hp 0 Listener
         TaskKit.runInterval(new IntervalTaskListener() {
             int hp = 2;
 
             @Override
             public void onUpdate() {
                 hp--;
-                log.info("剩余 hp:2-{}", hp);
+                log.info(" hp:2-{}", hp);
             }
 
             @Override
             public boolean isActive() {
-                // 当返回 false 则表示不活跃，会从监听列表中移除当前 Listener
+                // false ， Listener
                 return hp != 0;
             }
         }, 1, TimeUnit.SECONDS);
 
-        //【示例 - 跳过执行】每秒调用一次，当 triggerUpdate 返回值为 true，即符合条件时才执行 onUpdate 方法
+        // 【 - 】， triggerUpdate true， onUpdate
         TaskKit.runInterval(new IntervalTaskListener() {
             int hp;
 
@@ -102,19 +101,19 @@ class TaskKitTest {
             @Override
             public boolean triggerUpdate() {
                 hp++;
-                // 当返回值为 true 时，会执行 onUpdate 方法
+                // true ， onUpdate
                 return hp % 2 == 0;
             }
         }, 1, TimeUnit.SECONDS);
 
-        //【示例 - 指定线程执行器】每秒调用一次
-        // 如果有耗时的任务，比如涉及一些 io 操作的，建议指定执行器来执行当前回调（onUpdate 方法），以避免阻塞其他任务。
+        // 【 - 】
+        // ， io ，（onUpdate ），。
         ExecutorService executorService = TaskKit.getCacheExecutor();
 
         TaskKit.runInterval(new IntervalTaskListener() {
             @Override
             public void onUpdate() {
-                log.info("执行耗时的 IO 任务，开始");
+                log.info(" IO ，");
 
                 try {
                     TimeUnit.SECONDS.sleep(3);
@@ -122,12 +121,12 @@ class TaskKitTest {
                     throw new RuntimeException(e);
                 }
 
-                log.info("执行耗时的 IO 任务，结束");
+                log.info(" IO ，");
             }
 
             @Override
             public Executor getExecutor() {
-                // 指定执行器来执行当前回调（onUpdate 方法），以避免阻塞其他任务。
+                // （onUpdate ），。
                 return executorService;
             }
         }, 1, TimeUnit.SECONDS);

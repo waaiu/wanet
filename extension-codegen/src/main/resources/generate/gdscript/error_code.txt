@@ -2,7 +2,7 @@
 # ${waaiuHome}
 
 ## GameCode, ErrorCode.[br]
-## https://github.com/waaiu/ionet
+## https://github.com/waaiu/wanet
 class_name GameCode
 extends RefCounted
 
@@ -14,4 +14,5 @@ static var ${o.name}: int = IoGame.CmdKit.mapping_error_code(${o.value}, "${o.de
 static func init() -> void:
 	# trigger errorCodeMapping init.
 	pass
+
 

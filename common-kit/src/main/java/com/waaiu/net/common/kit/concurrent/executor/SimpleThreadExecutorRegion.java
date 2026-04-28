@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   (
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -23,19 +23,24 @@ import lombok.*;
 import lombok.experimental.*;
 
 /**
- * A general-purpose {@link ThreadExecutorRegion} for non-user-specific task distribution.
+ * A general-purpose {@link ThreadExecutorRegion} for non-user-specific task
+ * distribution.
  * <p>
- * Tasks are assigned to executors using a bitmask on the supplied index, providing
- * a fast modulo distribution across the available pool.
+ * Tasks are assigned to executors using a bitmask on the supplied index,
+ * providing
+ * a fast mtion across the available pool.
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-12-01
  */
 @FieldDefaults(level = AccessLevel.PRIVATE)
 final class SimpleThreadExecutorRegion extends AbstractThreadExecutorRegion {
     final int executorLength;
 
-    /** Create a region with a pool size equal to the nearest power-of-two of available processors. */
+    /**
+     * Create a region with a pool size equal to the nearest power-of-two of
+     * available processors.
+     */
     SimpleThreadExecutorRegion() {
         super("Simple", RuntimeKit.availableProcessors2n);
         this.executorLength = RuntimeKit.availableProcessors2n - 1;
@@ -52,4 +57,3 @@ final class SimpleThreadExecutorRegion extends AbstractThreadExecutorRegion {
         return this.threadExecutors[(int) (i & this.executorLength)];
     }
 }
-

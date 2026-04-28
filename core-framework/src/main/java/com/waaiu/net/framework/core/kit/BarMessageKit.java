@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -22,15 +22,17 @@ import com.waaiu.net.framework.protocol.*;
 import lombok.experimental.*;
 
 /**
- * Message field copying utilities for transferring common fields between request and response messages.
+ * Message field copying utilities for transferring common fields between
+ * request and response messages.
  *
- * @author 渔民小镇
+ * @author
  * @date 2022-06-07
  */
 @UtilityClass
 public class BarMessageKit {
     /**
-     * Copy common fields (futureId, userId, cmdMerge, traceId, serverIds, netId) from request to response.
+     * Copy common fields (futureId, userId, cmdMerge, traceId, serverIds, netId)
+     * from request to response.
      *
      * @param request the source request
      * @param message the target response
@@ -61,7 +63,8 @@ public class BarMessageKit {
     }
 
     /**
-     * Copy routing fields from a request to a forwarded RequestMessage, incrementing the hop count.
+     * Copy routing fields from a request to a forwarded RequestMessage,
+     * incrementing the hop count.
      *
      * @param request the source request
      * @param message the target request message
@@ -79,7 +82,8 @@ public class BarMessageKit {
     }
 
     /**
-     * Copy common fields from a request to a UserResponseMessage, including msgId and cache condition.
+     * Copy common fields from a request to a UserResponseMessage, including msgId
+     * and cache condition.
      *
      * @param request the source request
      * @param message the target user response message
@@ -93,4 +97,3 @@ public class BarMessageKit {
         }
     }
 }
-

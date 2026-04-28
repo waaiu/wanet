@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -27,7 +27,7 @@ import org.agrona.*;
 /**
  * SBE encoder for user-list broadcast messages.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-06
  * @since 25.1
  */
@@ -36,7 +36,8 @@ public final class BroadcastUserListMessageSbe implements MessageSbe<BroadcastUs
     final BroadcastUserListMessageEncoder encoder = new BroadcastUserListMessageEncoder();
 
     @Override
-    public void encoder(BroadcastUserListMessage message, MessageHeaderEncoder headerEncoder, MutableDirectBuffer buffer) {
+    public void encoder(BroadcastUserListMessage message, MessageHeaderEncoder headerEncoder,
+            MutableDirectBuffer buffer) {
         encoder.wrapAndApplyHeader(buffer, 0, headerEncoder);
 
         encoder.cmdMerge(message.getCmdMerge());
@@ -60,4 +61,3 @@ public final class BroadcastUserListMessageSbe implements MessageSbe<BroadcastUs
         return encoder.limit();
     }
 }
-

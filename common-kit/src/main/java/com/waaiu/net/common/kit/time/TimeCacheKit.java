@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -25,10 +25,11 @@ import lombok.*;
 import lombok.experimental.*;
 
 /**
- * Cached date/time provider. When caching is enabled, reduces time-related object creation
+ * Cached date/time provider. When caching is enabled, reduces time-related
+ * object creation
  * at the cost of precision. Caching is disabled by default.
  *
- * @author 渔民小镇
+ * @author
  * @date 2024-08-27
  * @since 21.16
  */
@@ -67,7 +68,8 @@ final class TimeCacheKit {
     };
 
     /**
-     * Enable time caching. Once enabled, date/time values are periodically refreshed
+     * Enable time caching. Once enabled, date/time values are periodically
+     * refreshed
      * by a background scheduler instead of being computed on every access.
      */
     void enableCache() {
@@ -122,4 +124,3 @@ final class TimeCacheKit {
         return cache ? currentNanoTime : System.nanoTime();
     }
 }
-

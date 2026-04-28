@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -25,7 +25,7 @@ import lombok.experimental.*;
 /**
  * Array manipulation utilities.
  *
- * @author 渔民小镇
+ * @author
  * @date 2022-01-14
  */
 @UtilityClass
@@ -141,7 +141,8 @@ public class ArrayKit {
      * Convert a collection of Long values to a primitive long array.
      *
      * @param dataCollection the collection of Long values, may be null or empty
-     * @return a primitive long array, or an empty array if the collection is null or empty
+     * @return a primitive long array, or an empty array if the collection is null
+     *         or empty
      */
     public long[] toArrayLong(Collection<Long> dataCollection) {
         if (CollKit.isEmpty(dataCollection)) {
@@ -162,7 +163,8 @@ public class ArrayKit {
      * Convert a collection of Integer values to a primitive int array.
      *
      * @param dataCollection the collection of Integer values, may be null or empty
-     * @return a primitive int array, or an empty array if the collection is null or empty
+     * @return a primitive int array, or an empty array if the collection is null or
+     *         empty
      */
     public int[] toArrayInt(Collection<Integer> dataCollection) {
         if (CollKit.isEmpty(dataCollection)) {
@@ -183,7 +185,8 @@ public class ArrayKit {
      * Convert a primitive long array to a mutable list of Long values.
      *
      * @param dataArray the primitive long array, may be null or empty
-     * @return a new mutable list containing the boxed values, or an empty list if the array is null or empty
+     * @return a new mutable list containing the boxed values, or an empty list if
+     *         the array is null or empty
      */
     public List<Long> toList(long[] dataArray) {
         if (isEmpty(dataArray)) {
@@ -202,7 +205,8 @@ public class ArrayKit {
      * Convert a primitive int array to a mutable list of Integer values.
      *
      * @param dataArray the primitive int array, may be null or empty
-     * @return a new mutable list containing the boxed values, or an empty list if the array is null or empty
+     * @return a new mutable list containing the boxed values, or an empty list if
+     *         the array is null or empty
      */
     public List<Integer> toList(int[] dataArray) {
         if (isEmpty(dataArray)) {
@@ -221,7 +225,8 @@ public class ArrayKit {
      * Convert a primitive int array to a mutable set of Integer values.
      *
      * @param dataArray the primitive int array, may be null or empty
-     * @return a new mutable set containing the boxed values, or an empty set if the array is null or empty
+     * @return a new mutable set containing the boxed values, or an empty set if the
+     *         array is null or empty
      */
     public Set<Integer> toSet(int[] dataArray) {
         if (isEmpty(dataArray)) {
@@ -236,4 +241,3 @@ public class ArrayKit {
         return set;
     }
 }
-

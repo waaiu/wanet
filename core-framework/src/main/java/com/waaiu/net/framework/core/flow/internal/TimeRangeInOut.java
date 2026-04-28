@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -33,7 +33,9 @@ import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.*;
 
 /**
- * PluginInOut - TimeRangeInOut - <a href="https://waaiu.github.io/ionet/docs/core_plugin/action_time_range">Call Statistics Plugin for Each Time Period</a>
+ * PluginInOut - TimeRangeInOut - <a href=
+ * "https://waaiu.github.io/wanet/docs/core_plugin/action_time_range">Call
+ * Statistics Plugin for Each Time Period</a>
  *
  * <pre>{@code
  *     BarSkeletonBuilder builder = ...;
@@ -42,53 +44,57 @@ import org.jspecify.annotations.*;
  *     builder.addInOut(timeRangeInOut);
  * }
  * </pre>
- * Print Preview - Call statistics data for each hour and minute segment of the day
+ * 
+ * Print Preview - Call statistics data for each hour and minute segment of the
+ * day
+ * 
  * <pre>
  *  2023-11-29 Total action calls: [100] times
- * 	0:00 共 8 次; - [15~30 min 3 次] - [30~45 min 2 次] - [45~59 min 3 次]
- * 	1:00 共 9 次; - [0~15 min 1 次] - [15~30 min 4 次] - [30~45 min 1 次] - [45~59 min 3 次]
- * 	2:00 共 4 次; - [0~15 min 1 次] - [15~30 min 2 次] - [45~59 min 1 次]
- * 	3:00 共 2 次; - [0~15 min 1 次] - [15~30 min 1 次]
- * 	4:00 共 1 次; - [0~15 min 1 次]
- * 	5:00 共 4 次; - [0~15 min 1 次] - [15~30 min 1 次] - [30~45 min 1 次] - [45~59 min 1 次]
- * 	6:00 共 5 次; - [0~15 min 1 次] - [15~30 min 1 次] - [30~45 min 1 次] - [45~59 min 2 次]
- * 	7:00 共 4 次; - [15~30 min 2 次] - [30~45 min 1 次] - [45~59 min 1 次]
- * 	8:00 共 4 次; - [0~15 min 1 次] - [30~45 min 3 次]
- * 	9:00 共 4 次; - [15~30 min 2 次] - [30~45 min 2 次]
- * 	10:00 共 5 次; - [15~30 min 2 次] - [30~45 min 1 次] - [45~59 min 2 次]
- * 	11:00 共 3 次; - [15~30 min 2 次] - [45~59 min 1 次]
- * 	12:00 共 4 次; - [0~15 min 2 次] - [30~45 min 2 次]
- * 	13:00 共 1 次; - [30~45 min 1 次]
- * 	14:00 共 5 次; - [0~15 min 1 次] - [45~59 min 4 次]
- * 	15:00 共 6 次; - [0~15 min 1 次] - [15~30 min 2 次] - [45~59 min 3 次]
- * 	16:00 共 4 次; - [0~15 min 1 次] - [15~30 min 1 次] - [30~45 min 1 次] - [45~59 min 1 次]
- * 	17:00 共 7 次; - [0~15 min 1 次] - [15~30 min 3 次] - [30~45 min 3 次]
- * 	18:00 共 2 次; - [0~15 min 1 次] - [15~30 min 1 次]
- * 	19:00 共 7 次; - [0~15 min 1 次] - [15~30 min 3 次] - [30~45 min 3 次]
- * 	20:00 共 5 次; - [15~30 min 3 次] - [30~45 min 2 次]
- * 	21:00 共 3 次; - [15~30 min 2 次] - [30~45 min 1 次]
- * 	22:00 共 1 次; - [45~59 min 1 次]
- * 	23:00 共 2 次; - [15~30 min 1 次] - [45~59 min 1 次]
+ * 	0:00  8 ; - [15~30 min 3 ] - [30~45 min 2 ] - [45~59 min 3 ]
+ * 	1:00  9 ; - [0~15 min 1 ] - [15~30 min 4 ] - [30~45 min 1 ] - [45~59 min 3 ]
+ * 	2:00  4 ; - [0~15 min 1 ] - [15~30 min 2 ] - [45~59 min 1 ]
+ * 	3:00  2 ; - [0~15 min 1 ] - [15~30 min 1 ]
+ * 	4:00  1 ; - [0~15 min 1 ]
+ * 	5:00  4 ; - [0~15 min 1 ] - [15~30 min 1 ] - [30~45 min 1 ] - [45~59 min 1 ]
+ * 	6:00  5 ; - [0~15 min 1 ] - [15~30 min 1 ] - [30~45 min 1 ] - [45~59 min 2 ]
+ * 	7:00  4 ; - [15~30 min 2 ] - [30~45 min 1 ] - [45~59 min 1 ]
+ * 	8:00  4 ; - [0~15 min 1 ] - [30~45 min 3 ]
+ * 	9:00  4 ; - [15~30 min 2 ] - [30~45 min 2 ]
+ * 	10:00  5 ; - [15~30 min 2 ] - [30~45 min 1 ] - [45~59 min 2 ]
+ * 	11:00  3 ; - [15~30 min 2 ] - [45~59 min 1 ]
+ * 	12:00  4 ; - [0~15 min 2 ] - [30~45 min 2 ]
+ * 	13:00  1 ; - [30~45 min 1 ]
+ * 	14:00  5 ; - [0~15 min 1 ] - [45~59 min 4 ]
+ * 	15:00  6 ; - [0~15 min 1 ] - [15~30 min 2 ] - [45~59 min 3 ]
+ * 	16:00  4 ; - [0~15 min 1 ] - [15~30 min 1 ] - [30~45 min 1 ] - [45~59 min 1 ]
+ * 	17:00  7 ; - [0~15 min 1 ] - [15~30 min 3 ] - [30~45 min 3 ]
+ * 	18:00  2 ; - [0~15 min 1 ] - [15~30 min 1 ]
+ * 	19:00  7 ; - [0~15 min 1 ] - [15~30 min 3 ] - [30~45 min 3 ]
+ * 	20:00  5 ; - [15~30 min 3 ] - [30~45 min 2 ]
+ * 	21:00  3 ; - [15~30 min 2 ] - [30~45 min 1 ]
+ * 	22:00  1 ; - [45~59 min 1 ]
+ * 	23:00  2 ; - [15~30 min 1 ] - [45~59 min 1 ]
  * </pre>
+ * 
  * set Listener example
+ * 
  * <pre>{@code
  * private void setListener(TimeRangeInOut inOut) {
  *     inOut.setListener(new TimeRangeInOut.ChangeListener() {
- *         @Override
+ *         &#64;Override
  *         public List<TimeRangeInOut.TimeRangeMinute> createListenerTimeRangeMinuteList() {
  *             return List.of(
  *                     // Only statistically count these 3 time points: 0, 1, and 59 minutes
  *                     TimeRangeInOut.TimeRangeMinute.create(0, 0),
  *                     TimeRangeInOut.TimeRangeMinute.create(1, 1),
- *                     TimeRangeInOut.TimeRangeMinute.create(59, 59)
- *             );
- *         }
+ *                     TimeRangeInOut.TimeRangeMinute.create(59, 59));
+ *         
  *     });
  * }
  *
  * }</pre>
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-11-29
  * @see ChangeListener
  */
@@ -190,7 +196,8 @@ public final class TimeRangeInOut implements ActionMethodInOut {
                     TaskKit.execute(() -> {
                         LocalDate yesterdayLocalDate = localDate.minusDays(1);
                         Optional.ofNullable(this.map.remove(yesterdayLocalDate))
-                                .ifPresent(timeRangeYesterday -> TimeRangeInOut.this.listener.callbackYesterday(timeRangeYesterday));
+                                .ifPresent(timeRangeYesterday -> TimeRangeInOut.this.listener
+                                        .callbackYesterday(timeRangeYesterday));
                     });
                 }
             }
@@ -200,7 +207,8 @@ public final class TimeRangeInOut implements ActionMethodInOut {
     }
 
     /**
-     * Daily call statistics record holding the date, total count, and per-hour breakdowns.
+     * Daily call statistics record holding the date, total count, and per-hour
+     * breakdowns.
      *
      * @param localDate      Date
      * @param count          Total number of action calls for one day
@@ -208,7 +216,8 @@ public final class TimeRangeInOut implements ActionMethodInOut {
      */
     public record TimeRangeDay(LocalDate localDate, LongAdder count, TimeRangeHour[] timeRangeHours) {
         /**
-         * Create a daily statistics record for the given date with the specified hour ranges.
+         * Create a daily statistics record for the given date with the specified hour
+         * ranges.
          *
          * @param localDate      the date
          * @param timeRangeHours the hour-level statistics objects
@@ -248,7 +257,8 @@ public final class TimeRangeInOut implements ActionMethodInOut {
         }
 
         /**
-         * Increment the daily count and delegate to the corresponding hour-level statistics.
+         * Increment the daily count and delegate to the corresponding hour-level
+         * statistics.
          *
          * @param localTime the current time of day
          */
@@ -293,7 +303,8 @@ public final class TimeRangeInOut implements ActionMethodInOut {
     }
 
     /**
-     * Hourly call statistics record holding the hour, total count, and per-minute breakdowns.
+     * Hourly call statistics record holding the hour, total count, and per-minute
+     * breakdowns.
      *
      * @param hourTime   Hour
      * @param count      The number of action calls in one hour
@@ -411,7 +422,8 @@ public final class TimeRangeInOut implements ActionMethodInOut {
     }
 
     /**
-     * Listener interface for {@link TimeRangeInOut} change notifications and customization.
+     * Listener interface for {@link TimeRangeInOut} change notifications and
+     * customization.
      */
     public interface ChangeListener {
 
@@ -426,9 +438,11 @@ public final class TimeRangeInOut implements ActionMethodInOut {
         }
 
         /**
-         * The plugin will trigger the callbackYesterday method every day at 0:00, and pass yesterday's TimeRangeDay object into the method
+         * The plugin will trigger the callbackYesterday method every day at 0:00, and
+         * pass yesterday's TimeRangeDay object into the method
          *
-         * @param timeRangeYesterday Daily call statistics object (guaranteed not to be null)
+         * @param timeRangeYesterday Daily call statistics object (guaranteed not to be
+         *                           null)
          */
         default void callbackYesterday(TimeRangeDay timeRangeYesterday) {
         }

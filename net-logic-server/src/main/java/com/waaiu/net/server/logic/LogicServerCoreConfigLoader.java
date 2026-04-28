@@ -8,9 +8,10 @@ import com.waaiu.net.server.logic.fragment.*;
 import java.util.concurrent.atomic.*;
 
 /**
- * Registers logic-server SBE encoders and fragment handlers into shared registries.
+ * Registers logic-server SBE encoders and fragment handlers into shared
+ * registries.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-04
  * @since 25.1
  */
@@ -54,4 +55,3 @@ public class LogicServerCoreConfigLoader implements CoreConfigLoader {
         OnFragmentManager.register(new EmptyExternalResponseMessageOnFragment());
     }
 }
-

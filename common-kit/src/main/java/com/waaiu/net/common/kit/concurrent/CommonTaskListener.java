@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   (
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -23,7 +23,7 @@ import java.util.concurrent.*;
 /**
  * Task listener callback
  *
- * @author 渔民小镇
+ * @author
  * @date 2024-05-31
  * @since 21.9
  */
@@ -44,6 +44,7 @@ interface CommonTaskListener {
 
     /**
      * Exception callback
+     * 
      * <pre>
      * When the triggerUpdate or onUpdate method throws an exception, it will be passed here.
      * </pre>
@@ -56,21 +57,27 @@ interface CommonTaskListener {
 
     /**
      * The executor for executing onUpdate
+     * 
      * <pre>
      * If null is returned, it will be executed within HashedWheelTimer.
      *
      * If there are time-consuming tasks, such as those involving IO operations, it is recommended to specify an executor to run the current callback (onUpdate method) to avoid blocking other tasks.
      * </pre>
+     * 
      * Example
+     * 
      * <pre>{@code
      * default Executor getExecutor() {
-     * // Time-consuming task, specify an executor to consume the current onUpdate
-     * return TaskKit.getCacheExecutor();
+     *     // Time-consuming task, specify an executor to consume the current
+     *     // onUpdate
+     *     return TaskKit.getCacheExecutor();
      * }
      * }
      * </pre>
      *
-     * @return If the return value is null, execution will use the current thread (default HashedWheelTimer), otherwise, the specified executor will be used.
+     * @return If the return value is null, execution will use the current thread
+     *         (default HashedWheelTimer), otherwise, the specified executor will be
+     *         used.
      */
     default Executor getExecutor() {
         return null;

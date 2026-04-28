@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -32,9 +32,12 @@ import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.*;
 
 /**
- * PluginInOut - ThreadMonitorInOut - <a href="https://waaiu.github.io/ionet/docs/core_plugin/action_thread_monitor">Business Thread Monitoring Plugin</a>
+ * PluginInOut - ThreadMonitorInOut - <a href=
+ * "https://waaiu.github.io/wanet/docs/core_plugin/action_thread_monitor">Business
+ * Thread Monitoring Plugin</a>
  * <p>
  * for example
+ * 
  * <pre>{@code
  * BarSkeletonBuilder builder = ...;
  *     // Business thread monitoring plugin, add the plugin to the business framework
@@ -43,6 +46,7 @@ import org.jspecify.annotations.*;
  * }</pre>
  * <p>
  * Print preview
+ * 
  * <pre>
  * Business thread [RequestMessage-8-1] executed 1 business task in total, average time consumption 1 ms, 91 tasks remaining to be executed
  * Business thread [RequestMessage-8-2] executed 1 business task in total, average time consumption 1 ms, 0 tasks remaining to be executed
@@ -54,7 +58,7 @@ import org.jspecify.annotations.*;
  * Business thread [RequestMessage-8-8] executed 1 business task in total, average time consumption 1 ms, 0 tasks remaining to be executed
  * </pre>
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-11-22
  */
 @Getter
@@ -73,7 +77,8 @@ public final class ThreadMonitorInOut implements ActionMethodInOut {
     /**
      * Record thread execution statistics after action method execution.
      * <p>
-     * Captures the elapsed time and updates the {@link ThreadMonitorRegion} with the
+     * Captures the elapsed time and updates the {@link ThreadMonitorRegion} with
+     * the
      * current thread executor's metrics.
      *
      * @param flowContext the current request flow context
@@ -145,7 +150,8 @@ public final class ThreadMonitorInOut implements ActionMethodInOut {
     }
 
     /**
-     * Per-thread monitoring record holding execution count, total time, and remaining queue size.
+     * Per-thread monitoring record holding execution count, total time, and
+     * remaining queue size.
      *
      * @param name         Business thread name
      * @param executeCount Number of tasks already executed by the thread
@@ -204,19 +210,18 @@ public final class ThreadMonitorInOut implements ActionMethodInOut {
                     .orElse(0);
         }
 
-        /** Business thread [%s] executed %s tasks in total, average time cost %d ms, %d tasks remaining */
-        private static final String threadMonitorInOutThreadMonitor = Bundle.getMessage(MessageKey.threadMonitorInOutThreadMonitor);
+        /**
+         * Business thread [%s] executed %s tasks in total, average time cost %d ms, %d
+         * tasks remaining
+         */
+        private static final String threadMonitorInOutThreadMonitor = Bundle
+                .getMessage(MessageKey.threadMonitorInOutThreadMonitor);
 
         @NonNull
         @Override
         public String toString() {
-            return String.format(threadMonitorInOutThreadMonitor
-                    , this.name
-                    , this.executeCount.sum()
-                    , this.getAvgTime()
-                    , this.countRemaining()
-            );
+            return String.format(threadMonitorInOutThreadMonitor, this.name, this.executeCount.sum(), this.getAvgTime(),
+                    this.countRemaining());
         }
     }
 }
-

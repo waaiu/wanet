@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   (
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -22,9 +22,11 @@ import java.util.*;
 import java.util.function.*;
 
 /**
- * A thread-safe multimap that associates each key with a {@link java.util.Set} of values, ensuring uniqueness.
+ * A thread-safe multimap that associates each key with a {@link java.util.Set}
+ * of values, ensuring uniqueness.
  * <p>
  * for example
+ * 
  * <pre>{@code
  * SetMultiMap<Integer, String> map = SetMultiMap.of();
  * map.put(1, "a");
@@ -53,7 +55,7 @@ import java.util.function.*;
  * }
  * </pre>
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-12-07
  */
 public interface SetMultiMap<K, V> extends MultiMap<K, V> {
@@ -61,7 +63,9 @@ public interface SetMultiMap<K, V> extends MultiMap<K, V> {
     Map<K, Set<V>> asMap();
 
     /**
-     * Get an element collection by key, creating the collection if it does not exist.
+     * Get an element collection by key, creating the collection if it does not
+     * exist.
+     * 
      * <pre>
      * The returned element collection is guaranteed to be non-null; a new one will be created if absent.
      *
@@ -94,7 +98,8 @@ public interface SetMultiMap<K, V> extends MultiMap<K, V> {
     Set<Map.Entry<K, Set<V>>> entrySet();
 
     /**
-     * Create a SetMultiMap (framework internal implementation). Please use {@link SetMultiMap#of()} instead.
+     * Create a SetMultiMap (framework internal implementation). Please use
+     * {@link SetMultiMap#of()} instead.
      *
      * @param <K> k
      * @param <V> v

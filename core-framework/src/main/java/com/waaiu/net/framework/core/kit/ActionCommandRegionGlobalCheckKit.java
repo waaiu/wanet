@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -28,7 +28,7 @@ import lombok.experimental.*;
 /**
  * Global duplicate route detection tool
  *
- * @author 渔民小镇
+ * @author
  * @date 2022-07-31
  */
 @UtilityClass
@@ -37,10 +37,12 @@ public class ActionCommandRegionGlobalCheckKit {
     Map<String, ActionCommandRegions> map = CollKit.ofConcurrentHashMap();
 
     /**
-     * Register an ActionCommandRegions instance for global duplicate route detection.
+     * Register an ActionCommandRegions instance for global duplicate route
+     * detection.
      *
-     * @param key                    the unique identifier for this command regions instance
-     * @param actionCommandRegions   the command regions to register
+     * @param key                  the unique identifier for this command regions
+     *                             instance
+     * @param actionCommandRegions the command regions to register
      */
     public void putActionCommandRegions(String key, ActionCommandRegions actionCommandRegions) {
 
@@ -60,7 +62,8 @@ public class ActionCommandRegionGlobalCheckKit {
 
         Map<Integer, ActionCommand> cmdMap = new HashMap<>(100);
 
-        // All business framework command region managers under multi-server single process
+        // All business framework command region managers under multi-server single
+        // process
         var actionCommandRegionList = map
                 .values()
                 .parallelStream()
@@ -82,8 +85,7 @@ public class ActionCommandRegionGlobalCheckKit {
                     var message = String.format(template,
                             actionCommandRegion.cmd,
                             cmdInfo.subCmd(),
-                            actionCommand.actionControllerClass
-                    );
+                            actionCommand.actionControllerClass);
 
                     System.out.println("existCommand: " + existCommand.actionControllerClass.getSimpleName());
                     throw new CommonRuntimeException(message);
@@ -97,4 +99,3 @@ public class ActionCommandRegionGlobalCheckKit {
         map = null;
     }
 }
-

@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -22,9 +22,10 @@ import io.aeron.*;
 import lombok.extern.slf4j.*;
 
 /**
- * Optional Aeron image availability callback that currently keeps logging disabled.
+ * Optional Aeron image availability callback that currently keeps logging
+ * disabled.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-20
  * @since 25.1
  */
@@ -32,30 +33,29 @@ import lombok.extern.slf4j.*;
 public final class DefaultUnavailableImageHandler implements UnavailableImageHandler, AvailableImageHandler {
     @Override
     public void onUnavailableImage(Image image) {
-//        log.info("""
-//                        Offline，onUnavailableImage
-//                          channel: {}
-//                          streamId: {}
-//                          sessionId: {}
-//                        """,
-//                image.subscription().channel(),
-//                image.subscription().streamId(),
-//                image.sessionId()
-//        );
+        // log.info("""
+        // Offline，onUnavailableImage
+        // channel: {}
+        // streamId: {}
+        // sessionId: {}
+        // """,
+        // image.subscription().channel(),
+        // image.subscription().streamId(),
+        // image.sessionId()
+        // );
     }
 
     @Override
     public void onAvailableImage(Image image) {
-//        log.info("""
-//                        Online，onAvailableImage
-//                          channel: {}
-//                          streamId: {}
-//                          sessionId: {}
-//                        """,
-//                image.subscription().channel(),
-//                image.subscription().streamId(),
-//                image.sessionId()
-//        );
+        // log.info("""
+        // Online，onAvailableImage
+        // channel: {}
+        // streamId: {}
+        // sessionId: {}
+        // """,
+        // image.subscription().channel(),
+        // image.subscription().streamId(),
+        // image.sessionId()
+        // );
     }
 }
-

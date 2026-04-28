@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -21,7 +21,7 @@ package com.waaiu.net.common.kit;
 /**
  * Log topic name constants used with {@code @Slf4j(topic = ...)}.
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-08-05
  */
 public interface IonetLogName {
@@ -34,4 +34,3 @@ public interface IonetLogName {
     /** Topic for connection lifecycle logging. */
     String ConnectionTopic = "ConnectionTopic";
 }
-

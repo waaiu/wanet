@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -28,7 +28,7 @@ import java.util.*;
  * top-level error code and message that indicate the overall outcome of
  * the collect operation.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-16
  * @since 25.1
  */
@@ -41,14 +41,16 @@ public interface ResponseCollect {
     List<Response> getResponseList();
 
     /**
-     * Get the overall error code. 0 indicates success; any other value indicates an error.
+     * Get the overall error code. 0 indicates success; any other value indicates an
+     * error.
      *
      * @return the error code
      */
     int getErrorCode();
 
     /**
-     * Set the overall error code. 0 indicates success; any other value indicates an error.
+     * Set the overall error code. 0 indicates success; any other value indicates an
+     * error.
      *
      * @param errorCode the error code
      */
@@ -87,4 +89,3 @@ public interface ResponseCollect {
         return getErrorCode() == 0;
     }
 }
-

@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -25,12 +25,15 @@ import lombok.experimental.*;
 /**
  * Central manager for the active {@link DataCodec} instances.
  * <p>
- * Holds two codec references: a primary codec used for user-facing requests and an internal
- * codec used for inter-server communication. By default both point to {@link ProtoDataCodec}.
- * Calling {@link #setDataCodec(DataCodec)} updates the primary codec and, if the internal
+ * Holds two codec references: a primary codec used for user-facing requests and
+ * an internal
+ * codec used for inter-server communication. By default both point to
+ * {@link ProtoDataCodec}.
+ * Calling {@link #setDataCodec(DataCodec)} updates the primary codec and, if
+ * the inte
  * codec has not been explicitly overridden, keeps them in sync.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-28
  * @since 25.1
  */
@@ -43,7 +46,8 @@ public final class DataCodecManager {
     DataCodec internalDataCodec = dataCodec;
 
     /**
-     * Set the primary data codec. If the internal codec has not been explicitly changed,
+     * Set the primary data codec. If the internal codec has not been explicitly
+     * changed,
      * it is updated to match the new primary codec.
      *
      * @param dataCodec the new primary codec
@@ -80,7 +84,8 @@ public final class DataCodecManager {
 
     /**
      * Return the appropriate codec for the given communication type.
-     * User requests use the primary codec; internal communication uses the internal codec.
+     * User requests use the primary codec; internal communication uses the internal
+     * codec.
      *
      * @param communicationType the communication type
      * @return the corresponding DataCodec
@@ -89,4 +94,3 @@ public final class DataCodecManager {
         return communicationType == CommunicationType.USER_REQUEST ? dataCodec : internalDataCodec;
     }
 }
-

@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -19,9 +19,10 @@
 package com.waaiu.net.framework.communication.eventbus;
 
 /**
- * Event listener, triggered conditions: 1. when a subscriber throws an uncaught exception, 2. when an event message has no corresponding subscriber.
+ * Event listener, triggered conditions: 1. when a subscriber throws an uncaught
+ * exception, 2. when an event message has no corresponding subscriber.
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-12-24
  * @since 21
  */
@@ -36,7 +37,9 @@ public interface EventBusListener {
     void invokeException(Throwable e, Object eventSource, EventBusMessage eventBusMessage);
 
     /**
-     * Listener callback triggered when the event message has no corresponding subscriber
+     * Listener callback triggered when the event message has no corresponding
+     * subscriber
+     * 
      * <pre>
      * Note: By default, detection only occurs when calling the {@link EventBus#fire} series of methods.
      * </pre>

@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.waaiu.net</groupId>
-        <artifactId>ionet</artifactId>
+        <artifactId>wanet</artifactId>
         <version>25.4</version>
     </parent>
 
     <artifactId>net-center</artifactId>
-    <name>net-center for ionet</name>
+    <name>net-center for wanet</name>
 
     <dependencies>
         <dependency>
@@ -20,3 +20,4 @@
         </dependency>
     </dependencies>
 </project>
+

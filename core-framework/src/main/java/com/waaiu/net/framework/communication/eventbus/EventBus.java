@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -24,9 +24,11 @@ import com.waaiu.net.framework.core.flow.*;
 import java.util.*;
 
 /**
- * EventBus, the relationship between EventBus, the business framework, and the logic server is 1:1:1.
+ * EventBus, the relationship between EventBus, the business framework, and the
+ * logic server is 1:1:1.
  * <p>
  * When publishing events:
+ * 
  * <pre>
  * 1. If the relevant subscribers are within the same process, synchronous and asynchronous sending can be controlled.
  * 2. If the relevant subscribers are not in the same process but are distributed across different processes, only asynchronous sending is possible (even if a synchronous method is used to publish the event).
@@ -40,6 +42,7 @@ import java.util.*;
  * Related examples for obtaining EventBus
  * <p>
  * for example 1 - Get the corresponding eventBus through FlowContext
+ * 
  * <pre>{@code
  * EventBus eventBus = flowContext.getEventBus();
  * eventBus.fire(userLoginEventMessage);
@@ -47,6 +50,7 @@ import java.util.*;
  * </pre>
  * <p>
  * The fire series provides multiple types of event publishing mechanisms:
+ * 
  * <pre>
  * 1. fire sends events to subscribers, which include:
  *     a. Sending event messages to subscribers of all logic servers in the current process.
@@ -60,13 +64,15 @@ import java.util.*;
  *
  * The fire series provides multiple types of event publishing mechanisms. The above methods are asynchronous by default, and the corresponding synchronous methods are named as fireXXXSync.
  * </pre>
+ * 
  * Convenient usage - {@link FlowContext}
+ * 
  * <pre>
  * In addition to publishing events via EventBus, the framework also provides EventBus-related methods in {@link FlowContext}.
  * FlowContext internally uses EventBus to publish events.
  * </pre>
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-12-24
  * @see FlowContext#getEventBus()
  * @see EventBusRegion
@@ -107,6 +113,7 @@ public interface EventBus {
 
     /**
      * [Asynchronous] Send an event to all subscribers
+     * 
      * <pre>
      * 1. Send event messages to subscribers of all logic servers in the current process.
      * 2. Send event messages to subscribers in other processes.
@@ -118,6 +125,7 @@ public interface EventBus {
 
     /**
      * [Synchronous] Send an event to all subscribers
+     * 
      * <pre>
      * 1. [Synchronous] Send event messages to subscribers of all logic servers in the current process.
      * 2. [Asynchronous] Send event messages to subscribers in other processes.
@@ -131,6 +139,7 @@ public interface EventBus {
 
     /**
      * [Asynchronous] Send an event to all subscribers
+     * 
      * <pre>
      * 1. Send event messages to subscribers of all logic servers in the current process.
      * 2. Send event messages to subscribers in other processes.
@@ -145,6 +154,7 @@ public interface EventBus {
 
     /**
      * [Synchronous] Send an event to all subscribers
+     * 
      * <pre>
      * 1. [Synchronous] Send event messages to subscribers of all logic servers in the current process.
      * 2. [Asynchronous] Send event messages to subscribers in other processes.
@@ -160,7 +170,8 @@ public interface EventBus {
     }
 
     /**
-     * [Asynchronous] Send event messages to subscribers of all logic servers in the current process
+     * [Asynchronous] Send event messages to subscribers of all logic servers in the
+     * current process
      *
      * @param eventSource The event source
      */
@@ -170,14 +181,16 @@ public interface EventBus {
     }
 
     /**
-     * [Asynchronous] Send event messages to subscribers of all logic servers in the current process
+     * [Asynchronous] Send event messages to subscribers of all logic servers in the
+     * current process
      *
      * @param eventBusMessage The event message
      */
     void fireLocal(EventBusMessage eventBusMessage);
 
     /**
-     * [Synchronous] Send event messages to subscribers of all logic servers in the current process
+     * [Synchronous] Send event messages to subscribers of all logic servers in the
+     * current process
      *
      * @param eventSource The event source
      */
@@ -187,14 +200,17 @@ public interface EventBus {
     }
 
     /**
-     * [Synchronous] Send event messages to subscribers of all logic servers in the current process
+     * [Synchronous] Send event messages to subscribers of all logic servers in the
+     * current process
      *
      * @param eventBusMessage The event message
      */
     void fireLocalSync(EventBusMessage eventBusMessage);
 
     /**
-     * [Asynchronous] Send event messages only to the subscribers of the current EventBus
+     * [Asynchronous] Send event messages only to the subscribers of the current
+     * EventBus
+     * 
      * <pre>
      * Subscribers that have been registered with {@link EventBus#register(Object)}
      * </pre>
@@ -207,7 +223,9 @@ public interface EventBus {
     }
 
     /**
-     * [Asynchronous] Send event messages only to the subscribers of the current EventBus
+     * [Asynchronous] Send event messages only to the subscribers of the current
+     * EventBus
+     * 
      * <pre>
      * Subscribers that have been registered with {@link EventBus#register(Object)}
      * </pre>
@@ -217,7 +235,9 @@ public interface EventBus {
     void fireMe(EventBusMessage eventBusMessage);
 
     /**
-     * [Synchronous] Send event messages only to the subscribers of the current EventBus
+     * [Synchronous] Send event messages only to the subscribers of the current
+     * EventBus
+     * 
      * <pre>
      * Subscribers that have been registered with {@link EventBus#register(Object)}
      * </pre>
@@ -230,7 +250,9 @@ public interface EventBus {
     }
 
     /**
-     * [Synchronous] Send event messages only to the subscribers of the current EventBus
+     * [Synchronous] Send event messages only to the subscribers of the current
+     * EventBus
+     * 
      * <pre>
      * Subscribers that have been registered with {@link EventBus#register(Object)}
      * </pre>
@@ -240,7 +262,10 @@ public interface EventBus {
     void fireMeSync(EventBusMessage eventBusMessage);
 
     /**
-     * [Asynchronous] Send event messages to subscribers in the current process and subscribers in remote processes. If multiple logic server instances of the same type exist, the event will only be sent to one of the instances.
+     * [Asynchronous] Send event messages to subscribers in the current process and
+     * subscribers in remote processes. If multiple logic server instances of the
+     * same type exist, the event will only be sent to one of the instances.
+     * 
      * <pre>
      * Suppose there is a mail logic server for distributing rewards, and we have started two (or more) mail logic server instances to handle the business.
      * When we use the fireAny method to send an event, the event will only be sent to one of the instances.
@@ -254,7 +279,10 @@ public interface EventBus {
     }
 
     /**
-     * [Asynchronous] Send event messages to subscribers in the current process and subscribers in remote processes. If multiple logic server instances of the same type exist, the event will only be sent to one of the instances.
+     * [Asynchronous] Send event messages to subscribers in the current process and
+     * subscribers in remote processes. If multiple logic server instances of the
+     * same type exist, the event will only be sent to one of the instances.
+     * 
      * <pre>
      * Suppose there is a mail logic server for distributing rewards, and we have started two (or more) mail logic server instances to handle the business.
      * When we use the fireAny method to send an event, the event will only be sent to one of the instances.
@@ -265,7 +293,10 @@ public interface EventBus {
     void fireAny(EventBusMessage eventBusMessage);
 
     /**
-     * [Synchronous] Send event messages to subscribers in the current process and subscribers in remote processes. If multiple logic server instances of the same type exist, the event will only be sent to one of the instances.
+     * [Synchronous] Send event messages to subscribers in the current process and
+     * subscribers in remote processes. If multiple logic server instances of the
+     * same type exist, the event will only be sent to one of the instances.
+     * 
      * <pre>
      * Suppose there is a mail logic server for distributing rewards, and we have started two (or more) mail logic server instances to handle the business.
      * When we use the fireAny method to send an event, the event will only be sent to one of the instances.
@@ -279,7 +310,10 @@ public interface EventBus {
     }
 
     /**
-     * [Synchronous] Send event messages to subscribers in the current process and subscribers in remote processes. If multiple logic server instances of the same type exist, the event will only be sent to one of the instances.
+     * [Synchronous] Send event messages to subscribers in the current process and
+     * subscribers in remote processes. If multiple logic server instances of the
+     * same type exist, the event will only be sent to one of the instances.
+     * 
      * <pre>
      * Suppose there is a mail logic server for distributing rewards, and we have started two (or more) mail logic server instances to handle the business.
      * When we use the fireAny method to send an event, the event will only be sent to one of the instances.
@@ -292,7 +326,8 @@ public interface EventBus {
     /**
      * Set the subscriber thread executor selection strategy
      *
-     * @param subscribeExecutorStrategy The subscriber thread executor selection strategy
+     * @param subscribeExecutorStrategy The subscriber thread executor selection
+     *                                  strategy
      */
     void setSubscribeExecutorStrategy(SubscribeExecutorStrategy subscribeExecutorStrategy);
 

@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -21,7 +21,9 @@ package com.waaiu.net.framework.core.runner;
 import com.waaiu.net.framework.core.*;
 
 /**
- * Runner mechanism, which triggers once before and once after the network connection is established on the logic server.
+ * Runner mechanism, which triggers once before and once after the network
+ * connection is established on the logic server.
+ * 
  * <pre>
  * 1.Before establishing the network connection, {@link Runner#onStart(BarSkeleton)} method is triggered.
  * 2.After establishing the network connection, {@link Runner#onStartAfter(BarSkeleton)} method is triggered.
@@ -29,15 +31,17 @@ import com.waaiu.net.framework.core.*;
  *
  * </pre>
  * for example
- * <pre>{@code
+ * 
+ * <pre>
+ * {@code
  * BarSkeletonBuilder builder = ...
  *
  * builder.addRunner(new Runner() {
- * @Override
+ * &#64;Override
  * public void onStart(BarSkeleton skeleton) {
  * }
  *
- * @Override
+ * &#64;Override
  * public void onStartAfter(BarSkeleton skeleton) {
  * }
  * });
@@ -45,7 +49,7 @@ import com.waaiu.net.framework.core.*;
  * }
  * </pre>
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-04-23
  */
 public interface Runner {

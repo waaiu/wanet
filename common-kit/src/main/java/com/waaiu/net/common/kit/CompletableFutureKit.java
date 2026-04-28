@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -25,9 +25,10 @@ import lombok.experimental.*;
 
 /**
  * CompletableFuture Kit.
- * see <a href="https://nurkiewicz.com/2013/05/java-8-completablefuture-in-action.html">CompletableFuture</a>
+ * see <a href=
+ * "https://nurkiewicz.com/2013/05/java-8-completablefuture-in-action.html">CompletableFuture</a>
  *
- * @author 渔民小镇
+ * @author
  * @date 2022-07-27
  */
 @UtilityClass
@@ -35,7 +36,8 @@ public class CompletableFutureKit {
     static final CompletableFuture<?>[] EMPTY_ARRAY = new CompletableFuture[0];
 
     /**
-     * Executes multiple CompletableFuture tasks in parallel and waits for their results.
+     * Executes multiple CompletableFuture tasks in parallel and waits for their
+     * results.
      *
      * @param futures A list of CompletableFuture tasks.
      * @param <T>     The type of the result.
@@ -45,16 +47,15 @@ public class CompletableFutureKit {
         // Combine all futures using allOf
         var allDoneFuture = CompletableFuture.allOf(futures.toArray(EMPTY_ARRAY));
 
-        return allDoneFuture.thenApply(v ->
-                futures.stream()
-                        .map(CompletableFuture::join)
-                        .filter(Objects::nonNull)
-                        .collect(Collectors.toList())
-        ).join();
+        return allDoneFuture.thenApply(v -> futures.stream()
+                .map(CompletableFuture::join)
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList())).join();
     }
 
     /**
-     * Executes multiple CompletableFuture tasks in parallel and waits for their results.
+     * Executes multiple CompletableFuture tasks in parallel and waits for their
+     * results.
      *
      * @param futures array of CompletableFuture tasks.
      * @param <T>     The type of the result.
@@ -64,16 +65,15 @@ public class CompletableFutureKit {
         // Combine all futures using allOf
         CompletableFuture<Void> allDoneFuture = CompletableFuture.allOf(futures);
 
-        return allDoneFuture.thenApply(v ->
-                Arrays.stream(futures)
-                        .map(CompletableFuture::join)
-                        .filter(Objects::nonNull)
-                        .collect(Collectors.toList())
-        ).join();
+        return allDoneFuture.thenApply(v -> Arrays.stream(futures)
+                .map(CompletableFuture::join)
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList())).join();
     }
 
     /**
-     * Executes multiple CompletableFuture tasks in parallel and returns a new CompletableFuture
+     * Executes multiple CompletableFuture tasks in parallel and returns a new
+     * CompletableFuture
      * that will be completed when all tasks are done.
      *
      * @param futures A list of CompletableFuture tasks.
@@ -81,11 +81,9 @@ public class CompletableFutureKit {
      * @return A CompletableFuture that will complete with a list of results.
      */
     public <U> CompletableFuture<List<U>> sequenceAsync(List<CompletableFuture<U>> futures) {
-        return CompletableFuture.allOf(futures.toArray(EMPTY_ARRAY)).thenApply(v ->
-                futures.stream()
-                        .map(CompletableFuture::join)
-                        .filter(Objects::nonNull)
-                        .collect(Collectors.toList()));
+        return CompletableFuture.allOf(futures.toArray(EMPTY_ARRAY)).thenApply(v -> futures.stream()
+                .map(CompletableFuture::join)
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList()));
     }
 }
-

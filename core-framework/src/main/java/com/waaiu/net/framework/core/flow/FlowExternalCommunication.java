@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -24,14 +24,16 @@ import com.waaiu.net.framework.protocol.*;
 /**
  * Flow-level communication for sending requests to external servers.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-10-09
  * @since 25.1
  */
 public interface FlowExternalCommunication extends FlowCommon, ExternalCommunicationDecorator {
     /**
-     * Create an {@link ExternalRequestMessage} targeting the specified external server template ID,
-     * with the given payload. Routing fields (user identity, trace ID, net ID, external server ID)
+     * Create an {@link ExternalRequestMessage} targeting the specified external
+     * server template ID,
+     * with the given payload. Routing fields (user identity, trace ID, net ID,
+     * external server ID)
      * are copied from the current request and server.
      *
      * @param templateId the external server template ID
@@ -52,4 +54,3 @@ public interface FlowExternalCommunication extends FlowCommon, ExternalCommunica
         return message;
     }
 }
-

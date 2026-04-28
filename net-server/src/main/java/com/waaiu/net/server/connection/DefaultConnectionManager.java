@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -26,9 +26,10 @@ import lombok.extern.slf4j.*;
 import org.agrona.collections.*;
 
 /**
- * Default Aeron-based {@link ConnectionManager} implementation for net-server peers.
+ * Default Aeron-based {@link ConnectionManager} implementation for net-server
+ * peers.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-06
  * @since 25.1
  */
@@ -45,7 +46,6 @@ public final class DefaultConnectionManager implements ConnectionManager {
 
     final Publication publicationCenter;
     final Publisher publisher;
-
 
     public DefaultConnectionManager(ConnectionManagerParameter parameter) {
         this.fragmentLimit = CoreGlobalConfig.fragmentLimit;
@@ -111,10 +111,8 @@ public final class DefaultConnectionManager implements ConnectionManager {
         publicationMap.put(netId, connection.getPublication());
     }
 
-
     @Override
     public int poll(FragmentHandler fragmentHandler) {
         return this.subscription.poll(fragmentHandler, fragmentLimit);
     }
 }
-

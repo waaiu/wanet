@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -26,7 +26,7 @@ import lombok.extern.slf4j.*;
 /**
  * Registry for message-class to {@link MessageSbe} encoder mappings.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-08-27
  * @since 25.1
  */
@@ -39,7 +39,7 @@ public final class SbeMessageManager {
      * Gets the registered SBE encoder for the given message class.
      *
      * @param messageClass message class
-     * @param <T> message type
+     * @param <T>          message type
      * @return encoder, or null if not registered
      */
     @SuppressWarnings("unchecked")
@@ -50,19 +50,17 @@ public final class SbeMessageManager {
     /**
      * Registers or replaces the SBE encoder for a message class.
      *
-     * @param clazz message class
+     * @param clazz   message class
      * @param encoder SBE encoder
      */
     public void register(Class<?> clazz, MessageSbe<?> encoder) {
         if (encoderMap.containsKey(clazz)) {
-            log.warn("WARN: SBE - Class {} is already registered by {}.  The new instance [{}] will replace the existing instance."
-                    , clazz.getSimpleName()
-                    , encoderMap.get(clazz).getClass().getSimpleName()
-                    , encoder.getClass().getSimpleName()
-            );
+            log.warn(
+                    "WARN: SBE - Class {} is already registered by {}.  The new instance [{}] will replace the existing instance.",
+                    clazz.getSimpleName(), encoderMap.get(clazz).getClass().getSimpleName(),
+                    encoder.getClass().getSimpleName());
         }
 
         encoderMap.put(clazz, encoder);
     }
 }
-

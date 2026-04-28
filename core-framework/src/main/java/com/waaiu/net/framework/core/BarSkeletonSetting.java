@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -21,11 +21,12 @@ package com.waaiu.net.framework.core;
 import com.waaiu.net.framework.core.flow.*;
 
 /**
- * Configuration settings for the business framework skeleton ({@link BarSkeleton}).
+ * Configuration settings for the business framework skeleton
+ * ({@link BarSkeleton}).
  * Controls action routing dimensions, logging flags, validation, and pluggable
  * components such as the flow context factory and flow executor.
  *
- * @author 渔民小镇
+ * @author
  * @date 2021-12-20
  */
 public final class BarSkeletonSetting {
@@ -37,7 +38,10 @@ public final class BarSkeletonSetting {
     public boolean print;
     /** Set to true for action log printing */
     public boolean printAction = true;
-    /** Set to false for short name printing in action logs (class, parameter names, return values) */
+    /**
+     * Set to false for short name printing in action logs (class, parameter names,
+     * return values)
+     */
     public boolean printActionShort = true;
     /** Set to true for inout log printing */
     public boolean printInout = true;
@@ -50,9 +54,11 @@ public final class BarSkeletonSetting {
     /// Set to true to enable JSR380 validation for business parameters.
     ///
     /// For more information on enabling JSR380 validation, refer to this document:
-    /// <a href="https://waaiu.github.io/ionet/docs/manual/jsr380">Documentation - JSR380</a>
+    /// <a href="https://waaiu.github.io/wanet/docs/manual/jsr380">Documentation -
+    /// JSR380</a>
     ///
-    /// You will need to include the following dependencies in your project's pom.xml:
+    /// You will need to include the following dependencies in your project's
+    /// pom.xml:
     /// ```xml
     /// <!-- hibernate validator -->
     /// <dependency>
@@ -72,7 +78,8 @@ public final class BarSkeletonSetting {
     ///      <artifactId>jakarta.validation-api</artifactId>
     ///      <version>${jakarta.validation-api.version}</version>
     ///  </dependency>
-    ///```
+    /// ```
+    /// 
     public boolean validator;
     /// Whether to automatically invoke validation on action parameters.
     public boolean validatorAutoCall;
@@ -89,4 +96,3 @@ public final class BarSkeletonSetting {
     /** Strategy for {@link CmdInfo} flyweight caching. */
     public CmdInfoFlyweightStrategy cmdInfoFlyweightStrategy = CmdInfoFlyweightStrategy.TWO_ARRAY;
 }
-

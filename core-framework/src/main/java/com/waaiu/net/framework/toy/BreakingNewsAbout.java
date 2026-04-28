@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -29,7 +29,7 @@ import org.jspecify.annotations.*;
  * <p>
  * Name inspired by Michael Jackson's song "Breaking News".
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-06-10
  */
 @UtilityClass
@@ -76,7 +76,10 @@ record News(String title, String url) {
     }
 }
 
-/** Contract for providing categorized news items displayed in the startup banner. */
+/**
+ * Contract for providing categorized news items displayed in the startup
+ * banner.
+ */
 interface BreakingNews {
     List<News> listMainNews();
 
@@ -91,89 +94,122 @@ final class DefaultBreakingNews implements BreakingNews {
     @Override
     public List<News> listMainNews() {
         return List.of(
-                new News("ionet javadoc", "https://waaiu.github.io/javadoc"),
-                new News("ionet issues", "https://github.com/waaiu/ionet/issues"),
-                new News("ionet changelog for each version", "https://waaiu.github.io/ionet/docs/version_log"),
-                new News("ionet release frequency: 1-2 releases per month, upgrades within a major version are always compatible", "")
-        );
+                new News("wanet javadoc", "https://waaiu.github.io/javadoc"),
+                new News("wanet issues", "https://github.com/waaiu/wanet/issues"),
+                new News("wanet changelog for each version", "https://waaiu.github.io/wanet/docs/version_log"),
+                new News(
+                        "wanet release frequency: 1-2 releases per month, upgrades within a major version are always compatible",
+                        ""));
     }
 
     @Override
     public List<News> listAdv() {
         return List.of(
                 new News("Online demo", "https://a.waaiu.com"),
-                new News("MMO", "https://waaiu.github.io/ionet/docs/practices/mmo"),
-                new News("Board game / room-based practice", "https://waaiu.github.io/ionet/docs/practices/room_in_action")
-        );
+                new News("MMO", "https://waaiu.github.io/wanet/docs/practices/mmo"),
+                new News("Board game / room-based practice",
+                        "https://waaiu.github.io/wanet/docs/practices/room_in_action"));
     }
 
     @Override
     public List<News> listNews() {
         List<News> list = new ArrayList<>();
 
-        list.add(new News("Supporters list", "https://waaiu.github.io/ionet/docs/contribute/backers"));
+        list.add(new News("Supporters list", "https://waaiu.github.io/wanet/docs/contribute/backers"));
 
         // common development tips
-        list.add(new News("Full-link call log tracing", "https://waaiu.github.io/ionet/docs/manual/trace"));
+        list.add(new News("Full-link call log tracing", "https://waaiu.github.io/wanet/docs/manual/trace"));
 
         // licensing and practical products
-        list.add(new News("Project cost analysis", "https://waaiu.github.io/ionet/services/cost_analysis"));
+        list.add(new News("Project cost analysis", "https://waaiu.github.io/wanet/services/cost_analysis"));
 
         // architecture overview
-        list.add(new News("Architecture introduction", "https://waaiu.github.io/ionet/docs/overall/architecture_intro"));
-        list.add(new News("ionet flexible architecture and diverse deployment", "https://waaiu.github.io/ionet/docs/overall/deploy_flexible"));
-        list.add(new News("Comparison with traditional architecture", "https://waaiu.github.io/ionet/docs/overall/legacy_system"));
+        list.add(
+                new News("Architecture introduction", "https://waaiu.github.io/wanet/docs/overall/architecture_intro"));
+        list.add(new News("wanet flexible architecture and diverse deployment",
+                "https://waaiu.github.io/wanet/docs/overall/deploy_flexible"));
+        list.add(new News("Comparison with traditional architecture",
+                "https://waaiu.github.io/wanet/docs/overall/legacy_system"));
 
-        list.add(new News("ionet request processing flow", "https://waaiu.github.io/ionet/docs/overall/request_processing_procedure"));
-        list.add(new News("ionet threading", "https://waaiu.github.io/ionet/docs/overall/thread_executor"));
-        list.add(new News("Single-server, multi-server single-process, multi-server multi-process startup", "https://waaiu.github.io/ionet/docs/manual/netty_run_one"));
-        list.add(new News("Code organization and conventions", "https://waaiu.github.io/ionet/docs/manual_high/code_organization"));
-        list.add(new News("Same-process affinity", "https://waaiu.github.io/ionet/docs/manual_high/same_process"));
+        list.add(new News("wanet request processing flow",
+                "https://waaiu.github.io/wanet/docs/overall/request_processing_procedure"));
+        list.add(new News("wanet threading", "https://waaiu.github.io/wanet/docs/overall/thread_executor"));
+        list.add(new News("Single-server, multi-server single-process, multi-server multi-process startup",
+                "https://waaiu.github.io/wanet/docs/manual/netty_run_one"));
+        list.add(new News("Code organization and conventions",
+                "https://waaiu.github.io/wanet/docs/manual_high/code_organization"));
+        list.add(new News("Same-process affinity", "https://waaiu.github.io/wanet/docs/manual_high/same_process"));
 
         // logic server
-        list.add(new News("LogicServer - Dynamic binding", "https://waaiu.github.io/ionet/docs/manual/binding_logic_server"));
-        list.add(new News("LogicServer - Metadata and attachments", "https://waaiu.github.io/ionet/docs/manual/flowcontext_attachment"));
+        list.add(new News("LogicServer - Dynamic binding",
+                "https://waaiu.github.io/wanet/docs/manual/binding_logic_server"));
+        list.add(new News("LogicServer - Metadata and attachments",
+                "https://waaiu.github.io/wanet/docs/manual/flowcontext_attachment"));
 
         // external server
-        list.add(new News("ExternalServer - Unified protocol description", "https://waaiu.github.io/ionet/docs/manual_high/external_message"));
-        list.add(new News("ExternalServer", "https://waaiu.github.io/ionet/docs/overall/external_intro"));
-        list.add(new News("ExternalServer - Heartbeat settings and hooks", "https://waaiu.github.io/ionet/docs/external/idle"));
-        list.add(new News("ExternalServer - User online/offline hooks", "https://waaiu.github.io/ionet/docs/external/user_hook"));
-        list.add(new News("ExternalServer - Route access permission control", "https://waaiu.github.io/ionet/docs/external/access_authentication"));
-        list.add(new News("ExternalServer - Response caching", "https://waaiu.github.io/ionet/docs/external/cache"));
-        list.add(new News("ExternalServer - WebSocket token authentication", "https://waaiu.github.io/ionet/docs/external/ws_verify"));
-        list.add(new News("ExternalServer - Built-in and optional Handlers", "https://waaiu.github.io/ionet/docs/external/netty_handler"));
+        list.add(new News("ExternalServer - Unified protocol description",
+                "https://waaiu.github.io/wanet/docs/manual_high/external_message"));
+        list.add(new News("ExternalServer", "https://waaiu.github.io/wanet/docs/overall/external_intro"));
+        list.add(new News("ExternalServer - Heartbeat settings and hooks",
+                "https://waaiu.github.io/wanet/docs/external/idle"));
+        list.add(new News("ExternalServer - User online/offline hooks",
+                "https://waaiu.github.io/wanet/docs/external/user_hook"));
+        list.add(new News("ExternalServer - Route access permission control",
+                "https://waaiu.github.io/wanet/docs/external/access_authentication"));
+        list.add(new News("ExternalServer - Response caching", "https://waaiu.github.io/wanet/docs/external/cache"));
+        list.add(new News("ExternalServer - WebSocket token authentication",
+                "https://waaiu.github.io/wanet/docs/external/ws_verify"));
+        list.add(new News("ExternalServer - Built-in and optional Handlers",
+                "https://waaiu.github.io/wanet/docs/external/netty_handler"));
 
         // communication
-        list.add(new News("Communication - Request multiple logic servers of the same type", "https://waaiu.github.io/ionet/docs/communication/request_multiple_response"));
-        list.add(new News("Communication - Access external server data and extensions", "https://waaiu.github.io/ionet/docs/communication/external_biz_region"));
-        list.add(new News("Communication - Distributed Event Bus", "https://waaiu.github.io/ionet/docs/communication/event_bus"));
+        list.add(new News("Communication - Request multiple logic servers of the same type",
+                "https://waaiu.github.io/wanet/docs/communication/request_multiple_response"));
+        list.add(new News("Communication - Access external server data and extensions",
+                "https://waaiu.github.io/wanet/docs/communication/external_biz_region"));
+        list.add(new News("Communication - Distributed Event Bus",
+                "https://waaiu.github.io/wanet/docs/communication/event_bus"));
 
         // built-in tools
-        list.add(new News("Built-in Kit - TaskKit for tasks, timing, delay and timeout monitoring", "https://waaiu.github.io/ionet/docs/kit/task_kit"));
-        list.add(new News("Built-in Kit - Property monitoring", "https://waaiu.github.io/ionet/docs/kit/property_change_listener"));
-        list.add(new News("Built-in Kit - Lightweight and controllable delayed tasks", "https://waaiu.github.io/ionet/docs/kit/delay_task"));
+        list.add(new News("Built-in Kit - TaskKit for tasks, timing, delay and timeout monitoring",
+                "https://waaiu.github.io/wanet/docs/kit/task_kit"));
+        list.add(new News("Built-in Kit - Property monitoring",
+                "https://waaiu.github.io/wanet/docs/kit/property_change_listener"));
+        list.add(new News("Built-in Kit - Lightweight and controllable delayed tasks",
+                "https://waaiu.github.io/wanet/docs/kit/delay_task"));
 
         // extension modules
-        list.add(new News("ExtendedModule - Domain Events for multi-user concurrency", "https://waaiu.github.io/ionet/docs/extension_module/domain_event"));
-        list.add(new News("ExtendedModule - Stress testing and simulating client requests", "https://waaiu.github.io/ionet/docs/extension_module/simulation_client"));
-        list.add(new News("ExtendedModule - Room for board games and room-based scenarios", "https://waaiu.github.io/ionet/docs/extension_module/room"));
-        list.add(new News("ExtendedModule - sdk-generate-code", "https://waaiu.github.io/ionet/docs/extension_module/generate_code"));
+        list.add(new News("ExtendedModule - Domain Events for multi-user concurrency",
+                "https://waaiu.github.io/wanet/docs/extension_module/domain_event"));
+        list.add(new News("ExtendedModule - Stress testing and simulating client requests",
+                "https://waaiu.github.io/wanet/docs/extension_module/simulation_client"));
+        list.add(new News("ExtendedModule - Room for board games and room-based scenarios",
+                "https://waaiu.github.io/wanet/docs/extension_module/room"));
+        list.add(new News("ExtendedModule - sdk-generate-code",
+                "https://waaiu.github.io/wanet/docs/extension_module/generate_code"));
 
         // plugins
-        list.add(new News("Business Framework - Plugin Introduction", "https://waaiu.github.io/ionet/docs/manual/plugin_intro"));
-        list.add(new News("Plugin - DebugInOut", "https://waaiu.github.io/ionet/docs/core_plugin/action_debug"));
-        list.add(new News("Plugin - Action call statistics", "https://waaiu.github.io/ionet/docs/core_plugin/action_stat"));
-        list.add(new News("Plugin - Business thread monitoring", "https://waaiu.github.io/ionet/docs/core_plugin/action_thread_monitor"));
-        list.add(new News("Plugin - Call statistics for each time period", "https://waaiu.github.io/ionet/docs/core_plugin/action_time_range"));
-        list.add(new News("Plugin - Full-link call log tracing", "https://waaiu.github.io/ionet/docs/core_plugin/action_trace"));
+        list.add(new News("Business Framework - Plugin Introduction",
+                "https://waaiu.github.io/wanet/docs/manual/plugin_intro"));
+        list.add(new News("Plugin - DebugInOut", "https://waaiu.github.io/wanet/docs/core_plugin/action_debug"));
+        list.add(new News("Plugin - Action call statistics",
+                "https://waaiu.github.io/wanet/docs/core_plugin/action_stat"));
+        list.add(new News("Plugin - Business thread monitoring",
+                "https://waaiu.github.io/wanet/docs/core_plugin/action_thread_monitor"));
+        list.add(new News("Plugin - Call statistics for each time period",
+                "https://waaiu.github.io/wanet/docs/core_plugin/action_time_range"));
+        list.add(new News("Plugin - Full-link call log tracing",
+                "https://waaiu.github.io/wanet/docs/core_plugin/action_trace"));
 
         // business framework
-        list.add(new News("Business Framework - Introduction", "https://waaiu.github.io/ionet/docs/core/framework"));
-        list.add(new News("Business Framework - FlowContext", "https://waaiu.github.io/ionet/docs/manual/flowcontext"));
-        list.add(new News("Business Framework - Assertions + exceptions = clear and concise code", "https://waaiu.github.io/ionet/docs/manual/assert_game_code"));
-        list.add(new News("Business Framework - Enable JSR380 validation", "https://waaiu.github.io/ionet/docs/core/jsr380"));
-        list.add(new News("Business Framework - Resolving protocol fragmentation", "https://waaiu.github.io/ionet/docs/manual/protocol_fragment"));
+        list.add(new News("Business Framework - Introduction", "https://waaiu.github.io/wanet/docs/core/framework"));
+        list.add(new News("Business Framework - FlowContext", "https://waaiu.github.io/wanet/docs/manual/flowcontext"));
+        list.add(new News("Business Framework - Assertions + exceptions = clear and concise code",
+                "https://waaiu.github.io/wanet/docs/manual/assert_game_code"));
+        list.add(new News("Business Framework - Enable JSR380 validation",
+                "https://waaiu.github.io/wanet/docs/core/jsr380"));
+        list.add(new News("Business Framework - Resolving protocol fragmentation",
+                "https://waaiu.github.io/wanet/docs/manual/protocol_fragment"));
 
         return list;
     }
@@ -185,89 +221,126 @@ final class EnglishBreakingNews implements BreakingNews {
     @Override
     public List<News> listMainNews() {
         return List.of(
-                new News("ionet javadoc", "https://waaiu.github.io/javadoc"),
-                new News("ionet issues", "https://github.com/waaiu/ionet/issues"),
-                new News("ionet version log", "https://waaiu.github.io/ionet/docs/version_log"),
-                new News("Releases: 1 to 2 versions are released every month, and upgrades within a major version are always compatible, such as 21.1 is upgraded to any higher version 21.x", "")
-        );
+                new News("wanet javadoc", "https://waaiu.github.io/javadoc"),
+                new News("wanet issues", "https://github.com/waaiu/wanet/issues"),
+                new News("wanet version log", "https://waaiu.github.io/wanet/docs/version_log"),
+                new News(
+                        "Releases: 1 to 2 versions are released every month, and upgrades within a major version are always compatible, such as 21.1 is upgraded to any higher version 21.x",
+                        ""));
     }
 
     @Override
     public List<News> listAdv() {
         return List.of(
                 new News("online demo", "https://a.waaiu.com"),
-                new News("MMO", "https://waaiu.github.io/ionet/docs/practices/mmo"),
-                new News("Room games in action", "https://waaiu.github.io/ionet/docs/practices/room_in_action")
-        );
+                new News("MMO", "https://waaiu.github.io/wanet/docs/practices/mmo"),
+                new News("Room games in action", "https://waaiu.github.io/wanet/docs/practices/room_in_action"));
     }
 
     @Override
     public List<News> listNews() {
         List<News> list = new ArrayList<>();
 
-        list.add(new News("Backers", "https://waaiu.github.io/ionet/docs/contribute/backers"));
+        list.add(new News("Backers", "https://waaiu.github.io/wanet/docs/contribute/backers"));
 
         // common development tips
-        list.add(new News("Full-link call log tracking", "https://waaiu.github.io/ionet/docs/manual/trace"));
+        list.add(new News("Full-link call log tracking", "https://waaiu.github.io/wanet/docs/manual/trace"));
 
         // licensing and practical products
-        list.add(new News("Project cost analysis", "https://waaiu.github.io/ionet/services/cost_analysis"));
+        list.add(new News("Project cost analysis", "https://waaiu.github.io/wanet/services/cost_analysis"));
 
         // architecture overview
-        list.add(new News("ionet - Architecture Introduction", "https://waaiu.github.io/ionet/docs/overall/architecture_intro"));
-        list.add(new News("ionet - Architecture Diversity", "https://waaiu.github.io/ionet/docs/overall/deploy_flexible"));
-        list.add(new News("ionet - Comparison with traditional architecture", "https://waaiu.github.io/ionet/docs/overall/legacy_system"));
+        list.add(new News("wanet - Architecture Introduction",
+                "https://waaiu.github.io/wanet/docs/overall/architecture_intro"));
+        list.add(new News("wanet - Architecture Diversity",
+                "https://waaiu.github.io/wanet/docs/overall/deploy_flexible"));
+        list.add(new News("wanet - Comparison with traditional architecture",
+                "https://waaiu.github.io/wanet/docs/overall/legacy_system"));
 
-        list.add(new News("ionet - Request Processing Flow", "https://waaiu.github.io/ionet/docs/overall/request_processing_procedure"));
-        list.add(new News("ionet - Thread related", "https://waaiu.github.io/ionet/docs/overall/thread_executor"));
-        list.add(new News("Startup methods for single server single process, multiple servers single process, and multiple servers multiple processes", "https://waaiu.github.io/ionet/docs/manual/netty_run_one"));
-        list.add(new News("Code Organization and Conventions", "https://waaiu.github.io/ionet/docs/manual_high/code_organization"));
-        list.add(new News("Same-process affinity", "https://waaiu.github.io/ionet/docs/manual_high/same_process"));
+        list.add(new News("wanet - Request Processing Flow",
+                "https://waaiu.github.io/wanet/docs/overall/request_processing_procedure"));
+        list.add(new News("wanet - Thread related", "https://waaiu.github.io/wanet/docs/overall/thread_executor"));
+        list.add(new News(
+                "Startup methods for single server single process, multiple servers single process, and multiple servers multiple processes",
+                "https://waaiu.github.io/wanet/docs/manual/netty_run_one"));
+        list.add(new News("Code Organization and Conventions",
+                "https://waaiu.github.io/wanet/docs/manual_high/code_organization"));
+        list.add(new News("Same-process affinity", "https://waaiu.github.io/wanet/docs/manual_high/same_process"));
 
         // logic server
-        list.add(new News("GameLogicServer - Dynamically bind game logic server", "https://waaiu.github.io/ionet/docs/manual/binding_logic_server"));
-        list.add(new News("GameLogicServer - Meta information, additional information", "https://waaiu.github.io/ionet/docs/manual/flowcontext_attachment"));
+        list.add(new News("GameLogicServer - Dynamically bind game logic server",
+                "https://waaiu.github.io/wanet/docs/manual/binding_logic_server"));
+        list.add(new News("GameLogicServer - Meta information, additional information",
+                "https://waaiu.github.io/wanet/docs/manual/flowcontext_attachment"));
 
         // external server
-        list.add(new News("ExternalServer - Unified Protocol Description", "https://waaiu.github.io/ionet/docs/manual_high/external_message"));
-        list.add(new News("ExternalServer", "https://waaiu.github.io/ionet/docs/overall/external_intro"));
-        list.add(new News("ExternalServer - Heartbeat settings and heartbeat hooks", "https://waaiu.github.io/ionet/docs/external/idle"));
-        list.add(new News("ExternalServer - User online and offline hooks", "https://waaiu.github.io/ionet/docs/external/user_hook"));
-        list.add(new News("ExternalServer - Routing access control", "https://waaiu.github.io/ionet/docs/external/access_authentication"));
-        list.add(new News("ExternalServer - Game cache for external servers", "https://waaiu.github.io/ionet/docs/external/cache"));
-        list.add(new News("ExternalServer - ws token Authentication and verification", "https://waaiu.github.io/ionet/docs/external/ws_verify"));
-        list.add(new News("ExternalServer - Built-in and optional Handler", "https://waaiu.github.io/ionet/docs/external/netty_handler"));
+        list.add(new News("ExternalServer - Unified Protocol Description",
+                "https://waaiu.github.io/wanet/docs/manual_high/external_message"));
+        list.add(new News("ExternalServer", "https://waaiu.github.io/wanet/docs/overall/external_intro"));
+        list.add(new News("ExternalServer - Heartbeat settings and heartbeat hooks",
+                "https://waaiu.github.io/wanet/docs/external/idle"));
+        list.add(new News("ExternalServer - User online and offline hooks",
+                "https://waaiu.github.io/wanet/docs/external/user_hook"));
+        list.add(new News("ExternalServer - Routing access control",
+                "https://waaiu.github.io/wanet/docs/external/access_authentication"));
+        list.add(new News("ExternalServer - Game cache for external servers",
+                "https://waaiu.github.io/wanet/docs/external/cache"));
+        list.add(new News("ExternalServer - ws token Authentication and verification",
+                "https://waaiu.github.io/wanet/docs/external/ws_verify"));
+        list.add(new News("ExternalServer - Built-in and optional Handler",
+                "https://waaiu.github.io/wanet/docs/external/netty_handler"));
 
         // communication
-        list.add(new News("Communication - Request the communication results of multiple logical servers of the same type", "https://waaiu.github.io/ionet/docs/communication/request_multiple_response"));
-        list.add(new News("Communication - Get game data and expansion for external servers", "https://waaiu.github.io/ionet/docs/communication/external_biz_region"));
-        list.add(new News("Communication - Distributed Event Bus", "https://waaiu.github.io/ionet/docs/communication/event_bus"));
+        list.add(new News(
+                "Communication - Request the communication results of multiple logical servers of the same type",
+                "https://waaiu.github.io/wanet/docs/communication/request_multiple_response"));
+        list.add(new News("Communication - Get game data and expansion for external servers",
+                "https://waaiu.github.io/wanet/docs/communication/external_biz_region"));
+        list.add(new News("Communication - Distributed Event Bus",
+                "https://waaiu.github.io/wanet/docs/communication/event_bus"));
 
         // built-in tools
-        list.add(new News("Built-in Kit - TaskKit is a tool module that combines tasks, time, delay monitoring, timeout monitoring, etc.", "https://waaiu.github.io/ionet/docs/kit/task_kit"));
-        list.add(new News("Built-in Kit - Property monitoring", "https://waaiu.github.io/ionet/docs/kit/property_change_listener"));
-        list.add(new News("Built-in Kit - Lightweight and controllable delayed tasks", "https://waaiu.github.io/ionet/docs/kit/delay_task"));
+        list.add(new News(
+                "Built-in Kit - TaskKit is a tool module that combines tasks, time, delay monitoring, timeout monitoring, etc.",
+                "https://waaiu.github.io/wanet/docs/kit/task_kit"));
+        list.add(new News("Built-in Kit - Property monitoring",
+                "https://waaiu.github.io/wanet/docs/kit/property_change_listener"));
+        list.add(new News("Built-in Kit - Lightweight and controllable delayed tasks",
+                "https://waaiu.github.io/wanet/docs/kit/delay_task"));
 
         // extension modules
-        list.add(new News("ExtendedModule - Domain Events - Can solve the concurrency problem of multiple people doing the same business", "https://waaiu.github.io/ionet/docs/extension_module/domain_event"));
-        list.add(new News("ExtendedModule - Stress testing & simulating client requests", "https://waaiu.github.io/ionet/docs/extension_module/simulation_client"));
-        list.add(new News("ExtendedModule - Room - Extension modules for board games and rooms", "https://waaiu.github.io/ionet/docs/extension_module/room"));
-        list.add(new News("ExtendedModule - sdk-generate-code", "https://waaiu.github.io/ionet/docs/extension_module/room"));
+        list.add(new News(
+                "ExtendedModule - Domain Events - Can solve the concurrency problem of multiple people doing the same business",
+                "https://waaiu.github.io/wanet/docs/extension_module/domain_event"));
+        list.add(new News("ExtendedModule - Stress testing & simulating client requests",
+                "https://waaiu.github.io/wanet/docs/extension_module/simulation_client"));
+        list.add(new News("ExtendedModule - Room - Extension modules for board games and rooms",
+                "https://waaiu.github.io/wanet/docs/extension_module/room"));
+        list.add(new News("ExtendedModule - sdk-generate-code",
+                "https://waaiu.github.io/wanet/docs/extension_module/room"));
 
         // plugins
-        list.add(new News("Business Framework - Plugin Introduction", "https://waaiu.github.io/ionet/docs/manual/plugin_intro"));
-        list.add(new News("Plugin - DebugInOut", "https://waaiu.github.io/ionet/docs/core_plugin/action_debug"));
-        list.add(new News("Plugin - Action call statistics", "https://waaiu.github.io/ionet/docs/core_plugin/action_stat"));
-        list.add(new News("Plugin - Business thread monitoring", "https://waaiu.github.io/ionet/docs/core_plugin/action_thread_monitor"));
-        list.add(new News("Plugin - Call statistics for each time period", "https://waaiu.github.io/ionet/docs/core_plugin/action_time_range"));
-        list.add(new News("Plugin - Full-link call log tracking", "https://waaiu.github.io/ionet/docs/core_plugin/action_trace"));
+        list.add(new News("Business Framework - Plugin Introduction",
+                "https://waaiu.github.io/wanet/docs/manual/plugin_intro"));
+        list.add(new News("Plugin - DebugInOut", "https://waaiu.github.io/wanet/docs/core_plugin/action_debug"));
+        list.add(new News("Plugin - Action call statistics",
+                "https://waaiu.github.io/wanet/docs/core_plugin/action_stat"));
+        list.add(new News("Plugin - Business thread monitoring",
+                "https://waaiu.github.io/wanet/docs/core_plugin/action_thread_monitor"));
+        list.add(new News("Plugin - Call statistics for each time period",
+                "https://waaiu.github.io/wanet/docs/core_plugin/action_time_range"));
+        list.add(new News("Plugin - Full-link call log tracking",
+                "https://waaiu.github.io/wanet/docs/core_plugin/action_trace"));
 
         // business framework
-        list.add(new News("Business Framework - Introduction", "https://waaiu.github.io/ionet/docs/core/framework"));
-        list.add(new News("Business Framework - FlowContext", "https://waaiu.github.io/ionet/docs/manual/flowcontext"));
-        list.add(new News("Business Framework - Assertions + exceptions = clear and concise code", "https://waaiu.github.io/ionet/docs/manual/assert_game_code"));
-        list.add(new News("Business Framework - Enable JSR380 validation specification", "https://waaiu.github.io/ionet/docs/core/jsr380"));
-        list.add(new News("Business Framework - Resolving protocol fragmentation", "https://waaiu.github.io/ionet/docs/manual/protocol_fragment"));
+        list.add(new News("Business Framework - Introduction", "https://waaiu.github.io/wanet/docs/core/framework"));
+        list.add(new News("Business Framework - FlowContext", "https://waaiu.github.io/wanet/docs/manual/flowcontext"));
+        list.add(new News("Business Framework - Assertions + exceptions = clear and concise code",
+                "https://waaiu.github.io/wanet/docs/manual/assert_game_code"));
+        list.add(new News("Business Framework - Enable JSR380 validation specification",
+                "https://waaiu.github.io/wanet/docs/core/jsr380"));
+        list.add(new News("Business Framework - Resolving protocol fragmentation",
+                "https://waaiu.github.io/wanet/docs/manual/protocol_fragment"));
 
         return list;
     }

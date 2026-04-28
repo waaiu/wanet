@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -23,14 +23,19 @@ import com.waaiu.net.framework.core.kit.*;
 import lombok.*;
 
 /**
- * Sealed base class for all broadcast message types sent from logic servers to external servers.
+ * Sealed base class for all broadcast message types sent from logic servers to
+ * external servers.
  * <p>
- * Carries the merged command route key ({@code cmdMerge}), serialized payload data, and a
- * transient reference to the original unserialized data object. Permitted subclasses define
- * the broadcast scope: {@link BroadcastUserMessage} (single user), {@link BroadcastUserListMessage}
- * (explicit user list), and {@link BroadcastMulticastMessage} (all connected users).
+ * Carries the merged command route key ({@code cmdMerge}), serialized payload
+ * data, and a
+ * transient reference to the original unserialized data object. Permitted
+ * subclasses define
+ * the broadcast scope: {@link BroadcastUserMessage} (single user),
+ * {@link BroadcastUserListMessage}
+ * (explicit user list), and {@link BroadcastMulticastMessage} (all connected
+ * users).
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-04
  * @since 25.1
  */
@@ -64,4 +69,3 @@ public abstract sealed class BroadcastMessage
                 '}';
     }
 }
-

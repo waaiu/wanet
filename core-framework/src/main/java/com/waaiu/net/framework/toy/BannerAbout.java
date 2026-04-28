@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -24,9 +24,9 @@ import java.util.function.*;
 import java.util.stream.*;
 
 /**
- * Provides ASCII art banner data for the ionet startup display.
+ * Provides ASCII art banner data for the wanet startup display.
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-01-30
  */
 final class BannerData {
@@ -48,7 +48,6 @@ final class BannerData {
 
         bannerList.add(banner);
 
-
         return bannerList;
     }
 }
@@ -56,8 +55,8 @@ final class BannerData {
 /**
  * Randomly selects an ANSI coloring strategy for the startup banner text.
  *
- * @author 渔民小镇
- * @date 2023-01-30
+ * @author
+ * @date 20
  */
 final class BannerColorStrategy {
 
@@ -83,30 +82,30 @@ final class BannerColorStrategy {
         UnaryOperator<String> colorColumnFun = this::colorColumn;
 
         List<UnaryOperator<String>> functionList = new ArrayList<>();
-        // 单色
-//        functionList.add(colorNon);
-//        functionList.add(colorSingleFun);
+        //
+        // functionList.add(colorNon);
+        // functionList.add(colorSingleFun);
 
-        // 按列随机上色
-//        functionList.add(colorRandomColumnFun);
-        // 随机列上色
-//        functionList.add(colorColumnFun);
-//        functionList.add(colorColumnFun);
-        // 随机行上色
-//        functionList.add(colorRandomLineFun);
-//        functionList.add(colorRandomLineFun);
-//        functionList.add(colorRandomLineFun);
-        // 随机上色
+        //
+        // functionList.add(colorRandomColumnFun);
+        //
+        // functionList.add(colorColumnFun);
+        // functionList.add(colorColumnFun);
+        //
+        // functionList.add(colorRandomLineFun);
+        // functionList.add(colorRandomLineFun);
+        // functionList.add(colorRandomLineFun);
+        //
         functionList.add(colorRandomFun);
         functionList.add(colorRandomFun);
         functionList.add(colorRandomFun);
 
-        // 随机得到一个上色策略
+        //
         return RandomKit.randomEle(functionList);
     }
 
     private String colorRandomLine(String banner) {
-        // 按行来上色
+        //
         List<AnsiColor.Color> colorList = listColor();
 
         var ansi = AnsiColor.builder();
@@ -128,14 +127,14 @@ final class BannerColorStrategy {
     }
 
     private String colorSingle(String banner) {
-        // 上单色
+        //
         AnsiColor.Color color = randomColor();
         var ansi = AnsiColor.builder().fg(color).a(banner);
         return ansi.reset().toString();
     }
 
     private String colorRandom(String banner) {
-        // 随机字符上色
+        //
 
         List<AnsiColor.Color> colorList = listColor();
 
@@ -151,7 +150,7 @@ final class BannerColorStrategy {
     }
 
     private String colorRandomColumn(String banner) {
-        // 达到换行的字符数量
+        //
         int widthLen = RandomKit.randomInt(1, 10);
         AnsiColor.Color color = randomColor();
 
@@ -162,7 +161,7 @@ final class BannerColorStrategy {
             char c = array[i];
 
             if (i % widthLen == 0) {
-                // 换色
+                //
                 color = randomColor();
                 widthLen = RandomKit.randomInt(1, 10);
             }
@@ -192,10 +191,10 @@ final class BannerColorStrategy {
 
             if (!colorColumn.has()) {
                 lineNum++;
-                // 取下一个数据
+                //
 
                 if (lineNum >= list.size()) {
-                    // 增加一个颜色数据
+                    //
                     colorColumn = TheColorColumn.create();
                     list.add(colorColumn);
                 }
@@ -205,7 +204,6 @@ final class BannerColorStrategy {
             }
 
             colorColumn.render(ansi, c);
-
 
         }
 
@@ -260,11 +258,11 @@ final class BannerColorStrategy {
     }
 }
 
-
 /**
- * Provides JVM memory usage statistics (used, free, total) formatted as human-readable strings.
+ * Provides JVM memory usage statistics (used, free, total) formatted as
+ * human-readable strings.
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-01-30
  */
 final class InternalMemory {
@@ -304,4 +302,3 @@ final class InternalMemory {
         return "";
     }
 }
-

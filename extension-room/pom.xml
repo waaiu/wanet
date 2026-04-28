@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.waaiu.net</groupId>
-        <artifactId>ionet</artifactId>
+        <artifactId>wanet</artifactId>
         <version>25.4</version>
     </parent>
 
     <artifactId>extension-room</artifactId>
-    <name>extension-room for ionet</name>
+    <name>extension-room for wanet</name>
 
     <dependencies>
         <dependency>
@@ -26,3 +26,4 @@
         </dependency>
     </dependencies>
 </project>
+

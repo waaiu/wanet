@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -30,12 +30,16 @@ import lombok.extern.slf4j.*;
 import org.agrona.concurrent.*;
 
 /**
- * Default single-threaded {@link Publisher} implementation backed by per-publication queues.
+ * Default single-threaded {@link Publisher} implementation backed by
+ * per-publication queues.
  *
- * <p>Messages are queued by publication name and encoded on the publisher thread before
- * being offered to Aeron.</p>
+ * <p>
+ * Messages are queued by publication name and encoded on the publisher thread
+ * before
+ * being offered to Aeron.
+ * </p>
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-27
  * @since 25.1
  */
@@ -75,7 +79,8 @@ public final class DefaultPublisher implements Publisher {
     }
 
     private class DefaultPublisherRunnable implements PublisherRunnable {
-        private final UnsafeBuffer buffer = new UnsafeBuffer(ByteBuffer.allocateDirect(CoreGlobalConfig.publisherBufferSize));
+        private final UnsafeBuffer buffer = new UnsafeBuffer(
+                ByteBuffer.allocateDirect(CoreGlobalConfig.publisherBufferSize));
         private final MessageHeaderEncoder headerEncoder = new MessageHeaderEncoder();
 
         @Override
@@ -113,7 +118,8 @@ public final class DefaultPublisher implements Publisher {
 
                     encoder.encoder(message, headerEncoder, buffer);
                     int limit = encoder.limit();
-                    // The encoder writes into the shared direct buffer and reports the message boundary via limit().
+                    // The encoder writes into the shared direct buffer and reports the message
+                    // boundary via limit().
                     publication.offer(buffer, 0, limit);
                 }
             }
@@ -125,4 +131,3 @@ public final class DefaultPublisher implements Publisher {
         }
     }
 }
-

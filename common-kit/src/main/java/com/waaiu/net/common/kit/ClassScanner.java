@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -31,7 +31,7 @@ import lombok.extern.slf4j.*;
  * <p>
  * Supports scanning from both file system directories and JAR archives.
  *
- * @author 渔民小镇
+ * @author
  * @date 2021-12-12
  */
 @Slf4j(topic = IonetLogName.CommonStdout)
@@ -46,8 +46,10 @@ public class ClassScanner {
     /**
      * Create a scanner for the given package with a class filter.
      *
-     * @param packagePath     the base package to scan (dot-separated, e.g. "com.waaiu.net")
-     * @param predicateFilter predicate that returns {@code true} for classes to include
+     * @param packagePath     the base package to scan (dot-separated, e.g.
+     *                        "com.waaiu.net")
+     * @param predicateFilter predicate that returns {@code true} for classes to
+     *                        include
      */
     public ClassScanner(String packagePath, Predicate<Class<?>> predicateFilter) {
         this.predicateFilter = predicateFilter != null ? predicateFilter : clazz -> true;
@@ -99,7 +101,8 @@ public class ClassScanner {
     }
 
     /**
-     * Return the resource URLs for the configured package path, deduplicated by URI.
+     * Return the resource URLs for the configured package path, deduplicated by
+     * URI.
      *
      * @return list of unique resource URLs
      * @throws IOException if an I/O error occurs while reading resources
@@ -245,4 +248,3 @@ public class ClassScanner {
         }
     }
 }
-

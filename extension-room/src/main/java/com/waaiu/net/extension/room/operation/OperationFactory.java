@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -24,7 +24,7 @@ import java.util.*;
 /**
  * Gameplay Operation Factory
  *
- * @author 渔民小镇
+ * @author
  * @date 2024-05-12
  * @since 21.8
  */
@@ -38,7 +38,8 @@ public interface OperationFactory {
     OperationHandler getOperationHandler(int operation);
 
     /**
-     * Get OperationHandler that the user can operate (Gameplay Operation Business Class)
+     * Get OperationHandler that the user can operate (Gameplay Operation Business
+     * Class)
      *
      * @param operation Operation code
      * @return Gameplay Operation Business Class
@@ -46,7 +47,8 @@ public interface OperationFactory {
     OperationHandler getUserOperationHandler(int operation);
 
     /**
-     * Associate the operation code with the OperationHandler (Gameplay Operation Business Class)
+     * Associate the operation code with the OperationHandler (Gameplay Operation
+     * Business Class)
      *
      * @param operation        Operation code
      * @param operationHandler Gameplay Operation Business Class
@@ -54,7 +56,8 @@ public interface OperationFactory {
     void mapping(int operation, OperationHandler operationHandler);
 
     /**
-     * OperationHandler that the user can operate. Associate the operation code with the OperationHandler (Gameplay Operation Business Class)
+     * OperationHandler that the user can operate. Associate the operation code with
+     * the OperationHandler (Gameplay Operation Business Class)
      *
      * @param operation        Operation code
      * @param operationHandler Gameplay Operation Business Class
@@ -62,7 +65,8 @@ public interface OperationFactory {
     void mappingUser(int operation, OperationHandler operationHandler);
 
     /**
-     * OperationHandler that the user can operate. Associate the operation code with the OperationHandler (Gameplay Operation Business Class)
+     * OperationHandler that the user can operate. Associate the operation code with
+     * the OperationHandler (Gameplay Operation Business Class)
      *
      * @param operationCode    Operation code
      * @param operationHandler Gameplay Operation Business Class
@@ -73,7 +77,8 @@ public interface OperationFactory {
     }
 
     /**
-     * Associate the operation code with the OperationHandler (Gameplay Operation Business Class)
+     * Associate the operation code with the OperationHandler (Gameplay Operation
+     * Business Class)
      *
      * @param operationCode    Operation code
      * @param operationHandler Gameplay Operation Business Class
@@ -92,7 +97,8 @@ public interface OperationFactory {
     Optional<OperationHandler> optionalOperationHandler(int operation);
 
     /**
-     * Create OperationFactory object (Built-in implementation provided by the framework)
+     * Create OperationFactory object (Built-in implementation provided by the
+     * framework)
      *
      * @return OperationFactory object
      */

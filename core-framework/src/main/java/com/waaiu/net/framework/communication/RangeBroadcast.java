@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -24,11 +24,14 @@ import java.util.*;
 /**
  * Broadcast message delivery scoped to a specific set of users.
  * <p>
- * Provides a fluent API for selecting target user IDs, setting the broadcast payload
- * (with automatic codec encoding for various data types), and executing the broadcast.
- * Users can be added or excluded individually or in bulk before calling {@link #execute()}.
+ * Provides a fluent API for selecting target user IDs, setting the broadcast
+ * payload
+ * (with automatic codec encoding for various data types), and executing the
+ * broadcast.
+ * Users caexcluded individually or in bulk before calling
+ * {@link #execute()}.
  *
- * @author 渔民小镇
+ * @author
  * @date 2024-06-02
  * @since 21.9
  */
@@ -83,7 +86,8 @@ public interface RangeBroadcast {
     }
 
     /**
-     * Add users to receive the broadcast, simultaneously excluding one user who should not receive it
+     * Add users to receive the broadcast, simultaneously excluding one user who
+     * should not receive it
      *
      * @param userIds       User IDs to receive the broadcast
      * @param excludeUserId User ID to be excluded
@@ -112,7 +116,8 @@ public interface RangeBroadcast {
     }
 
     /**
-     * Set the broadcast payload from an {@code int} value, encoding it via the configured codec.
+     * Set the broadcast payload from an {@code int} value, encoding it via the
+     * configured codec.
      *
      * @param data the integer value to broadcast
      * @return this instance for chaining
@@ -123,7 +128,8 @@ public interface RangeBroadcast {
     }
 
     /**
-     * Set the broadcast payload from a {@code boolean} value, encoding it via the configured codec.
+     * Set the broadcast payload from a {@code boolean} value, encoding it via the
+     * configured codec.
      *
      * @param data the boolean value to broadcast
      * @return this instance for chaining
@@ -134,7 +140,8 @@ public interface RangeBroadcast {
     }
 
     /**
-     * Set the broadcast payload from a {@code long} value, encoding it via the configured codec.
+     * Set the broadcast payload from a {@code long} value, encoding it via the
+     * configured codec.
      *
      * @param data the long value to broadcast
      * @return this instance for chaining
@@ -145,7 +152,8 @@ public interface RangeBroadcast {
     }
 
     /**
-     * Set the broadcast payload from a {@link String} value, encoding it via the configured codec.
+     * Set the broadcast payload from a {@link String} value, encoding it via the
+     * configured codec.
      *
      * @param data the string value to broadcast (must not be null)
      * @return this instance for chaining
@@ -157,7 +165,8 @@ public interface RangeBroadcast {
     }
 
     /**
-     * Set the broadcast payload from a business object, encoding it via the configured codec.
+     * Set the broadcast payload from a business object, encoding it via the
+     * configured codec.
      *
      * @param data the business data object to broadcast (must not be null)
      * @return this instance for chaining
@@ -169,7 +178,8 @@ public interface RangeBroadcast {
     }
 
     /**
-     * Set the broadcast payload from a collection of business objects, encoding it via the configured codec.
+     * Set the broadcast payload from a collection of business objects, encoding it
+     * via the configured codec.
      *
      * @param dataList the collection of objects to broadcast
      * @return this instance for chaining
@@ -180,7 +190,8 @@ public interface RangeBroadcast {
     }
 
     /**
-     * Set the broadcast payload from a list of {@link Integer} values, encoding it via the configured codec.
+     * Set the broadcast payload from a list of {@link Integer} values, encoding it
+     * via the configured codec.
      *
      * @param dataList the list of integer values to broadcast
      * @return this instance for chaining
@@ -191,7 +202,8 @@ public interface RangeBroadcast {
     }
 
     /**
-     * Set the broadcast payload from a list of {@link Boolean} values, encoding it via the configured codec.
+     * Set the broadcast payload from a list of {@link Boolean} values, encoding it
+     * via the configured codec.
      *
      * @param dataList the list of boolean values to broadcast
      * @return this instance for chaining
@@ -202,7 +214,8 @@ public interface RangeBroadcast {
     }
 
     /**
-     * Set the broadcast payload from a list of {@link Long} values, encoding it via the configured codec.
+     * Set the broadcast payload from a list of {@link Long} values, encoding it via
+     * the configured codec.
      *
      * @param dataList the list of long values to broadcast
      * @return this instance for chaining
@@ -213,7 +226,8 @@ public interface RangeBroadcast {
     }
 
     /**
-     * Set the broadcast payload from a list of {@link String} values, encoding it via the configured codec.
+     * Set the broadcast payload from a list of {@link String} values, encoding it
+     * via the configured codec.
      *
      * @param dataList the list of string values to broadcast
      * @return this instance for chaining
@@ -223,4 +237,3 @@ public interface RangeBroadcast {
         return this.setData(codec().encodeListString(dataList));
     }
 }
-

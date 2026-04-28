@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -21,14 +21,19 @@ package com.waaiu.net.framework.protocol;
 import com.waaiu.net.framework.core.*;
 
 /**
- * Contract for external communication messages exchanged between clients and the external server.
+ * Contract for external communication messages exchanged between clients and
+ * the external server.
  * <p>
- * Combines {@link CommonResponse} for error handling, {@link UserIdentity} for user binding,
- * and {@link Request} for routing metadata. Adds protocol-level fields such as the command code,
- * protocol switch flags, message ID, cache condition, and the merged command route key.
- * Implementations are typically codec-generated classes used by the Netty handler pipeline.
+ * Combines {@link CommonResponse} for error handling, {@link UserIdentity} for
+ * user binding,
+ * and {@link Request} for routing metadata. Adds protocol-level fields such as
+ * the command code,
+ * protocol switch flags, message ID, cache condition, and the merged command
+ * route key.
+ * Implementations are typically codec-generated classes used by the Netty
+ * handler pipeline.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-24
  * @since 25.1
  */
@@ -127,4 +132,3 @@ public interface CommunicationMessage extends CommonResponse, UserIdentity, Requ
         return CmdInfo.of(this.getCmdMerge());
     }
 }
-

@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -17,15 +17,18 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 /**
- * Provides micro-deployment and cluster-join abstractions used by external servers in distributed
+ * Provides micro-deployment and cluster-join abstractions used by external
+ * servers in distributed
  * deployments.
  *
- * <p>See <a href="https://waaiu.github.io/ionet/docs/manual_high/external_design">Micro</a> for the
+ * <p>
+ * See <a href=
+ * "https://waaiu.github.io/wanet/docs/manual_high/external_design">Micro</a>
+ * for the
  * external-server distributed design.
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-04-28
  * @since 25.1
  */
 package com.waaiu.net.external.core.micro;
-

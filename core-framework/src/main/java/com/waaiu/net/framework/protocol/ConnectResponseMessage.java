@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -21,13 +21,15 @@ package com.waaiu.net.framework.protocol;
 import lombok.*;
 
 /**
- * Response message sent when a server successfully connects (joins) the cluster.
+ * Response message sent when a server successfully connects (joins) the
+ * cluster.
  * <p>
- * Created from a {@link ServerMessage} via the {@link #of(ServerMessage)} factory
+ * Created from a {@link ServerMessage} via the {@link #of(ServerMessage)}
+ * factory
  * method, copying all server metadata and adding the joining server's id and
  * a future correlation id.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-25
  * @since 25.1
  */
@@ -35,16 +37,21 @@ import lombok.*;
 @Setter
 @ToString(callSuper = true)
 public final class ConnectResponseMessage extends ServerMessage {
-    /** Correlation id used to match this response to its originating connect request. */
+    /**
+     * Correlation id used to match this response to its originating connect
+     * request.
+     */
     long futureId;
     /** Identifier of the server that has joined the cluster. */
     int joinServerId;
 
     /**
-     * Create a {@link ConnectResponseMessage} by copying metadata from the given server message.
+     * Create a {@link ConnectResponseMessage} by copying metadata from the given
+     * server message.
      *
      * @param message the source server message whose metadata is copied
-     * @return a new {@link ConnectResponseMessage} populated with the source metadata
+     * @return a new {@link ConnectResponseMessage} populated with the source
+     *         metadata
      */
     public static ConnectResponseMessage of(ServerMessage message) {
         var responseMessage = new ConnectResponseMessage();
@@ -61,4 +68,3 @@ public final class ConnectResponseMessage extends ServerMessage {
         return responseMessage;
     }
 }
-

@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -24,16 +24,18 @@ import lombok.*;
  * Request message sent from an external (Netty) server to a logic server.
  * <p>
  * Carries user identity information, a trace id for distributed tracing,
- * and the external server / template context. Extends {@link ExternalCommonMessage}
+ * and the external server / template context. Extends
+ * {@link ExternalCommonMessage}
  * with request-specific fields.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-10
  * @since 25.1
  */
 @Getter
 @Setter
-public final class ExternalRequestMessage extends ExternalCommonMessage implements UserIdentity, ExternalPayloadSetting {
+public final class ExternalRequestMessage extends ExternalCommonMessage
+        implements UserIdentity, ExternalPayloadSetting {
     /** User id associated with this request. */
     long userId;
     /** Whether the user's identity has been verified (authenticated). */
@@ -68,4 +70,3 @@ public final class ExternalRequestMessage extends ExternalCommonMessage implemen
         return message;
     }
 }
-

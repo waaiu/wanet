@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -28,9 +28,10 @@ import java.util.*;
 import java.util.stream.*;
 
 /**
- * Default center-server connection manager backed by Aeron publications and subscriptions.
+ * Default center-server connection manager backed by Aeron publications and
+ * subscriptions.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-27
  * @since 25.1
  */
@@ -127,30 +128,30 @@ final class DefaultCenterConnectionManager implements CenterConnectionManager {
     private void init() {
         var channel = AeronConst.udpChannel.formatted("0.0.0.0", AeronConst.centerPort);
         this.subscription = this.aeron.addSubscription(channel, AeronConst.centerStreamId);
-//        this.subscription = this.aeron.addSubscription(channel, AeronConst.centerId, image -> {
-//
-//            log.info("""
-//                            A new publisher has connected
-//                              channel: {}
-//                              streamId: {}
-//                              sessionId: {}
-//                            """,
-//                    image.subscription().channel(),
-//                    image.subscription().streamId(),
-//                    image.sessionId()
-//            );
-//        }, image -> {
-//            log.info("""
-//                            Publisher disconnected
-//                              channel: {}
-//                              streamId: {}
-//                              sessionId: {}
-//                            """,
-//                    image.subscription().channel(),
-//                    image.subscription().streamId(),
-//                    image.sessionId()
-//            );
-//        });
+        // this.subscription = this.aeron.addSubscription(channel, AeronConst.centerId,
+        // image -> {
+        //
+        // log.info("""
+        // A new publisher has connected
+        // channel: {}
+        // streamId: {}
+        // sessionId: {}
+        // """,
+        // image.subscription().channel(),
+        // image.subscription().streamId(),
+        // image.sessionId()
+        // );
+        // }, image -> {
+        // log.info("""
+        // Publisher disconnected
+        // channel: {}
+        // streamId: {}
+        // sessionId: {}
+        // """,
+        // image.subscription().channel(),
+        // image.subscription().streamId(),
+        // image.sessionId()
+        // );
+        // });
     }
 }
-

@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -28,11 +28,13 @@ import lombok.*;
 /**
  * Protocol wrapper for a list of byte array values.
  * <p>
- * Wraps a {@link List} of {@code byte[]} for protobuf serialization. Each element in the list
- * is an individually encoded object, enabling transport of heterogeneous or complex object lists
+ * Wraps a {@link List} of {@code byte[]} for protobuf serialization. Each
+ * element in the list
+ * is an individually encoded object, enabling transport of heterogeneous or
+ * complex object lists
  * over the wire. An empty singleton is cached for the no-data case.
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-04-17
  */
 @ToString
@@ -62,7 +64,8 @@ public final class ByteValueList {
     }
 
     /**
-     * Encode each element in the collection using the default codec and wrap the results.
+     * Encode each element in the collection using the default codec and wrap the
+     * results.
      *
      * @param values the collection of objects to encode
      * @param <T>    the element type
@@ -73,12 +76,14 @@ public final class ByteValueList {
     }
 
     /**
-     * Encode each element in the collection using the specified codec and wrap the results.
+     * Encode each element in the collection using the specified codec and wrap the
+     * results.
      *
      * @param values the collection of objects to encode
      * @param codec  the codec to use for encoding each element
      * @param <T>    the element type
-     * @return a ByteValueList containing the encoded byte arrays, or a cached empty instance
+     * @return a ByteValueList containing the encoded byte arrays, or a cached empty
+     *         instance
      */
     public static <T> ByteValueList of(Collection<T> values, DataCodec codec) {
         if (CollKit.isEmpty(values)) {
@@ -88,4 +93,3 @@ public final class ByteValueList {
         return ofBytes(values.stream().map(codec::encode).toList());
     }
 }
-

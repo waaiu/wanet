@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -22,10 +22,11 @@ import com.waaiu.net.framework.protocol.wrapper.*;
 import java.util.*;
 
 /**
- * Strategy interface for mapping Java/protobuf types to their client-side type names
+ * Strategy interface for mapping Java/protobuf types to their client-side type
+ * names
  * used during document and SDK code generation.
  *
- * @author 渔民小镇
+ * @author
  * @date 2024-06-26
  */
 public interface TypeMappingDocument {
@@ -61,4 +62,3 @@ public interface TypeMappingDocument {
         }
     }
 }
-

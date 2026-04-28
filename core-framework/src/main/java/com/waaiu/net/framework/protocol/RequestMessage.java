@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -18,19 +18,21 @@
  */
 package com.waaiu.net.framework.protocol;
 
-
 import com.waaiu.net.framework.core.*;
 import lombok.*;
 
 /**
- * Internal request message used for logic-to-logic server communication via Aeron.
+ * Internal request message used for logic-to-logic server communication via
+ * Aeron.
  * <p>
- * Extends {@link CommonMessage} with {@link Request} fields including user identity,
- * hop tracking, logic-server binding, and per-request attachment. Provides factory
+ * Extends {@link CommonMessage} with {@link Request} fields including user
+ * identity,
+ * hop tracking, logic-server binding, and per-request attachment. Provides
+ * factory
  * methods for creation and shallow cloning to support request forwarding across
  * logic server boundaries.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-02
  */
 @Setter
@@ -58,7 +60,8 @@ public class RequestMessage extends CommonMessage implements Request {
     }
 
     /**
-     * Create a shallow clone of this request message, copying all routing and identity fields.
+     * Create a shallow clone of this request message, copying all routing and
+     * identity fields.
      * <p>
      * Useful when forwarding a request to another logic server while preserving the
      * original context.
@@ -86,4 +89,3 @@ public class RequestMessage extends CommonMessage implements Request {
         return message;
     }
 }
-

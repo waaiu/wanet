@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -28,7 +28,7 @@ import lombok.extern.slf4j.*;
 /**
  * Room related utilities
  *
- * @author 渔民小镇
+ * @author
  * @date 2024-04-30
  * @since 21.7
  */
@@ -39,7 +39,8 @@ public class RoomKit {
      * Get an empty seat number from the room
      *
      * @param room The room
-     * @return Empty seat number. When the value is -1, it means there are no empty seats (the room is full).
+     * @return Empty seat number. When the value is -1, it means there are no empty
+     *         seats (the room is full).
      */
     public int getEmptySeatNo(Room room) {
         // Player seat map
@@ -53,7 +54,6 @@ public class RoomKit {
 
         return -1;
     }
-
 
     FlowContext ofFlowContext(long userId) {
         var requestMessage = new UserRequestMessage();
@@ -87,4 +87,3 @@ public class RoomKit {
         flowContext.broadcastMe(broadcastUserMessage);
     }
 }
-

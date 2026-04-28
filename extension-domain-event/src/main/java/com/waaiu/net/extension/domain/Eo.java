@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -20,12 +20,13 @@ package com.waaiu.net.extension.domain;
 
 /**
  * Business interface for domain events (Event Object)
+ * 
  * <pre>
  * Usually the interface implemented by the business data carrier
  * Implementing this interface will gain the ability to send domain events
  * </pre>
  *
- * @author 渔民小镇
+ * @author
  * @date 2021-12-26
  */
 public interface Eo extends DomainEventSource {
@@ -36,4 +37,3 @@ public interface Eo extends DomainEventSource {
         DomainEventPublish.send(this);
     }
 }
-

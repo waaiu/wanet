@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -27,14 +27,15 @@ import lombok.extern.slf4j.*;
 /**
  * File I/O utilities.
  *
- * @author 渔民小镇
+ * @author
  * @date 2022-12-23
  */
 @Slf4j
 @UtilityClass
 public class FileKit {
     /**
-     * Write a UTF-8 string to the specified file path, creating parent directories and
+     * Write a UTF-8 string to the specified file path, creating parent directories
+     * and
      * the file itself if they do not exist.
      *
      * @param content  the text content to write
@@ -59,4 +60,3 @@ public class FileKit {
         }
     }
 }
-

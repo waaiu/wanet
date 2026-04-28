@@ -1,6 +1,6 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  waaiu (262610965@qq.com, luoyizhu@gmail.com) . All Rights Reserved.
+ * wanet
+ * Copyright (C) 2021 - present  waaiu () . All Rights Reserved.
  * # waaiu.com
  *
  * This program is free software: you can redistribute it and/or modify
@@ -77,7 +77,8 @@ public final class CsharpDocumentGenerate extends AbstractDocumentGenerate {
 
     @Override
     protected void generateAction(Document document) {
-        List<ActionDocument> actionDocumentList = DocumentAnalyseKit.analyseActionDocument(document, typeMappingDocument);
+        List<ActionDocument> actionDocumentList = DocumentAnalyseKit.analyseActionDocument(document,
+                typeMappingDocument);
 
         actionDocumentList.forEach(actionDocument -> {
             Template template = ofTemplate("action.txt");
@@ -177,7 +178,8 @@ public final class CsharpDocumentGenerate extends AbstractDocumentGenerate {
             var record = new TypeMappingRecord().setInternalType(false)
                     .setParamTypeName(paramTypeName).setListParamTypeName("List<%s>".formatted(paramTypeName))
                     .setOfMethodTypeName("").setOfMethodListTypeName("ValueList")
-                    .setResultMethodTypeName("GetValue<%s>()".formatted(paramTypeName)).setResultMethodListTypeName("ListValue<%s>()".formatted(paramTypeName));
+                    .setResultMethodTypeName("GetValue<%s>()".formatted(paramTypeName))
+                    .setResultMethodListTypeName("ListValue<%s>()".formatted(paramTypeName));
 
             map.put(protoTypeClazz, record);
 

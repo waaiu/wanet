@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -28,23 +28,19 @@ import lombok.*;
 /**
  * Immutable runtime settings for one external server instance.
  *
- * @param port port exposed to real players
- * @param server server metadata descriptor
- * @param userSessions user session manager
+ * @param port               port exposed to real players
+ * @param server             server metadata descriptor
+ * @param userSessions       user session manager
  * @param idleProcessSetting heartbeat/idle processing settings
- * @param options extensible attribute options
- * @author 渔民小镇
+ * @param options            extensible attribute options
+ * @author
  * @date 2025-10-15
  * @since 25.1
  */
 @Builder(setterPrefix = "set", builderClassName = "RecordBuilder")
 public record ExternalSetting(
-        int port
-        , Server server
-        , UserSessions<?, ?> userSessions
-        , IdleProcessSetting idleProcessSetting
-        , AttrOptions options
-) implements AttrOptionDynamic {
+        int port, Server server, UserSessions<?, ?> userSessions, IdleProcessSetting idleProcessSetting,
+        AttrOptions options) implements AttrOptionDynamic {
 
     /** Attribute key storing the resolved {@link NetServerSetting}. */
     public static final AttrOption<NetServerSetting> netServerSetting = AttrOption.valueOf("NetServerSetting");
@@ -91,4 +87,3 @@ public record ExternalSetting(
         }
     }
 }
-

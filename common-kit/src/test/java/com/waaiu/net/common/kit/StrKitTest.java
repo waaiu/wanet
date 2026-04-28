@@ -7,10 +7,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-
 /**
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-23
  * @since 25.1
  */
@@ -32,7 +31,7 @@ public class StrKitTest {
                   cat = 0;
                   // the tiger
                   tiger = 10;
-                
+
                 """);
         messageMap.put("classComment", "TestAnimalTypeEnum");
         messageMap.put("classOrEnum", "enum");

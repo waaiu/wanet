@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -26,13 +26,16 @@ import java.util.*;
 import java.util.stream.*;
 
 /**
- * Default method parser for complex (non-primitive) action method parameters and return types.
+ * Default method parser for complex (non-primitive) action method parameters
+ * and return types.
  * <p>
- * Handles single objects and lists by delegating to the configured {@link DataCodec} for
- * serialization and deserialization. Uses {@link com.waaiu.net.framework.protocol.wrapper.ByteValueList}
+ * Handles single objects and lists by delegating to the configured
+ * {@link DataCodec} for
+ * serialization and deserialization. Uses
+ * {@link cramework.protocol.wrapper.ByteValueList}
  * as the wire format for list parameters.
  *
- * @author 渔民小镇
+ * @author
  * @date 2022-06-26
  */
 class DefaultMethodParser implements MethodParser {
@@ -64,7 +67,8 @@ class DefaultMethodParser implements MethodParser {
         }
 
         if (data == null) {
-            // If an action parameter type Supplier is configured, the object is created through the Supplier.
+            // If an action parameter type Supplier is configured, the object is created
+            // through the Supplier.
             var o = MethodParsers.newObject(actualTypeArgumentClazz);
             if (Objects.nonNull(o)) {
                 return o;
@@ -110,4 +114,3 @@ class DefaultMethodParser implements MethodParser {
         static final DefaultMethodParser ME = new DefaultMethodParser();
     }
 }
-

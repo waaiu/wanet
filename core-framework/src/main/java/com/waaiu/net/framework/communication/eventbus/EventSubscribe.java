@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -21,33 +21,41 @@ package com.waaiu.net.framework.communication.eventbus;
 import java.lang.annotation.*;
 
 /**
- * Subscriber annotation, marks a method as an event subscriber (receives events, processes events),
- * configurable with thread executor strategy and execution priority. It is thread-safe by default.
+ * Subscriber annotation, marks a method as an event subscriber (receives
+ * events, processes events),
+ * configurable with thread executor strategy and execution priority. It is
+ * thread-safe by default.
+ * 
  * <pre>
  * The subscriber must have one and only one parameter, used to receive the event source.
  * It is thread-safe by default, using the user thread executor.
  * </pre>
+ * 
  * for example
- * <pre>{@code
- * public class YourEventBusSubscriber implements EventBusSubscriber {
- *     // Specify the thread executor to execute the subscriber's logic
- *     @EventSubscribe(ExecutorSelector.userExecutor)
- *     public void userLogin(YourEventMessage message) {
- *         log.info("event - User [{}] logged in", message.getUserId());
+ * 
+ * <pre>
+ * {
+ *     &#64;code
+ *     public class YourEventBusSubscriber implements EventBusSubscriber {
+ *         // Specify the thread executor to execute the subscriber's logic
+ *         &#64;EventSubscribe(ExecutorSelector.userExecutor)
+ *         public void userLogin(YourEventMessage message) {
+ *             log.info("event - User [{}] logged in", message.getUserId());
+ *         }
  *     }
- * }
  *
- * @Data
- * public class YourEventMessage {
- *     final long userId;
- *     public YourEventMessage(long userId) {
- *         this.userId = userId;
+ *     @Data
+ *     public class YourEventMessage {
+ *         final long userId;
+ * 
+ *         public YourEventMessage(long userId) {
+ *             this.userId = userId;
+ *         }
  *     }
- * }
  * }
  * </pre>
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-12-24
  * @since 21
  */
@@ -61,7 +69,9 @@ public @interface EventSubscribe {
     ExecutorSelector value() default ExecutorSelector.userExecutor;
 
     /**
-     * The execution order (priority) of the subscriber. A higher value means higher execution priority.
+     * The execution order (priority) of the subscriber. A higher value means higher
+     * execution priority.
+     * 
      * <pre>
      * To ensure sequential execution, subscribers need to use the same thread executor.
      * For example, it can be used with strategies like userExecutor, simpleExecutor, etc.

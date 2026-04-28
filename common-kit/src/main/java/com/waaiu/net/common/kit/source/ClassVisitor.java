@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -30,7 +30,7 @@ import lombok.experimental.*;
  * Visits class declarations in a compilation unit, extracting metadata
  * (Javadoc, annotations, methods, fields) into {@link SourceClass} instances.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-02-27
  */
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
@@ -43,7 +43,7 @@ final class ClassVisitor extends TreeScanner<Void, Void> {
     Map<String, SourceClass> result;
 
     ClassVisitor(String packageName, CompilationUnitTree unit,
-                 DocTrees docTrees, Trees trees, Map<String, SourceClass> result) {
+            DocTrees docTrees, Trees trees, Map<String, SourceClass> result) {
         this.packageName = packageName;
         this.unit = unit;
         this.docTrees = docTrees;
@@ -93,7 +93,8 @@ final class ClassVisitor extends TreeScanner<Void, Void> {
 
                     fields.add(new SourceField(fieldName, fieldComment, enumArgs));
                 }
-                default -> {}
+                default -> {
+                }
             }
         }
 
@@ -231,4 +232,3 @@ final class ClassVisitor extends TreeScanner<Void, Void> {
         return Collections.emptyList();
     }
 }
-

@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -26,19 +26,23 @@ import lombok.*;
 import lombok.experimental.*;
 
 /**
- * Registry of {@link MethodParser} implementations, mapping parameter types to their parsers.
+ * Registry of {@link MethodParser} implementations, mapping parameter types to
+ * their parsers.
  * <p>
- * Provides lookup, registration, and default-fallback for action method parameter/return type parsers.
- * Built-in parsers handle primitive types ({@code int}, {@code long}, {@code boolean}, {@code String})
+ * Provides lookup, registration, and default-fallback for action method
+ * parameter/return type parsers.
+ * Built-in parsers handle primitive types ({@code int}, {@code long},
+ * {@code be String})
  * and their protocol wrapper counterparts.
  *
- * @author 渔民小镇
+ * @author
  * @date 2022-06-26
  */
 @UtilityClass
 public final class MethodParsers {
     /**
      * Method parser map
+     * 
      * <pre>
      * key : Generally use primitive types. For example, int and its wrapper class Integer are categorized as primitive types here.
      * value : The parser corresponding to the primitive type
@@ -64,7 +68,8 @@ public final class MethodParsers {
     }
 
     /**
-     * Register a parameter supplier for the given class, used to create default instances when data is null.
+     * Register a parameter supplier for the given class, used to create default
+     * instances when data is null.
      *
      * @param paramClass the parameter class
      * @param supplier   the supplier to create default instances
@@ -74,10 +79,12 @@ public final class MethodParsers {
     }
 
     /**
-     * Get the method parser for the given action method return or parameter metadata.
+     * Get the method parser for the given action method return or parameter
+     * metadata.
      *
      * @param actionMethodReturn the return or parameter type metadata
-     * @return the matching parser, or the default parser if no specific one is registered
+     * @return the matching parser, or the default parser if no specific one is
+     *         registered
      */
     public MethodParser getMethodParser(ActualParameter actionMethodReturn) {
         Class<?> methodResultClass = actionMethodReturn.getActualTypeArgumentClass();
@@ -92,7 +99,8 @@ public final class MethodParsers {
      * Get the method parser for the given parameter class.
      *
      * @param paramClazz the parameter class
-     * @return the matching parser, or the default parser if no specific one is registered
+     * @return the matching parser, or the default parser if no specific one is
+     *         registered
      */
     public MethodParser getMethodParser(Class<?> paramClazz) {
         return methodParserMap.getOrDefault(paramClazz, methodParser);
@@ -111,7 +119,7 @@ public final class MethodParsers {
     /**
      * Register a method parser for the given parameter class.
      *
-     * @param paramClass       the parameter class
+     * @param paramClass        the parameter class
      * @param methodParamParser the parser to handle this class
      */
     public void mapping(Class<?> paramClass, MethodParser methodParamParser) {
@@ -119,24 +127,29 @@ public final class MethodParsers {
     }
 
     private void init() {
-        // In action parameters, when encountering int type, use IntValueMethodParser to parse
+        // In action parameters, when encountering int type, use IntValueMethodParser to
+        // parse
         mapping(int.class, IntValueMethodParser.me());
         mapping(Integer.class, IntValueMethodParser.me());
 
-        // In action parameters, when encountering long type, use LongValueMethodParser to parse
+        // In action parameters, when encountering long type, use LongValueMethodParser
+        // to parse
         mapping(long.class, LongValueMethodParser.me());
         mapping(Long.class, LongValueMethodParser.me());
 
-        // In action parameters, when encountering String type, use StringValueMethodParser to parse
+        // In action parameters, when encountering String type, use
+        // StringValueMethodParser to parse
         mapping(String.class, StringValueMethodParser.me());
 
-        // In action parameters, when encountering boolean type, use BoolValueMethodParser to parse
+        // In action parameters, when encountering boolean type, use
+        // BoolValueMethodParser to parse
         mapping(boolean.class, BoolValueMethodParser.me());
         mapping(Boolean.class, BoolValueMethodParser.me());
 
         /*
          * These registrations also enable the containsKey method for short-name lookups
-         * during documentation generation. Could use instanceof instead, but this approach
+         * during documentation generation. Could use instanceof instead, but this
+         * approach
          * is more elegant.
          */
         mapping(IntValue.class, DefaultMethodParser.me(), IntValue::new);
@@ -165,10 +178,10 @@ public final class MethodParsers {
 
         /*
          * Native protobuf may produce null for zero-valued fields in jprotobuf.
-         * To avoid this, when a business parameter is null and matches a registered type,
+         * To avoid this, when a business parameter is null and matches a registered
+         * type,
          * the Supplier is used to create a default object.
          */
         mappingParamSupplier(paramClass, supplier);
     }
 }
-

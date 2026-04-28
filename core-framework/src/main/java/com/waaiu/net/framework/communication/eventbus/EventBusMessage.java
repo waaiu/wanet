@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -21,10 +21,11 @@ package com.waaiu.net.framework.communication.eventbus;
 import java.util.*;
 
 /**
- * Event message carrying the event source data, topic, routing info, and fire type flags
+ * Event message carrying the event source data, topic, routing info, and fire
+ * type flags
  * for the EventBus system.
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-12-24
  * @since 21
  */
@@ -35,7 +36,10 @@ public final class EventBusMessage {
     public long threadIndex;
     /** Trace ID for distributed tracing and debugging. */
     public String traceId;
-    /** The event topic, typically the fully qualified class name of the event source. */
+    /**
+     * The event topic, typically the fully qualified class name of the event
+     * source.
+     */
     public String topic;
     /** Serialized event source data for cross-process transmission. */
     public byte[] data;
@@ -45,7 +49,9 @@ public final class EventBusMessage {
 
     /** The deserialized event source object (local only, not serialized). */
     public transient Object eventSource;
-    /** Remote server messages from other processes that have matching subscribers. */
+    /**
+     * Remote server messages from other processes that have matching subscribers.
+     */
     public transient Collection<EventServerMessage> eventServerMessages;
 
     /** Bitmask of fire types that have been applied to this message. */
@@ -110,4 +116,3 @@ public final class EventBusMessage {
         return message;
     }
 }
-

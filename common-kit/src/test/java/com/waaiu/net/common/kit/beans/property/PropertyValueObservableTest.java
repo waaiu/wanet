@@ -9,7 +9,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  *
- * @author 渔民小镇
+ * @author
  * @date 2024-04-17
  * @since 25.1
  */
@@ -140,31 +140,32 @@ class PropertyValueObservableTest {
 
         property.addListener(new PropertyChangeListener<>() {
             @Override
-            public void changed(PropertyValueObservable<? extends Number> observable, Number oldValue, Number newValue) {
+            public void changed(PropertyValueObservable<? extends Number> observable, Number oldValue,
+                    Number newValue) {
                 log.info("1 - newValue : {}", newValue);
 
                 if (newValue.intValue() == 9) {
-                    // 移除当前监听器
+                    //
                     observable.removeListener(this);
                 }
             }
         });
 
-        property.decrement(); // value == 9，并触发监听器
-        property.decrement(); // value == 8，由于监听器已经移除，所以不会触发任何事件。
+        property.decrement(); // value == 9，
+        property.decrement(); // value == 8，，。
         Assertions.assertEquals(8, property.get());
     }
 
     @Test
     public void remove2() {
         IntegerProperty property = new IntegerProperty(10);
-        // 监听器移除的示例
+        //
         OnePropertyChangeListener onePropertyChangeListener = new OnePropertyChangeListener();
         property.addListener(onePropertyChangeListener);
 
-        property.increment(); // value == 11，并触发监听器
-        property.removeListener(onePropertyChangeListener); // 移除监听器
-        property.increment(); // value == 12，，由于监听器已经移除，所以不会触发任何事件。
+        property.increment(); // value == 11，
+        property.removeListener(onePropertyChangeListener); //
+        property.increment(); // value == 12，，，。
 
         Assertions.assertEquals(12, property.get());
 

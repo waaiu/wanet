@@ -1,6 +1,6 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  waaiu (262610965@qq.com, luoyizhu@gmail.com) . All Rights Reserved.
+ * wanet
+ * Copyright (C) 2021 - present  waaiu () . All Rights Reserved.
  * # waaiu.com
  *
  * This program is free software: you can redistribute it and/or modify
@@ -17,10 +17,13 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 /**
- * Provides extension utilities for generating client/server integration code and related
- * documentation artifacts from ionet metadata.
+ * Provides extension utilities for generating client/server integration code
+ * and related
+ * documentation artifacts from wanet metadata.
  *
- * <p>See <a href="https://waaiu.github.io/ionet/docs/extension_module/generate_code">Generate-code</a>
+ * <p>
+ * See <a href=
+ * "https://waaiu.github.io/wanet/docs/extension_module/generate_code">Generate-code</a>
  * for examples.
  *
  * @author waaiu
@@ -28,4 +31,3 @@
  * @since 25.1
  */
 package com.waaiu.net.extension.codegen;
-

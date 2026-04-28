@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   (
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -19,8 +19,10 @@
 package com.waaiu.net.common.kit.concurrent;
 
 /**
- * Task listener callback, used in scenarios such as: one-time delayed tasks, scheduled tasks, lightweight controllable delayed tasks, lightweight periodic persistence helper functions, and other extended scenarios.
- * <a href="https://waaiu.github.io/ionet/docs/kit/task_kit">Documentation</a>
+ * Task listener callback, used in scenarios such as: one-time delayed tasks,
+ * scheduled tasks, lightweight controllable delayed tasks, lightweight periodic
+ * persistence helper functions, and other extended scenarios.
+ * <a href="https://waaiu.github.io/wanet/docs/kit/task_kit">Documentation</a>
  *
  * <pre>
  * These usage scenarios share a common feature: listener callbacks. The interface provides 4 methods, as follows:
@@ -30,10 +32,9 @@ package com.waaiu.net.common.kit.concurrent;
  * 4. {@link TaskListener#getExecutor()}, specify the executor to run the above methods, with the goal of not occupying business threads.
  * </pre>
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-12-06
  * @since 21.9
  */
 public interface TaskListener extends CommonTaskListener {
 }
-

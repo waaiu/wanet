@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.waaiu.net</groupId>
-        <artifactId>ionet</artifactId>
+        <artifactId>wanet</artifactId>
         <version>25.4</version>
     </parent>
 
     <artifactId>extension-client</artifactId>
-    <name>extension-client for ionet</name>
+    <name>extension-client for wanet</name>
 
     <dependencies>
         <dependency>
@@ -19,7 +19,7 @@
             <version>${project.parent.version}</version>
         </dependency>
 
-        <!-- 模拟客户端 https://mvnrepository.com/artifact/org.java-websocket/Java-WebSocket -->
+        <!--  https://mvnrepository.com/artifact/org.java-websocket/Java-WebSocket -->
         <dependency>
             <groupId>org.java-websocket</groupId>
             <artifactId>Java-WebSocket</artifactId>
@@ -27,3 +27,5 @@
         </dependency>
     </dependencies>
 </project>
+
+

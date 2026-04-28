@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   (
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -21,22 +21,23 @@ package com.waaiu.net.common.kit.beans.property;
 import lombok.*;
 
 /**
- * int - Property has listening feature. A listening event will be triggered when the value changes.
+ * int - Property has listening feature. A listening event will be triggered
+ * when the value changes.
  *
  * <pre>{@code
- *         var property = new IntegerProperty();
- *         // add listener monitor property object
- *         property.addListener((observable, oldValue, newValue) -> {
- *             log.info("oldValue:{}, newValue:{}", oldValue, newValue);
- *         });
+ * var property = new IntegerProperty();
+ * // add listener monitor property object
+ * property.addListener((observable, oldValue, newValue) -> {
+ *     log.info("oldValue:{}, newValue:{}", oldValue, newValue);
+ * });
  *
- *         property.get(); // value is 0
- *         property.set(22); // When the value changes,listeners are triggered
- *         property.get(); // value is 22
+ * property.get(); // value is 0
+ * property.set(22); // When the value changes,listeners are triggered
+ * property.get(); // value is 22
  * }
  * </pre>
  *
- * @author 渔民小镇
+ * @author
  * @date 2024-04-17
  */
 @ToString
@@ -101,4 +102,3 @@ public final class IntegerProperty extends NumberPropertyValueObservable {
         this.set(this.value - 1);
     }
 }
-

@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -24,13 +24,16 @@ import java.util.*;
 import lombok.experimental.*;
 
 /**
- * Eagerly initializes framework-wide configuration and network utilities at class-load time.
+ * Eagerly initializes framework-wide configuration and network utilities at
+ * class-load time.
  * <p>
- * On first access the static initializer discovers all {@link CoreConfigLoader} implementations
- * via {@link ServiceLoader} and applies their configuration, then forces early resolution of
+ * On first access the static initializer discovers all {@link CoreConfigLoader}
+ * implementations
+ * via {@link ServiceLoader} and applies their configuration, then forces early
+ * resolution of
  * the local IP address so that later lookups are instantaneous.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-10-18
  * @since 25.1
  */
@@ -41,12 +44,16 @@ final class Preloading {
         empty(NetworkKit.LOCAL_IP);
     }
 
-    /** No-op consumer used solely to trigger evaluation of a lazily-computed value. */
+    /**
+     * No-op consumer used solely to trigger evaluation of a lazily-computed value.
+     */
     private void empty(Object x) {
     }
 
-    /** Trigger class loading (and therefore the static initializer) from external code. */
+    /**
+     * Trigger class loading (and therefore the static initializer) from external
+     * code.
+     */
     void loading() {
     }
 }
-

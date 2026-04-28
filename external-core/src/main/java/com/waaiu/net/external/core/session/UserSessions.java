@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -27,7 +27,7 @@ import java.util.function.*;
 /**
  * UserSession manager
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-02-18
  */
 public interface UserSessions<SessionContext, Session extends UserSession> extends AttrOptionDynamic {
@@ -64,7 +64,8 @@ public interface UserSessions<SessionContext, Session extends UserSession> exten
     Session getUserSessionByUserChannelId(long userChannelId);
 
     /**
-     * If a UserSession is present, performs the given action with it, otherwise does nothing.
+     * If a UserSession is present, performs the given action with it, otherwise
+     * does nothing.
      *
      * @param userId   userId
      * @param consumer The action to be performed if the UserSession is present
@@ -77,7 +78,8 @@ public interface UserSessions<SessionContext, Session extends UserSession> exten
     }
 
     /**
-     * If a UserSession is present, performs the given action with it, otherwise does nothing.
+     * If a UserSession is present, performs the given action with it, otherwise
+     * does nothing.
      *
      * @param userIdList userIdList cannot be null
      * @param consumer   The action to be performed if the UserSession is present
@@ -103,7 +105,8 @@ public interface UserSessions<SessionContext, Session extends UserSession> exten
     boolean existUserSession(long userId);
 
     /**
-     * Sets the userId for the channel, indicating that the identity has been authenticated (i.e., logged in).
+     * Sets the userId for the channel, indicating that the identity has been
+     * authenticated (i.e., logged in).
      *
      * @param userChannelId userChannelId
      * @param userId        userId
@@ -162,4 +165,3 @@ public interface UserSessions<SessionContext, Session extends UserSession> exten
      */
     void setJoinEnum(ExternalJoinEnum joinEnum);
 }
-

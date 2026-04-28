@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -25,9 +25,9 @@ import lombok.*;
 import lombok.experimental.*;
 
 /**
- * 广播监听
+ * 
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-07-09
  */
 @Getter
@@ -57,4 +57,3 @@ public class ListenCommand {
         return String.format(format, inputName, title);
     }
 }
-

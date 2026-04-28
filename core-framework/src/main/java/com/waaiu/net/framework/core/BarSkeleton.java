@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -28,12 +28,13 @@ import lombok.*;
 import lombok.experimental.*;
 
 /**
- * Central execution engine of the ionet business framework.
+ * Central execution engine of the wanet business framework.
  * <p>
- * Holds action commands, flow executor, interceptors, and communication aggregation.
+ * Holds action commands, flow executor, interceptors, and communication
+ * aggregation.
  * Built via {@link BarSkeletonBuilder}.
  *
- * @author 渔民小镇
+ * @author
  * @date 2021-12-12
  */
 @FieldDefaults(level = AccessLevel.PUBLIC)
@@ -76,4 +77,3 @@ public final class BarSkeleton {
         this.flowExecutor.execute(flowContext, this);
     }
 }
-

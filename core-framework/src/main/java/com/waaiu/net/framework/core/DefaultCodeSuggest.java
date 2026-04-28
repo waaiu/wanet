@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -23,27 +23,22 @@ import com.waaiu.net.framework.protocol.wrapper.*;
 import java.util.*;
 
 /**
- * Default {@link CodeSuggest} implementation that recommends replacing wrapper types
- * (e.g. {@link IntValue}) with their primitive or collection equivalents in action
- * method parameters and return types.
+ * Default {@link CodeSuggest} implementation that recommends replacing wrapper
+ * types
+ * (e.g. {@link IntValue}) with their primitive or collection equivalents in
+ * action
+ * method preturn types.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-10-13
  * @since 25.1
  */
 public class DefaultCodeSuggest implements CodeSuggest {
     private final Map<Class<?>, String> wrapperTypeMap = Map.of(
-            IntValueList.class, "List<Integer>"
-            , LongValueList.class, "List<Long>"
-            , BoolValueList.class, "List<Boolean>"
-            , StringValueList.class, "List<String>"
+            IntValueList.class, "List<Integer>", LongValueList.class, "List<Long>", BoolValueList.class,
+            "List<Boolean>", StringValueList.class, "List<String>"
 
-            , IntValue.class, "int"
-            , LongValue.class, "long"
-            , BoolValue.class, "boolean"
-            , StringValue.class, "String"
-    );
-
+            , IntValue.class, "int", LongValue.class, "long", BoolValue.class, "boolean", StringValue.class, "String");
 
     @Override
     public void inspect(SuggestInformation suggest) {
@@ -66,8 +61,7 @@ public class DefaultCodeSuggest implements CodeSuggest {
         }
 
         suggest.see(Bundle.getMessage(MessageKey.codeSuggestMethodReturn).formatted(
-                returnTypeClazz.getSimpleName(), recommendType
-        ));
+                returnTypeClazz.getSimpleName(), recommendType));
     }
 
     private void inspectParameter(SuggestInformation suggest) {
@@ -85,8 +79,6 @@ public class DefaultCodeSuggest implements CodeSuggest {
         }
 
         suggest.see(Bundle.getMessage(MessageKey.codeSuggestMethodParameter).formatted(
-                dataParameter.name, recommendType
-        ));
+                dataParameter.name, recommendType));
     }
 }
-

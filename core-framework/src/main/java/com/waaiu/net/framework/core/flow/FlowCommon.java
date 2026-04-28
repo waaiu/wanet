@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -25,10 +25,11 @@ import com.waaiu.net.framework.protocol.*;
 import java.util.concurrent.*;
 
 /**
- * Base interface for flow communication, providing access to the server, request, executor,
+ * Base interface for flow communication, providing access to the server,
+ * request, executor,
  * and communication infrastructure.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-10-09
  * @since 25.1
  */
@@ -97,7 +98,8 @@ public interface FlowCommon extends CommonDecorator {
     }
 
     /**
-     * Get the thread index used for executor selection. Defaults to the user ID, ensuring
+     * Get the thread index used for executor selection. Defaults to the user ID,
+     * ensuring
      * that requests from the same user are dispatched to the same thread.
      *
      * @return the thread index
@@ -183,10 +185,10 @@ public interface FlowCommon extends CommonDecorator {
     void setMethodResult(Object data);
 
     /**
-     * Get the communication type of the current flow (e.g., user request, internal call).
+     * Get the communication type of the current flow (e.g., user request, internal
+     * call).
      *
      * @return the communication type
      */
     CommunicationType getCommunicationType();
 }
-

@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   (
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -24,12 +24,15 @@ import lombok.*;
 import lombok.experimental.*;
 
 /**
- * Abstract base for thread executor regions that distribute tasks across a fixed pool of executors.
+ * Abstract base for thread executor regions that distribute tasks across a
+ * fixed pool of executors.
  * <p>
- * Subclasses define how an index maps to a specific {@link ThreadExecutor} and may override
- * {@link #createExecutorService(String)} to customize the underlying executor (e.g. virtual threads).
+ * Subclasses define how an index maps to a specific {@link ThreadExecutor} and
+ * may override
+ * {@link #Service(String)} to customize the underlying executor
+ * (e.g. virtual threads).
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-12-01
  */
 @FieldDefaults(level = AccessLevel.PROTECTED)
@@ -44,10 +47,12 @@ abstract sealed class AbstractThreadExecutorRegion implements ThreadExecutorRegi
     /**
      * Create an executor region with the given thread name prefix and pool size.
      * <p>
-     * Each executor in the pool is backed by a single-thread {@link java.util.concurrent.ExecutorService}
-     * created via {@link #createExecutorService(String)}, and is pre-warmed with a no-op task.
+     * Each executor in the pool is backed by a single-thread
+     * {@link java.util.concurrent.ExecutorService}
+     * created via {@link #createExecutorService(String)}, and is pre-warmed with a
+     * no-op task.
      *
-     * @param threadName base name used to build each thread's name prefix
+     * @param threadName   base name used to build each thread's name prefix
      * @param executorSize number of {@link ThreadExecutor} instances in the pool
      */
     AbstractThreadExecutorRegion(String threadName, int executorSize) {
@@ -66,10 +71,13 @@ abstract sealed class AbstractThreadExecutorRegion implements ThreadExecutorRegi
     }
 
     /**
-     * Create the {@link java.util.concurrent.ExecutorService} for a single {@link ThreadExecutor}.
+     * Create the {@link java.util.concurrent.ExecutorService} for a single
+     * {@link ThreadExecutor}.
      * <p>
-     * The default implementation returns a single-thread {@link java.util.concurrent.ThreadPoolExecutor}
-     * with an unbounded queue. Subclasses may override this to provide alternative executors
+     * The default implementation returns a single-thread
+     * {@link java.util.concurrent.ThreadPoolExecutor}
+     * with an unbounded queue. Subclasses may override this to provide alternative
+     * executors
      * (e.g. virtual-thread-based).
      *
      * @param name the thread name prefix for the executor
@@ -84,4 +92,3 @@ abstract sealed class AbstractThreadExecutorRegion implements ThreadExecutorRegi
                 threadFactory);
     }
 }
-

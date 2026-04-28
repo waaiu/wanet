@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -34,12 +34,14 @@ import lombok.experimental.*;
 import lombok.extern.slf4j.*;
 
 /**
- * Client communication channel facade for sending requests and receiving server responses.
+ * Client communication channel facade for sending requests and receiving server
+ * responses.
+ * 
  * <pre>
  *     Sends requests and receives server responses.
  * </pre>
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-07-13
  */
 @Slf4j
@@ -51,14 +53,14 @@ public class ClientUserChannel {
 
     final AtomicBoolean starting = new AtomicBoolean();
     /**
-     * 请求回调
+     * 
      * <pre>
      *     key : msgId
      * </pre>
      */
     final Map<Integer, RequestCommand> callbackMap = CollKit.ofConcurrentHashMap();
     /**
-     * 广播监听
+     * 
      * <pre>
      *     key : cmdMerge
      * </pre>
@@ -114,13 +116,8 @@ public class ClientUserChannel {
 
         if (ClientUserConfigs.openLogRequestCommand) {
             long userId = clientUser.getUserId();
-            log.info("User[{}] Request【{}】- [msgId:{}] {} {}"
-                    , userId
-                    , requestCommand.getTitle()
-                    , msgId
-                    , CmdKit.toString(cmdInfo.cmdMerge())
-                    , data
-            );
+            log.info("User[{}] Request【{}】- [msgId:{}] {} {}", userId, requestCommand.getTitle(), msgId,
+                    CmdKit.toString(cmdInfo.cmdMerge()), data);
         }
 
         this.writeAndFlush(message);
@@ -178,7 +175,8 @@ public class ClientUserChannel {
             if (Objects.nonNull(requestCommand)) {
                 printLog(message, requestCommand);
 
-                Optional.ofNullable(requestCommand.getCallback()).ifPresent(callback -> callback.callback(commandResult));
+                Optional.ofNullable(requestCommand.getCallback())
+                        .ifPresent(callback -> callback.callback(commandResult));
 
                 return;
             }
@@ -201,10 +199,7 @@ public class ClientUserChannel {
 
         private void printLog(ListenCommand listenCommand, int cmdMerge) {
             if (ClientUserConfigs.openLogListenBroadcast) {
-                log.info("Listen Callback [{}] - {}"
-                        , listenCommand.getTitle()
-                        , CmdKit.toString(cmdMerge)
-                );
+                log.info("Listen Callback [{}] - {}", listenCommand.getTitle(), CmdKit.toString(cmdMerge));
             }
         }
 
@@ -214,12 +209,8 @@ public class ClientUserChannel {
                 long userId = clientUser.getUserId();
                 int cmdMerge = message.getCmdMerge();
 
-                log.info("User[{}] Receive【{}】- [msgId:{}] {}"
-                        , userId
-                        , requestCommand.getTitle()
-                        , message.getMsgId()
-                        , CmdKit.toString(cmdMerge)
-                );
+                log.info("User[{}] Receive【{}】- [msgId:{}] {}", userId, requestCommand.getTitle(), message.getMsgId(),
+                        CmdKit.toString(cmdMerge));
 
                 CallbackDelegate callback = requestCommand.getCallback();
                 if (callback == null) {
@@ -229,4 +220,3 @@ public class ClientUserChannel {
         }
     }
 }
-

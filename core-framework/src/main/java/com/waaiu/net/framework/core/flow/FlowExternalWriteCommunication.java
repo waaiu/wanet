@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -27,30 +27,43 @@ import com.waaiu.net.framework.protocol.*;
 import java.util.*;
 
 /**
- * Flow-level communication for writing response data back to the external client, supporting
+ * Flow-level communication for writing response data back to the external
+ * client, supporting
  * various data types and list encodings.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-10-09
  * @since 25.1
  */
 public interface FlowExternalWriteCommunication extends FlowCommon, ExternalCommunicationDecorator {
-    /** Write an int response message to the external client. @see #writeMessage(Object) */
+    /**
+     * Write an int response message to the external client. @see
+     * #writeMessage(Object)
+     */
     default void writeMessage(int data) {
         _writeMessage(data);
     }
 
-    /** Write a long response message to the external client. @see #writeMessage(Object) */
+    /**
+     * Write a long response message to the external client. @see
+     * #writeMessage(Object)
+     */
     default void writeMessage(long data) {
         _writeMessage(data);
     }
 
-    /** Write a boolean response message to the external client. @see #writeMessage(Object) */
+    /**
+     * Write a boolean response message to the external client. @see
+     * #writeMessage(Object)
+     */
     default void writeMessage(boolean data) {
         _writeMessage(data);
     }
 
-    /** Write a String response message to the external client. @see #writeMessage(Object) */
+    /**
+     * Write a String response message to the external client. @see
+     * #writeMessage(Object)
+     */
     default void writeMessage(String data) {
         _writeMessage(data);
     }
@@ -58,8 +71,10 @@ public interface FlowExternalWriteCommunication extends FlowCommon, ExternalComm
     /**
      * Write a response message with the given data to the external client.
      * <p>
-     * The data is encoded using the appropriate {@link DataCodec} based on the communication type,
-     * wrapped in a response, and published to the external server via the communication aggregation.
+     * The data is encoded using the appropriate {@link DataCodec} based on the
+     * communication type,
+     * wrapped in a response, and published to the external server via the
+     * communication aggregation.
      *
      * @param data the response data object to encode and send
      */
@@ -117,7 +132,9 @@ public interface FlowExternalWriteCommunication extends FlowCommon, ExternalComm
                 : DataCodecManager.getInternalDataCodec();
     }
 
-    /** Internal helper that encodes a single data object and writes the response. */
+    /**
+     * Internal helper that encodes a single data object and writes the response.
+     */
     private void _writeMessage(Object data) {
 
         MethodParser methodParser = MethodParsers.getMethodParser(data.getClass());
@@ -133,4 +150,3 @@ public interface FlowExternalWriteCommunication extends FlowCommon, ExternalComm
         this.getCommunicationAggregation().publishMessageByNetId(netId, response);
     }
 }
-

@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -28,11 +28,13 @@ import lombok.*;
 import lombok.experimental.*;
 
 /**
- * Internal helper that collects and renders a text-based documentation block for a
- * single {@code @ActionController}, including its action methods, parameters, return
- * types, and associated broadcast documents.
+ * Internal helper that collects and renders a text-based documentation block
+ * for a
+ * single {@code @ActionController}, including its action methods, parameters,
+ * return
+ * types, abroadcast documents.
  *
- * @author 渔民小镇
+ * @author
  * @date 2022-01-29
  */
 @FieldDefaults(level = AccessLevel.PACKAGE)
@@ -94,7 +96,8 @@ final class DocInfo {
         if (isCustomList) {
             /*
              * For integration documents we use ByteValueList<xxx> instead of List<xxx>,
-             * because ByteValueList is a wrapper type similar to IntValueList, LongValueList, etc.
+             * because ByteValueList is a wrapper type similar to IntValueList,
+             * LongValueList, etc.
              */
             String simpleName = ByteValueList.class.getSimpleName();
             String simpleNameActualClazz = actualClazz.getSimpleName();
@@ -116,8 +119,7 @@ final class DocInfo {
         String templateHead = "==================== %s %s ====================";
         lineList.add(String.format(templateHead, this.actionSimpleName, this.classComment));
 
-        String subActionCommandTemplate =
-                "route: {cmd} - {subCmd}  --- 【{methodComment}】 --- 【{actionSimpleName}:{lineNumber}】【{methodName}】";
+        String subActionCommandTemplate = "route: {cmd} - {subCmd}  --- 【{methodComment}】 --- 【{actionSimpleName}:{lineNumber}】【{methodName}】";
 
         for (Map<String, String> paramMap : subBehaviorList) {
 
@@ -154,4 +156,3 @@ final class DocInfo {
         return String.join(separator, lineList);
     }
 }
-

@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -25,9 +25,10 @@ import io.netty.channel.*;
 import lombok.*;
 
 /**
- * Creates and removes {@link SocketUserSession} instances on Netty channel lifecycle events.
+ * Creates and removes {@link SocketUserSession} instances on Netty channel
+ * lifecycle events.
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-02-19
  */
 @Setter
@@ -50,7 +51,8 @@ public final class SocketUserSessionHandler extends ChannelInboundHandlerAdapter
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         int id = server.id();
-        // Register the new channel immediately so downstream handlers can resolve the session.
+        // Register the new channel immediately so downstream handlers can resolve the
+        // session.
         SocketUserSession userSession = userSessions.add(ctx);
         userSession.setExternalServerId(id);
 
@@ -74,4 +76,3 @@ public final class SocketUserSessionHandler extends ChannelInboundHandlerAdapter
         super.exceptionCaught(ctx, cause);
     }
 }
-

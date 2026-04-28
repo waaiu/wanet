@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -23,14 +23,17 @@ import com.waaiu.net.framework.protocol.*;
 import java.util.concurrent.*;
 
 /**
- * Communication interface for collecting aggregated responses from multiple logic servers.
+ * Communication interface for collecting aggregated responses from multiple
+ * logic servers.
  * <p>
- * Extends {@link PublisherCommunication} and provides both synchronous and asynchronous
- * (future-based) methods for broadcasting a request to all logic servers that handle
- * the target command and gathering their individual responses into a single
+ * Extends {@link PublisherCommunication} and provides both synchronous and
+ * asynchronous
+ * (future-based) methods for broadcasting a request to all logic servers that
+ * handle
+ * the targ gathering their individual responses into a single
  * {@link ResponseCollect}.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-04
  * @since 25.1
  */
@@ -40,7 +43,8 @@ public interface LogicCollectCommunication extends PublisherCommunication {
      * Asynchronously call all matching logic servers and collect their responses.
      *
      * @param message the request message to broadcast
-     * @return a future that completes with the aggregated response from all logic servers
+     * @return a future that completes with the aggregated response from all logic
+     *         servers
      */
     CompletableFuture<ResponseCollect> callCollectFuture(RequestMessage message);
 
@@ -52,4 +56,3 @@ public interface LogicCollectCommunication extends PublisherCommunication {
      */
     ResponseCollect callCollect(RequestMessage message);
 }
-

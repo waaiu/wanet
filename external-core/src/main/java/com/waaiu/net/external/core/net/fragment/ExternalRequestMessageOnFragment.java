@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -34,9 +34,10 @@ import lombok.extern.slf4j.*;
 import org.agrona.*;
 
 /**
- * Aeron fragment consumer that dispatches internal external-operation requests by template id.
+ * Aeron fragment consumer that dispatches internal external-operation requests
+ * by template id.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-11
  * @since 25.1
  */
@@ -74,7 +75,8 @@ public class ExternalRequestMessageOnFragment implements OnFragment, NetServerSe
         var responseMessage = new ExternalResponseMessage();
         responseMessage.setFutureId(decoder.futureId());
         responseMessage.setExternalServerId(decoder.externalServerId());
-        var context = new OnExternalContext(userSessions, responseMessage, userId, verifyIdentity, payload, payloadLength);
+        var context = new OnExternalContext(userSessions, responseMessage, userId, verifyIdentity, payload,
+                payloadLength);
         processOnExternal(context);
     }
 
@@ -89,7 +91,8 @@ public class ExternalRequestMessageOnFragment implements OnFragment, NetServerSe
     }
 
     /**
-     * Execute the template handler asynchronously and always publish the response back to the requester netId.
+     * Execute the template handler asynchronously and always publish the response
+     * back to the requester netId.
      *
      * @param context external template execution context
      */
@@ -125,4 +128,3 @@ public class ExternalRequestMessageOnFragment implements OnFragment, NetServerSe
         return ExternalRequestMessageDecoder.TEMPLATE_ID;
     }
 }
-

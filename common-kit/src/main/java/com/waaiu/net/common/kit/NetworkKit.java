@@ -7,7 +7,7 @@ import lombok.experimental.*;
 /**
  * Network utilities for local IP address detection.
  *
- * @author 渔民小镇
+ * @author
  * @date 2022-05-14
  */
 @UtilityClass
@@ -27,7 +27,8 @@ public class NetworkKit {
                 while (ee.hasMoreElements()) {
                     var inetAddress = (InetAddress) ee.nextElement();
                     String hostAddress = inetAddress.getHostAddress();
-                    if (hostAddress.contains(".") && !IP_BLACK_LIST.contains(hostAddress) && !inetAddress.isLoopbackAddress()) {
+                    if (hostAddress.contains(".") && !IP_BLACK_LIST.contains(hostAddress)
+                            && !inetAddress.isLoopbackAddress()) {
                         ip = hostAddress;
                         break;
                     }
@@ -44,4 +45,3 @@ public class NetworkKit {
         return ip;
     }
 }
-

@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   (
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -24,10 +24,11 @@ import lombok.*;
 import lombok.experimental.*;
 
 /**
- * Internal helper that tracks property value changes and dispatches events to a single listener.
+ * Internal helper that tracks property value changes and dispatches events to a
+ * single listener.
  *
- * @param <T> the type of the observed property value
- * @author 渔民小镇
+ * @param < the observed property value
+ * @author
  * @date 2024-04-17
  */
 abstract class ChangeHelper<T> {
@@ -39,7 +40,8 @@ abstract class ChangeHelper<T> {
         this.observable = observable;
     }
 
-    static <T> ChangeHelper<T> create(PropertyValueObservable<T> observable, PropertyChangeListener<? super T> listener) {
+    static <T> ChangeHelper<T> create(PropertyValueObservable<T> observable,
+            PropertyChangeListener<? super T> listener) {
         return new PropertySingleChange<>(observable, observable.getValue(), listener);
     }
 
@@ -51,7 +53,8 @@ abstract class ChangeHelper<T> {
         final PropertyChangeListener<? super T> listener;
         T currentValue;
 
-        PropertySingleChange(PropertyValueObservable<T> observable, T currentValue, PropertyChangeListener<? super T> listener) {
+        PropertySingleChange(PropertyValueObservable<T> observable, T currentValue,
+                PropertyChangeListener<? super T> listener) {
             super(observable);
             this.currentValue = currentValue;
             this.listener = listener;
@@ -92,7 +95,8 @@ abstract class ChangeHelper<T> {
 }
 
 /**
- * Internal list of {@link ChangeHelper} instances that manages listener registration and event dispatching.
+ * Internal list of {@link ChangeHelper} instances that manages listener
+ * registration and event dispatching.
  *
  * @param <T> the type of the observed property value
  */
@@ -154,4 +158,3 @@ final class ChangeHelperList<T> {
         this.list.forEach(ChangeHelper::fireValueChangedEvent);
     }
 }
-

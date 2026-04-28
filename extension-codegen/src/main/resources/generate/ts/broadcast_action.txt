@@ -5,7 +5,7 @@ import {CmdKit, ListenCommand, ResponseResult} from "waaiu-sdk";
 
 /**
  * Broadcast Listener
- * @author https://github.com/waaiu/ionet
+ * @author https://github.com/waaiu/wanet
  */
 export class Listener {
 <%for(o in broadcastDocumentList) {%>
@@ -46,5 +46,6 @@ export class Listener {
     <%}%>
     }
 }
+
 
 

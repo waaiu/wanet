@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -17,13 +17,18 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 /**
- * Provides room-based game infrastructure for board games and similar multiplayer room workflows,
- * including room management, lifecycle processes, and extensible gameplay operations.
+ * Provides room-based game infrastructure for board games and similar
+ * multiplayer room workflows,
+ * including room management, lifecycle processes, and extensible gameplay
+ * operations.
  *
- * <p>See <a href="https://waaiu.github.io/ionet/docs/extension_module/room">Board Game/Room Game</a>
+ * <p>
+ * See <a href="https://waaiu.github.io/wanet/docs/extension_module/room">Board
+ * Game/Room Game</a>
  * for the overall module design.
  * <p>
  * Module Overview
+ * 
  * <pre>
  * This module is a solution for board games and room-based games. It is well suited for the basic infrastructure of board games and room games. Based on this model, you can create games like Hearthstone, Sanguosha, Dou Dizhu, Mahjong, etc.
  * Or, this model is applicable to any room-based game, such as CS, Bomberman, Ludo, Tank Wars, and so on.
@@ -33,6 +38,7 @@
  * </pre>
  * <p>
  * Main Problems Solved and Responsibilities
+ * 
  * <pre>
  * The functional responsibilities of board games and room-based games can be divided into 3 major categories:
  * 1. Room Management Related:
@@ -50,9 +56,8 @@
  * More importantly, there is relevant documentation, which allows new team members to get up to speed quickly in the future.
  * </pre>
  *
- * @author 渔民小镇
+ * @author
  * @date 2024-05-14
  * @since 21.8
  */
 package com.waaiu.net.extension.room;
-

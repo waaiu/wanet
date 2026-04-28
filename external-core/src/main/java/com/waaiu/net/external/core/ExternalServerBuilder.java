@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -35,7 +35,7 @@ import lombok.*;
 /**
  * Builder for assembling an external server and its runtime dependencies.
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-02-19
  * @since 25.1
  */
@@ -60,13 +60,15 @@ public final class ExternalServerBuilder implements ExternalServerBuilderSetting
     ExternalServerCreator externalServerCreator;
 
     /**
-     * Build an {@link ExternalServer} with defaults, transport-specific settings, and injected dependencies.
+     * Build an {@link ExternalServer} with defaults, transport-specific settings,
+     * and injected dependencies.
      *
      * @return configured external server instance
      */
     public ExternalServer build() {
         this.defaultSetting();
-        // Generate a MicroBootstrapFlow, MicroBootstrap, UserSessions, PipelineCustom according to ExternalJoinEnum
+        // Generate a MicroBootstrapFlow, MicroBootstrap, UserSessions, PipelineCustom
+        // according to ExternalJoinEnum
         ExternalJoinSelectors.getExternalJoinSelector(joinEnum).defaultSetting(this);
 
         // ------------ userSessions ------------
@@ -74,7 +76,8 @@ public final class ExternalServerBuilder implements ExternalServerBuilderSetting
         userSessions.setJoinEnum(joinEnum);
 
         // ------------ IdleProcessSetting ------------
-        var idleProcessSetting = idleProcessSettingBuilder == null ? null : idleProcessSettingBuilder.ofIdleProcessSetting();
+        var idleProcessSetting = idleProcessSettingBuilder == null ? null
+                : idleProcessSettingBuilder.ofIdleProcessSetting();
 
         // ------------ ExternalServer ------------
         Server server = new ServerBuilder()
@@ -106,12 +109,12 @@ public final class ExternalServerBuilder implements ExternalServerBuilderSetting
                 .setMicroBootstrap(microBootstrap)
                 .setMicroBootstrapFlow(microBootstrapFlow)
                 .setInjectSet(injectSet)
-                .build()
-        );
+                .build());
     }
 
     /**
-     * Fill missing builder values with framework defaults before transport-specific setup.
+     * Fill missing builder values with framework defaults before transport-specific
+     * setup.
      */
     private void defaultSetting() {
         Objects.requireNonNull(externalServerCreator);
@@ -142,4 +145,3 @@ public final class ExternalServerBuilder implements ExternalServerBuilderSetting
         ServiceLoader.load(ExternalJoinSelector.class).forEach(ExternalJoinSelectors::putIfAbsent);
     }
 }
-

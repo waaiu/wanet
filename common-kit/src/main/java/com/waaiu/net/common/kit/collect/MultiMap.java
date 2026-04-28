@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   (
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -24,7 +24,7 @@ import java.util.*;
  * A map that associates each key with a collection of values.
  * Base interface for {@link ListMultiMap} and {@link SetMultiMap}.
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-12-07
  */
 interface MultiMap<K, V> {
@@ -36,7 +36,8 @@ interface MultiMap<K, V> {
     Map<K, ? extends Collection<V>> asMap();
 
     /**
-     * Get an element collection by key, creating the collection if it does not exist.
+     * Get an element collection by key, creating the collection if it does not
+     * exist.
      *
      * @param key key
      * @return collection, guaranteed to be non-null
@@ -110,7 +111,8 @@ interface MultiMap<K, V> {
      * Check whether this multimap contains a mapping for the specified key.
      *
      * @param key the key to look up
-     * @return {@code true} if this multimap contains at least one mapping for the key
+     * @return {@code true} if this multimap contains at least one mapping for the
+     *         key
      */
     default boolean containsKey(K key) {
         return this.asMap().containsKey(key);
@@ -148,4 +150,3 @@ interface MultiMap<K, V> {
         return this.asMap().keySet();
     }
 }
-

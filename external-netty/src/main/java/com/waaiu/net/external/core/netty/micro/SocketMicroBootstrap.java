@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -29,16 +29,18 @@ import lombok.experimental.*;
 import lombok.extern.slf4j.*;
 
 /**
- * Server for connecting with real players, handling netty servers for tcp and websocket.
+ * Server for connecting with real players, handling netty servers for tcp and
+ * websocket.
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-05-27
  */
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Slf4j(topic = IonetLogName.ExternalTopic)
 public final class SocketMicroBootstrap implements MicroBootstrap {
     /**
-     * Cast the transport-agnostic flow to the concrete bootstrap type expected by this implementation.
+     * Cast the transport-agnostic flow to the concrete bootstrap type expected by
+     * this implementation.
      *
      * @param microBootstrapFlow generic bootstrap flow
      * @return typed bootstrap flow
@@ -59,7 +61,8 @@ public final class SocketMicroBootstrap implements MicroBootstrap {
                 .group(bossGroup, workerGroup)
                 .channel(channelClass);
 
-        // Developers can selectively override the process methods to customize the business logic for their own projects.
+        // Developers can selectively override the process methods to customize the
+        // business logic for their own projects.
         var flow = map(microBootstrapFlow);
         flow.option(bootstrap);
         flow.channelInitializer(bootstrap);
@@ -78,4 +81,3 @@ public final class SocketMicroBootstrap implements MicroBootstrap {
         }
     }
 }
-

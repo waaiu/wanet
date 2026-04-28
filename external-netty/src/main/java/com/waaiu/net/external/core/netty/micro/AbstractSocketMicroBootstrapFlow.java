@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -34,7 +34,7 @@ import lombok.experimental.*;
 /**
  * Shared Netty socket pipeline flow for TCP/WebSocket external servers.
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-05-31
  */
 @FieldDefaults(level = AccessLevel.PROTECTED)
@@ -61,7 +61,8 @@ abstract class AbstractSocketMicroBootstrapFlow implements MicroBootstrapFlow<Se
         IdleProcessSetting idleProcessSetting = this.setting.idleProcessSetting();
 
         if (idleProcessSetting == null) {
-            // If heartbeat processing is disabled, filter out heartbeat frames instead of handling them.
+            // If heartbeat processing is disabled, filter out heartbeat frames instead of
+            // handling them.
             context.addLast("SocketIdleExcludeHandler", SocketIdleExcludeHandler.me());
             return;
         }
@@ -71,8 +72,7 @@ abstract class AbstractSocketMicroBootstrapFlow implements MicroBootstrapFlow<Se
                 idleProcessSetting.readerIdleTime(),
                 idleProcessSetting.writerIdleTime(),
                 idleProcessSetting.allIdleTime(),
-                idleProcessSetting.timeUnit())
-        );
+                idleProcessSetting.timeUnit()));
 
         // IdleHandler
         SocketIdleHandler socketIdleHandler = setting.option(SettingOption.socketIdleHandler);
@@ -93,7 +93,8 @@ abstract class AbstractSocketMicroBootstrapFlow implements MicroBootstrapFlow<Se
         context.addLast("UserSessionHandler", socketUserSessionHandler);
 
         // Route access authentication
-        SocketCmdAccessAuthHandler socketCmdAccessAuthHandler = setting.option(SettingOption.socketCmdAccessAuthHandler);
+        SocketCmdAccessAuthHandler socketCmdAccessAuthHandler = setting
+                .option(SettingOption.socketCmdAccessAuthHandler);
         context.addLast("CmdAccessAuthHandler", socketCmdAccessAuthHandler);
 
         // ExternalServer data cache
@@ -106,4 +107,3 @@ abstract class AbstractSocketMicroBootstrapFlow implements MicroBootstrapFlow<Se
         context.addLast("UserRequestHandler", userRequestHandler);
     }
 }
-

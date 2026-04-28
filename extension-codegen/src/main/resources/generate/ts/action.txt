@@ -6,7 +6,7 @@ import {CmdKit, RequestCommand, ResponseResult} from "waaiu-sdk";
 
 /**
  * ${ActionComment}
- * @author https://github.com/waaiu/ionet
+ * @author https://github.com/waaiu/wanet
  */
 export class ${ActionName} {
 <%for(o in actionMemberCmdDocumentList) {%>
@@ -16,3 +16,4 @@ export class ${ActionName} {
 ${o}
 <%}%>
 }
+

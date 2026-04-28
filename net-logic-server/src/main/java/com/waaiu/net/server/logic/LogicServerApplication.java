@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -24,15 +24,17 @@ import com.waaiu.net.framework.protocol.*;
 import com.waaiu.net.server.*;
 
 /**
- * Bootstraps a {@link LogicServer} into a {@link Server} definition for net-server startup.
+ * Bootstraps a {@link LogicServer} into a {@link Server} definition for
+ * net-server startup.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-04
  * @since 25.1
  */
 public final class LogicServerApplication {
     /**
-     * Builds the logic-server skeleton and server metadata, then registers startup callbacks.
+     * Builds the logic-server skeleton and server metadata, then registers startup
+     * callbacks.
      *
      * @param logicServer logic-server implementation
      * @return built server metadata
@@ -56,4 +58,3 @@ public final class LogicServerApplication {
         return server;
     }
 }
-

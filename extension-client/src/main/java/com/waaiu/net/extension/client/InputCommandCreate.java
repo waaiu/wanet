@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -33,7 +33,7 @@ import lombok.extern.slf4j.*;
 /**
  * Helper for creating simulated input commands within a module command region.
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-07-09
  */
 @Slf4j
@@ -75,7 +75,8 @@ public class InputCommandCreate {
 
         CmdInfo cmdInfo = ofCmdInfo(subCmd);
 
-        // Uniqueness check: verify whether a command with the same route already exists.
+        // Uniqueness check: verify whether a command with the same route already
+        // exists.
         extractedChecked(cmdInfo);
 
         return clientUserInputCommands.ofCommand(cmdInfo)
@@ -95,7 +96,8 @@ public class InputCommandCreate {
     }
 
     /**
-     * Creates a simulated command that reads a {@code long} request parameter from the console.
+     * Creates a simulated command that reads a {@code long} request parameter from
+     * the console.
      *
      * @param subCmd sub-command route
      * @return InputCommand
@@ -106,7 +108,8 @@ public class InputCommandCreate {
     }
 
     /**
-     * Creates a simulated command that reads a target userId ({@code long}) from the console.
+     * Creates a simulated command that reads a target userId ({@code long}) from
+     * the console.
      *
      * @param subCmd sub-command route
      * @return InputCommand
@@ -156,4 +159,3 @@ public class InputCommandCreate {
         };
     }
 }
-

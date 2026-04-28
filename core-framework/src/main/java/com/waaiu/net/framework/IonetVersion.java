@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -19,12 +19,13 @@
 package com.waaiu.net.framework;
 
 /**
- * Provides the current version string of the ionet framework.
+ * Provides the current version string of the wanet framework.
  * <p>
- * The version is extracted at class-load time from an XML-style tag embedded in the source,
+ * The version is extracted at class-load time from an XML-style tag embedded in
+ * the source,
  * making it easy to keep in sync with the Maven POM version.
  *
- * @author 渔民小镇
+ * @author
  * @date 2022-12-23
  */
 public final class IonetVersion {
@@ -33,8 +34,6 @@ public final class IonetVersion {
     static {
         VERSION = "<version>25.4</version>"
                 .replace("<version>", "")
-                .replace("</version>", "")
-        ;
+                .replace("</version>", "");
     }
 }
-

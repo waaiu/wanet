@@ -1,6 +1,6 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  waaiu (262610965@qq.com, luoyizhu@gmail.com) . All Rights Reserved.
+ * wanet
+ * Copyright (C) 2021 - present  waaiu () . All Rights Reserved.
  * # waaiu.com
  *
  * This program is free software: you can redistribute it and/or modify
@@ -58,10 +58,10 @@ public final class GDScriptDocumentGenerate extends AbstractDocumentGenerate {
         log.info("GDScriptDocumentGenerate success: \n{}", this.path);
     }
 
-
     @Override
     protected void generateAction(Document document) {
-        List<ActionDocument> actionDocumentList = DocumentAnalyseKit.analyseActionDocument(document, typeMappingDocument);
+        List<ActionDocument> actionDocumentList = DocumentAnalyseKit.analyseActionDocument(document,
+                typeMappingDocument);
         extractedSnakeName(actionDocumentList);
         List<Class<?>> protoMessageClassList = new ArrayList<>();
 
@@ -73,8 +73,10 @@ public final class GDScriptDocumentGenerate extends AbstractDocumentGenerate {
                 Class<?> bizDataTypeClazz = actionMethodDocument.bizDataTypeClazz;
                 Class<?> returnTypeClazz = actionMethodDocument.returnTypeClazz;
 
-                GDScriptDocumentGenerate.GDScriptProtoMessage bizDataProtoMessage = this.analyseImport.getProtoMessage(bizDataTypeClazz);
-                GDScriptDocumentGenerate.GDScriptProtoMessage returnProtoMessage = this.analyseImport.getProtoMessage(returnTypeClazz);
+                GDScriptDocumentGenerate.GDScriptProtoMessage bizDataProtoMessage = this.analyseImport
+                        .getProtoMessage(bizDataTypeClazz);
+                GDScriptDocumentGenerate.GDScriptProtoMessage returnProtoMessage = this.analyseImport
+                        .getProtoMessage(returnTypeClazz);
 
                 if (Objects.nonNull(bizDataProtoMessage)) {
                     protoMessageClassList.add(bizDataProtoMessage.dataClass);
@@ -120,7 +122,7 @@ public final class GDScriptDocumentGenerate extends AbstractDocumentGenerate {
 
     private Template ofTemplate(String fileName) {
         var template = DocumentGenerateKit.getTemplate("gdscript/" + fileName);
-        template.binding("protoPrefix", "ionet");
+        template.binding("protoPrefix", "wanet");
         return template;
     }
 
@@ -136,7 +138,8 @@ public final class GDScriptDocumentGenerate extends AbstractDocumentGenerate {
         List<Class<?>> protoMessageClassList = new ArrayList<>();
         document.broadcastDocumentList.forEach(broadcastDocument -> {
             Class<?> dataClass = broadcastDocument.dataClass;
-            GDScriptDocumentGenerate.GDScriptProtoMessage bizDataProtoMessage = this.analyseImport.getProtoMessage(dataClass);
+            GDScriptDocumentGenerate.GDScriptProtoMessage bizDataProtoMessage = this.analyseImport
+                    .getProtoMessage(dataClass);
             if (Objects.nonNull(bizDataProtoMessage)) {
                 protoMessageClassList.add(dataClass);
             }
@@ -235,7 +238,8 @@ public final class GDScriptDocumentGenerate extends AbstractDocumentGenerate {
             var record = new TypeMappingRecord().setInternalType(false)
                     .setParamTypeName(paramTypeName).setListParamTypeName("Array[%s]".formatted(paramTypeName))
                     .setOfMethodTypeName("").setOfMethodListTypeName("value_list")
-                    .setResultMethodTypeName("get_value(%s)".formatted(paramTypeName)).setResultMethodListTypeName("list_value(%s)".formatted(paramTypeName));
+                    .setResultMethodTypeName("get_value(%s)".formatted(paramTypeName))
+                    .setResultMethodListTypeName("list_value(%s)".formatted(paramTypeName));
 
             map.put(protoTypeClazz, record);
 
@@ -283,4 +287,3 @@ public final class GDScriptDocumentGenerate extends AbstractDocumentGenerate {
         }
     }
 }
-

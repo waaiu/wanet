@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -21,12 +21,14 @@ package com.waaiu.net.framework.protocol.wrapper;
 import lombok.*;
 
 /**
- * Record that pairs a single-value wrapper class with its corresponding list wrapper class.
+ * Record that pairs a single-value wrapper class with its corresponding list
+ * wrapper class.
  * <p>
- * For example, {@link IntValue} is paired with {@link IntValueList}. Used by {@link WrapperKit}
- * to resolve the correct wrapper types for primitive and boxed Java types.
+ * For example, {@link IntValue} is paired with {@link IntValueList}. Used by
+ * {@link WrapperKit}
+ * to resol wrapper types for primitive and boxed Java types.
  *
- * @author 渔民小镇
+ * @author
  * @date 2024-11-01
  * @since 21.20
  */
@@ -48,4 +50,3 @@ public final class ValueRecord {
         this.valueListClazz = valueListClazz;
     }
 }
-

@@ -8,7 +8,7 @@ namespace ${namespace}
     /// <summary>
     /// GameCode, ErrorCode.
     /// </summary>
-    /// <remarks>Author: https://github.com/waaiu/ionet</remarks>
+    /// <remarks>Author: https://github.com/waaiu/wanet</remarks>
     public static class GameCode
     {
     <%for(o in errorCodeDocumentList) {%>
@@ -30,3 +30,4 @@ namespace ${namespace}
         }
     }
 }
+

@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -18,7 +18,6 @@
  */
 package com.waaiu.net.external.core.netty.session;
 
-
 import com.waaiu.net.common.kit.*;
 import com.waaiu.net.common.kit.concurrent.executor.*;
 import com.waaiu.net.external.core.session.*;
@@ -34,7 +33,7 @@ import org.agrona.concurrent.*;
 /**
  * Netty session manager for TCP and WebSocket external transports.
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-02-18
  */
 @FieldDefaults(level = AccessLevel.PRIVATE)
@@ -52,7 +51,8 @@ public final class SocketUserSessions extends AbstractUserSessions<ChannelHandle
     }
 
     /**
-     * Add a newly connected channel as a user session and assign a generated channel-scoped id.
+     * Add a newly connected channel as a user session and assign a generated
+     * channel-scoped id.
      *
      * @param channelHandlerContext netty channel context
      * @return created user session
@@ -161,4 +161,3 @@ public final class SocketUserSessions extends AbstractUserSessions<ChannelHandle
         this.channelGroup.writeAndFlush(msg);
     }
 }
-

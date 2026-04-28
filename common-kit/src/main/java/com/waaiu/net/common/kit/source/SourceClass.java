@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   (
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -26,7 +26,7 @@ import lombok.experimental.*;
  * Class metadata extracted from Java source, including Javadoc comment,
  * line number, methods, fields, and annotations.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-02-27
  */
 @Getter
@@ -40,8 +40,8 @@ public final class SourceClass {
     final List<SourceAnnotation> annotations;
 
     public SourceClass(String fullyQualifiedName, String comment, int lineNumber,
-                       List<SourceMethod> methods, List<SourceField> fields,
-                       List<SourceAnnotation> annotations) {
+            List<SourceMethod> methods, List<SourceField> fields,
+            List<SourceAnnotation> annotations) {
         this.fullyQualifiedName = fullyQualifiedName;
         this.comment = comment;
         this.lineNumber = lineNumber;
@@ -64,4 +64,3 @@ public final class SourceClass {
         return this.fullyQualifiedName;
     }
 }
-

@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -18,17 +18,19 @@
  */
 package com.waaiu.net.framework.protocol;
 
-
 import com.waaiu.net.framework.core.*;
 
 /**
- * Fire-and-forget request message for one-way logic-to-logic server communication.
+ * Fire-and-forget request message for one-way logic-to-logic server
+ * communication.
  * <p>
- * Extends {@link RequestMessage} without expecting a response. Used when a logic server
- * needs to notify another logic server of an event or trigger an action without waiting
+ * Extends {@link RequestMessage} without expecting a response. Used when a
+ * logic server
+ * needs to notify another logic server of an event or trigger an action without
+ * waiting
  * for a result.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-02
  * @since 25.1
  */
@@ -47,4 +49,3 @@ public final class SendMessage extends RequestMessage {
         return message;
     }
 }
-

@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -28,7 +28,7 @@ import lombok.extern.slf4j.*;
 /**
  * Default logging implementation of {@link UserHook}.
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-02-20
  */
 @Slf4j(topic = IonetLogName.CommonStdout)
@@ -54,7 +54,7 @@ public class DefaultUserHook implements UserHook, ExternalSettingAware {
      * Build the localized log message and include current online user count.
      *
      * @param userSession user session
-     * @param key i18n message key
+     * @param key         i18n message key
      * @return formatted log content
      */
     private String getString(UserSession userSession, String key) {
@@ -68,4 +68,3 @@ public class DefaultUserHook implements UserHook, ExternalSettingAware {
                 userSession.getUserChannelId());
     }
 }
-

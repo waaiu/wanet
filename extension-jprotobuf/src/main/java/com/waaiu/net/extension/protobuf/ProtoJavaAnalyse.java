@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -30,9 +30,10 @@ import java.util.stream.*;
 import lombok.extern.slf4j.*;
 
 /**
- * Analyzes annotated Java classes and converts them into proto generation metadata.
+ * Analyzes annotated Java classes and converts them into proto generation
+ * metadata.
  *
- * @author 渔民小镇
+ * @author
  * @date 2022-01-25
  */
 @Slf4j
@@ -46,7 +47,8 @@ public class ProtoJavaAnalyse {
         return this.analyse(protoPackagePath, protoSourcePath, this.predicateFilter);
     }
 
-    public Map<ProtoJavaRegionKey, ProtoJavaRegion> analyse(String protoPackagePath, String protoSourcePath, Predicate<Class<?>> predicateFilter) {
+    public Map<ProtoJavaRegionKey, ProtoJavaRegion> analyse(String protoPackagePath, String protoSourcePath,
+            Predicate<Class<?>> predicateFilter) {
         var sourceClassMap = getSourceClassMap(protoSourcePath);
         Collection<SourceClass> sourceClassCollection = sourceClassMap.values();
 
@@ -127,7 +129,8 @@ public class ProtoJavaAnalyse {
     private void analyseField(ProtoJava protoJava) {
         Class<?> clazz = protoJava.clazz;
         Field[] fields = clazz.isEnum()
-                ? Arrays.stream(clazz.getDeclaredFields()).filter(field -> field.getType().isEnum()).toArray(Field[]::new)
+                ? Arrays.stream(clazz.getDeclaredFields()).filter(field -> field.getType().isEnum())
+                        .toArray(Field[]::new)
                 : clazz.getFields();
 
         SourceClass sourceClass = protoJava.sourceClass;
@@ -277,12 +280,8 @@ public class ProtoJavaAnalyse {
                     class must import annotation %s
                     """;
 
-            String errorMsg = String.format(templateErr
-                    , protoJavaField.protoJavaParent.className
-                    , fieldName
-                    , ProtobufClass.class
-                    , ProtoFileMerge.class
-            );
+            String errorMsg = String.format(templateErr, protoJavaField.protoJavaParent.className, fieldName,
+                    ProtobufClass.class, ProtoFileMerge.class);
 
             throw new RuntimeException(errorMsg);
         }
@@ -317,4 +316,3 @@ public class ProtoJavaAnalyse {
         return protoJavaRegion;
     }
 }
-

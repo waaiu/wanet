@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -24,12 +24,13 @@ import java.util.*;
  * Extension interface for room management related operations
  * <p>
  * Built-in default implementation
+ * 
  * <pre>{@code
  * RoomService roomService = RoomService.of();
  * }
  * </pre>
  *
- * @author 渔民小镇
+ * @author
  * @date 2022-03-31
  * @since 21.8
  */
@@ -37,6 +38,7 @@ import java.util.*;
 public interface RoomService {
     /**
      * Room map
+     * 
      * <pre>
      * key : roomId
      * value : room
@@ -48,6 +50,7 @@ public interface RoomService {
 
     /**
      * User to room map
+     * 
      * <pre>
      * key : userId
      * value : roomId
@@ -143,7 +146,8 @@ public interface RoomService {
     }
 
     /**
-     * Remove user from the room and delete the association between userId and roomId
+     * Remove user from the room and delete the association between userId and
+     * roomId
      *
      * @param room   The room
      * @param player The user
@@ -154,7 +158,8 @@ public interface RoomService {
     }
 
     /**
-     * Remove user from the room and delete the association between userId and roomId
+     * Remove user from the room and delete the association between userId and
+     * roomId
      *
      * @param room   The room
      * @param userId userId

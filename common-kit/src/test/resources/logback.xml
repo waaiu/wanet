@@ -12,7 +12,7 @@
               value="%d{mm:ss.SSS} %green([%.-11thread]) %highlight(%-5level) %cyan(%M\(%F:%L\)) %m%n"/>
 
     <property name="log.file.pattern"
-              value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] [%X{ionetTraceId}] %-5level %M\(%F:%L\) %m%n"/>
+              value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] [%X{wanetTraceId}] %-5level %M\(%F:%L\) %m%n"/>
 
     <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
@@ -99,3 +99,4 @@
         <appender-ref ref="file.error"/>
     </root>
 </configuration>
+

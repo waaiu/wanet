@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -21,12 +21,13 @@ package com.waaiu.net.framework.protocol;
 import lombok.*;
 
 /**
- * Concrete response message returned from an external (Netty) server to a logic server.
+ * Concrete response message returned from an external (Netty) server to a logic
+ * server.
  * <p>
  * Extends {@link ExternalCommonMessage} with error information and implements
  * {@link ExternalResponse} to provide payload access and future correlation.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-10
  * @since 25.1
  */
@@ -35,7 +36,8 @@ import lombok.*;
 public final class ExternalResponseMessage extends ExternalCommonMessage implements ExternalResponse {
     /** Error code; 0 indicates success, non-zero indicates an error. */
     int errorCode;
-    /** Human-readable error message; {@code null} when the response is successful. */
+    /**
+     * Human-readable error message; {@code null} when the response is successful.
+     */
     String errorMessage;
 }
-

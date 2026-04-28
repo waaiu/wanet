@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -22,17 +22,18 @@ import com.waaiu.net.framework.core.flow.*;
 import lombok.extern.slf4j.*;
 
 /**
- * Default {@link SkeletonThreadPipeline} that dispatches a {@link FlowContext} to the
+ * Default {@link SkeletonThreadPipeline} that dispatches a {@link FlowContext}
+ * to the
  * appropriate thread executor based on the request's hop count.
  * <p>
  * Hop-count routing:
  * <ul>
- *   <li>0 -- user thread executor (direct client request)</li>
- *   <li>1 -- simple thread executor (single-hop forwarded request)</li>
- *   <li>2+ -- virtual thread executor (multi-hop request)</li>
+ * <li>0 -- user thread executor (direct client request)</li>
+ * <li>1 -- simple thread executor (single-hop forwarded request)</li>
+ * <li>2+ -- virtual thread executor (multi-hop request)</li>
  * </ul>
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-02
  * @since 25.1
  */
@@ -54,4 +55,3 @@ public final class DefaultSkeletonThreadPipeline implements SkeletonThreadPipeli
         threadExecutor.execute(() -> barSkeleton.handle(flowContext));
     }
 }
-

@@ -11,7 +11,7 @@ namespace ${namespace}
   /// <summary>
   /// ${ActionComment}
   /// </summary>
-  /// <remarks>Author: https://github.com/waaiu/ionet</remarks>
+  /// <remarks>Author: https://github.com/waaiu/wanet</remarks>
   public static class ${ActionName}
   {
   <%for(o in actionMemberCmdDocumentList) {%>
@@ -23,3 +23,4 @@ ${o}
   <%}%>
   }
 }
+

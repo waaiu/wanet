@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -23,9 +23,10 @@ import java.io.*;
 import lombok.experimental.*;
 
 /**
- * Convenience utilities for generating `.proto` files from annotated Java classes.
+ * Convenience utilities for generating `.proto` files from annotated Java
+ * classes.
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-07-13
  */
 @UtilityClass
@@ -34,13 +35,14 @@ public class GenerateFileKit {
      * Generates proto files.
      *
      * @param protoPackagePath package containing proto-annotated Java classes
-     * @param generateFolder output directory for generated `.proto` files
+     * @param generateFolder   output directory for generated `.proto` files
      */
     public void generate(String protoPackagePath, String generateFolder) {
         /*
          * .proto file generation
          *
-         * Running this method generates `.proto` files under the configured output directory.
+         * Running this method generates `.proto` files under the configured output
+         * directory.
          */
 
         String currentDir = System.getProperty("user.dir");
@@ -65,13 +67,10 @@ public class GenerateFileKit {
         String currentDir = System.getProperty("user.dir");
 
         // Output directory for generated .proto files
-        String generateFolder = ArrayKit.join(new String[]{
-                currentDir
-                , "target"
-                , "proto"
+        String generateFolder = ArrayKit.join(new String[] {
+                currentDir, "target", "proto"
         }, File.separator);
 
         generate(protoPackagePath, generateFolder);
     }
 }
-

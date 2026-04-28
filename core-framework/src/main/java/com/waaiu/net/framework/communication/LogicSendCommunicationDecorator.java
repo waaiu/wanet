@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Decorator providing fire-and-forget message sending to other logic servers.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-28
  * @since 25.1
  */
@@ -39,7 +39,8 @@ public interface LogicSendCommunicationDecorator extends CommonDecorator {
 
     /**
      * Create a SendMessage for the given command with raw byte data.
-     * <p>Populates the message with trace context, net ID, and source server ID
+     * <p>
+     * Populates the message with trace context, net ID, and source server ID
      * from the current flow context.
      *
      * @param cmdInfo the target command route
@@ -60,61 +61,88 @@ public interface LogicSendCommunicationDecorator extends CommonDecorator {
         return message;
     }
 
-    /** Create a SendMessage with int payload. @see #ofSendMessage(CmdInfo, byte[]) */
+    /**
+     * Create a SendMessage with int payload. @see #ofSendMessage(CmdInfo, byte[])
+     */
     default SendMessage ofSendMessage(CmdInfo cmdInfo, int data) {
         var codec = this.getInternalDataCodec();
         return ofSendMessage(cmdInfo, codec.encode(data));
     }
 
-    /** Create a SendMessage with long payload. @see #ofSendMessage(CmdInfo, byte[]) */
+    /**
+     * Create a SendMessage with long payload. @see #ofSendMessage(CmdInfo, byte[])
+     */
     default SendMessage ofSendMessage(CmdInfo cmdInfo, long data) {
         var codec = this.getInternalDataCodec();
         return ofSendMessage(cmdInfo, codec.encode(data));
     }
 
-    /** Create a SendMessage with boolean payload. @see #ofSendMessage(CmdInfo, byte[]) */
+    /**
+     * Create a SendMessage with boolean payload. @see #ofSendMessage(CmdInfo,
+     * byte[])
+     */
     default SendMessage ofSendMessage(CmdInfo cmdInfo, boolean data) {
         var codec = this.getInternalDataCodec();
         return ofSendMessage(cmdInfo, codec.encode(data));
     }
 
-    /** Create a SendMessage with String payload. @see #ofSendMessage(CmdInfo, byte[]) */
+    /**
+     * Create a SendMessage with String payload. @see #ofSendMessage(CmdInfo,
+     * byte[])
+     */
     default SendMessage ofSendMessage(CmdInfo cmdInfo, String data) {
         var codec = this.getInternalDataCodec();
         return ofSendMessage(cmdInfo, codec.encode(data));
     }
 
-    /** Create a SendMessage with Object payload. @see #ofSendMessage(CmdInfo, byte[]) */
+    /**
+     * Create a SendMessage with Object payload. @see #ofSendMessage(CmdInfo,
+     * byte[])
+     */
     default SendMessage ofSendMessage(CmdInfo cmdInfo, Object data) {
         var codec = this.getInternalDataCodec();
         return ofSendMessage(cmdInfo, codec.encode(data));
     }
 
-    /** Create a SendMessage with List payload. @see #ofSendMessage(CmdInfo, byte[]) */
+    /**
+     * Create a SendMessage with List payload. @see #ofSendMessage(CmdInfo, byte[])
+     */
     default SendMessage ofSendMessage(CmdInfo cmdInfo, List<?> dataList) {
         var codec = this.getInternalDataCodec();
         return ofSendMessage(cmdInfo, codec.encodeList(dataList));
     }
 
-    /** Create a SendMessage with List&lt;Integer&gt; payload. @see #ofSendMessage(CmdInfo, byte[]) */
+    /**
+     * Create a SendMessage with List&lt;Integer&gt; payload. @see
+     * #ofSendMessage(CmdInfo, byte[])
+     */
     default SendMessage ofSendMessageListInt(CmdInfo cmdInfo, List<Integer> dataList) {
         var codec = this.getInternalDataCodec();
         return ofSendMessage(cmdInfo, codec.encodeListInt(dataList));
     }
 
-    /** Create a SendMessage with List&lt;Long&gt; payload. @see #ofSendMessage(CmdInfo, byte[]) */
+    /**
+     * Create a SendMessage with List&lt;Long&gt; payload. @see
+     * #ofSendMessage(CmdInfo, byte[])
+     */
     default SendMessage ofSendMessageListLong(CmdInfo cmdInfo, List<Long> dataList) {
         var codec = this.getInternalDataCodec();
         return ofSendMessage(cmdInfo, codec.encodeListLong(dataList));
     }
 
-    /** Create a SendMessage with List&lt;Boolean&gt; payload. @see #ofSendMessage(CmdInfo, byte[]) */
+    /**
+     * Create a SendMessage with List&lt;Boolean&gt; payload. @see
+     * #ofSendMessage(CmdInfo, byte[])
+     */
     default SendMessage ofSendMessageListBool(CmdInfo cmdInfo, List<Boolean> dataList) {
         var codec = this.getInternalDataCodec();
         return ofSendMessage(cmdInfo, codec.encodeListBool(dataList));
     }
 
-    /** Create a SendMessage with List&lt;String&gt; payload. @see #ofSendMessage(CmdInfo, byte[]) */
+    /**
+     * Create a SendMessage with List&lt;String&gt; payload. @see
+     * #ofSendMessage(CmdInfo, byte[])
+     */
     default SendMessage ofSendMessageListString(CmdInfo cmdInfo, List<String> dataList) {
         var codec = this.getInternalDataCodec();
         return ofSendMessage(cmdInfo, codec.encodeListString(dataList));
@@ -122,7 +150,8 @@ public interface LogicSendCommunicationDecorator extends CommonDecorator {
 
     /**
      * Send a message to another logic server.
-     * <p>This is a fire-and-forget operation; no response is returned.
+     * <p>
+     * This is a fire-and-forget operation; no response is returned.
      *
      * @param message the message to send
      */
@@ -190,4 +219,3 @@ public interface LogicSendCommunicationDecorator extends CommonDecorator {
         send(ofSendMessageListString(cmdInfo, dataList));
     }
 }
-

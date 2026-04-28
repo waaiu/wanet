@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -20,6 +20,7 @@ package com.waaiu.net.extension.room.operation;
 
 /**
  * Gameplay operation business interface, separating validation from operation.
+ * 
  * <pre>
  * Tank:
  *     Operations like shooting bullets, launching missiles, etc.
@@ -38,19 +39,24 @@ package com.waaiu.net.extension.room.operation;
  *     Playing cards, etc.
  * </pre>
  *
- * @author 渔民小镇
+ * @author
  * @date 2022-03-31
  * @since 21.8
  */
 public interface OperationHandler {
     /**
-     * Check and verify if the user's operation step is valid, and determine whether to execute the {@link OperationHandler#process(PlayerOperationContext)} method based on the return value.
+     * Check and verify if the user's operation step is valid, and determine whether
+     * to execute the {@link OperationHandler#process(PlayerOperationContext)}
+     * method based on the return value.
      * <p>
-     * When false is returned, the process method will not be executed, which is equivalent to discarding the processing of the request.
+     * When false is returned, the process method will not be executed, which is
+     * equivalent to discarding the processing of the request.
      * It just adds a return value to decide whether to execute the process method.
      *
      * @param context Operation context
-     * @return When true is returned, the {@link OperationHandler#process(PlayerOperationContext)} method will be executed
+     * @return When true is returned, the
+     *         {@link OperationHandler#process(PlayerOperationContext)} method will
+     *         be executed
      * @since 21.23
      */
     default boolean processVerify(PlayerOperationContext context) {
@@ -64,4 +70,3 @@ public interface OperationHandler {
      */
     void process(PlayerOperationContext context);
 }
-

@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -24,9 +24,10 @@ import java.util.*;
 import lombok.experimental.*;
 
 /**
- * Registry of {@link ExternalJoinSelector} implementations keyed by transport type.
+ * Registry of {@link ExternalJoinSelector} implementations keyed by transport
+ * type.
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-05-29
  */
 @UtilityClass
@@ -45,7 +46,7 @@ public final class ExternalJoinSelectors {
     /**
      * Register a selector for the given transport type if absent.
      *
-     * @param joinEnum transport type
+     * @param joinEnum     transport type
      * @param joinSelector selector implementation
      */
     public void putIfAbsent(ExternalJoinEnum joinEnum, ExternalJoinSelector joinSelector) {
@@ -66,4 +67,3 @@ public final class ExternalJoinSelectors {
         return map.get(joinEnum);
     }
 }
-

@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -25,7 +25,7 @@ import lombok.experimental.*;
 /**
  * General-purpose utility methods.
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-12-07
  */
 @UtilityClass
@@ -52,9 +52,11 @@ public class MoreKit {
     }
 
     /**
-     * Put the value into the map if the key is absent, and return the effective value.
+     * Put the value into the map if the key is absent, and return the effective
+     * value.
      * <p>
-     * If the key already exists, the existing value is returned; otherwise the newly
+     * If the key already exists, the existing value is returned; otherwise the
+     * newly
      * inserted value is returned.
      *
      * @param <K>   the key type
@@ -70,7 +72,8 @@ public class MoreKit {
     }
 
     /**
-     * Execute the runnable on the given executor, or run it on the current thread if
+     * Execute the runnable on the given executor, or run it on the current thread
+     * if
      * the executor is null.
      *
      * @param executor the executor to use, or null for direct execution
@@ -84,4 +87,3 @@ public class MoreKit {
         }
     }
 }
-

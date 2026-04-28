@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -18,14 +18,14 @@
  */
 package com.waaiu.net.framework.core.kit;
 
-
 import java.util.concurrent.atomic.*;
 import lombok.extern.slf4j.*;
 
 /**
- * Aeron IPC latency monitor using bucket-based histogram for percentile calculations.
+ * Aeron IPC latency monitor using bucket-based histogram for percentile
+ * calculations.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-11-08
  * @since 25.1
  */
@@ -44,7 +44,8 @@ public final class IpcLatencyMonitor {
      * @param micros the latency in microseconds
      */
     public void record(long micros) {
-        if (micros <= 0) return;
+        if (micros <= 0)
+            return;
 
         totalCount.increment();
         totalMicros.add(micros);
@@ -86,15 +87,14 @@ public final class IpcLatencyMonitor {
         long p99 = percentile(99);
 
         log.info("""
-                        [{}] IPC latency statistics:
-                        Total count: {}
-                        Average: {} µs
-                        P95: {} µs
-                        P99: {} µs
-                        Maximum: {} µs
-                        """,
-                title, count, avg, p95, p99, max
-        );
+                [{}] IPC latency statistics:
+                Total count: {}
+                Average: {} µs
+                P95: {} µs
+                P99: {} µs
+                Maximum: {} µs
+                """,
+                title, count, avg, p95, p99, max);
     }
 
     /**
@@ -105,14 +105,16 @@ public final class IpcLatencyMonitor {
      */
     private long percentile(int percent) {
         long count = totalCount.sum();
-        if (count == 0) return 0;
+        if (count == 0)
+            return 0;
 
         // Target ordinal (1-based), ensure at least 1
         long target = Math.max(1, (count * percent + 99) / 100); // ceiling approximation
         long cumulative = 0;
         for (int i = 0; i < MAX_BUCKETS; i++) {
             cumulative += buckets.get(i);
-            if (cumulative >= target) return i;
+            if (cumulative >= target)
+                return i;
         }
         return MAX_BUCKETS - 1;
     }

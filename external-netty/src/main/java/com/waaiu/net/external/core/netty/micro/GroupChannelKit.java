@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -29,9 +29,10 @@ import java.util.concurrent.*;
 import lombok.experimental.*;
 
 /**
- * Selects Netty event-loop/channel implementations based on the current operating system.
+ * Selects Netty event-loop/channel implementations based on the current
+ * operating system.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-24
  * @since 25.1
  */
@@ -45,7 +46,8 @@ public final class GroupChannelKit {
             return new GroupChannelOptionForMac();
         }
 
-        // Lightweight or embedded Linux distributions may not have fulled I/O multiplexing support
+        // Lightweight or embedded Linux distributions may not have fulled I/O
+        // multiplexing support
         if (OsInfo.isLinux() && Epoll.isAvailable()) {
             return new GroupChannelOptionForLinux();
         }
@@ -67,7 +69,7 @@ public final class GroupChannelKit {
     /**
      * For Linux（Epoll）
      *
-     * @author 渔民小镇
+     * @author
      * @date 2023-02-18
      */
     private final class GroupChannelOptionForLinux implements GroupChannelOption {
@@ -75,8 +77,7 @@ public final class GroupChannelKit {
         public EventLoopGroup bossGroup() {
             return new EpollEventLoopGroup(
                     1,
-                    EventLoopGroupThreadFactory.bossThreadFactory()
-            );
+                    EventLoopGroupThreadFactory.bossThreadFactory());
         }
 
         @Override
@@ -85,8 +86,7 @@ public final class GroupChannelKit {
 
             return new EpollEventLoopGroup(
                     availableProcessors,
-                    EventLoopGroupThreadFactory.workerThreadFactory()
-            );
+                    EventLoopGroupThreadFactory.workerThreadFactory());
         }
 
         @Override
@@ -98,7 +98,7 @@ public final class GroupChannelKit {
     /**
      * For Mac（KQueue）
      *
-     * @author 渔民小镇
+     * @author
      * @date 2023-02-18
      */
     private final class GroupChannelOptionForMac implements GroupChannelOption {
@@ -106,8 +106,7 @@ public final class GroupChannelKit {
         public EventLoopGroup bossGroup() {
             return new KQueueEventLoopGroup(
                     1,
-                    EventLoopGroupThreadFactory.bossThreadFactory()
-            );
+                    EventLoopGroupThreadFactory.bossThreadFactory());
         }
 
         @Override
@@ -116,8 +115,7 @@ public final class GroupChannelKit {
 
             return new KQueueEventLoopGroup(
                     availableProcessors,
-                    EventLoopGroupThreadFactory.workerThreadFactory()
-            );
+                    EventLoopGroupThreadFactory.workerThreadFactory());
         }
 
         @Override
@@ -129,7 +127,7 @@ public final class GroupChannelKit {
     /**
      * For OtherSystem（NIO）
      *
-     * @author 渔民小镇
+     * @author
      * @date 2023-02-18
      */
     private final class GroupChannelOptionForOther implements GroupChannelOption {
@@ -137,8 +135,7 @@ public final class GroupChannelKit {
         public EventLoopGroup bossGroup() {
             return new NioEventLoopGroup(
                     1,
-                    EventLoopGroupThreadFactory.bossThreadFactory()
-            );
+                    EventLoopGroupThreadFactory.bossThreadFactory());
         }
 
         @Override
@@ -147,8 +144,7 @@ public final class GroupChannelKit {
 
             return new NioEventLoopGroup(
                     availableProcessors,
-                    EventLoopGroupThreadFactory.workerThreadFactory()
-            );
+                    EventLoopGroupThreadFactory.workerThreadFactory());
         }
 
         @Override
@@ -157,4 +153,3 @@ public final class GroupChannelKit {
         }
     }
 }
-

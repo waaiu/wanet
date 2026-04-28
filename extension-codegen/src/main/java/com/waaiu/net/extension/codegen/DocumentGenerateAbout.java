@@ -1,6 +1,6 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  waaiu (262610965@qq.com, luoyizhu@gmail.com) . All Rights Reserved.
+ * wanet
+ * Copyright (C) 2021 - present  waaiu () . All Rights Reserved.
  * # waaiu.com
  *
  * This program is free software: you can redistribute it and/or modify
@@ -123,13 +123,14 @@ class DocumentGenerateKit {
     }
 }
 
-
 @Accessors(chain = true)
 @Setter(AccessLevel.PACKAGE)
 @FieldDefaults(level = AccessLevel.PRIVATE)
 final class GameCodeGenerate {
     Document document;
-    /** True to generate framework built-in error codes, see {@link ActionErrorEnum}. */
+    /**
+     * True to generate framework built-in error codes, see {@link ActionErrorEnum}.
+     */
     boolean internalErrorCode;
 
     Template template;
@@ -219,13 +220,16 @@ final class BroadcastGenerate {
             broadcastRenderBeforeConsumer.accept(broadcastDocument);
         }
 
-        broadcastDocument.exampleCode = render(broadcastDocument, typeMappingRecord, DocumentGenerateKit.broadcastExampleTemplatePath);
+        broadcastDocument.exampleCode = render(broadcastDocument, typeMappingRecord,
+                DocumentGenerateKit.broadcastExampleTemplatePath);
 
         // code action
-        broadcastDocument.exampleCodeAction = render(broadcastDocument, typeMappingRecord, DocumentGenerateKit.broadcastExampleActionTemplatePath);
+        broadcastDocument.exampleCodeAction = render(broadcastDocument, typeMappingRecord,
+                DocumentGenerateKit.broadcastExampleActionTemplatePath);
     }
 
-    private String render(BroadcastDocument broadcastDocument, TypeMappingRecord typeMappingRecord, String examplePath) {
+    private String render(BroadcastDocument broadcastDocument, TypeMappingRecord typeMappingRecord,
+            String examplePath) {
         Template exampleTemplate = templateCreator.apply(examplePath);
 
         if (exampleTemplate == null) {
@@ -266,7 +270,8 @@ final class ActionGenerate {
                 .stream()
                 .map(actionMethodDocument -> {
                     // example template code
-                    var exampleTemplate = this.templateCreator.apply(DocumentGenerateKit.actionMethodResultExampleTemplatePath);
+                    var exampleTemplate = this.templateCreator
+                            .apply(DocumentGenerateKit.actionMethodResultExampleTemplatePath);
                     exampleTemplate.binding("_root", actionMethodDocument);
                     String exampleCode = exampleTemplate.render().trim();
 
@@ -315,11 +320,13 @@ final class ActionGenerate {
 class GenerateInternalKit {
     void binding(Template template) {
         var generateTime = TimeFormatKit.ofPattern("yyyy-MM-dd").format(TimeKit.nowLocalDate());
-        String generateTimeKey = new String(new byte[]{103, 101, 110, 101, 114, 97, 116, 101, 84, 105, 109, 101}, StandardCharsets.UTF_8);
+        String generateTimeKey = new String(new byte[] { 103, 101, 110, 101, 114, 97, 116, 101, 84, 105, 109, 101 },
+                StandardCharsets.UTF_8);
         template.binding(generateTimeKey, "// %s %s".formatted(generateTimeKey, generateTime));
 
-        String waaiu = new String(new byte[]{105, 111, 104, 97, 111, 72, 111, 109, 101}, StandardCharsets.UTF_8);
-        String u = new String(new byte[]{104, 116, 116, 112, 115, 58, 47, 47, 103, 105, 116, 104, 117, 98, 46, 99, 111, 109, 47, 105, 111, 104, 97, 111, 47, 105, 111, 110, 101, 116}, StandardCharsets.UTF_8);
+        String waaiu = new String(new byte[] { 105, 111, 104, 97, 111, 72, 111, 109, 101 }, StandardCharsets.UTF_8);
+        String u = new String(new byte[] { 104, 116, 116, 112, 115, 58, 47, 47, 103, 105, 116, 104, 117, 98, 46, 99,
+                111, 109, 47, 105, 111, 104, 97, 111, 47, 105, 111, 110, 101, 116 }, StandardCharsets.UTF_8);
         template.binding(waaiu, "// %s".formatted(u));
     }
 }
@@ -365,8 +372,7 @@ class InternalProtoClassKit {
                 int.class, Integer.class, IntValue.class,
                 long.class, Long.class, LongValue.class,
                 boolean.class, Boolean.class, BoolValue.class,
-                String.class, StringValue.class
-        );
+                String.class, StringValue.class);
 
         protoClassSet.stream().filter(protoClass -> {
             for (Class<?> aClass : excludeTypeList) {
@@ -405,7 +411,7 @@ abstract class AbstractDocumentGenerate implements DocumentGenerate {
      * The storage path of the generated files.
      * By default, it will be generated in the ./target/action directory
      */
-    String path = ArrayKit.join(new String[]{System.getProperty("user.dir"), "target", "code"}, File.separator);
+    String path = ArrayKit.join(new String[] { System.getProperty("user.dir"), "target", "code" }, File.separator);
     TypeMappingDocument typeMappingDocument;
 
     protected abstract void generateAction(Document document);
@@ -414,4 +420,3 @@ abstract class AbstractDocumentGenerate implements DocumentGenerate {
 
     protected abstract void generateErrorCode(Document document);
 }
-

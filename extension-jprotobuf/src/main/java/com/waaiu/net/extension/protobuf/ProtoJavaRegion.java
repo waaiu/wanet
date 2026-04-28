@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -26,9 +26,10 @@ import lombok.*;
 import lombok.experimental.*;
 
 /**
- * Group of proto message/enum definitions that will be emitted into one `.proto` file.
+ * Group of proto message/enum definitions that will be emitted into one
+ * `.proto` file.
  *
- * @author 渔民小镇
+ * @author
  * @date 2022-01-25
  */
 @FieldDefaults(level = AccessLevel.PUBLIC)
@@ -84,7 +85,7 @@ public class ProtoJavaRegion {
         String firstLine = """
                 // GeneratedTime: %s
                 // ProtocolSize: %s
-                // https://github.com/waaiu/ionet
+                // https://github.com/waaiu/wanet
                 """.formatted(TimeFormatKit.format(TimeKit.nowLocalDate(), "yyyy-MM-dd"), protoJavaList.size());
 
         StringBuilder builder = new StringBuilder();
@@ -100,4 +101,3 @@ public class ProtoJavaRegion {
         return builder.toString();
     }
 }
-

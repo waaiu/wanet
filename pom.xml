@@ -6,16 +6,16 @@
     <packaging>pom</packaging>
 
     <groupId>com.waaiu.net</groupId>
-    <artifactId>ionet</artifactId>
+    <artifactId>wanet</artifactId>
     <version>25.4</version>
-    <name>ionet</name>
+    <name>wanet</name>
 
     <description>
         A Java distributed server framework based on Aeron and Netty, featuring lock-free asynchronous and event-driven
         architecture design.
-        For Java distributed network communication with nanosecond end-to-end latency, ionet is the choice.
+        For Java distributed network communication with nanosecond end-to-end latency, wanet is the choice.
     </description>
-    <url>https://waaiu.github.io/ionet</url>
+    <url>https://waaiu.github.io/wanet</url>
     <modules>
         <module>common-kit</module>
         <module>core-framework</module>
@@ -118,7 +118,7 @@
 
     <issueManagement>
         <system>Github Issue</system>
-        <url>https://github.com/waaiu/ionet/issues</url>
+        <url>https://github.com/waaiu/wanet/issues</url>
     </issueManagement>
 
     <licenses>
@@ -130,16 +130,16 @@
 
     <developers>
         <developer>
-            <name>渔民小镇</name>
+            <name></name>
             <id>luoyizhu@gmail.com</id>
             <email>luoyizhu@gmail.com</email>
         </developer>
     </developers>
 
     <scm>
-        <url>https://github.com/waaiu/ionet</url>
-        <connection>scm:git:https://github.com/waaiu/ionet.git</connection>
-        <developerConnection>scm:git:https://github.com/waaiu/ionet.git</developerConnection>
+        <url>https://github.com/waaiu/wanet</url>
+        <connection>scm:git:https://github.com/waaiu/wanet.git</connection>
+        <developerConnection>scm:git:https://github.com/waaiu/wanet.git</developerConnection>
     </scm>
 
     <build>
@@ -168,7 +168,7 @@
                 </configuration>
             </plugin>
 
-            <!-- 打包源码 https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-source-plugin -->
+            <!--  https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-source-plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
@@ -186,7 +186,7 @@
                 </executions>
             </plugin>
 
-            <!-- 打包时跳过单元测试 https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
+            <!--  https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.5.4</version>
@@ -204,7 +204,7 @@
 
 
             <!--
-            编译插件
+            
             mvn compile
             To compile your test sources, you'll do:
             mvn test-compile
@@ -245,7 +245,7 @@
                             <manifestSection>
                                 <name>zhu luo yi</name>
                                 <manifestEntries>
-                                    <id>渔民小镇</id>
+                                    <id></id>
                                 </manifestEntries>
                             </manifestSection>
                         </manifestSections>
@@ -357,7 +357,7 @@
                     </plugin>
 
                     <!--
-                    自动发布 https://mvnrepository.com/artifact/org.sonatype.central/central-publishing-maven-plugin
+                     https://mvnrepository.com/artifact/org.sonatype.central/central-publishing-maven-plugin
                     -->
                     <plugin>
                         <groupId>org.sonatype.central</groupId>
@@ -398,4 +398,6 @@
         </profile>
     </profiles>
 </project>
+
+
 

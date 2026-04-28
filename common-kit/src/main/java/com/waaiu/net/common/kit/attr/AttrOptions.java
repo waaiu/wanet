@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   (
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -23,9 +23,10 @@ import java.io.*;
 import java.util.*;
 
 /**
- * Thread-safe attribute storage container. Holds key-value pairs keyed by {@link AttrOption} instances.
+ * Thread-safe attribute storage container. Holds key-value pairs keyed by
+ * {@link AttrOption} instances.
  *
- * @author 渔民小镇
+ * @author
  * @date 2022-01-31
  */
 public class AttrOptions implements Serializable {
@@ -37,7 +38,8 @@ public class AttrOptions implements Serializable {
     /**
      * Create a new container by copying all entries from the given source.
      *
-     * @param attrOptions the source container whose entries are copied into this instance
+     * @param attrOptions the source container whose entries are copied into this
+     *                    instance
      */
     public AttrOptions(AttrOptions attrOptions) {
         this.options.putAll(attrOptions.options);
@@ -53,7 +55,8 @@ public class AttrOptions implements Serializable {
      * Returns the default value if the option does not exist.
      *
      * @param option The attribute option
-     * @return The option value, or the default option value if the option does not exist.
+     * @return The option value, or the default option value if the option does not
+     *         exist.
      */
     @SuppressWarnings("unchecked")
     public <T> T option(AttrOption<T> option) {
@@ -81,7 +84,8 @@ public class AttrOptions implements Serializable {
      * Use a null value to remove the previously set {@link AttrOption}.
      *
      * @param option The attribute option
-     * @param value  The option value, null to remove the previously set {@link AttrOption}.
+     * @param value  The option value, null to remove the previously set
+     *               {@link AttrOption}.
      * @return this
      */
     public <T> AttrOptions option(AttrOption<T> option, T value) {
@@ -94,4 +98,3 @@ public class AttrOptions implements Serializable {
         return this;
     }
 }
-

@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   (
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -22,9 +22,11 @@ import com.waaiu.net.common.kit.concurrent.*;
 import java.time.*;
 
 /**
- * <a href="https://waaiu.github.io/ionet/docs/kit/delay_task">Lightweight controllable delayed task</a>. The task will be executed after a specified time, can be cancelled, and its delay time can be increased.
+ * <a href="https://waaiu.github.io/wanet/docs/kit/delay_task">Lightweight
+ * controllable delayed task</a>. The task will be executed after a specified
+ * time, ca, and its delay time can be increased.
  *
- * @author 渔民小镇
+ * @author
  * @date 2024-09-01
  * @since 21.16
  */
@@ -78,6 +80,7 @@ public interface DelayTask {
      * Increase delay time
      * <p>
      * for example
+     * 
      * <pre>{@code
      * DelayTask delayTask = ...;
      * delayTask.plusTimeMillis(500);  // Increase delay by 0.5 seconds
@@ -93,6 +96,7 @@ public interface DelayTask {
      * Decrease delay time
      * <p>
      * for example
+     * 
      * <pre>{@code
      * DelayTask delayTask = ...;
      * delayTask.minusTimeMillis(500);  // Decrease delay by 0.5 seconds
@@ -123,4 +127,3 @@ public interface DelayTask {
      */
     DelayTask task();
 }
-

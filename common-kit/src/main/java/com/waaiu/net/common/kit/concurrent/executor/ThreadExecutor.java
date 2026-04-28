@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   (
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -27,13 +27,14 @@ import lombok.extern.slf4j.*;
  * @param name     Thread executor name
  * @param executor Thread executor
  * @param threadNo Number
- * @author 渔民小镇
+ * @author
  * @date 2023-11-30
  */
 @Slf4j
 public record ThreadExecutor(String name, Executor executor, int threadNo) {
     /**
      * Executes the given command at some time in the future.
+     * 
      * <pre>
      * Note that developers need to catch exceptions within the command themselves (in other words,
      * do not let the Runnable throw an exception during execution), otherwise it may cause
@@ -67,7 +68,8 @@ public record ThreadExecutor(String name, Executor executor, int threadNo) {
     /**
      * Get the current size of the work queue of the underlying executor.
      * <p>
-     * Returns 0 if the executor is not a {@link ThreadPoolExecutor} (e.g. a virtual-thread executor).
+     * Returns 0 if the executor is not a {@link ThreadPoolExecutor} (e.g. a
+     * virtual-thread executor).
      *
      * @return the number of tasks waiting in the work queue, or 0 if not applicable
      */
@@ -79,4 +81,3 @@ public record ThreadExecutor(String name, Executor executor, int threadNo) {
         return 0;
     }
 }
-

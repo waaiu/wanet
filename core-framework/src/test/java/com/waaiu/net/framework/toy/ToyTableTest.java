@@ -7,7 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * @author 渔民小镇
+ * @author
  * @date 2023-01-30
  */
 public class ToyTableTest {
@@ -15,10 +15,10 @@ public class ToyTableTest {
     public void test() {
 
         ToyTable table = new ToyTable();
-        ToyTableRegion tableRegion = table.getRegion("ionet");
+        ToyTableRegion tableRegion = table.getRegion("wanet");
         tableRegion.putLine("pid", "73033");
         tableRegion.putLine("version", IonetVersion.VERSION);
-        tableRegion.putLine("document", "http://ionet.waaiu.com");
+        tableRegion.putLine("document", "http://wanet.waaiu.com");
 
         ToyTableRegion memoryRegion = table.getRegion("Memory");
         memoryRegion.putLine("used", "xx.xxMB");
@@ -45,7 +45,8 @@ public class ToyTableTest {
     void extractedLicense() {
         String builder = "| LICENSE  | %s%n";
         System.out.printf(builder, "AGPL3.0");
-        IonetBanner.printlnMsg("+----------+--------------------------------------------------------------------------------------");
+        IonetBanner.printlnMsg(
+                "+----------+--------------------------------------------------------------------------------------");
     }
 
     @Test

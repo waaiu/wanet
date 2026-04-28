@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -24,12 +24,14 @@ import com.waaiu.net.framework.protocol.wrapper.*;
 import java.util.*;
 
 /**
- * Method parser for {@code boolean}/{@link Boolean} parameters and return types.
+ * Method parser for {@code boolean}/{@link Boolean} parameters and return
+ * types.
  * <p>
- * Converts between Java {@code boolean}/{@link Boolean} values and the protocol wrapper types
- * {@link BoolValue} and {@link BoolValueList}.
+ * Converts between Java {@code boolean}/{@link Boolean} values and the protocol
+ * wrapper types
+ * {@link B{@link BoolValueList}.
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-02-07
  */
 final class BoolValueMethodParser implements MethodParser {
@@ -89,4 +91,3 @@ final class BoolValueMethodParser implements MethodParser {
         static final BoolValueMethodParser ME = new BoolValueMethodParser();
     }
 }
-

@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -27,9 +27,10 @@ import io.aeron.logbuffer.*;
 import org.agrona.*;
 
 /**
- * Aeron fragment consumer that broadcasts a decoded message to all connected users.
+ * Aeron fragment consumer that broadcasts a decoded message to all connected
+ * users.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-03
  * @since 25.1
  */
@@ -52,7 +53,8 @@ public class BroadcastMulticastMessageOnFragment implements OnFragment {
     }
 
     /**
-     * Broadcast the decoded message to all user sessions in the current external server.
+     * Broadcast the decoded message to all user sessions in the current external
+     * server.
      *
      * @param message decoded outbound message
      */
@@ -65,4 +67,3 @@ public class BroadcastMulticastMessageOnFragment implements OnFragment {
         return BroadcastMulticastMessageDecoder.TEMPLATE_ID;
     }
 }
-

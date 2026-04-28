@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -19,17 +19,22 @@
 package com.waaiu.net.framework.protocol;
 
 /**
- * Reserved template id constants used by the external server for internal operations.
+ * Reserved template id constants used by the external server for internal
+ * operations.
  * <p>
- * Negative values are reserved so they do not collide with user-defined template ids.
+ * Negative values are reserved so they do not collide with user-defined
+ * template ids.
  * Each constant identifies a specific built-in operation type.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-11
  * @since 25.1
  */
 public interface OnExternalTemplateId {
-    /** Template id for checking whether a user already exists on the external server. */
+    /**
+     * Template id for checking whether a user already exists on the external
+     * server.
+     */
     int existUser = -1;
     /** Template id for forcibly disconnecting (kicking) a user. */
     int forcedOffline = -2;
@@ -38,4 +43,3 @@ public interface OnExternalTemplateId {
     /** Template id for setting (binding) a user id to a session. */
     int settingUserId = -4;
 }
-

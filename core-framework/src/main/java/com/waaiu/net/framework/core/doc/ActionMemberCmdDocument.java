@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -26,7 +26,7 @@ import lombok.experimental.*;
  * Document model for a route member constant generated from an action method,
  * carrying the command pair, a generated member name, and the Javadoc comment.
  *
- * @author 渔民小镇
+ * @author
  * @date 2024-06-26
  * @since 21.11
  */
@@ -47,4 +47,3 @@ public final class ActionMemberCmdDocument {
         this.memberName = memberName;
     }
 }
-

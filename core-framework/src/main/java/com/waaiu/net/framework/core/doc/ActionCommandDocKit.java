@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -29,13 +29,15 @@ import lombok.experimental.*;
 import lombok.extern.slf4j.*;
 
 /**
- * Utility for scanning Java source files and building a map of {@link JavaClassDocInfo}
+ * Utility for scanning Java source files and building a map of
+ * {@link JavaClassDocInfo}
  * from the Javadoc comments found in {@code @ActionController} classes.
  * <p>
- * Supports both Maven ({@code target/classes}) and Gradle ({@code build/classes}) layouts,
- * as well as classes packaged inside JAR files.
+ * Supports both Maven ({@code target/classes}) and Gradle
+ * ({@code build/classes}) layouts,
+ * as well kaged inside JAR files.
  *
- * @author 渔民小镇
+ * @author
  * @date 2022-01-28
  */
 @UtilityClass
@@ -72,6 +74,7 @@ public class ActionCommandDocKit {
 
     /**
      * java class doc map
+     * 
      * <pre>
      *     key : java class name (YourJavaFile.class)
      *     value : {@link JavaClassDocInfo}

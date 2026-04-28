@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   (
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -19,11 +19,14 @@
 package com.waaiu.net.common.kit.concurrent;
 
 /**
- * Scheduled task listener, using HashedWheelTimer to simulate ScheduledExecutorService scheduling.
+ * Scheduled task listener, using HashedWheelTimer to simulate
+ * ScheduledExecutorService scheduling.
  * <p>
- * {@code triggerUpdate and onUpdate} methods will only be executed when {@code isActive } returns true.
+ * {@code triggerUpdate and onUpdate} methods will only be executed when
+ * {@code isActive } returns true.
  * <p>
  * example
+ * 
  * <pre>{@code
  * // Called every minute
  * TaskKit.runIntervalMinute(() -> log.info("tick 1 Minute"), 1);
@@ -37,7 +40,7 @@ package com.waaiu.net.common.kit.concurrent;
  * }
  * </pre>
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-12-01
  * @see TaskKit
  */
@@ -45,7 +48,8 @@ public interface IntervalTaskListener extends CommonTaskListener {
     /**
      * Whether the task is active
      *
-     * @return false means inactive, and the current TimerListener will be removed from the listener list
+     * @return false means inactive, and the current TimerListener will be removed
+     *         from the listener list
      */
     default boolean isActive() {
         return true;

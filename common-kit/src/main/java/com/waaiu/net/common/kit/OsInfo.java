@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -25,7 +25,7 @@ import lombok.extern.slf4j.*;
 /**
  * Operating system detection utilities.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-08-27
  * @since 25.1
  */
@@ -57,7 +57,8 @@ public final class OsInfo {
     }
 
     /**
-     * Retrieve the OS name from system properties, falling back to environment variables.
+     * Retrieve the OS name from system properties, falling back to environment
+     * variables.
      *
      * @return the OS name, or {@code null} if unavailable
      */
@@ -66,18 +67,21 @@ public final class OsInfo {
         try {
             value = System.getProperty("os.name");
         } catch (SecurityException e) {
-            log.error("Caught a SecurityException reading the system property '{}'; the SystemPropsKit property value will default to null.", "os.name");
+            log.error(
+                    "Caught a SecurityException reading the system property '{}'; the SystemPropsKit property value will default to null.",
+                    "os.name");
         }
 
         if (null == value) {
             try {
                 value = System.getenv("os.name");
             } catch (SecurityException e) {
-                log.error("Caught a SecurityException reading the system env '{}'; the SystemPropsKit env value will default to null.", "os.name");
+                log.error(
+                        "Caught a SecurityException reading the system env '{}'; the SystemPropsKit env value will default to null.",
+                        "os.name");
             }
         }
 
         return value;
     }
 }
-

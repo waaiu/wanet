@@ -20,9 +20,10 @@ import lombok.*;
 import lombok.experimental.*;
 
 /**
- * Base class for creating threads with configurable name prefix, priority, daemon flag, and thread group.
+ * Base class for creating threads with configurable name prefix, priority,
+ * daemon flag, and thread group.
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-04-02
  */
 @FieldDefaults(level = AccessLevel.PROTECTED)
@@ -51,7 +52,8 @@ public class ThreadCreator {
     }
 
     /**
-     * Create a new thread with the configured group, name, priority, and daemon flag.
+     * Create a new thread with the configured group, name, priority, and daemon
+     * flag.
      *
      * @param runnable the task to execute
      * @return the newly created thread
@@ -64,7 +66,8 @@ public class ThreadCreator {
     }
 
     /**
-     * Generate the next thread name using the prefix and an auto-incrementing counter.
+     * Generate the next thread name using the prefix and an auto-incrementing
+     * counter.
      *
      * @return the next thread name
      */
@@ -73,4 +76,3 @@ public class ThreadCreator {
         return String.format(format, this.threadNamePrefix, this.threadCount.incrementAndGet());
     }
 }
-

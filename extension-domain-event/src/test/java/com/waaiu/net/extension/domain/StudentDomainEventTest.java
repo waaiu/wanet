@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -28,7 +28,7 @@ import org.junit.jupiter.api.Test;
 
 /**
  *
- * @author 渔民小镇
+ * @author
  * @date 2021-12-26
  */
 public class StudentDomainEventTest {
@@ -36,39 +36,38 @@ public class StudentDomainEventTest {
 
     @AfterEach
     public void tearDown() {
-        // 事件消费完后 - 事件停止
+        // -
         domainEventApplication.stop();
     }
 
     @BeforeEach
     public void setUp() {
-        // ======项目启动时配置一次（初始化）======
+        // ======（）======
 
-        // 领域事件上下文参数
+        //
         var setting = new DomainEventSetting();
-        // 配置一个学生的领域事件消费 - 给学生发生一封邮件
+        // -
         setting.addEventHandler(new StudentEmailEventHandler1());
-        // 配置一个学生的领域事件消费 - 回家
+        // -
         setting.addEventHandler(new StudentGoHomeEventHandler2());
-        // 配置一个学生的领域事件消费 - 让学生睡觉
+        // -
         setting.addEventHandler(new StudentSleepEventHandler3());
 
-        // 启动事件驱动
+        //
         domainEventApplication = new DomainEventApplication();
         domainEventApplication.startup(setting);
     }
 
     @Test
     public void testEventSend() {
-        // 这里开始就是你的业务代码
+        //
         var studentEo = new StudentEo(1);
         /*
-         * 发送事件、上面只配置了一个事件。
-         * 如果将来还需要给学生发送一封email,那么直接配置。（可扩展）
-         * 如果将来还需要记录学生今天上了什么课程，那么也是直接配置 （可扩展） 这里的业务代码无需任何改动（松耦合）
-         * 如果将来又不需要给学生发送email的事件了，直接删除配置即可，这里还是无需改动代码。（高伸缩）
+         * 、。
+         * email,。（）
+         * ， （） （）
+         * email，，。（）
          */
         studentEo.send();
     }
 }
-

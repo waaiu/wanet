@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -21,16 +21,21 @@ package com.waaiu.net.framework.communication;
 /**
  * Enum representing the type of communication for a request flow.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-07
  * @since 25.1
  */
 public enum CommunicationType {
     /** Communication originated from an external user request. */
     USER_REQUEST,
-    /** Communication originated from an internal logic-to-logic call (request/response). */
+    /**
+     * Communication originated from an internal logic-to-logic call
+     * (request/response).
+     */
     INTERNAL_CALL,
-    /** Communication originated from an internal logic-to-logic send (fire-and-forget). */
+    /**
+     * Communication originated from an internal logic-to-logic send
+     * (fire-and-forget).
+     */
     INTERNAL_SEND
 }
-

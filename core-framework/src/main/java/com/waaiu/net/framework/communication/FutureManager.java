@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -22,14 +22,18 @@ import com.waaiu.net.framework.protocol.*;
 import java.util.concurrent.*;
 
 /**
- * Manage the lifecycle of {@link CompletableFuture} instances used for asynchronous request-response
+ * Manage the lifecycle of {@link CompletableFuture} instances used for
+ * asynchronous request-response
  * communication between servers.
  * <p>
- * Each future is identified by a unique ID generated via {@link #nextFutureId()}. Futures are
- * created and registered with {@link #ofFuture(long)}, completed when a response arrives via
- * {@link #complete(FutureMessage)}, and can be cleaned up on timeout via {@link #cleanTimeouts()}.
+ * Each future is identified by a unique ID generated via
+ * {@link #nextFutureId()}. Futures are
+ * created and registered with {@link #ofFuture(long)}, completed when a
+ * response
+ * {@link #complete(FutureMessage)}, and can be cleaned up on timeout via
+ * {@link #cleanTimeouts()}.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-04
  * @since 25.1
  */
@@ -42,7 +46,8 @@ public interface FutureManager {
     long nextFutureId();
 
     /**
-     * Create and register a new {@link CompletableFuture} associated with the given ID.
+     * Create and register a new {@link CompletableFuture} associated with the given
+     * ID.
      *
      * @param futureId the unique identifier for the future
      * @param <T>      the expected result type
@@ -55,7 +60,8 @@ public interface FutureManager {
      *
      * @param futureId the unique identifier of the future to remove
      * @param <T>      the expected result type
-     * @return the removed future, or {@code null} if no future was registered for the ID
+     * @return the removed future, or {@code null} if no future was registered for
+     *         the ID
      */
     <T> CompletableFuture<T> remove(long futureId);
 
@@ -69,9 +75,11 @@ public interface FutureManager {
     }
 
     /**
-     * Complete the future matching the given message's future ID with the message itself.
+     * Complete the future matching the given message's future ID with the message
+     * itself.
      * <p>
-     * If no future is found for the ID (e.g., it already timed out), the message is silently discarded.
+     * If no future is found for the ID (e.g., it already timed out), the message is
+     * silently discarded.
      *
      * @param message the response message containing the future ID and result data
      */
@@ -83,4 +91,3 @@ public interface FutureManager {
         }
     }
 }
-

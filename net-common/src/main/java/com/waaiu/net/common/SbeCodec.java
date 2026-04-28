@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -22,9 +22,10 @@ import com.waaiu.net.framework.protocol.*;
 import com.waaiu.net.sbe.*;
 
 /**
- * Abstraction for encoding and decoding framework message models with SBE generated codecs.
+ * Abstraction for encoding and decoding framework message models with SBE
+ * generated codecs.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-10-10
  * @since 25.1
  */
@@ -32,7 +33,7 @@ public interface SbeCodec {
     /**
      * Encodes user identity fields into an SBE encoder.
      *
-     * @param message source model
+     * @param message      source model
      * @param userIdentity target SBE encoder
      */
     void encoderUserIdentity(UserIdentity message, UserIdentityMessageEncoder userIdentity);
@@ -40,7 +41,7 @@ public interface SbeCodec {
     /**
      * Decodes user identity fields from an SBE decoder into the framework model.
      *
-     * @param message target model
+     * @param message      target model
      * @param userIdentity source SBE decoder
      */
     void decoderUserIdentity(UserIdentity message, UserIdentityMessageDecoder userIdentity);
@@ -49,16 +50,16 @@ public interface SbeCodec {
      * Encodes common remote-message fields into an SBE encoder.
      *
      * @param message source model
-     * @param common target SBE encoder
+     * @param common  target SBE encoder
      */
     void encoderMessageCommon(RemoteMessage message, CommonMessageEncoder common);
 
     /**
-     * Decodes common remote-message fields from an SBE decoder into the framework model.
+     * Decodes common remote-message fields from an SBE decoder into the framework
+     * model.
      *
      * @param message target model
-     * @param common source SBE decoder
+     * @param common  source SBE decoder
      */
     void decoderMessageCommon(RemoteMessage message, CommonMessageDecoder common);
 }
-

@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.waaiu.net</groupId>
-        <artifactId>ionet</artifactId>
+        <artifactId>wanet</artifactId>
         <version>25.4</version>
     </parent>
 
     <artifactId>net-logic-server</artifactId>
-    <name>net-logic-server for ionet</name>
+    <name>net-logic-server for wanet</name>
 
     <dependencies>
         <dependency>
@@ -21,3 +21,4 @@
     </dependencies>
 
 </project>
+

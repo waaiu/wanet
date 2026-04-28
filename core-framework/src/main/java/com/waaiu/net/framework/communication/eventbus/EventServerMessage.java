@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -24,10 +24,12 @@ import java.util.*;
 import lombok.*;
 
 /**
- * Holds event topic information and server metadata for a logic server participating in the EventBus system.
- * Used to track which topics a given server subscribes to, and whether it is local or remote.
+ * Holds event topic information and server metadata for a logic server
+ * participating in the EventBus system.
+ * Used to track which topics a given server subscribes to, and whether it is
+ * local or
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-12-24
  * @since 21
  */
@@ -79,4 +81,3 @@ public final class EventServerMessage {
         return server.id();
     }
 }
-

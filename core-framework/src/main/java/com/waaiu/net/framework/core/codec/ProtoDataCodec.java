@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -25,10 +25,12 @@ import com.waaiu.net.framework.protocol.wrapper.*;
  * Protobuf-based implementation of {@link DataCodec}.
  * <p>
  * Delegates serialization and deserialization to {@link ProtoKit} (jprotobuf).
- * Pre-encodes and caches the byte representations of {@code true} and {@code false}
- * {@link BoolValue} instances to avoid repeated encoding of common boolean values.
+ * Pre-encodes and caches the byte representations of {@code true} and
+ * {@code false}
+ * {@link BoolValue} instances to avoid repeated encoding of common boolean
+ * values.
  *
- * @author 渔民小镇
+ * @author
  * @date 2022-05-18
  */
 public final class ProtoDataCodec implements DataCodec {
@@ -72,4 +74,3 @@ public final class ProtoDataCodec implements DataCodec {
         return "j-protobuf";
     }
 }
-

@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -28,13 +28,17 @@ import lombok.experimental.*;
 /**
  * Builder for constructing {@link Server} instances with sensible defaults.
  * <p>
- * Provides a fluent API to configure server identity (id, name, tag), network address,
- * server type, and the associated {@link BarSkeleton}. When {@link #build()} is called,
- * unset fields receive default values: a random id, the name as tag, LOGIC server type,
- * and the local IP address. If a {@link BarSkeleton} is provided, its command routes
+ * Provides a fluent API to configure server identity (id, name, tag), network
+ * address,
+ * server type, and the associated {@link BarSkeleton}. When {@link #build()} is
+ * called,
+ * unset fields receive default values: a random id, the name as tag, LOGIC
+ * server type,
+ * and the local IP address. If a {@link BarSkeleton} is provided, its command
+ * routes
  * are extracted and registered with {@link BarSkeletonManager}.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-08-26
  * @since 25.1
  */
@@ -51,10 +55,12 @@ public final class ServerBuilder {
     ServerTypeEnum serverType;
 
     /**
-     * Build and return a new {@link Server} instance from the current configuration.
+     * Build and return a new {@link Server} instance from the current
+     * configuration.
      * <p>
      * Applies default values for any unset fields, extracts command routes from the
-     * {@link BarSkeleton} if present, and registers the skeleton with {@link BarSkeletonManager}.
+     * {@link BarSkeleton} if present, and registers the skeleton with
+     * {@link BarSkeletonManager}.
      *
      * @return the constructed {@link Server}
      * @throws NullPointerException if {@code name} has not been set
@@ -109,4 +115,3 @@ public final class ServerBuilder {
         }
     }
 }
-

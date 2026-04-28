@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -24,26 +24,30 @@ import com.waaiu.net.common.kit.concurrent.executor.*;
  * Subscriber thread executor selection strategy.
  * <p>
  * for example
- * <pre>{@code
- * public class YourEventBusSubscriber implements EventBusSubscriber {
- *     // Specify the thread executor to execute the subscriber's logic
- *     @EventSubscribe(ExecutorSelector.userExecutor)
- *     public void userLogin(YourEventMessage message) {
- *         log.info("event - User [{}] logged in", message.getUserId());
+ * 
+ * <pre>
+ * {
+ *     &#64;code
+ *     public class YourEventBusSubscriber implements EventBusSubscriber {
+ *         // Specify the thread executor to execute the subscriber's logic
+ *         &#64;EventSubscribe(ExecutorSelector.userExecutor)
+ *         public void userLogin(YourEventMessage message) {
+ *             log.info("event - User [{}] logged in", message.getUserId());
+ *         }
  *     }
- * }
  *
- * @Data
- * public class YourEventMessage {
- *     final long userId;
- *     public YourEventMessage(long userId) {
- *         this.userId = userId;
+ *     @Data
+ *     public class YourEventMessage {
+ *         final long userId;
+ * 
+ *         public YourEventMessage(long userId) {
+ *             this.userId = userId;
+ *         }
  *     }
- * }
  * }
  * </pre>
  *
- * @author 渔民小镇
+ * @author
  * @date 2024-01-11
  * @see EventSubscribe
  * @since 21
@@ -51,6 +55,7 @@ import com.waaiu.net.common.kit.concurrent.executor.*;
 public enum ExecutorSelector {
     /**
      * [Thread Safe] Execute in the user thread executor
+     * 
      * <pre>
      * This strategy will use the action's thread executor to ensure that the same user (userId),
      * when consuming events and actions, uses the same thread executor to avoid concurrency issues.
@@ -64,6 +69,7 @@ public enum ExecutorSelector {
 
     /**
      * Execute in the virtual thread executor
+     * 
      * <pre>
      * Time-consuming operations can choose this strategy
      * </pre>
@@ -74,6 +80,7 @@ public enum ExecutorSelector {
 
     /**
      * [Thread Safe] Execute in a thread executor
+     * 
      * <pre>
      * This strategy will use the Subscriber.id to determine the thread executor, ensuring that the same subscriber method,
      * when consuming events, uses the same thread executor to avoid concurrency issues.
@@ -91,6 +98,7 @@ public enum ExecutorSelector {
     methodExecutor,
     /**
      * [Thread Safe] Execute in a thread executor
+     * 
      * <pre>
      * This strategy is similar to userExecutor, but uses an independent thread executor ({@link ExecutorRegion#getSimpleThreadExecutorRegion() }).
      * When using, the developer needs to set the value of {@link EventBusMessage#threadIndex} (this value needs to be > 0).
@@ -102,10 +110,13 @@ public enum ExecutorSelector {
 
     /**
      * Reserved for developers
+     * 
      * <pre>
      * If the above strategies do not meet the business requirements, developers can implement the {@link SubscribeExecutorStrategy} interface for custom extension
      * </pre>
+     * 
      * example
+     * 
      * <pre>{@code
      * // The logic server adds EventBusRunner to handle EventBus related business
      * builder.addRunner(new AbstractEventBusRunner() {
@@ -113,8 +124,8 @@ public enum ExecutorSelector {
      *     public void registerEventBus(EventBus eventBus, BarSkeleton skeleton) {
      *         // Your thread executor selection strategy
      *         eventBus.setSubscribeExecutorStrategy(new YourSubscribeExecutorStrategy());
-     *         }
-     *     });
+     *     }
+     * });
      * }
      * </pre>
      *

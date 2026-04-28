@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -25,7 +25,7 @@ import org.agrona.*;
  * Encodes a specific message type into an SBE buffer.
  *
  * @param <T> message type
- * @author 渔民小镇
+ * @author
  * @date 2025-09-06
  * @since 25.1
  */
@@ -33,9 +33,9 @@ public interface MessageSbe<T> {
     /**
      * Encodes the given message into the supplied direct buffer.
      *
-     * @param message message instance
+     * @param message       message instance
      * @param headerEncoder SBE message header encoder
-     * @param buffer target buffer
+     * @param buffer        target buffer
      */
     void encoder(T message, MessageHeaderEncoder headerEncoder, MutableDirectBuffer buffer);
 
@@ -46,4 +46,3 @@ public interface MessageSbe<T> {
      */
     int limit();
 }
-

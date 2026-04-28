@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -21,9 +21,11 @@ package com.waaiu.net.external.core.hook;
 import com.waaiu.net.external.core.session.*;
 
 /**
- * <a href="https://waaiu.github.io/ionet/docs/manual/access_authentication">Routing access control</a>
+ * <a href=
+ * "https://waaiu.github.io/wanet/docs/manual/access_authentication">Routing
+ * access control</a>
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-02-19
  */
 public interface AccessAuthenticationHook {
@@ -36,7 +38,8 @@ public interface AccessAuthenticationHook {
     void setVerifyIdentity(boolean verifyIdentity);
 
     /**
-     * Adds routes that need to be ignored; these ignored routes can be accessed without login.
+     * Adds routes that need to be ignored; these ignored routes can be accessed
+     * without login.
      *
      * @param cmd    cmd
      * @param subCmd subCmd
@@ -44,7 +47,8 @@ public interface AccessAuthenticationHook {
     void addIgnoreAuthCmd(int cmd, int subCmd);
 
     /**
-     * Adds main routes that need to be ignored; these ignored main routes can be accessed without login.
+     * Adds main routes that need to be ignored; these ignored main routes can be
+     * accessed without login.
      *
      * @param cmd main route
      */
@@ -68,21 +72,24 @@ public interface AccessAuthenticationHook {
     /**
      * Access verification.
      *
-     * @param loginSuccess true if the user login was successful {@link UserSession#isVerifyIdentity()}
+     * @param loginSuccess true if the user login was successful
+     *                     {@link UserSession#isVerifyIdentity()}
      * @param cmdMerge     route
      * @return true if access verification passed
      */
     boolean pass(boolean loginSuccess, int cmdMerge);
 
     /**
-     * Adds a main route to be rejected; these main routes cannot be accessed directly from the outside.
+     * Adds a main route to be rejected; these main routes cannot be accessed
+     * directly from the outside.
      *
      * @param cmd main route
      */
     void addRejectionCmd(int cmd);
 
     /**
-     * Adds a route to be rejected; these routes cannot be accessed directly from the outside.
+     * Adds a route to be rejected; these routes cannot be accessed directly from
+     * the outside.
      *
      * @param cmd    main route
      * @param subCmd sub route
@@ -117,4 +124,3 @@ public interface AccessAuthenticationHook {
      */
     void clear();
 }
-

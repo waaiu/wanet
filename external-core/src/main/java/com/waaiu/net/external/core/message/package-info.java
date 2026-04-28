@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -17,13 +17,18 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 /**
- * Provides the external-server unified interaction protocol, related codecs, and customization
+ * Provides the external-server unified interaction protocol, related codecs,
+ * and customization
  * points for client-facing message encoding/decoding.
  *
- * <p>See <a href="https://waaiu.github.io/ionet/docs/manual/external_message">External Server
+ * <p>
+ * See
+ * <a href="https://waaiu.github.io/wanet/docs/manual/external_message">External
+ * Server
  * Protocol Description</a> for protocol details.
  * <p>
  * ExternalMessage
+ * 
  * <pre>
  * ExternalMessage is the unified interaction protocol, also known as the external server protocol. Its main purpose is to serve as the unified protocol for interaction with the game client, and it includes:
  * 1. Request command type: 0 for heartbeat, 1 for business.
@@ -35,6 +40,7 @@
  * </pre>
  * <p>
  * Custom Unified Interaction Protocol
+ * 
  * <pre>
  * ExternalMessage is the unified external protocol for user interaction with the server. By default, users (clients) interact via ExternalMessage when initiating a request.
  *
@@ -48,8 +54,7 @@
  * In this case, you can implement a custom protocol by overriding the {@link com.waaiu.net.external.core.message.CommunicationMessageCodec} interface.
  * </pre>
  *
- * @author 渔民小镇
+ * @author
  * @date 2024-09-13
  */
 package com.waaiu.net.external.core.message;
-

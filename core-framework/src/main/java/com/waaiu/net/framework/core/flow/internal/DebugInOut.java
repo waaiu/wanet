@@ -12,15 +12,19 @@ import java.util.function.*;
 import lombok.*;
 
 /**
- * Debug plugin that logs detailed request/response information for each action method invocation.
+ * Debug plugin that logs detailed request/response information for each action
+ * method invocation.
  * <p>
- * Prints a structured diagnostic message including the action command, parameters, return value,
- * execution time, user ID, and error details (if any). An optional time threshold can be set
+ * Prints a structured diagnostic message including the action command,
+ * parameters, return value,
+ * execution time, user ID, and error details (if any). An optional time
+ * threshold can be set
  * to only log invocations that exceed a given duration in milliseconds.
  * <p>
- * PluginInOut - <a href="https://waaiu.github.io/ionet/docs/core_plugin/action_debug">DebugInOut</a>.
+ * PluginInOut - <a href=
+ * "https://waaiu.github.io/wanet/docs/core_plugin/action_debug">DebugInOut</a>.
  *
- * @author 渔民小镇
+ * @author
  * @date 2021-12-12
  */
 public final class DebugInOut implements ActionMethodInOut {
@@ -36,7 +40,8 @@ public final class DebugInOut implements ActionMethodInOut {
     }
 
     /**
-     * Create a DebugInOut that only logs invocations exceeding the given time threshold.
+     * Create a DebugInOut that only logs invocations exceeding the given time
+     * threshold.
      *
      * @param time minimum elapsed time in milliseconds to trigger logging
      */
@@ -123,8 +128,7 @@ public final class DebugInOut implements ActionMethodInOut {
         if (request.getHopCount() > 0) {
             paramMap.put("hopCount", " [%s:%s] ".formatted(
                     Bundle.getMessage(MessageKey.debugInOutHopCountName),
-                    request.getHopCount()
-            ));
+                    request.getHopCount()));
         }
     }
 
@@ -158,7 +162,8 @@ public final class DebugInOut implements ActionMethodInOut {
     }
 
     /**
-     * Extract the connection type (TCP/WebSocket/UDP) from the request and add it to the parameter map.
+     * Extract the connection type (TCP/WebSocket/UDP) from the request and add it
+     * to the parameter map.
      *
      * @param request  the request message
      * @param paramMap the template parameter map
@@ -178,7 +183,8 @@ public final class DebugInOut implements ActionMethodInOut {
     }
 
     /**
-     * Print error details when the action method resulted in a validation or business error.
+     * Print error details when the action method resulted in a validation or
+     * business error.
      *
      * @param flowContext the current request flow context
      * @param paramMap    the template parameter map
@@ -198,7 +204,7 @@ public final class DebugInOut implements ActionMethodInOut {
                 ┣ {debugInOutErrorCode}: {errorCode}
                 ┣ {debugInOutErrorMessage}: {validatorMsg}
                 ┣ {debugInOutTime}: {time} ms
-                ┗━━ [ionet:{IonetVersion}] ━━ [{debugInOutThreadName}:{threadName}] ━━{joinName}━━{traceId}━━{hopCount}━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                ┗━━ [wanet:{IonetVersion}] ━━ [{debugInOutThreadName}:{threadName}] ━━{joinName}━━{traceId}━━{hopCount}━━━━━━━━━━━━━━━━━━━━━━━━━━━
                 """;
 
         var message = StrKit.format(template, paramMap);
@@ -225,10 +231,9 @@ public final class DebugInOut implements ActionMethodInOut {
                 ┣ {debugInOutParamName}: {paramData}
                 ┣ {debugInOutReturnData}: {returnData}
                 ┣ {debugInOutTime}: {time} ms
-                ┗━━ [ionet:{IonetVersion}] ━━ [{debugInOutThreadName}:{threadName}] ━━{joinName}━━{traceId}━━{hopCount}━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                ┗━━ [wanet:{IonetVersion}] ━━ [{debugInOutThreadName}:{threadName}] ━━{joinName}━━{traceId}━━{hopCount}━━━━━━━━━━━━━━━━━━━━━━━━━━━
                 """;
         var message = StrKit.format(template, paramMap);
         this.printConsumer.accept(message, flowContext);
     }
 }
-

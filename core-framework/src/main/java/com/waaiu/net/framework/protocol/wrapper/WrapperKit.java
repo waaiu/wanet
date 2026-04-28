@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -24,12 +24,14 @@ import lombok.experimental.*;
 /**
  * Utility class for protocol wrapper type resolution.
  * <p>
- * Maintains a registry of supported primitive/boxed types and their corresponding
- * protocol wrapper classes ({@link IntValue}, {@link LongValue}, etc.). Provides
+ * Maintains a registry of supported primitive/boxed types and their
+ * corresponding
+ * protocol wrapper classes ({@link IntValue}, {@link LongValue}, etc.).
+ * Provides
  * lookup methods to determine whether a type is a supported wrapper type and to
- * retrieve the associated {@link ValueRecord}.
+ * retrieved {@link ValueRecord}.
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-06-09
  */
 @UtilityClass
@@ -48,8 +50,7 @@ public class WrapperKit {
             BoolValue.class,
 
             String.class,
-            StringValue.class
-    );
+            StringValue.class);
 
     /**
      * Check whether the given class is not a supported wrapper type.
@@ -94,4 +95,3 @@ public class WrapperKit {
         return Optional.ofNullable(refTypeMap.get(clazz));
     }
 }
-

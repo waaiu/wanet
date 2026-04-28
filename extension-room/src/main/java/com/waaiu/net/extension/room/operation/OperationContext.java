@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -27,7 +27,7 @@ import lombok.experimental.*;
 /**
  * Room gameplay operation execution context and domain-event payload.
  *
- * @author 渔民小镇
+ * @author
  * @date 2022-03-31
  * @since 21.8
  */
@@ -39,7 +39,10 @@ public class OperationContext implements PlayerOperationContext, Eo {
     final Room room;
     /** Gameplay operation business handler */
     final OperationHandler operationHandler;
-    /** Specific gameplay data to be operated, usually customized by the developer based on game business logic */
+    /**
+     * Specific gameplay data to be operated, usually customized by the developer
+     * based on game business logic
+     */
     Object command;
     /** The FlowContext of the current operating player */
     FlowContext flowContext;
@@ -50,7 +53,8 @@ public class OperationContext implements PlayerOperationContext, Eo {
     }
 
     /**
-     * Executes the player's gameplay operation, including verification and processing.
+     * Executes the player's gameplay operation, including verification and
+     * processing.
      */
     public void execute() {
         if (this.operationHandler.processVerify(this)) {
@@ -69,4 +73,3 @@ public class OperationContext implements PlayerOperationContext, Eo {
         return new OperationContext(room, operationHandler);
     }
 }
-

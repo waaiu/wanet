@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -29,7 +29,7 @@ import lombok.extern.slf4j.*;
 /**
  * Pressure-test helper utilities for coordinating multiple client users.
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-07-16
  */
 @Slf4j
@@ -38,7 +38,6 @@ public class PressureKit {
     final Queue<Runnable> loginAfterTaskQueue = new LinkedBlockingQueue<>();
     final AtomicBoolean loginSuccess = new AtomicBoolean();
     final List<ClientUser> clientUsers = new CopyOnWriteArrayList<>();
-
 
     public void addClientUser(ClientUser clientUser) {
         clientUsers.add(clientUser);
@@ -95,9 +94,10 @@ public class PressureKit {
                 if (clientUsers.size() > 1) {
                     int sleep = 2;
                     if (LocaleKit.isChina()) {
-                        log.info("[{}]个用户全部登录完成，[{}]秒后开始执行任务[{}]", clientUsers.size(), sleep, loginAfterTaskQueue.size());
+                        log.info("[{}]，[{}][{}]", clientUsers.size(), sleep, loginAfterTaskQueue.size());
                     } else {
-                        log.info("[{}] users have completed login, executing task [{}] after [{}] seconds", clientUsers.size(), loginAfterTaskQueue.size(), sleep);
+                        log.info("[{}] users have completed login, executing task [{}] after [{}] seconds",
+                                clientUsers.size(), loginAfterTaskQueue.size(), sleep);
                     }
 
                     try {
@@ -115,4 +115,3 @@ public class PressureKit {
         });
     }
 }
-

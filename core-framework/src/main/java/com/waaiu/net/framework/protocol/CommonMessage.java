@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -26,12 +26,16 @@ import lombok.experimental.*;
 /**
  * Base class for internal messages exchanged between logic servers via Aeron.
  * <p>
- * Carries the common fields shared by all internal message types: the merged command
- * route key ({@code cmdMerge}), trace identifier, server routing IDs (external, logic,
- * source), network identifier, timing information, serialized payload data, and an
- * optional error output. Subclasses extend this to add request- or response-specific fields.
+ * Carries the common fields shared by all internal message types: the merged
+ * command
+ * route key ({@code cmdMerge}), trace identifier, server routing IDs (external,
+ * logic,
+ * source), network identifier, timing information, serialized payload data, and
+ * an
+ * optional error output. Subclasses extend this to add request- or
+ * response-specific fields.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-15
  * @since 25.1
  */
@@ -66,4 +70,3 @@ public class CommonMessage implements RemoteMessage {
         return CmdInfo.of(this.cmdMerge);
     }
 }
-

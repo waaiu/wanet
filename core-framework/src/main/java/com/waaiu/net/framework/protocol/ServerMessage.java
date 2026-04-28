@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -23,14 +23,18 @@ import lombok.*;
 import lombok.experimental.*;
 
 /**
- * Sealed base class for server registration and connection messages exchanged with the center server.
+ * Sealed base class for server registration and connection messages exchanged
+ * with the center server.
  * <p>
- * Carries the server's identity (id, name, tag), network coordinates (ip, netId, pubName),
- * server type, the set of command routes it handles ({@code cmdMerges}), and an extensible
- * payload map. Permitted subclasses: {@link ServerRequestMessage} for registration requests
+ * Carries the server's identity (id, name, tag), network coordinates (ip,
+ * netId, pubName),
+ * server type, the set of command routes it handles ({@code cmdMerges}), and an
+ * extensible
+ * payload map. Permitted subclasses: {@link ServerRequestMessage} for
+ * registration requests
  * and {@link ConnectResponseMessage} for connection responses.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-05
  * @since 25.1
  */
@@ -70,4 +74,3 @@ public sealed class ServerMessage permits ServerRequestMessage, ConnectResponseM
         return payloadMap.get(name);
     }
 }
-

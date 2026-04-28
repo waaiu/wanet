@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -24,26 +24,22 @@ import com.waaiu.net.framework.core.*;
 import com.waaiu.net.framework.protocol.*;
 
 /**
- * The FlowContext's lifecycle is limited to the duration of a single request flow.
+ * The FlowContext's lifecycle is limited to the duration of a single request
+ * flow.
  *
- * @author 渔民小镇
+ * @author
  * @date 2021-12-21
  */
 public interface FlowContext extends
         // External
-        FlowAttachmentCommunication
-        , FLowUserIdSettingCommunication
-        , FlowExternalCommunication
+        FlowAttachmentCommunication, FLowUserIdSettingCommunication, FlowExternalCommunication
         // Logic
-        , FlowLogicCallCommunication
-        , FlowLogicSendCommunication
+        , FlowLogicCallCommunication, FlowLogicSendCommunication
         // Broadcast
         , FlowBroadcastCommunication
         // Enterprise
-        , FlowCommunicationEventBus
-        , FlowExternalWriteCommunication
-        , FlowLogicCallCollectCommunication
-        , FlowBindingLogicServerCommunication {
+        , FlowCommunicationEventBus, FlowExternalWriteCommunication, FlowLogicCallCollectCommunication,
+        FlowBindingLogicServerCommunication {
 
     /**
      * Check if the flow context has an error.
@@ -266,4 +262,3 @@ public interface FlowContext extends
      */
     void setCurrentThreadExecutor(ThreadExecutor currentThreadExecutor);
 }
-

@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -27,9 +27,10 @@ import java.util.*;
 import java.util.stream.*;
 
 /**
- * Optional WebSocket handshake verification handler executed before protocol upgrade completion.
+ * Optional WebSocket handshake verification handler executed before protocol
+ * upgrade completion.
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-08-03
  */
 @ChannelHandler.Sharable
@@ -57,7 +58,8 @@ public class WebSocketVerifyHandler extends ChannelInboundHandlerAdapter impleme
             if (verify) {
                 ctx.pipeline().remove(this);
             } else {
-                FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.UNAUTHORIZED);
+                FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1,
+                        HttpResponseStatus.UNAUTHORIZED);
                 ctx.writeAndFlush(response).addListener(ChannelFutureListener.CLOSE);
                 return;
             }
@@ -70,7 +72,7 @@ public class WebSocketVerifyHandler extends ChannelInboundHandlerAdapter impleme
      * Verify the WebSocket handshake request.
      *
      * @param userSession user session associated with the Netty channel
-     * @param params handshake query parameters
+     * @param params      handshake query parameters
      * @return false to reject the handshake and close the connection
      */
     protected boolean verify(SocketUserSession userSession, Map<String, String> params) {
@@ -91,4 +93,3 @@ public class WebSocketVerifyHandler extends ChannelInboundHandlerAdapter impleme
                 .collect(Collectors.toMap(Map.Entry::getKey, entry -> entry.getValue().getFirst()));
     }
 }
-

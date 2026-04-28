@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -23,25 +23,30 @@ import java.util.concurrent.*;
 import java.util.function.*;
 
 /**
- * Decorator interface providing convenience methods for communicating with external (client-facing) servers.
+ * Decorator interface providing convenience methods for communicating with
+ * external (client-facing) servers.
  * <p>
  * Offers three invocation styles for each operation:
  * <ul>
- *   <li>Synchronous -- blocking call returning the response directly</li>
- *   <li>Future -- returning a {@link CompletableFuture} for non-blocking composition</li>
- *   <li>Async callback -- accepting a {@link Consumer} executed on the current or a supplied {@link Executor}</li>
+ * <li>Synchronous -- blocking call returning the response directly</li>
+ * <li>Future -- returning a {@link CompletableFuture} for non-blocking
+ * composition</li>
+ * <li>Async callback -- accepting a {@link Consumer} executed on the current or
+ * a supplied {@link Executor}</li>
  * </ul>
- * Also supports collect-style calls that aggregate responses from multiple external servers,
+ * Also supstyle calls that aggregate responses from multiple
+ * external servers,
  * and logic-server binding.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-28
  * @since 25.1
  */
 public interface ExternalCommunicationDecorator extends CommonDecorator {
 
     /**
-     * Create an {@link ExternalRequestMessage} with the given template ID and payload.
+     * Create an {@link ExternalRequestMessage} with the given template ID and
+     * payload.
      *
      * @param templateId the external request template identifier
      * @param payload    the serialized request payload (may be {@code null})
@@ -50,7 +55,8 @@ public interface ExternalCommunicationDecorator extends CommonDecorator {
     ExternalRequestMessage ofExternalRequestMessage(int templateId, byte[] payload);
 
     /**
-     * Create an {@link ExternalRequestMessage} with the given template ID and no payload.
+     * Create an {@link ExternalRequestMessage} with the given template ID and no
+     * payload.
      *
      * @param templateId the external request template identifier
      * @return a new external request message with {@code null} payload
@@ -59,7 +65,7 @@ public interface ExternalCommunicationDecorator extends CommonDecorator {
         return ofExternalRequestMessage(templateId, null);
     }
 
-    //*********************** callExternal ***********************//
+    // *********************** callExternal ***********************//
 
     /**
      * Synchronously call a single external server.
@@ -72,7 +78,8 @@ public interface ExternalCommunicationDecorator extends CommonDecorator {
     }
 
     /**
-     * Synchronously call a single external server with the given template ID and payload.
+     * Synchronously call a single external server with the given template ID and
+     * payload.
      *
      * @param templateId the external request template identifier
      * @param payload    the serialized request payload
@@ -83,7 +90,8 @@ public interface ExternalCommunicationDecorator extends CommonDecorator {
     }
 
     /**
-     * Synchronously call a single external server with the given template ID and no payload.
+     * Synchronously call a single external server with the given template ID and no
+     * payload.
      *
      * @param templateId the external request template identifier
      * @return the external server response
@@ -92,7 +100,7 @@ public interface ExternalCommunicationDecorator extends CommonDecorator {
         return callExternal(ofExternalRequestMessage(templateId));
     }
 
-    //*********************** callExternal future ***********************//
+    // *********************** callExternal future ***********************//
 
     /**
      * Asynchronously call a single external server, returning a future.
@@ -105,7 +113,8 @@ public interface ExternalCommunicationDecorator extends CommonDecorator {
     }
 
     /**
-     * Asynchronously call a single external server with the given template ID and payload.
+     * Asynchronously call a single external server with the given template ID and
+     * payload.
      *
      * @param templateId the external request template identifier
      * @param payload    the serialized request payload
@@ -116,7 +125,8 @@ public interface ExternalCommunicationDecorator extends CommonDecorator {
     }
 
     /**
-     * Asynchronously call a single external server with the given template ID and no payload.
+     * Asynchronously call a single external server with the given template ID and
+     * no payload.
      *
      * @param templateId the external request template identifier
      * @return a future that completes with the external server response
@@ -125,10 +135,11 @@ public interface ExternalCommunicationDecorator extends CommonDecorator {
         return callExternalFuture(ofExternalRequestMessage(templateId));
     }
 
-    //*********************** callExternal callback ***********************//
+    // *********************** callExternal callback ***********************//
 
     /**
-     * Call a single external server asynchronously and invoke the callback on the current executor.
+     * Call a single external server asynchronously and invoke the callback on the
+     * current executor.
      *
      * @param message the external request message
      * @param action  the callback to invoke with the response
@@ -138,18 +149,21 @@ public interface ExternalCommunicationDecorator extends CommonDecorator {
     }
 
     /**
-     * Call a single external server asynchronously and invoke the callback on the supplied executor.
+     * Call a single external server asynchronously and invoke the callback on the
+     * supplied executor.
      *
      * @param message  the external request message
      * @param action   the callback to invoke with the response
      * @param executor the executor on which to run the callback
      */
-    default void callExternalAsync(ExternalRequestMessage message, Consumer<ExternalResponse> action, Executor executor) {
+    default void callExternalAsync(ExternalRequestMessage message, Consumer<ExternalResponse> action,
+            Executor executor) {
         callExternalFuture(message).thenAcceptAsync(action, executor);
     }
 
     /**
-     * Call a single external server asynchronously with the given template ID and payload.
+     * Call a single external server asynchronously with the given template ID and
+     * payload.
      *
      * @param templateId the external request template identifier
      * @param payload    the serialized request payload
@@ -161,7 +175,8 @@ public interface ExternalCommunicationDecorator extends CommonDecorator {
     }
 
     /**
-     * Call a single external server asynchronously with the given template ID and no payload.
+     * Call a single external server asynchronously with the given template ID and
+     * no payload.
      *
      * @param templateId the external request template identifier
      * @param action     the callback to invoke with the response
@@ -171,10 +186,11 @@ public interface ExternalCommunicationDecorator extends CommonDecorator {
         callExternalAsync(message, action);
     }
 
-    //*********************** CollectExternal call ***********************//
+    // *********************** CollectExternal call ***********************//
 
     /**
-     * Synchronously call all external servers and collect their aggregated responses.
+     * Synchronously call all external servers and collect their aggregated
+     * responses.
      *
      * @param message the external request message
      * @return the aggregated response from all external servers
@@ -184,7 +200,8 @@ public interface ExternalCommunicationDecorator extends CommonDecorator {
     }
 
     /**
-     * Synchronously call all external servers with the given template ID and payload.
+     * Synchronously call all external servers with the given template ID and
+     * payload.
      *
      * @param templateId the external request template identifier
      * @param payload    the serialized request payload
@@ -195,7 +212,8 @@ public interface ExternalCommunicationDecorator extends CommonDecorator {
     }
 
     /**
-     * Synchronously call all external servers with the given template ID and no payload.
+     * Synchronously call all external servers with the given template ID and no
+     * payload.
      *
      * @param templateId the external request template identifier
      * @return the aggregated response from all external servers
@@ -204,10 +222,11 @@ public interface ExternalCommunicationDecorator extends CommonDecorator {
         return callExternalCollect(ofExternalRequestMessage(templateId));
     }
 
-    //*********************** CollectExternal future ***********************//
+    // *********************** CollectExternal future ***********************//
 
     /**
-     * Asynchronously call all external servers and collect their aggregated responses.
+     * Asynchronously call all external servers and collect their aggregated
+     * responses.
      *
      * @param message the external request message
      * @return a future that completes with the aggregated response
@@ -217,7 +236,8 @@ public interface ExternalCommunicationDecorator extends CommonDecorator {
     }
 
     /**
-     * Asynchronously call all external servers with the given template ID and payload.
+     * Asynchronously call all external servers with the given template ID and
+     * payload.
      *
      * @param templateId the external request template identifier
      * @param payload    the serialized request payload
@@ -229,7 +249,8 @@ public interface ExternalCommunicationDecorator extends CommonDecorator {
     }
 
     /**
-     * Asynchronously call all external servers with the given template ID and no payload.
+     * Asynchronously call all external servers with the given template ID and no
+     * payload.
      *
      * @param templateId the external request template identifier
      * @return a future that completes with the aggregated response
@@ -239,10 +260,11 @@ public interface ExternalCommunicationDecorator extends CommonDecorator {
         return callExternalCollectFuture(message);
     }
 
-    //*********************** CollectExternal callback ***********************//
+    // *********************** CollectExternal callback ***********************//
 
     /**
-     * Call all external servers asynchronously and invoke the callback on the current executor.
+     * Call all external servers asynchronously and invoke the callback on the
+     * current executor.
      *
      * @param message the external request message
      * @param action  the callback to invoke with the aggregated response
@@ -253,18 +275,21 @@ public interface ExternalCommunicationDecorator extends CommonDecorator {
     }
 
     /**
-     * Call all external servers asynchronously and invoke the callback on the supplied executor.
+     * Call all external servers asynchronously and invoke the callback on the
+     * supplied executor.
      *
      * @param message  the external request message
      * @param action   the callback to invoke with the aggregated response
      * @param executor the executor on which to run the callback
      */
-    default void callExternalCollectAsync(ExternalRequestMessage message, Consumer<ResponseCollectExternal> action, Executor executor) {
+    default void callExternalCollectAsync(ExternalRequestMessage message, Consumer<ResponseCollectExternal> action,
+            Executor executor) {
         callExternalCollectFuture(message).thenAcceptAsync(action, executor);
     }
 
     /**
-     * Call all external servers asynchronously with the given template ID and payload.
+     * Call all external servers asynchronously with the given template ID and
+     * payload.
      *
      * @param templateId the external request template identifier
      * @param payload    the serialized request payload
@@ -276,7 +301,8 @@ public interface ExternalCommunicationDecorator extends CommonDecorator {
     }
 
     /**
-     * Call all external servers asynchronously with the given template ID and no payload.
+     * Call all external servers asynchronously with the given template ID and no
+     * payload.
      *
      * @param templateId the external request template identifier
      * @param action     the callback to invoke with the aggregated response
@@ -286,7 +312,7 @@ public interface ExternalCommunicationDecorator extends CommonDecorator {
         callExternalCollectAsync(message, action);
     }
 
-    //*********************** bindingLogicServer ***********************//
+    // *********************** bindingLogicServer ***********************//
 
     /**
      * Bind a user session to a specific logic server.
@@ -298,4 +324,3 @@ public interface ExternalCommunicationDecorator extends CommonDecorator {
         return this.getCommunicationAggregation().bindingLogicServer(message);
     }
 }
-

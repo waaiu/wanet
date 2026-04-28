@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   (
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -23,18 +23,24 @@ import com.waaiu.net.common.kit.concurrent.*;
 import java.util.concurrent.*;
 
 /**
- * A {@link ThreadExecutorRegion} backed by virtual threads, distributing tasks by user ID.
+ * A {@link ThreadExecutorRegion} backed by virtual threads, distributing tasks
+ * by user ID.
  * <p>
- * Behaves like {@link UserThreadExecutorRegion} but each executor uses a virtual-thread-based
- * {@link java.util.concurrent.ExecutorService} instead of a platform-thread pool.
+ * Behaves like {@link UserThreadExecutorRegion} but each executor uses a
+ * virtual-thread-based
+ * {@link jrrent.ExecutorService} instead of a platform-thread
+ * pool.
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-12-19
  */
 final class UserVirtualThreadExecutorRegion extends AbstractThreadExecutorRegion {
     final int executorLength;
 
-    /** Create a region with a pool size equal to the nearest power-of-two of available processors. */
+    /**
+     * Create a region with a pool size equal to the nearest power-of-two of
+     * available processors.
+     */
     UserVirtualThreadExecutorRegion() {
         super("UserVirtual", RuntimeKit.availableProcessors2n);
         this.executorLength = RuntimeKit.availableProcessors2n - 1;
@@ -43,7 +49,8 @@ final class UserVirtualThreadExecutorRegion extends AbstractThreadExecutorRegion
     /**
      * {@inheritDoc}
      *
-     * @param userId the user identifier; tasks with the same user ID always run on the same executor
+     * @param userId the user identifier; tasks with the same user ID always run on
+     *               the same executor
      * @return the {@link ThreadExecutor} assigned to the given user ID
      */
     @Override
@@ -64,4 +71,3 @@ final class UserVirtualThreadExecutorRegion extends AbstractThreadExecutorRegion
         return ExecutorKit.newVirtualExecutor(name);
     }
 }
-

@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -19,27 +19,25 @@
 package com.waaiu.net.framework.communication;
 
 /**
- * Aggregate communication interface combining broadcast, logic call, external, and send capabilities.
+ * Aggregate communication interface combining broadcast, logic call, external,
+ * and send capabilities.
  * <p>
  * Composes all decorator interfaces: external communication, logic call/send,
  * broadcast (user, user-list, multicast), and enterprise logic call collect.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-28
  * @since 25.1
  */
 public interface Communication extends
-        // External
-        ExternalCommunicationDecorator
-        // Logic
-        , LogicCallCommunicationDecorator
-        , LogicSendCommunicationDecorator
-        // Broadcast
-        , BroadcastUserCommunicationDecorator
-        , BroadcastUserListCommunicationDecorator
-        , BroadcastMulticastCommunicationDecorator
-        // Enterprise
-        , LogicCallCollectCommunicationDecorator {
+                // External
+                ExternalCommunicationDecorator
+                // Logic
+                , LogicCallCommunicationDecorator, LogicSendCommunicationDecorator
+                // Broadcast
+                , BroadcastUserCommunicationDecorator, BroadcastUserListCommunicationDecorator,
+                BroadcastMulticastCommunicationDecorator
+                // Enterprise
+                , LogicCallCollectCommunicationDecorator {
 
 }
-

@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -26,12 +26,14 @@ import java.util.*;
 import lombok.*;
 
 /**
- * {@link DocumentGenerate} implementation that produces a plain-text documentation file
+ * {@link DocumentGenerate} implementation that produces a plain-text
+ * documentation file
  * containing action routes, broadcast routes, and error codes.
  * <p>
- * The output is written to {@link #path} (defaults to {@code doc_temp.txt} in the working directory).
+ * The output is written to {@link #path} (defaults to {@code doc_temp.txt} in
+ * the work.
  *
- * @author 渔民小镇
+ * @author
  * @date 2024-06-25
  */
 public final class TextDocumentGenerate implements DocumentGenerate {
@@ -91,7 +93,7 @@ public final class TextDocumentGenerate implements DocumentGenerate {
 
         String formatted = """
                 ==================== %s ====================
-                https://waaiu.github.io/ionet/docs/examples/code_generate
+                https://waaiu.github.io/wanet/docs/examples/code_generate
                 """.formatted(title);
 
         this.docContentJoiner.add("generate %s".formatted(TimeFormatKit.format()));
@@ -107,7 +109,6 @@ public final class TextDocumentGenerate implements DocumentGenerate {
 
         String title = Bundle.getMessage(MessageKey.textDocumentBroadcastTitle);
         this.docContentJoiner.add("==================== %s ====================".formatted(title));
-
 
         for (BroadcastDocument broadcastDocument : broadcastDocumentList) {
 
@@ -150,11 +151,9 @@ public final class TextDocumentGenerate implements DocumentGenerate {
         for (ErrorCodeDocument errorCodeDocument : document.errorCodeDocumentList) {
             String format = "%s : %s : %s".formatted(errorCodeDocument.value,
                     errorCodeDocument.description,
-                    errorCodeDocument.name
-            );
+                    errorCodeDocument.name);
 
             this.docContentJoiner.add(format);
         }
     }
 }
-

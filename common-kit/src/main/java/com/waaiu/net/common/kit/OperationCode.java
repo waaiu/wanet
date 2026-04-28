@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -21,9 +21,10 @@ package com.waaiu.net.common.kit;
 /**
  * Interface for types that carry a unique operation code identifier.
  * <p>
- * Each implementation holds an integer code that is auto-assigned via a global atomic counter.
+ * Each implementation holds an integer code that is auto-assigned via a global
+ * atomic counter.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-01-08
  * @since 21.23
  */
@@ -36,7 +37,8 @@ public interface OperationCode {
     int getOperationCode();
 
     /**
-     * Atomically get the current global code value and increment it for the next caller.
+     * Atomically get the current global code value and increment it for the next
+     * caller.
      *
      * @return the next available operation code
      */
@@ -44,4 +46,3 @@ public interface OperationCode {
         return OperationCodeKit.codeAtomic.getAndIncrement();
     }
 }
-

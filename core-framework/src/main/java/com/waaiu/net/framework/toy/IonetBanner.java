@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -36,13 +36,15 @@ import lombok.extern.slf4j.*;
 import static java.lang.System.*;
 
 /**
- * Startup banner renderer for the ionet framework.
+ * Startup banner renderer for the wanet framework.
  * <p>
- * Displays a randomly-colored ASCII art logo, server node summary, JVM information,
- * and optional breaking-news tips on the console. The banner cannot be disabled --
- * developers are expected to read it.
+ * Displays a randomly-colored ASCII art logo, server node summary, JVM
+ * information,
+ * and optional breaking-news tips on the console. The banner cannot be disabled
+ * --
+ * developed to read it.
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-01-30
  */
 @Slf4j
@@ -86,7 +88,6 @@ public final class IonetBanner {
             countDownLatch.countDown();
         }
     }
-
 
     public void addTag(String tag) {
         if (cleaned.get()) {
@@ -148,7 +149,7 @@ public final class IonetBanner {
             }
 
             // app
-            var tableRegion = table.getRegion("ionet");
+            var tableRegion = table.getRegion("wanet");
             tableRegion.putLine("pid", getPid());
             tableRegion.putLine("version", IonetVersion.VERSION);
             tableRegion.putLine("LICENSE ", "AGPL3.0");
@@ -163,9 +164,9 @@ public final class IonetBanner {
             table.render();
             extractedLicense();
 
-//            extractedAdv();
+            // extractedAdv();
             // breaking news
-//            extractedBreakingNews();
+            // extractedBreakingNews();
 
             extractedErrorCount();
 
@@ -214,21 +215,24 @@ public final class IonetBanner {
             System.out.printf("| News     | %s%n", news);
         }
 
-        IonetBanner.printlnMsg("+----------+------------------------------------------------------------------------------------");
+        IonetBanner.printlnMsg(
+                "+----------+------------------------------------------------------------------------------------");
     }
 
     private void extractedAdv() {
         String s = BreakingNewsKit.randomAdv().toString();
         String builder = "| adv      | %s%n";
         System.out.printf(builder, s);
-        IonetBanner.printlnMsg("+----------+------------------------------------------------------------------------------------");
+        IonetBanner.printlnMsg(
+                "+----------+------------------------------------------------------------------------------------");
     }
 
     private void extractedJavadocApi() {
         String s = BreakingNewsKit.randomMainNews().toString();
         String builder = "|          | %s%n";
         System.out.printf(builder, s);
-        IonetBanner.printlnMsg("+----------+------------------------------------------------------------------------------------");
+        IonetBanner.printlnMsg(
+                "+----------+------------------------------------------------------------------------------------");
     }
 
     private void extractedErrorCount() {
@@ -242,7 +246,8 @@ public final class IonetBanner {
     }
 
     private void extractedLogo() {
-        // Use random banner and random coloring strategy for a less monotonous console output
+        // Use random banner and random coloring strategy for a less monotonous console
+        // output
         List<String> bannerList = new BannerData().listData();
         String banner = RandomKit.randomEle(bannerList);
 
@@ -269,8 +274,7 @@ public final class IonetBanner {
 
     private void extractedLicense() {
         String builder = "| DOCUMENT | %s%n";
-        System.out.printf(builder, "https://waaiu.github.io/ionet");
+        System.out.printf(builder, "https://waaiu.github.io/wanet");
         IonetBanner.printlnMsg(separatorLine);
     }
 }
-

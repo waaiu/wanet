@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -21,12 +21,12 @@ package com.waaiu.net.framework.protocol;
 import lombok.*;
 
 /**
- * Enumeration of server types within the ionet cluster.
+ * Enumeration of server types within the wanet cluster.
  * <p>
  * Each server is classified as either a {@link #LOGIC} server (handles business
  * logic) or an {@link #EXTERNAL} server (handles client-facing connections).
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-08-25
  * @since 25.1
  */
@@ -53,4 +53,3 @@ public enum ServerTypeEnum {
         return value == 0 ? LOGIC : EXTERNAL;
     }
 }
-

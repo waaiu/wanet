@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -27,9 +27,10 @@ import java.util.concurrent.*;
 import java.util.function.*;
 
 /**
- * Decorator providing cross-logic-server synchronous and asynchronous call methods with various data type overloads.
+ * Decorator providing cross-logic-server synchronous and asynchronous call
+ * methods with various data type overloads.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-28
  * @since 25.1
  */
@@ -39,9 +40,12 @@ public interface LogicCallCommunicationDecorator extends CommonDecorator, LogicC
         return DataCodecManager.getInternalDataCodec();
     }
 
-    //*********************** call ***********************//
+    // *********************** call ***********************//
 
-    /** Synchronous call using a pre-built request message. @see #call(CmdInfo, byte[]) */
+    /**
+     * Synchronous call using a pre-built request message. @see #call(CmdInfo,
+     * byte[])
+     */
     default Response call(RequestMessage message) {
         return this.getCommunicationAggregation().call(message);
     }
@@ -93,31 +97,44 @@ public interface LogicCallCommunicationDecorator extends CommonDecorator, LogicC
         return call(ofRequestMessage(cmdInfo, dataList));
     }
 
-    /** Synchronous call with List&lt;Integer&gt; payload. @see #call(CmdInfo, byte[]) */
+    /**
+     * Synchronous call with List&lt;Integer&gt; payload. @see #call(CmdInfo,
+     * byte[])
+     */
     default Response callListInt(CmdInfo cmdInfo, List<Integer> dataList) {
         return call(ofRequestMessageListInt(cmdInfo, dataList));
     }
 
-    /** Synchronous call with List&lt;Long&gt; payload. @see #call(CmdInfo, byte[]) */
+    /**
+     * Synchronous call with List&lt;Long&gt; payload. @see #call(CmdInfo, byte[])
+     */
     default Response callListLong(CmdInfo cmdInfo, List<Long> dataList) {
         return call(ofRequestMessageListLong(cmdInfo, dataList));
 
     }
 
-    /** Synchronous call with List&lt;Boolean&gt; payload. @see #call(CmdInfo, byte[]) */
+    /**
+     * Synchronous call with List&lt;Boolean&gt; payload. @see #call(CmdInfo,
+     * byte[])
+     */
     default Response callListBool(CmdInfo cmdInfo, List<Boolean> dataList) {
         return call(ofRequestMessageListBool(cmdInfo, dataList));
     }
 
-    /** Synchronous call with List&lt;String&gt; payload. @see #call(CmdInfo, byte[]) */
+    /**
+     * Synchronous call with List&lt;String&gt; payload. @see #call(CmdInfo, byte[])
+     */
     default Response callListString(CmdInfo cmdInfo, List<String> dataList) {
         return call(ofRequestMessageListString(cmdInfo, dataList));
 
     }
 
-    //*********************** call future ***********************//
+    // *********************** call future ***********************//
 
-    /** Future-based call using a pre-built request message. @see #callFuture(CmdInfo, byte[]) */
+    /**
+     * Future-based call using a pre-built request message. @see
+     * #callFuture(CmdInfo, byte[])
+     */
     default CompletableFuture<Response> callFuture(RequestMessage message) {
         return this.getCommunicationAggregation().callFuture(message);
     }
@@ -175,46 +192,66 @@ public interface LogicCallCommunicationDecorator extends CommonDecorator, LogicC
         return callFuture(cmdInfo, codec.encodeList(dataList));
     }
 
-    /** Future-based call with List&lt;Integer&gt; payload. @see #callFuture(CmdInfo, byte[]) */
+    /**
+     * Future-based call with List&lt;Integer&gt; payload. @see #callFuture(CmdInfo,
+     * byte[])
+     */
     default CompletableFuture<Response> callFutureListInt(CmdInfo cmdInfo, List<Integer> dataList) {
         var codec = this.getInternalDataCodec();
         return callFuture(cmdInfo, codec.encodeListInt(dataList));
     }
 
-    /** Future-based call with List&lt;Long&gt; payload. @see #callFuture(CmdInfo, byte[]) */
+    /**
+     * Future-based call with List&lt;Long&gt; payload. @see #callFuture(CmdInfo,
+     * byte[])
+     */
     default CompletableFuture<Response> callFutureListLong(CmdInfo cmdInfo, List<Long> dataList) {
         var codec = this.getInternalDataCodec();
         return callFuture(cmdInfo, codec.encodeListLong(dataList));
     }
 
-    /** Future-based call with List&lt;Boolean&gt; payload. @see #callFuture(CmdInfo, byte[]) */
+    /**
+     * Future-based call with List&lt;Boolean&gt; payload. @see #callFuture(CmdInfo,
+     * byte[])
+     */
     default CompletableFuture<Response> callFutureListBool(CmdInfo cmdInfo, List<Boolean> dataList) {
         var codec = this.getInternalDataCodec();
         return callFuture(cmdInfo, codec.encodeListBool(dataList));
     }
 
-    /** Future-based call with List&lt;String&gt; payload. @see #callFuture(CmdInfo, byte[]) */
+    /**
+     * Future-based call with List&lt;String&gt; payload. @see #callFuture(CmdInfo,
+     * byte[])
+     */
     default CompletableFuture<Response> callFutureListString(CmdInfo cmdInfo, List<String> dataList) {
         var codec = this.getInternalDataCodec();
         return callFuture(cmdInfo, codec.encodeListString(dataList));
     }
 
-    //*********************** callback ***********************//
+    // *********************** callback ***********************//
 
-    /** Async call using a pre-built request message with the current executor. @see #callAsync(CmdInfo, byte[], Consumer) */
+    /**
+     * Async call using a pre-built request message with the current executor. @see
+     * #callAsync(CmdInfo, byte[], Consumer)
+     */
     default void callAsync(RequestMessage message, Consumer<Response> action) {
         var executor = this.getCurrentExecutor();
         callAsync(message, action, executor);
     }
 
-    /** Async call using a pre-built request message with a custom executor. @see #callAsync(CmdInfo, byte[], Consumer) */
+    /**
+     * Async call using a pre-built request message with a custom executor. @see
+     * #callAsync(CmdInfo, byte[], Consumer)
+     */
     default void callAsync(RequestMessage message, Consumer<Response> action, Executor executor) {
         callFuture(message).thenAcceptAsync(action, executor);
     }
 
     /**
-     * Call another logic server asynchronously, invoking the callback with the response.
-     * <p>The callback is executed on the current flow context's executor.
+     * Call another logic server asynchronously, invoking the callback with the
+     * response.
+     * <p>
+     * The callback is executed on the current flow context's executor.
      *
      * @param cmdInfo the target command route
      * @param data    the raw byte payload
@@ -242,19 +279,25 @@ public interface LogicCallCommunicationDecorator extends CommonDecorator, LogicC
         callAsync(cmdInfo, codec.encode(data), action);
     }
 
-    /** Async call with boolean payload. @see #callAsync(CmdInfo, byte[], Consumer) */
+    /**
+     * Async call with boolean payload. @see #callAsync(CmdInfo, byte[], Consumer)
+     */
     default void callAsync(CmdInfo cmdInfo, boolean data, Consumer<Response> action) {
         var codec = this.getInternalDataCodec();
         callAsync(cmdInfo, codec.encode(data), action);
     }
 
-    /** Async call with String payload. @see #callAsync(CmdInfo, byte[], Consumer) */
+    /**
+     * Async call with String payload. @see #callAsync(CmdInfo, byte[], Consumer)
+     */
     default void callAsync(CmdInfo cmdInfo, String data, Consumer<Response> action) {
         var codec = this.getInternalDataCodec();
         callAsync(cmdInfo, codec.encode(data), action);
     }
 
-    /** Async call with Object payload. @see #callAsync(CmdInfo, byte[], Consumer) */
+    /**
+     * Async call with Object payload. @see #callAsync(CmdInfo, byte[], Consumer)
+     */
     default void callAsync(CmdInfo cmdInfo, Object data, Consumer<Response> action) {
         var codec = this.getInternalDataCodec();
         callAsync(cmdInfo, codec.encode(data), action);
@@ -266,28 +309,39 @@ public interface LogicCallCommunicationDecorator extends CommonDecorator, LogicC
         callAsync(cmdInfo, codec.encodeList(dataList), action);
     }
 
-    /** Async call with List&lt;Integer&gt; payload. @see #callAsync(CmdInfo, byte[], Consumer) */
+    /**
+     * Async call with List&lt;Integer&gt; payload. @see #callAsync(CmdInfo, byte[],
+     * Consumer)
+     */
     default void callAsyncListInt(CmdInfo cmdInfo, List<Integer> dataList, Consumer<Response> action) {
         var codec = this.getInternalDataCodec();
         callAsync(cmdInfo, codec.encodeListInt(dataList), action);
     }
 
-    /** Async call with List&lt;Long&gt; payload. @see #callAsync(CmdInfo, byte[], Consumer) */
+    /**
+     * Async call with List&lt;Long&gt; payload. @see #callAsync(CmdInfo, byte[],
+     * Consumer)
+     */
     default void callAsyncListLong(CmdInfo cmdInfo, List<Long> dataList, Consumer<Response> action) {
         var codec = this.getInternalDataCodec();
         callAsync(cmdInfo, codec.encodeListLong(dataList), action);
     }
 
-    /** Async call with List&lt;Boolean&gt; payload. @see #callAsync(CmdInfo, byte[], Consumer) */
+    /**
+     * Async call with List&lt;Boolean&gt; payload. @see #callAsync(CmdInfo, byte[],
+     * Consumer)
+     */
     default void callAsyncListBool(CmdInfo cmdInfo, List<Boolean> dataList, Consumer<Response> action) {
         var codec = this.getInternalDataCodec();
         callAsync(cmdInfo, codec.encodeListBool(dataList), action);
     }
 
-    /** Async call with List&lt;String&gt; payload. @see #callAsync(CmdInfo, byte[], Consumer) */
+    /**
+     * Async call with List&lt;String&gt; payload. @see #callAsync(CmdInfo, byte[],
+     * Consumer)
+     */
     default void callAsyncListString(CmdInfo cmdInfo, List<String> dataList, Consumer<Response> action) {
         var codec = this.getInternalDataCodec();
         callAsync(cmdInfo, codec.encodeListString(dataList), action);
     }
 }
-

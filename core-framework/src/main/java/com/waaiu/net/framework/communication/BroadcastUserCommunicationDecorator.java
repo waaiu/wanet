@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -25,14 +25,18 @@ import com.waaiu.net.framework.protocol.*;
 import java.util.*;
 
 /**
- * Decorator providing unicast broadcast methods to send messages to a specific user by ID.
+ * Decorator providing unicast broadcast methods to send messages to a specific
+ * user by ID.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-28
  * @since 25.1
  */
 public interface BroadcastUserCommunicationDecorator extends CommonDecorator {
-    /** Broadcast a pre-built user message. @see #broadcastUser(long, CmdInfo, byte[]) */
+    /**
+     * Broadcast a pre-built user message. @see #broadcastUser(long, CmdInfo,
+     * byte[])
+     */
     default void broadcast(BroadcastUserMessage message) {
         this.getCommunicationAggregation().broadcast(message);
     }
@@ -43,7 +47,8 @@ public interface BroadcastUserCommunicationDecorator extends CommonDecorator {
      * @param userId       the target user ID
      * @param cmdInfo      the command route identifying the message type
      * @param data         the raw byte payload
-     * @param originalData the original pre-encoded data object (retained for hooks/interceptors)
+     * @param originalData the original pre-encoded data object (retained for
+     *                     hooks/interceptors)
      */
     private void broadcastUser(long userId, CmdInfo cmdInfo, byte[] data, Object originalData) {
         var message = new BroadcastUserMessage();
@@ -57,74 +62,109 @@ public interface BroadcastUserCommunicationDecorator extends CommonDecorator {
         this.broadcast(message);
     }
 
-    /** Broadcast raw bytes to a specific user. @see #broadcastUser(long, CmdInfo, byte[], Object) */
+    /**
+     * Broadcast raw bytes to a specific user. @see #broadcastUser(long, CmdInfo,
+     * byte[], Object)
+     */
     default void broadcastUser(long userId, CmdInfo cmdInfo, byte[] data) {
         broadcastUser(userId, cmdInfo, data, null);
     }
 
-    /** Broadcast with no payload to a specific user. @see #broadcastUser(long, CmdInfo, byte[], Object) */
+    /**
+     * Broadcast with no payload to a specific user. @see #broadcastUser(long,
+     * CmdInfo, byte[], Object)
+     */
     default void broadcastUser(long userId, CmdInfo cmdInfo) {
         broadcastUser(userId, cmdInfo, CommonConst.emptyBytes, null);
     }
 
-    /** Broadcast with int payload to a specific user. @see #broadcastUser(long, CmdInfo, byte[], Object) */
+    /**
+     * Broadcast with int payload to a specific user. @see #broadcastUser(long,
+     * CmdInfo, byte[], Object)
+     */
     default void broadcastUser(long userId, CmdInfo cmdInfo, int data) {
         var codec = DataCodecManager.getDataCodec();
         broadcastUser(userId, cmdInfo, codec.encode(data), data);
     }
 
-    /** Broadcast with long payload to a specific user. @see #broadcastUser(long, CmdInfo, byte[], Object) */
+    /**
+     * Broadcast with long payload to a specific user. @see #broadcastUser(long,
+     * CmdInfo, byte[], Object)
+     */
     default void broadcastUser(long userId, CmdInfo cmdInfo, long data) {
         var codec = DataCodecManager.getDataCodec();
         broadcastUser(userId, cmdInfo, codec.encode(data), data);
     }
 
-    /** Broadcast with boolean payload to a specific user. @see #broadcastUser(long, CmdInfo, byte[], Object) */
+    /**
+     * Broadcast with boolean payload to a specific user. @see #broadcastUser(long,
+     * CmdInfo, byte[], Object)
+     */
     default void broadcastUser(long userId, CmdInfo cmdInfo, boolean data) {
         var codec = DataCodecManager.getDataCodec();
         broadcastUser(userId, cmdInfo, codec.encode(data), data);
     }
 
-    /** Broadcast with String payload to a specific user. @see #broadcastUser(long, CmdInfo, byte[], Object) */
+    /**
+     * Broadcast with String payload to a specific user. @see #broadcastUser(long,
+     * CmdInfo, byte[], Object)
+     */
     default void broadcastUser(long userId, CmdInfo cmdInfo, String data) {
         var codec = DataCodecManager.getDataCodec();
         broadcastUser(userId, cmdInfo, codec.encode(data), data);
     }
 
-    /** Broadcast with Object payload to a specific user. @see #broadcastUser(long, CmdInfo, byte[], Object) */
+    /**
+     * Broadcast with Object payload to a specific user. @see #broadcastUser(long,
+     * CmdInfo, byte[], Object)
+     */
     default void broadcastUser(long userId, CmdInfo cmdInfo, Object data) {
         var codec = DataCodecManager.getDataCodec();
         broadcastUser(userId, cmdInfo, codec.encode(data), data);
     }
 
-    /** Broadcast with List payload to a specific user. @see #broadcastUser(long, CmdInfo, byte[], Object) */
+    /**
+     * Broadcast with List payload to a specific user. @see #broadcastUser(long,
+     * CmdInfo, byte[], Object)
+     */
     default void broadcastUser(long userId, CmdInfo cmdInfo, List<?> dataList) {
         var codec = DataCodecManager.getDataCodec();
         this.broadcastUser(userId, cmdInfo, codec.encodeList(dataList), dataList);
     }
 
-    /** Broadcast with List&lt;Integer&gt; payload to a specific user. @see #broadcastUser(long, CmdInfo, byte[], Object) */
+    /**
+     * Broadcast with List&lt;Integer&gt; payload to a specific user. @see
+     * #broadcastUser(long, CmdInfo, byte[], Object)
+     */
     default void broadcastUserListInt(long userId, CmdInfo cmdInfo, List<Integer> dataList) {
         var codec = DataCodecManager.getDataCodec();
         this.broadcastUser(userId, cmdInfo, codec.encodeListInt(dataList), dataList);
     }
 
-    /** Broadcast with List&lt;Long&gt; payload to a specific user. @see #broadcastUser(long, CmdInfo, byte[], Object) */
+    /**
+     * Broadcast with List&lt;Long&gt; payload to a specific user. @see
+     * #broadcastUser(long, CmdInfo, byte[], Object)
+     */
     default void broadcastUserListLong(long userId, CmdInfo cmdInfo, List<Long> dataList) {
         var codec = DataCodecManager.getDataCodec();
         this.broadcastUser(userId, cmdInfo, codec.encodeListLong(dataList), dataList);
     }
 
-    /** Broadcast with List&lt;Boolean&gt; payload to a specific user. @see #broadcastUser(long, CmdInfo, byte[], Object) */
+    /**
+     * Broadcast with List&lt;Boolean&gt; payload to a specific user. @see
+     * #broadcastUser(long, CmdInfo, byte[], Object)
+     */
     default void broadcastUserListBool(long userId, CmdInfo cmdInfo, List<Boolean> dataList) {
         var codec = DataCodecManager.getDataCodec();
         this.broadcastUser(userId, cmdInfo, codec.encodeListBool(dataList), dataList);
     }
 
-    /** Broadcast with List&lt;String&gt; payload to a specific user. @see #broadcastUser(long, CmdInfo, byte[], Object) */
+    /**
+     * Broadcast with List&lt;String&gt; payload to a specific user. @see
+     * #broadcastUser(long, CmdInfo, byte[], Object)
+     */
     default void broadcastUserListString(long userId, CmdInfo cmdInfo, List<String> dataList) {
         var codec = DataCodecManager.getDataCodec();
         this.broadcastUser(userId, cmdInfo, codec.encodeListString(dataList), dataList);
     }
 }
-

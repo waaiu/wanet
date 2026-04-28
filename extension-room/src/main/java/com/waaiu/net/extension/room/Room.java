@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -29,9 +29,10 @@ import java.util.function.*;
 import java.util.stream.*;
 
 /**
- * Core room abstraction for player lifecycle, seating, and room-level game operations.
+ * Core room abstraction for player lifecycle, seating, and room-level game
+ * operations.
  *
- * @author 渔民小镇
+ * @author
  * @date 2022-03-31
  * @since 21.8
  */
@@ -87,7 +88,8 @@ public interface Room {
     /**
      * get room space size
      *
-     * @return Room space size. For example, 4 means the room can hold a maximum of 4 players.
+     * @return Room space size. For example, 4 means the room can hold a maximum of
+     *         4 players.
      */
     int getSpaceSize();
 
@@ -252,7 +254,8 @@ public interface Room {
     }
 
     /**
-     * Executes the given action if the player is in the room, otherwise does nothing.
+     * Executes the given action if the player is in the room, otherwise does
+     * nothing.
      *
      * @param userId userId
      * @param action The given action
@@ -264,7 +267,8 @@ public interface Room {
     }
 
     /**
-     * Executes the given action if the player is not in the room, otherwise does nothing.
+     * Executes the given action if the player is not in the room, otherwise does
+     * nothing.
      *
      * @param userId   userId
      * @param runnable The given action
@@ -309,7 +313,6 @@ public interface Room {
     default boolean isEmptyPlayer() {
         return this.getPlayerMap().isEmpty();
     }
-
 
     default boolean isEmptyRealPlayer() {
         return this.getRealPlayerMap().isEmpty();
@@ -552,7 +555,8 @@ public interface Room {
     }
 
     /**
-     * Create a RangeBroadcast, which will add all players in the current room by default.
+     * Create a RangeBroadcast, which will add all players in the current room by
+     * default.
      *
      * @return RangeBroadcast The broadcast within the range
      */
@@ -570,4 +574,3 @@ public interface Room {
         return new DefaultRangeBroadcast(cmdInfo);
     }
 }
-

@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -22,9 +22,10 @@ import com.waaiu.net.framework.protocol.*;
 import com.waaiu.net.sbe.*;
 
 /**
- * Default {@link SbeCodec} that maps framework message fields to SBE generated codecs.
+ * Default {@link SbeCodec} that maps framework message fields to SBE generated
+ * codecs.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-10-10
  * @since 25.1
  */
@@ -49,8 +50,7 @@ public class DefaultSbeCodec implements SbeCodec {
                 .externalServerId(message.getExternalServerId())
                 .logicServerId(message.getLogicServerId())
                 .sourceServerId(message.getSourceServerId())
-                .nanoTime(message.getNanoTime())
-        ;
+                .nanoTime(message.getNanoTime());
     }
 
     @Override
@@ -64,4 +64,3 @@ public class DefaultSbeCodec implements SbeCodec {
         message.setNanoTime(common.nanoTime());
     }
 }
-

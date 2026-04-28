@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -33,16 +33,21 @@ import lombok.*;
 import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.*;
 
-/// PluginInOut - StatActionInOut - <a href="https://waaiu.github.io/ionet/docs/core_plugin/action_stat">Action Call Statistics Plugin</a>
+/// PluginInOut - StatActionInOut - <a
+/// href="https://waaiu.github.io/wanet/docs/core_plugin/action_stat">Action Call
+/// Statistics Plugin</a>
 ///
-/// StatActionInOut is an action call statistics plugin that can be used to collect relevant data
-/// for each action call, such as the **execution count**, **total time cost**, **average time cost**, **maximum time cost**, **number of exceptions triggered**, and other related statistics.
-/// Developers can use this data to analyze the **hotspot methods** and **time-consuming methods** in the project, thus achieving precise optimization.
+/// StatActionInOut is an action call statistics plugin that can be used to
+/// collect relevant data for each action call, such as the **execution count**,
+/// **total time cost**, **average time cost**, **maximum time cost**, **number
+/// of exceptions triggered**, and other related statistics. Developers can use
+/// this data to analyze the **hotspot methods** and **time-consuming methods**
+/// in the project, thus achieving precise optimization.
 ///
 /// ```text
 ///// StatAction statistics record print preview
 ///     "StatAction{cmd[1-0], Executed [1] times, Total Time Cost [8], Average Time Cost [8], Maximum Time Cost [8], Exceptions [0] times}"
-///```
+/// ```
 /// for example
 /// ```java
 /// BarSkeletonBuilder builder = ...;
@@ -62,12 +67,12 @@ import org.jspecify.annotations.*;
 ///// Iterate over all statistics data
 /// region.forEach((cmdInfo, statAction) -> {
 ///// Simply print the statistics record value StatAction
-///     System.out.println(statAction);
+///     Syst(statAction);
 ///// Developers can periodically save this data to logs or a DB for subsequent analysis
 ///});
-///```
+/// ```
 ///
-/// @author 渔民小镇
+/// @author
 /// @date 2023-11-17
 /// @see StatAction
 /// @see StatActionRegion
@@ -81,7 +86,8 @@ public final class StatActionInOut implements ActionMethodInOut {
     StatActionChangeListener listener;
 
     /**
-     * Record the start time before action method execution (no-op; timing uses {@code FlowContext.getNanoTime()}).
+     * Record the start time before action method execution (no-op; timing uses
+     * {@code FlowContext.getNanoTime()}).
      *
      * @param flowContext the current request flow context
      */
@@ -90,7 +96,8 @@ public final class StatActionInOut implements ActionMethodInOut {
     }
 
     /**
-     * Collect statistics after action method execution, updating the corresponding {@link StatAction}.
+     * Collect statistics after action method execution, updating the corresponding
+     * {@link StatAction}.
      *
      * @param flowContext the current request flow context
      */
@@ -169,7 +176,8 @@ public final class StatActionInOut implements ActionMethodInOut {
     }
 
     /**
-     * Per-action statistics record holding execution count, total/average/max time cost,
+     * Per-action statistics record holding execution count, total/average/max time
+     * cost,
      * error count, and time range distribution.
      */
     @Getter
@@ -233,7 +241,8 @@ public final class StatActionInOut implements ActionMethodInOut {
 
         /**
          * Gets the corresponding TimeRange object based on the time cost.
-         * If no corresponding time range is found, the last element in the configured List is used.
+         * If no corresponding time range is found, the last element in the configured
+         * List is used.
          *
          * @param time Time cost
          * @return TimeRange
@@ -254,7 +263,10 @@ public final class StatActionInOut implements ActionMethodInOut {
             return this.totalTime.sum() / this.executeCount.sum();
         }
 
-        /** %s, Executed [%s] times, Exceptions [%s] times, Average Time Cost [%d], Maximum Time Cost [%s], Total Time Cost [%s] %s */
+        /**
+         * %s, Executed [%s] times, Exceptions [%s] times, Average Time Cost [%d],
+         * Maximum Time Cost [%s], Total Time Cost [%s] %s
+         */
         private final String statActionInOutToString = Bundle.getMessage(MessageKey.statActionInOutStatAction);
 
         @Override
@@ -273,20 +285,14 @@ public final class StatActionInOut implements ActionMethodInOut {
                 rangeStr = builder.toString();
             }
 
-            return String.format(statActionInOutToString
-                    , CmdKit.toString(this.cmdInfo.cmdMerge())
-                    , this.executeCount
-                    , this.errorCount
-                    , this.getAvgTime()
-                    , this.maxTime
-                    , this.totalTime
-                    , rangeStr
-            );
+            return String.format(statActionInOutToString, CmdKit.toString(this.cmdInfo.cmdMerge()), this.executeCount,
+                    this.errorCount, this.getAvgTime(), this.maxTime, this.totalTime, rangeStr);
         }
     }
 
     /**
-     * PluginInOut - StatActionInOut - Action Call Statistics Plugin - StatAction Update Listener
+     * PluginInOut - StatActionInOut - Action Call Statistics Plugin - StatAction
+     * Update Listener
      */
     public interface StatActionChangeListener {
         /**
@@ -299,15 +305,17 @@ public final class StatActionInOut implements ActionMethodInOut {
         void changed(StatAction statAction, long time, FlowContext flowContext);
 
         /**
-         * Creates a time range. If you want finer-grained statistics, just create more time ranges.
+         * Creates a time range. If you want finer-grained statistics, just create more
+         * time ranges.
          * <p>
          * for example
+         * 
          * <pre>{@code
          * List.of(
-         * TimeRange.create(500, 1000),
-         * TimeRange.create(1000, 1500),
-         * TimeRange.create(1500, 2000),
-         * TimeRange.create(2000, Long.MAX_VALUE, "> 2000"))
+         *         TimeRange.create(500, 1000),
+         *         TimeRange.create(1000, 1500),
+         *         TimeRange.create(1500, 2000),
+         *         TimeRange.create(2000, Long.MAX_VALUE, "> 2000"))
          * }
          * </pre>
          *
@@ -324,20 +332,24 @@ public final class StatActionInOut implements ActionMethodInOut {
         /**
          * Trigger condition, a prerequisite for triggering the updateTimeRange method
          * <p>
-         * Developers can typically use this method to decide whether to trigger the updateTimeRange method.
-         * For example, it can be used to judge whether to monitor only a certain or some specific users within this method.
+         * Developers can typically use this method to decide whether to trigger the
+         * updateTimeRange method.
+         * For example, it can be used to judge whether to monitor only a certain or
+         * some specific users within this method.
          *
          * @param statAction  action statistics record
          * @param time        action execution time cost
          * @param flowContext flowContext
-         * @return true means the condition is met; when true, the updateTimeRange method will be called
+         * @return true means the condition is met; when true, the updateTimeRange
+         *         method will be called
          */
         default boolean triggerUpdateTimeRange(StatAction statAction, long time, FlowContext flowContext) {
             return false;
         }
 
         /**
-         * Called while the StatAction statistics record is being updated, called when the trigger method returns true
+         * Called while the StatAction statistics record is being updated, called when
+         * the trigger method returns true
          *
          * @param statAction  action statistics record
          * @param time        action execution time cost
@@ -351,6 +363,7 @@ public final class StatActionInOut implements ActionMethodInOut {
          * StatAction update listener flow
          * <p>
          * The default implementation flow is:
+         * 
          * <pre>
          * 1 First, check if triggerUpdateTimeRange condition is met
          * 2 When triggerUpdateTimeRange is true, updateTimeRange will be executed
@@ -371,7 +384,8 @@ public final class StatActionInOut implements ActionMethodInOut {
     }
 
     /**
-     * PluginInOut - StatActionInOut - Action Call Statistics Plugin - Time Range Record
+     * PluginInOut - StatActionInOut - Action Call Statistics Plugin - Time Range
+     * Record
      *
      * @param start Start time, inclusive
      * @param end   End time, inclusive

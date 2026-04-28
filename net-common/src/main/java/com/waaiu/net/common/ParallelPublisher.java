@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -29,17 +29,26 @@ import lombok.extern.slf4j.*;
 import org.agrona.concurrent.*;
 
 /**
- * Parallel multi-threaded {@link Publisher} implementation with per-publication virtual threads.
+ * Parallel multi-threaded {@link Publisher} implementation with per-publication
+ * virtual threads.
  *
- * <p>Each publication runs on its own virtual thread, eliminating head-of-line blocking
- * between different publications and improving throughput under concurrent load. Messages
- * sent to the same publication maintain FIFO ordering, while different publications can
- * publish in parallel.</p>
+ * <p>
+ * Each publication runs on its own virtual thread, eliminating head-of-line
+ * blocking
+ * between different publications and improving throughput under concurrent
+ * load. Messages
+ * sent to the same publication maintain FIFO ordering, while different
+ * publications can
+ * publish in parallel.
+ * </p>
  *
- * <p>Use this implementation when you have multiple publications with high message rates
- * and want to maximize throughput by parallelizing publication work.</p>
+ * <p>
+ * Use this implementation when you have multiple publications with high message
+ * rates
+ * and want to maximize throughput by parallelizing publication work.
+ * </p>
  *
- * @author 渔民小镇
+ * @author
  * @date 2026-03-01
  * @since 25.1
  */
@@ -100,7 +109,8 @@ public final class ParallelPublisher implements Publisher {
 
     private class PublicationRunnable implements Runnable {
         private final String publicationName;
-        private final UnsafeBuffer buffer = new UnsafeBuffer(ByteBuffer.allocateDirect(CoreGlobalConfig.publisherBufferSize));
+        private final UnsafeBuffer buffer = new UnsafeBuffer(
+                ByteBuffer.allocateDirect(CoreGlobalConfig.publisherBufferSize));
         private final MessageHeaderEncoder headerEncoder = new MessageHeaderEncoder();
 
         PublicationRunnable(String publicationName) {
@@ -142,4 +152,3 @@ public final class ParallelPublisher implements Publisher {
         }
     }
 }
-

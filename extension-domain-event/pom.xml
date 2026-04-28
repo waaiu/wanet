@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.waaiu.net</groupId>
-        <artifactId>ionet</artifactId>
+        <artifactId>wanet</artifactId>
         <version>25.4</version>
     </parent>
 
     <artifactId>extension-domain-event</artifactId>
-    <name>extension-domain-event for ionet</name>
+    <name>extension-domain-event for wanet</name>
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/com.lmax/disruptor -->
@@ -21,3 +21,4 @@
         </dependency>
     </dependencies>
 </project>
+

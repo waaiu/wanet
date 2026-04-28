@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -34,10 +34,11 @@ import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.*;
 
 /**
- * Builder for constructing a {@link BarSkeleton} instance. Configures action controllers,
+ * Builder for constructing a {@link BarSkeleton} instance. Configures action
+ * controllers,
  * interceptors, flow executors, and other components.
  *
- * @author 渔民小镇
+ * @author
  * @date 2021-12-12
  */
 @Setter
@@ -64,7 +65,8 @@ public final class BarSkeletonBuilder {
     /**
      * Build and return a fully configured {@link BarSkeleton} instance.
      *
-     * @return a new {@link BarSkeleton} configured with the settings from this builder
+     * @return a new {@link BarSkeleton} configured with the settings from this
+     *         builder
      */
     public BarSkeleton build() {
         this.scan();
@@ -149,17 +151,20 @@ public final class BarSkeletonBuilder {
     }
 
     /**
-     * Scan the package of the given class for {@code @ActionController} annotated classes.
+     * Scan the package of the given class for {@code @ActionController} annotated
+     * classes.
      * Scans the package and all sub-packages of the specified class.
      *
-     * @param actionControllerClass a class whose package will be scanned for action controllers
+     * @param actionControllerClass a class whose package will be scanned for action
+     *                              controllers
      */
     public void scanActionPackage(@NonNull Class<?> actionControllerClass) {
         this.scanClassList.add(actionControllerClass);
     }
 
     /**
-     * Register an action controller class to be scanned for {@code @ActionMethod} routes.
+     * Register an action controller class to be scanned for {@code @ActionMethod}
+     * routes.
      *
      * @param actionControllerClass the action controller class to register
      */

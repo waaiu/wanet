@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -26,7 +26,7 @@ import java.util.stream.*;
 /**
  * Parsed Java class metadata used to render a proto message/enum block.
  *
- * @author 渔民小镇
+ * @author
  * @date 2022-01-24
  */
 public class ProtoJava {
@@ -47,7 +47,8 @@ public class ProtoJava {
     }
 
     public boolean inThisFile(ProtoJava protoJava) {
-        return Objects.equals(this.fileName, protoJava.fileName) && Objects.equals(this.filePackage, protoJava.filePackage);
+        return Objects.equals(this.fileName, protoJava.fileName)
+                && Objects.equals(this.filePackage, protoJava.filePackage);
     }
 
     public ProtoJavaRegionKey getProtoJavaRegionKey() {
@@ -73,10 +74,9 @@ public class ProtoJava {
                 {classOrEnum} {className} {
                 {fieldsString}
                 }
-                
+
                 """;
 
         return StrKit.format(template, messageMap);
     }
 }
-

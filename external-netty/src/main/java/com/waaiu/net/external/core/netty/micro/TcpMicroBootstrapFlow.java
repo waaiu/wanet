@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -28,7 +28,7 @@ import io.netty.handler.codec.*;
 /**
  * Netty bootstrap flow for TCP-based external client connections.
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-05-28
  */
 public class TcpMicroBootstrapFlow extends AbstractSocketMicroBootstrapFlow {
@@ -40,37 +40,42 @@ public class TcpMicroBootstrapFlow extends AbstractSocketMicroBootstrapFlow {
                 .childOption(ChannelOption.SO_KEEPALIVE, true)
                 /*
                  * Enables TCP keepalive on the listening socket.
-                 * The OS-level keepalive probe is only triggered after long periods of inactivity.
+                 * The OS-level keepalive probe is only triggered after long periods of
+                 * inactivity.
                  */
                 .option(ChannelOption.SO_KEEPALIVE, true)
                 /*
-                 * Maximum queued completed connections waiting for accept when the server is busy.
+                 * Maximum queued completed connections waiting for accept when the server is
+                 * busy.
                  * Defaults to 100 here for predictable behavior across environments.
                  */
                 .option(ChannelOption.SO_BACKLOG, 100)
                 /*
-                 * Disable Nagle's algorithm so gameplay messages are flushed with lower latency.
+                 * Disable Nagle's algorithm so gameplay messages are flushed with lower
+                 * latency.
                  */
                 .option(ChannelOption.TCP_NODELAY, true);
     }
 
     @Override
     public void pipelineCodec(PipelineContext context) {
-//        context.addLast("tcp-check", new TcpProtocolSanityCheckHandler());
+        // context.addLast("tcp-check", new TcpProtocolSanityCheckHandler());
 
         // Frame length = length field value + offset + field length + adjustment.
         context.addLast(new LengthFieldBasedFrameDecoder(
                 ExternalGlobalConfig.maxFramePayloadLength,
                 // Length field offset (starts at 0).
                 0,
-                // Length field size: 4 bytes because TcpExternalCodec writes an int length prefix.
+                // Length field size: 4 bytes because TcpExternalCodec writes an int length
+                // prefix.
                 4,
-                // No length adjustment is needed because the field stores the payload length directly.
+                // No length adjustment is needed because the field stores the payload length
+                // directly.
                 0,
-                // Do not strip initial bytes; TcpExternalCodec expects to read the length prefix.
+                // Do not strip initial bytes; TcpExternalCodec expects to read the length
+                // prefix.
                 0));
 
         context.addLast("codec", new TcpExternalCodec());
     }
 }
-

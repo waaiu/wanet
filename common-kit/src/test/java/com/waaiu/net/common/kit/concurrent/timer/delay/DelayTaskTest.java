@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * DelayTaskTest
  *
- * @author 渔民小镇
+ * @author
  * @date 2024-09-01
  * @since 25.1
  */
@@ -31,103 +31,102 @@ class DelayTaskTest {
     @AfterEach
     public void tearDown() throws Exception {
         TimeUnit.SECONDS.sleep(3);
-        log.info("--------剩余任务数量 {}", delayTaskRegion.count());
+        log.info("-------- {}", delayTaskRegion.count());
     }
 
     @Test
     public void runDelayTask() {
-        log.info("演示 - 延时任务");
+        log.info(" - ");
 
         long timeMillis = System.currentTimeMillis();
-        // 1 秒后执行延时任务
+        // 1
         DelayTaskKit.of(() -> {
-                    log.info("1 秒后执行的延时任务");
-                    long value = System.currentTimeMillis() - timeMillis;
-                    Assertions.assertTrue(value > 990);
-                })
-                // N 秒后触发
+            log.info("1 ");
+            long value = System.currentTimeMillis() - timeMillis;
+            Assertions.assertTrue(value > 990);
+        })
+                // N
                 .plusTime(Duration.ofSeconds(1))
-                // 启动任务
+                //
                 .task();
     }
 
     @Test
     public void plusDelayTime() {
-        // ---------------增加 - 延时时间---------------
-        log.info("演示 - 增加延时时间");
+        // --------------- - ---------------
+        log.info(" - ");
 
         long timeMillis = System.currentTimeMillis();
-        // 1 秒后执行延时任务
+        // 1
         DelayTask delayTask = DelayTaskKit.of(() -> {
-                    long value = System.currentTimeMillis() - timeMillis;
-                    log.info("增加延时时间，最终 {} ms 后，执行延时任务", value);
-                    Assertions.assertTrue(value > 1490);
-                })
-                // N 秒后触发
+            long value = System.currentTimeMillis() - timeMillis;
+            log.info("， {} ms ，", value);
+            Assertions.assertTrue(value > 1490);
+        })
+                // N
                 .plusTime(Duration.ofSeconds(1))
-                // 启动任务
+                //
                 .task();
 
-        // 增加 0.5 秒的延时
+        // 0.5
         delayTask.plusTimeMillis(500);
         log.info("{}", delayTask);
-        // 最终 1.5 秒后执行延时任务
+        // 1.5
     }
 
     @Test
     public void minusDelayTime() {
-        // ---------------减少 - 延时时间---------------
-        log.info("演示 - 减少延时时间");
+        // --------------- - ---------------
+        log.info(" - ");
 
         long timeMillis = System.currentTimeMillis();
-        // 1 秒后执行延时任务
+        // 1
         DelayTask delayTask = DelayTaskKit.of(() -> {
-                    long value = System.currentTimeMillis() - timeMillis;
-                    log.info("减少延时时间，最终 {} ms 后，执行延时任务", value);
+            long value = System.currentTimeMillis() - timeMillis;
+            log.info("， {} ms ，", value);
 
-                    Assertions.assertTrue(value < 510);
-                })
-                // N 秒后触发
+            Assertions.assertTrue(value < 510);
+        })
+                // N
                 .plusTime(Duration.ofSeconds(1))
-                // 启动任务
+                //
                 .task();
 
-        // 减少 0.5 秒的延时时间
+        // 0.5
         delayTask.minusTime(Duration.ofMillis(100))
-                .plusTimeMillis(-400)
-        ;
+                .plusTimeMillis(-400);
 
         log.info("{}", delayTask);
-        // 最终 0.5 秒后执行延时任务
+        // 0.5
     }
 
     @Test
     public void coverDelayTask() throws InterruptedException {
-        log.info("演示 - 覆盖延时任务");
+        log.info(" - ");
 
         String taskId = "1";
 
-        DelayTaskKit.of(taskId, () -> log.info("执行任务 - 1"))
-                // N 秒后触发
+        DelayTaskKit.of(taskId, () -> log.info(" - 1"))
+                // N
                 .plusTime(Duration.ofSeconds(2))
-                // 启动任务
+                //
                 .task();
 
         TimeUnit.MILLISECONDS.sleep(500);
 
         long timeMillis = System.currentTimeMillis();
 
-        // 因为 taskId 相同，所以会覆盖之前的延时任务
+        // taskId ，
         DelayTask delayTask = DelayTaskKit.of(taskId, () -> {
-                    long value = System.currentTimeMillis() - timeMillis;
+            long value = System.currentTimeMillis() - timeMillis;
 
-                    log.info("执行任务 - 2，最终 {} ms 后，执行延时任务", value);
+            log.info(" - 2， {} ms ，", value);
 
-                    Assertions.assertTrue(value > 990);
-                })
-                // N 秒后触发
+            Assertions.assertTrue(value > 990);
+        })
+                // N
                 .plusTime(Duration.ofSeconds(1))
-                // 启动任务
+                //
                 .task();
 
         log.info("{}", delayTask);
@@ -135,44 +134,44 @@ class DelayTaskTest {
 
     @Test
     public void cancelDelayTask() throws InterruptedException {
-        // -----------取消 - 延时任务；通过 DelayTask 来取消-----------
-        log.info("演示 - 取消延时任务");
+        // ----------- - ； DelayTask -----------
+        log.info(" - ");
 
         DelayTask delayTask = DelayTaskKit.of(() -> {
-                    log.info("取消 - 延时任务");
-                })
-                // N 秒后触发
+            log.info(" - ");
+        })
+                // N
                 .plusTime(Duration.ofSeconds(2))
-                // 启动任务
+                //
                 .task();
 
         Assertions.assertEquals(1, delayTaskRegion.count());
 
-        log.info("0.5 秒后, 因为满足某个业务条件, 不想执行定时任务了");
+        log.info("0.5 , , ");
         TimeUnit.MILLISECONDS.sleep(500);
-        // 取消任务
+        //
         delayTask.cancel();
 
         Assertions.assertFalse(delayTask.isActive());
         Assertions.assertEquals(0, delayTaskRegion.count());
 
-        // -----------取消 - 延时任务；通过 taskId 来取消-----------
+        // ----------- - ； taskId -----------
 
-        log.info("演示 - 通过 taskId 取消延时任务");
+        log.info(" -  taskId ");
 
         String taskId = "1";
-        // 在创建延时任务时，设置 taskId
-        DelayTaskKit.of(taskId, () -> log.info("通过 taskId 取消 - 延时任务"))
-                // N 秒后触发
+        // ， taskId
+        DelayTaskKit.of(taskId, () -> log.info(" taskId  - "))
+                // N
                 .plusTime(Duration.ofSeconds(1))
-                // 启动任务
+                //
                 .task();
 
         Assertions.assertEquals(1, delayTaskRegion.count());
 
-        log.info("0.5 秒后, 因为满足某个业务条件, 不想执行定时任务了");
+        log.info("0.5 , , ");
         TimeUnit.MILLISECONDS.sleep(500);
-        // 通过 taskId 取消任务
+        // taskId
         DelayTaskKit.cancel(taskId);
 
         Assertions.assertEquals(0, delayTaskRegion.count());
@@ -182,68 +181,68 @@ class DelayTaskTest {
     public void optionalDelayTask() {
         String newTaskId = "1";
         DelayTaskKit.of(newTaskId, () -> log.info("hello DelayTask"))
-                // 2.5 秒后触发
+                // 2.5
                 .plusTime(Duration.ofSeconds(2))
                 .plusTimeMillis(500)
-                // 启动任务
+                //
                 .task();
 
-        // 在后续的业务中，可以通过 taskId 查找该延时任务
+        // ， taskId
         Optional<DelayTask> optionalDelayTask = DelayTaskKit.optional(newTaskId);
         optionalDelayTask.ifPresent(delayTask -> log.info("{}", delayTask));
 
-        // 通过 taskId 查找延时任务，存在则执行给定逻辑
+        // taskId ，
         DelayTaskKit.ifPresent(newTaskId, delayTask -> {
-            delayTask.plusTimeMillis(500); // 增加 0.5 秒的延时时间
+            delayTask.plusTimeMillis(500); // 0.5
         });
     }
 
     @Test
     public void customTaskListener() {
         // minus
-        // ---------------演示 - 增强 TaskListener ---------------
+        // --------------- - TaskListener ---------------
 
         DelayTaskKit.of(new TaskListener() {
-                    @Override
-                    public void onUpdate() {
-                        log.info("1.7 秒后执行的延时任务");
-                    }
+            @Override
+            public void onUpdate() {
+                log.info("1.7 ");
+            }
 
-                    @Override
-                    public boolean triggerUpdate() {
-                        // 是否触发 onUpdate 监听回调方法
-                        return TaskListener.super.triggerUpdate();
-                    }
+            @Override
+            public boolean triggerUpdate() {
+                // onUpdate
+                return TaskListener.super.triggerUpdate();
+            }
 
-                    @Override
-                    public Executor getExecutor() {
-                        // 指定一个执行器来消费当前 onUpdate
-                        return TaskListener.super.getExecutor();
-                    }
+            @Override
+            public Executor getExecutor() {
+                // onUpdate
+                return TaskListener.super.getExecutor();
+            }
 
-                    @Override
-                    public void onException(Throwable e) {
-                        // 异常回调
-                        TaskListener.super.onException(e);
-                    }
-                })
+            @Override
+            public void onException(Throwable e) {
+                //
+                TaskListener.super.onException(e);
+            }
+        })
                 .plusTime(Duration.ofMillis(1700))
                 .task();
     }
 
     @Test
     public void more() {
-        DelayTask delayTask = DelayTaskKit.of(new ShootTaskListener("敌人"))
-                // 1.5 秒后触发。（这里演示添加延时时间的两个方法）
+        DelayTask delayTask = DelayTaskKit.of(new ShootTaskListener(""))
+                // 1.5 。（）
                 .plusTime(Duration.ofSeconds(1))
                 .plusTimeMillis(500)
-                // 启动任务
+                //
                 .task();
 
-        // 当为 true 时，冷却减 0.5 秒，并且幸运加成
+        // true ， 0.5 ，
         if (RandomKit.randomBoolean()) {
             delayTask.minusTime(Duration.ofMillis(500));
-            // 得到监听器，并设置幸运加成
+            // ，
             ShootTaskListener shootTaskListener = delayTask.getTaskListener();
             shootTaskListener.setLuck(true);
         }
@@ -253,7 +252,7 @@ class DelayTaskTest {
     @Setter
     static final class ShootTaskListener implements TaskListener {
         final String targetEntity;
-        /** 幸运加成 */
+        /**  */
         boolean luck;
         int attack = 10;
 
@@ -264,7 +263,7 @@ class DelayTaskTest {
         @Override
         public void onUpdate() {
             int value = luck ? attack * 2 : attack;
-            log.info("向【{}】开炮，造成 {} 伤害", targetEntity, value);
+            log.info("【{}】， {} ", targetEntity, value);
         }
     }
 }

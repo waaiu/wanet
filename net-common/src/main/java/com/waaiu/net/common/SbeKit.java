@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -26,7 +26,7 @@ import lombok.experimental.*;
 /**
  * Static facade for the active {@link SbeCodec} implementation.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-06
  * @since 25.1
  */
@@ -38,7 +38,7 @@ public final class SbeKit {
     /**
      * Encodes user identity fields with the active {@link #sbeCodec}.
      *
-     * @param message source model
+     * @param message      source model
      * @param userIdentity target SBE encoder
      */
     public void encoderUserIdentity(UserIdentity message, UserIdentityMessageEncoder userIdentity) {
@@ -48,7 +48,7 @@ public final class SbeKit {
     /**
      * Decodes user identity fields with the active {@link #sbeCodec}.
      *
-     * @param message target model
+     * @param message      target model
      * @param userIdentity source SBE decoder
      */
     public void decoderUserIdentity(UserIdentity message, UserIdentityMessageDecoder userIdentity) {
@@ -59,7 +59,7 @@ public final class SbeKit {
      * Encodes common remote-message fields with the active {@link #sbeCodec}.
      *
      * @param message source model
-     * @param common target SBE encoder
+     * @param common  target SBE encoder
      */
     public void encoderMessageCommon(RemoteMessage message, CommonMessageEncoder common) {
         sbeCodec.encoderMessageCommon(message, common);
@@ -69,10 +69,9 @@ public final class SbeKit {
      * Decodes common remote-message fields with the active {@link #sbeCodec}.
      *
      * @param message target model
-     * @param common source SBE decoder
+     * @param common  source SBE decoder
      */
     public void decoderMessageCommon(RemoteMessage message, CommonMessageDecoder common) {
         sbeCodec.decoderMessageCommon(message, common);
     }
 }
-

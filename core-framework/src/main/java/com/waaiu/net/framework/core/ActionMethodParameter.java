@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -30,7 +30,7 @@ import lombok.experimental.*;
  * Metadata about an action method parameter, including generic type resolution
  * and JSR-380 validation group configuration.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-09
  * @since 25.1
  */
@@ -78,9 +78,11 @@ public final class ActionMethodParameter implements ActualParameter {
     }
 
     /**
-     * Format the parameter type and name as a string, optionally using fully qualified class names.
+     * Format the parameter type and name as a string, optionally using fully
+     * qualified class names.
      *
-     * @param fullName {@code true} to use fully qualified names, {@code false} for simple names
+     * @param fullName {@code true} to use fully qualified names, {@code false} for
+     *                 simple names
      * @return formatted parameter string (e.g. {@code "List<Foo> param"})
      */
     public String toString(boolean fullName) {
@@ -110,4 +112,3 @@ public final class ActionMethodParameter implements ActualParameter {
         return actualTypeArgumentClass;
     }
 }
-

@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -22,14 +22,18 @@ import lombok.*;
 import lombok.experimental.*;
 
 /**
- * Base message class for user-facing request and response messages in the Netty pipeline.
+ * Base message class for user-facing request and response messages in the Netty
+ * pipeline.
  * <p>
- * Extends {@link CommonMessage} with user identity fields, a client-assigned message ID,
- * cache condition, error information, and transient protocol-level metadata (command code,
- * socket address, external message reference). Serves as the common superclass for
+ * Extends {@link CommonMessage} with user identity fields, a client-assigned
+ * message ID,
+ * cache condition, error information, and transient protocol-level metadata
+ * (command code,
+ * socket address, external message reference). Serves as the common superclass
+ * for
  * {@link UserRequestMessage} and {@link UserResponseMessage}.
  *
- * @author 渔民小镇
+ * @author
  * @date 2021-12-20
  */
 @Getter
@@ -52,4 +56,3 @@ abstract class BarMessage extends CommonMessage {
     transient Object inetSocketAddress;
     transient Object externalMessage;
 }
-

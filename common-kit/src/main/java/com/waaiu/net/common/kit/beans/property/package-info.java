@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   (
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -17,10 +17,13 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 /**
- * Utility tools - <a href="https://waaiu.github.io/ionet/docs/kit/property_change_listener">Property Value Change Listener</a> feature,
- * properties can add listeners which are triggered when certain property values change.
+ * Utility tools - <a href=
+ * "https://waaiu.github.io/wanet/docs/kit/property_change_listener">Property
+ * Value Change Listener</a> feature,
+ * propertiteners which are triggered when certain property values
+ * change.
  *
- * @author 渔民小镇
+ * @author
  * @date 2024-04-17
  */
 package com.waaiu.net.common.kit.beans.property;

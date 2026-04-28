@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -24,7 +24,8 @@ import java.util.*;
 
 /**
  * Default (free-tier) implementation of {@link EventBusSetting} that throws
- * {@link EnterpriseSupportException} for most operations, indicating enterprise support is required.
+ * {@link EnterpriseSupportException} for most operations, indicating enterprise
+ * support is required.
  */
 final class FreeEventBusSetting implements EventBusSetting {
     @Override
@@ -50,7 +51,8 @@ final class FreeEventBusSetting implements EventBusSetting {
 
 /**
  * Default (free-tier) implementation of {@link EventBusRegion} that throws
- * {@link EnterpriseSupportException} for most operations and returns empty collections otherwise.
+ * {@link EnterpriseSupportException} for most operations and returns empty
+ * collections otherwise.
  */
 class FreeEventBusRegion implements EventBusRegion {
 

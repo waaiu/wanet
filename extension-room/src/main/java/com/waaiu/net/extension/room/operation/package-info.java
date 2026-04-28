@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -17,10 +17,13 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 /**
- * Provides gameplay-operation extension points and handlers for room-based games, including
+ * Provides gameplay-operation extension points and handlers for room-based
+ * games, including
  * strategy/flyweight style operation dispatch.
  * <p>
- * Gameplay Operation Business - Design Patterns: Strategy Pattern + Flyweight Pattern
+ * Gameplay Operation Business - Design Patterns: Strategy Pattern + Flyweight
+ * Pattern
+ * 
  * <pre>
  * Strategy Pattern:
  * Define an interface and write two implementation classes that implement this interface,
@@ -31,7 +34,9 @@
  * Centralizes the management of the state of many "virtual" objects, reducing the number of runtime
  * object instances and saving memory.
  * </pre>
+ * 
  * Usage Example - Configuring Gameplay Operations
+ * 
  * <pre>{@code
  * // Create OperationFactory object (framework's built-in implementation)
  * OperationFactory factory = OperationFactory.of();
@@ -40,15 +45,15 @@
  * factory.mappingUser(1, new ShootOperationHandler());
  *
  * // If there are more operations, they can be configured continuously.
- * // Here we use pseudocode for a Mahjong example, configuring Chi, Peng, and Gang operations.
+ * // Here we use pseudocode for a Mahjong example, configuring Chi, Peng, and
+ * // Gang operations.
  * factory.mappingUser(10, new ChiOperationHandler());
  * factory.mappingUser(11, new PengOperationHandler());
  * factory.mappingUser(12, new GangOperationHandler());
  * }</pre>
  *
- * @author 渔民小镇
+ * @author
  * @date 2022-03-31
  * @since 21.8
  */
 package com.waaiu.net.extension.room.operation;
-

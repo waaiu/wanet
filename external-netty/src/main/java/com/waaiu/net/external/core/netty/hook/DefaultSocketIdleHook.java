@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -28,7 +28,7 @@ import lombok.extern.slf4j.*;
 /**
  * TCP/WebSocket heartbeat hook
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-02-18
  */
 @Slf4j(topic = IonetLogName.CommonStdout)
@@ -51,8 +51,8 @@ public final class DefaultSocketIdleHook implements SocketIdleHook {
 
         userSession.writeAndFlush(message);
 
-        // Return true means notifying the framework to close the current user (player) connection
+        // Return true means notifying the framework to close the current user (player)
+        // connection
         return true;
     }
 }
-

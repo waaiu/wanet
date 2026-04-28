@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   (
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -34,9 +34,9 @@ import java.util.function.*;
 /// this.option(intKey, 123);
 ///// get int value
 /// int age = this.option(intKey);
-///```
+/// ```
 ///
-/// @author 渔民小镇
+/// @author
 /// @date 2022-01-31
 public interface AttrOptionDynamic {
     /**
@@ -47,21 +47,25 @@ public interface AttrOptionDynamic {
     AttrOptions getOptions();
 
     /**
-     * Gets the option value. Returns the default value if the option does not exist.
+     * Gets the option value. Returns the default value if the option does not
+     * exist.
      *
      * @param option The attribute option
-     * @return The option value, or the default option value if the option does not exist.
+     * @return The option value, or the default option value if the option does not
+     *         exist.
      */
     default <T> T option(AttrOption<T> option) {
         return this.getOptions().option(option);
     }
 
     /**
-     * Gets the option value. Returns the specified value if the option does not exist or is null.
+     * Gets the option value. Returns the specified value if the option does not
+     * exist or is null.
      *
      * @param option The attribute option
      * @param value  The specified value
-     * @return The option value, or the specified value if the option is null or does not exist.
+     * @return The option value, or the specified value if the option is null or
+     *         does not exist.
      */
     default <T> T optionValue(AttrOption<T> option, T value) {
         T data = this.option(option);
@@ -79,7 +83,8 @@ public interface AttrOptionDynamic {
      * Use a null value to remove the previously set {@link AttrOption}.
      *
      * @param option The attribute option
-     * @param value  The option value, null to remove the previously set {@link AttrOption}.
+     * @param value  The option value, null to remove the previously set
+     *               {@link AttrOption}.
      * @return this
      */
     default <T> AttrOptions option(AttrOption<T> option, T value) {
@@ -87,10 +92,12 @@ public interface AttrOptionDynamic {
     }
 
     /**
-     * Executes the given operation if the dynamic attribute exists and is not null, otherwise does nothing.
+     * Executes the given operation if the dynamic attribute exists and is not null,
+     * otherwise does nothing.
      *
      * @param option   The attribute option
-     * @param consumer The given operation. Executed only if the option's value exists and is not null.
+     * @param consumer The given operation. Executed only if the option's value
+     *                 exists and is not null.
      * @param <T>      The type of the attribute value
      */
     default <T> void ifPresent(AttrOption<T> option, Consumer<T> consumer) {
@@ -101,11 +108,13 @@ public interface AttrOptionDynamic {
     }
 
     /**
-     * Executes the given operation if the dynamic attribute value is null, otherwise does nothing. The returned value
+     * Executes the given operation if the dynamic attribute value is null,
+     * otherwise does nothing. The returned value
      * from the operation will be set as the dynamic attribute's value.
      *
      * @param option   The attribute option
-     * @param supplier The given operation. Executed only when the option's value is null.
+     * @param supplier The given operation. Executed only when the option's value is
+     *                 null.
      * @param <T>      The type of the attribute value
      */
     default <T> void ifNull(AttrOption<T> option, Supplier<T> supplier) {
@@ -115,4 +124,3 @@ public interface AttrOptionDynamic {
         }
     }
 }
-

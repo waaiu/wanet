@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -24,7 +24,7 @@ import org.agrona.*;
 /**
  * Handles a decoded Aeron fragment for a specific SBE template id.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-08-25
  * @since 25.1
  */
@@ -32,11 +32,11 @@ public interface OnFragment {
     /**
      * Processes a fragment payload that has already been routed by template id.
      *
-     * @param buffer source buffer
-     * @param offset message offset
+     * @param buffer            source buffer
+     * @param offset            message offset
      * @param actingBlockLength SBE acting block length
-     * @param actingVersion SBE acting version
-     * @param header Aeron fragment header
+     * @param actingVersion     SBE acting version
+     * @param header            Aeron fragment header
      */
     void process(DirectBuffer buffer, int offset, int actingBlockLength, int actingVersion, Header header);
 
@@ -47,4 +47,3 @@ public interface OnFragment {
      */
     int getTemplateId();
 }
-

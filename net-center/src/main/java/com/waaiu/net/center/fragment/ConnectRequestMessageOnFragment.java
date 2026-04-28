@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -33,9 +33,10 @@ import lombok.extern.slf4j.*;
 import org.agrona.*;
 
 /**
- * Handles center-side connect-request fragments and synchronizes peer server discovery.
+ * Handles center-side connect-request fragments and synchronizes peer server
+ * discovery.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-08-25
  * @since 25.1
  */
@@ -88,7 +89,8 @@ public class ConnectRequestMessageOnFragment implements OnFragment, CenterServer
         }
 
         var futureId = decoder.futureId();
-        ExecutorRegionKit.getSimpleThreadExecutor(getTemplateId()).executeTry(() -> extractedByNetId(message, futureId));
+        ExecutorRegionKit.getSimpleThreadExecutor(getTemplateId())
+                .executeTry(() -> extractedByNetId(message, futureId));
     }
 
     protected Publication ofPublication(ServerMessage message) {
@@ -113,7 +115,8 @@ public class ConnectRequestMessageOnFragment implements OnFragment, CenterServer
                 connectionManager.publishMessage(otherServerMessage.getPubName(), serverResponseMessage);
             }
 
-            // Fetch all logic service information for the current newly-online logic service
+            // Fetch all logic service information for the current newly-online logic
+            // service
             var serverResponseMessage = ConnectResponseMessage.of(otherServerMessage);
             serverResponseMessage.setJoinServerId(message.getId());
 
@@ -131,4 +134,3 @@ public class ConnectRequestMessageOnFragment implements OnFragment, CenterServer
         return ConnectRequestMessageDecoder.TEMPLATE_ID;
     }
 }
-

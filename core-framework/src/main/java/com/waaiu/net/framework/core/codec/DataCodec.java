@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -24,13 +24,16 @@ import java.util.*;
 /**
  * Strategy interface for encoding and decoding business data.
  * <p>
- * Provides methods to serialize objects to {@code byte[]} and deserialize {@code byte[]} back
- * to typed objects. Default convenience methods handle primitive wrappers ({@link IntValue},
+ * Provides methods to serialize objects to {@code byte[]} and deserialize
+ * {@code byte[]} back
+ * to typed objects. Default convenience methods handle primitive wrappers
+ * ({@link IntValue},
  * {@link LongValue}, {@link BoolValue}, {@link StringValue}) and list wrappers
- * ({@link IntValueList}, {@link LongValueList}, {@link BoolValueList}, {@link StringValueList},
+ * ({@link IntValueList}, {@link LongValueList}, {@link BoolValueList},
+ * {@link S},
  * {@link ByteValueList}) transparently.
  *
- * @author 渔民小镇
+ * @author
  * @date 2022-05-18
  */
 public interface DataCodec {
@@ -142,7 +145,8 @@ public interface DataCodec {
     }
 
     /**
-     * Encode a collection of objects into a {@link ByteValueList} using the default codec.
+     * Encode a collection of objects into a {@link ByteValueList} using the default
+     * codec.
      *
      * @param dataList the collection of objects to encode
      * @return the encoded byte array
@@ -152,7 +156,8 @@ public interface DataCodec {
     }
 
     /**
-     * Encode a collection of objects into a {@link ByteValueList} using the specified codec.
+     * Encode a collection of objects into a {@link ByteValueList} using the
+     * specified codec.
      *
      * @param dataList the collection of objects to encode
      * @param codec    the codec to use for encoding each element
@@ -162,4 +167,3 @@ public interface DataCodec {
         return encode(ByteValueList.of(dataList, codec));
     }
 }
-

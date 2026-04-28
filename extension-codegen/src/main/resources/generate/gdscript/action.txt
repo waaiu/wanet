@@ -2,7 +2,7 @@
 # ${waaiuHome}
 
 ## ${ActionComment}[br]
-## https://github.com/waaiu/ionet
+## https://github.com/waaiu/wanet
 class_name ${ActionName}
 extends RefCounted
 
@@ -15,3 +15,4 @@ static var _${o.memberName}: int = IoGame.CmdKit.mapping_request(${o.cmdMerge}, 
 <%for(o in methodCodeList) {%>
 ${o}
 <%}%>
+

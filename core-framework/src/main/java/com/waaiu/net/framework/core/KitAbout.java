@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -37,10 +37,12 @@ import java.util.*;
 import java.util.stream.*;
 
 /**
- * Utility for parsing Java source-level documentation (Javadoc) from {@code @ActionController}
- * classes and attaching it to the corresponding {@link ActionCommandDoc} metadata.
+ * Utility for parsing Java source-level documentation (Javadoc) from
+ * {@code @ActionController}
+ * classes and attaching it to the corresponding {@link ActionCommandDoc}
+ * metadata
  *
- * @author 渔民小镇
+ * @author
  * @date 2022-12-09
  */
 class ActionCommandDocParserKit {
@@ -93,14 +95,18 @@ class ActionCommandDocParserKit {
     }
 }
 
-/** Intermediate holder for parsed action method parameters during command building. */
+/**
+ * Intermediate holder for parsed action method parameters during command
+ * building.
+ */
 class ActionCommandBuilderData {
     ActionMethodParameter[] actionMethodParameters;
     ActionMethodParameter dataParameter;
 }
 
 /**
- * Internal utilities for scanning {@code @ActionController} / {@code @ActionMethod} annotated
+ * Internal utilities for scanning {@code @ActionController} /
+ * {@code @ActionMethod} annotated
  * classes, building {@link ActionCommand} metadata, and validating command IDs.
  */
 final class ActionCommandParserKit {
@@ -133,7 +139,6 @@ final class ActionCommandParserKit {
         return MethodType.methodType(returnTypeClazz, classes);
     }
 
-
     private record ParameterPosition(int index, boolean bizData) {
     }
 
@@ -145,7 +150,8 @@ final class ActionCommandParserKit {
         }
 
         if (parameters.length > 2) {
-            ThrowKit.ofIllegalArgumentException("The method supports a maximum of two parameters: business parameters and FlowContext.");
+            ThrowKit.ofIllegalArgumentException(
+                    "The method supports a maximum of two parameters: business parameters and FlowContext.");
         }
 
         var positions = new ParameterPosition[parameters.length];
@@ -171,10 +177,12 @@ final class ActionCommandParserKit {
             var setting = CoreGlobalConfig.setting;
             if (setting.validator) {
                 if (setting.validatorAutoCall) {
-                    TaskKit.executeVirtual(() -> actionMethodParameter.validator = ValidatorKit.isValidator(parameter.getType()));
+                    TaskKit.executeVirtual(
+                            () -> actionMethodParameter.validator = ValidatorKit.isValidator(parameter.getType()));
                 } else {
                     if (parameter.getAnnotation(Valid.class) != null) {
-                        TaskKit.executeVirtual(() -> actionMethodParameter.validator = ValidatorKit.isValidator(parameter.getType()));
+                        TaskKit.executeVirtual(
+                                () -> actionMethodParameter.validator = ValidatorKit.isValidator(parameter.getType()));
                     }
                 }
             }
@@ -192,7 +200,8 @@ final class ActionCommandParserKit {
         var position1 = positions[0];
         var position2 = positions[1];
         if (position1.bizData == position2.bizData) {
-            ThrowKit.ofIllegalArgumentException("The method supports a maximum of two parameters: business parameters and FlowContext.");
+            ThrowKit.ofIllegalArgumentException(
+                    "The method supports a maximum of two parameters: business parameters and FlowContext.");
         }
 
         if (position1.bizData && !position2.bizData) {
@@ -206,8 +215,7 @@ final class ActionCommandParserKit {
 
         if (actionCommandRegion.containsKey(subCmd)) {
             String message = "%s already exists. see: %s".formatted(
-                    CmdInfo.of(actionCommandRegion.cmd, subCmd), controllerClass
-            );
+                    CmdInfo.of(actionCommandRegion.cmd, subCmd), controllerClass);
 
             IonetBanner.ofRuntimeException(message);
         }
@@ -237,8 +245,8 @@ final class ActionCommandParserKit {
         try {
             Constructor<?> constructor = controllerClazz.getConstructor();
             return constructor.newInstance();
-        } catch (InstantiationException | IllegalAccessException | InvocationTargetException |
-                 NoSuchMethodException e) {
+        } catch (InstantiationException | IllegalAccessException | InvocationTargetException
+                | NoSuchMethodException e) {
             ThrowKit.ofRuntimeException(e);
             return null;
         }
@@ -248,8 +256,7 @@ final class ActionCommandParserKit {
         var setting = CoreGlobalConfig.setting;
         if (subCmd >= setting.subCmdMaxLen) {
             var info = Bundle.getMessage(MessageKey.cmdMergeLimit).formatted(
-                    "subCmd", setting.subCmdMaxLen, subCmd
-            );
+                    "subCmd", setting.subCmdMaxLen, subCmd);
 
             IonetBanner.ofRuntimeException(info);
         }
@@ -264,8 +271,7 @@ final class ActionCommandParserKit {
              * Default maximum capacity %d, current capacity %d
              */
             var info = Bundle.getMessage(MessageKey.cmdMergeLimit).formatted(
-                    "cmd", setting.cmdMaxLen, cmd
-            );
+                    "cmd", setting.cmdMaxLen, cmd);
 
             IonetBanner.ofRuntimeException(info);
         }
@@ -274,10 +280,11 @@ final class ActionCommandParserKit {
 }
 
 /**
- * Console printer that renders a human-readable summary of the {@link BarSkeleton} configuration
+ * Console printer that renders a human-readable summary of the
+ * {@link BarSkeleton} configuration
  * including registered actions, in/out plugins, data codecs, and runners.
  *
- * @author 渔民小镇
+ * @author
  * @date 2021-12-12
  */
 class PrintActionKit {
@@ -300,7 +307,8 @@ class PrintActionKit {
         }
 
         if (setting.printAction) {
-            PrintActionKit.printActionCommand(barSkeleton.actionCommandRegions.actionCommands, setting.printActionShort);
+            PrintActionKit.printActionCommand(barSkeleton.actionCommandRegions.actionCommands,
+                    setting.printActionShort);
         }
 
         IonetBanner.printLine();
@@ -486,4 +494,3 @@ class PrintActionKit {
         }
     }
 }
-

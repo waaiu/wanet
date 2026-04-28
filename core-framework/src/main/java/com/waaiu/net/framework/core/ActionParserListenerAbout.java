@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -29,14 +29,17 @@ import lombok.experimental.*;
 import lombok.extern.slf4j.*;
 
 /**
- * Eagerly creates protobuf proxy classes for action method parameter and return types
+ * Eagerly creates protobuf proxy classes for action method parameter and return
+ * types
  * annotated with {@code @ProtobufClass}.
  * <p>
- * Built-in wrapper types (e.g. {@link IntValue}, {@link StringValue}) are pre-created
- * in the static initializer; user-defined protobuf types discovered during parsing are
+ * Built-in wrapper types (e.g. {@link IntValue}, {@link StringValue}) are
+ * pre-created
+ * in the static initializer; user-defined protobuf types discovered during
+ * parsing
  * collected and created in {@link #onAfter(BarSkeleton)}.
  *
- * @author 渔民小镇
+ * @author
  * @date 2024-05-01
  * @since 21.7
  */
@@ -69,13 +72,15 @@ final class ProtobufActionParserListener implements ActionParserListener {
     }
 
     /**
-     * Collect protobuf types from the action command's parameter and return type that match the predicate.
+     * Collect protobuf types from the action command's parameter and return type
+     * that match the predicate.
      *
-     * @param context                  the current parser context
-     * @param protobufClassPredicate   predicate to test whether a class qualifies
-     * @param protoSet                 target set to collect matching classes into
+     * @param context                the current parser context
+     * @param protobufClassPredicate predicate to test whether a class qualifies
+     * @param protoSet               target set to collect matching classes into
      */
-    static void collect(ActionParserContext context, Predicate<Class<?>> protobufClassPredicate, Set<Class<?>> protoSet) {
+    static void collect(ActionParserContext context, Predicate<Class<?>> protobufClassPredicate,
+            Set<Class<?>> protoSet) {
         var actionCommand = context.actionCommand;
 
         Optional.ofNullable(actionCommand.dataParameter)
@@ -101,8 +106,10 @@ final class ProtobufActionParserListener implements ActionParserListener {
 }
 
 /**
- * Validation listener that detects action parameter/return types missing the {@code @ProtobufClass}
- * annotation and logs an error for each offending class after parsing completes.
+ * Validation listener that detects action parameter/return types missing the
+ * {@code @ProtobufClass}
+ * annotation and logs an error for each offending class after parsing
+ * completes.
  */
 @Slf4j
 final class ProtobufCheckActionParserListener implements ActionParserListener {

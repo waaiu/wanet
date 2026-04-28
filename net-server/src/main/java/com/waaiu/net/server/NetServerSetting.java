@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -32,25 +32,15 @@ import lombok.*;
 /**
  * Immutable runtime setting assembled by {@link NetServerBuilder}.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-08
  * @since 25.1
  */
 @Builder(setterPrefix = "set")
 public record NetServerSetting(
-        int netId
-        , Aeron aeron
-        , CmdRegions cmdRegions
-        , ConnectionManager connectionManager
-        , SkeletonThreadPipeline skeletonThreadPipeline
-        , CommunicationAggregation communicationAggregation
-        , FindServer findServer
-        , BalancedManager balancedManager
-        , FutureManager futureManager
-        , List<ServerShutdownHook> serverShutdownHookList
-        , List<ServerListener> listenerList
-        , Publisher publisher
-        , ConvenientCommunication convenientCommunication
-) {
+        int netId, Aeron aeron, CmdRegions cmdRegions, ConnectionManager connectionManager,
+        SkeletonThreadPipeline skeletonThreadPipeline, CommunicationAggregation communicationAggregation,
+        FindServer findServer, BalancedManager balancedManager, FutureManager futureManager,
+        List<ServerShutdownHook> serverShutdownHookList, List<ServerListener> listenerList, Publisher publisher,
+        ConvenientCommunication convenientCommunication) {
 }
-

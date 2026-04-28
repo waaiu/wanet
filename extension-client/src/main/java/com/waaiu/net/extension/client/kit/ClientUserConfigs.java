@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -23,15 +23,18 @@ import lombok.experimental.*;
 /**
  * Configuration flags for simulated client behavior and logging.
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-07-15
  */
 @UtilityClass
 public class ClientUserConfigs {
     /**
      * Disables console input features.
+     * 
      * <pre>
-     *     Recommended for pressure testing (set this property to {@code true}).
+     *     Recommended for pressure testing (set this property to {@code
+     * true
+     * }).
      *
      *     When enabled, all console-input-related features become unavailable.
      * </pre>
@@ -49,8 +52,11 @@ public class ClientUserConfigs {
 
     /**
      * When true, duplicate simulated commands are not allowed.
+     * 
      * <pre>
-     *     Default is {@code false}, which disables duplicate checking.
+     *     Default is {@code
+     * false
+     * }, which disables duplicate checking.
      * </pre>
      */
     public boolean uniqueInputCommand;
@@ -67,4 +73,3 @@ public class ClientUserConfigs {
         openLogRequestCallback = false;
     }
 }
-

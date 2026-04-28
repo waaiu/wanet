@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -26,7 +26,7 @@ import lombok.*;
  * Controls how a player's set of bound logic servers is modified when
  * a binding request is processed.
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-06-07
  */
 public enum BindingEnum {
@@ -34,6 +34,7 @@ public enum BindingEnum {
      * Override the bound logic servers
      * <p>
      * Example:
+     * 
      * <pre>
      * Before overriding, if the player was already bound to logic server IDs [1-1];
      *
@@ -48,6 +49,7 @@ public enum BindingEnum {
      * Append to the bound logic servers
      * <p>
      * Example:
+     * 
      * <pre>
      * Before appending, if the player was already bound to logic server IDs [1-1];
      *
@@ -62,6 +64,7 @@ public enum BindingEnum {
      * Remove the bound logic servers
      * <p>
      * Example:
+     * 
      * <pre>
      * Before removal, if the player was already bound to logic server IDs [1-1, 2-2, 3-1];
      *
@@ -96,4 +99,3 @@ public enum BindingEnum {
         };
     }
 }
-

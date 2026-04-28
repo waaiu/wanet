@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -25,9 +25,10 @@ import lombok.*;
 import lombok.experimental.*;
 
 /**
- * Gameplay Operation Factory (Flyweight) implementation class (Built-in implementation)
+ * Gameplay Operation Factory (Flyweight) implementation class (Built-in
+ * implementation)
  *
- * @author 渔民小镇
+ * @author
  * @date 2022-03-31
  * @since 21.8
  */
@@ -35,6 +36,7 @@ import lombok.experimental.*;
 final class SimpleOperationFactory implements OperationFactory {
     /**
      * Operation handling
+     * 
      * <pre>
      * key : Operation code
      * value : Business logic handler corresponding to the operation code
@@ -43,6 +45,7 @@ final class SimpleOperationFactory implements OperationFactory {
     final Map<Integer, OperationHandler> operationMap = CollKit.ofConcurrentHashMap();
     /**
      * Operation handling that the user can operate
+     * 
      * <pre>
      * key : Operation code
      * value : Business logic handler corresponding to the operation code

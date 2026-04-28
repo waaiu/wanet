@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -26,27 +26,28 @@ import com.waaiu.net.framework.protocol.*;
 import java.util.*;
 
 /**
- * Flow-level broadcast communication providing methods to broadcast messages to the requesting
+ * Flow-level broadcast communication providing methods to broadcast messages to
+ * the requesting
  * user (broadcastMe) with various data type overloads.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-10-09
  * @since 25.1
  */
-public interface FlowBroadcastCommunication extends FlowCommon
-        , BroadcastUserCommunicationDecorator
-        , BroadcastUserListCommunicationDecorator
-        , BroadcastMulticastCommunicationDecorator {
+public interface FlowBroadcastCommunication extends FlowCommon, BroadcastUserCommunicationDecorator,
+        BroadcastUserListCommunicationDecorator, BroadcastMulticastCommunicationDecorator {
 
     /**
      * Broadcast a message to the requesting user.
      * <p>
-     * This is the main broadcast method. All typed overloads delegate to this method
+     * This is the main broadcast method. All typed overloads delegate to this
+     * method
      * after encoding the data.
      *
      * @param cmdInfo      the command info identifying the broadcast route
      * @param data         the encoded byte data to broadcast
-     * @param originalData the original pre-encoded data object (may be {@code null})
+     * @param originalData the original pre-encoded data object (may be
+     *                     {@code null})
      */
     private void broadcastMe(CmdInfo cmdInfo, byte[] data, Object originalData) {
         var message = new BroadcastUserMessage();
@@ -70,47 +71,71 @@ public interface FlowBroadcastCommunication extends FlowCommon
         this.getCommunicationAggregation().broadcast(message);
     }
 
-    /** Broadcast raw byte data to the requesting user. @see #broadcastMe(CmdInfo, byte[], Object) */
+    /**
+     * Broadcast raw byte data to the requesting user. @see #broadcastMe(CmdInfo,
+     * byte[], Object)
+     */
     default void broadcastMe(CmdInfo cmdInfo, byte[] data) {
         broadcastMe(cmdInfo, data, null);
     }
 
-    /** Broadcast an empty message to the requesting user. @see #broadcastMe(CmdInfo, byte[], Object) */
+    /**
+     * Broadcast an empty message to the requesting user. @see #broadcastMe(CmdInfo,
+     * byte[], Object)
+     */
     default void broadcastMe(CmdInfo cmdInfo) {
         broadcastMe(cmdInfo, CommonConst.emptyBytes, null);
     }
 
-    /** Broadcast an int value to the requesting user. @see #broadcastMe(CmdInfo, byte[], Object) */
+    /**
+     * Broadcast an int value to the requesting user. @see #broadcastMe(CmdInfo,
+     * byte[], Object)
+     */
     default void broadcastMe(CmdInfo cmdInfo, int data) {
         var codec = DataCodecManager.getDataCodec();
         broadcastMe(cmdInfo, codec.encode(data), data);
     }
 
-    /** Broadcast a long value to the requesting user. @see #broadcastMe(CmdInfo, byte[], Object) */
+    /**
+     * Broadcast a long value to the requesting user. @see #broadcastMe(CmdInfo,
+     * byte[], Object)
+     */
     default void broadcastMe(CmdInfo cmdInfo, long data) {
         var codec = DataCodecManager.getDataCodec();
         broadcastMe(cmdInfo, codec.encode(data), data);
     }
 
-    /** Broadcast a boolean value to the requesting user. @see #broadcastMe(CmdInfo, byte[], Object) */
+    /**
+     * Broadcast a boolean value to the requesting user. @see #broadcastMe(CmdInfo,
+     * byte[], Object)
+     */
     default void broadcastMe(CmdInfo cmdInfo, boolean data) {
         var codec = DataCodecManager.getDataCodec();
         broadcastMe(cmdInfo, codec.encode(data), data);
     }
 
-    /** Broadcast a String value to the requesting user. @see #broadcastMe(CmdInfo, byte[], Object) */
+    /**
+     * Broadcast a String value to the requesting user. @see #broadcastMe(CmdInfo,
+     * byte[], Object)
+     */
     default void broadcastMe(CmdInfo cmdInfo, String data) {
         var codec = DataCodecManager.getDataCodec();
         broadcastMe(cmdInfo, codec.encode(data), data);
     }
 
-    /** Broadcast an Object value to the requesting user. @see #broadcastMe(CmdInfo, byte[], Object) */
+    /**
+     * Broadcast an Object value to the requesting user. @see #broadcastMe(CmdInfo,
+     * byte[], Object)
+     */
     default void broadcastMe(CmdInfo cmdInfo, Object data) {
         var codec = DataCodecManager.getDataCodec();
         broadcastMe(cmdInfo, codec.encode(data), data);
     }
 
-    /** Broadcast a list of objects to the requesting user. @see #broadcastMe(CmdInfo, byte[], Object) */
+    /**
+     * Broadcast a list of objects to the requesting user. @see
+     * #broadcastMe(CmdInfo, byte[], Object)
+     */
     default void broadcastMe(CmdInfo cmdInfo, List<?> dataList) {
         var codec = DataCodecManager.getDataCodec();
         this.broadcastMe(cmdInfo, codec.encodeList(dataList), dataList);
@@ -160,4 +185,3 @@ public interface FlowBroadcastCommunication extends FlowCommon
         this.broadcastMe(cmdInfo, codec.encodeListString(dataList), dataList);
     }
 }
-

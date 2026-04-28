@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -25,13 +25,14 @@ import com.waaiu.net.framework.protocol.*;
 /**
  * Execution context for an {@link OnExternal} template handler.
  *
- * @param userSessions user session manager for lookups and mutations
- * @param response mutable response to send back to the internal caller
- * @param userId business userId, or userChannelId when {@code verifyIdentity == false}
+ * @param userSessions   user session manager for lookups and mutations
+ * @param response       mutable response to send back to the internal caller
+ * @param userId         business userId, or userChannelId when
+ *                       {@code verifyIdentity == false}
  * @param verifyIdentity whether the current user identity has been verified
- * @param payload raw payload bytes
- * @param payloadLength valid payload length
- * @author 渔民小镇
+ * @param payload        raw payload bytes
+ * @param payloadLength  valid payload length
+ * @author
  * @date 2025-09-11
  * @since 25.1
  */
@@ -41,8 +42,7 @@ public record OnExternalContext(
         long userId,
         boolean verifyIdentity,
         byte[] payload,
-        int payloadLength
-) {
+        int payloadLength) {
 
     /**
      * Resolve the target user session using verified userId or channelId semantics.
@@ -91,4 +91,3 @@ public record OnExternalContext(
         return ByteKit.getString(this.payload());
     }
 }
-

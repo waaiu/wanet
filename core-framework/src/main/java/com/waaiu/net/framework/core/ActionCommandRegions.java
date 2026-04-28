@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -32,7 +32,7 @@ import lombok.experimental.*;
  * Registry of all {@link ActionCommandRegion} instances, indexed by cmd.
  * Converts the region map into a 2D array for O(1) command lookup at runtime.
  *
- * @author 渔民小镇
+ * @author
  * @date 2022-05-15
  */
 @FieldDefaults(level = AccessLevel.PUBLIC)
@@ -64,8 +64,7 @@ public final class ActionCommandRegions {
                 .map(o -> o.cmdInfo)
                 // Convert to merged routing
                 .map(CmdInfo::cmdMerge)
-                .collect(Collectors.toList())
-                ;
+                .collect(Collectors.toList());
     }
 
     /**
@@ -135,8 +134,7 @@ public final class ActionCommandRegions {
              * Default maximum capacity %d, current capacity %d
              */
             var info = Bundle.getMessage(MessageKey.cmdMergeLimit).formatted(
-                    "cmd", setting.cmdMaxLen, max
-            );
+                    "cmd", setting.cmdMaxLen, max);
 
             IonetBanner.ofRuntimeException(info);
         }
@@ -148,8 +146,7 @@ public final class ActionCommandRegions {
 
             if (subCmdMax > setting.subCmdMaxLen) {
                 var info = Bundle.getMessage(MessageKey.cmdMergeLimit).formatted(
-                        "subCmd", setting.subCmdMaxLen, subCmdMax
-                );
+                        "subCmd", setting.subCmdMaxLen, subCmdMax);
 
                 IonetBanner.ofRuntimeException(info);
             }

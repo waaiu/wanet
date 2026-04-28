@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -23,15 +23,17 @@ import com.waaiu.net.framework.core.codec.*;
 import com.waaiu.net.framework.protocol.*;
 
 /**
- * Flow-level attachment communication for reading and writing request-scoped attachment data.
+ * Flow-level attachment communication for reading and writing request-scoped
+ * attachment data.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-10-09
  * @since 25.1
  */
 public interface FlowAttachmentCommunication extends FlowExternalCommunication {
     /**
-     * Update the request attachment on the external server with the given raw bytes,
+     * Update the request attachment on the external server with the given raw
+     * bytes,
      * and synchronize the local request's attachment.
      *
      * @param attachment the encoded attachment bytes
@@ -65,7 +67,8 @@ public interface FlowAttachmentCommunication extends FlowExternalCommunication {
     }
 
     /**
-     * Asynchronously encode the current typed attachment and update it on the external server.
+     * Asynchronously encode the current typed attachment and update it on the
+     * external server.
      *
      * @see #updateAttachment()
      */
@@ -90,11 +93,12 @@ public interface FlowAttachmentCommunication extends FlowExternalCommunication {
      * Get the typed attachment object. Must be implemented by subclasses.
      * <p>
      * examples
+     * 
      * <pre>{@code
      *     public class MyFlowContext extends FlowContext {
      *         MyAttachment attachment;
      *
-     *         @Override
+     *         &#64;Override
      *         public MyAttachment getAttachment() {
      *             if (Objects.isNull(attachment)) {
      *                 this.attachment = this.getAttachment(MyAttachment.class);
@@ -119,4 +123,3 @@ public interface FlowAttachmentCommunication extends FlowExternalCommunication {
         return null;
     }
 }
-

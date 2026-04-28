@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -22,9 +22,10 @@ import com.waaiu.net.framework.communication.*;
 import java.util.*;
 
 /**
- * No-op {@link RangeBroadcast} implementation used to disable range broadcasting.
+ * No-op {@link RangeBroadcast} implementation used to disable range
+ * broadcasting.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-28
  * @since 25.1
  */
@@ -131,4 +132,3 @@ public final class DisableRangeBroadcast implements RangeBroadcast {
         static final DisableRangeBroadcast ME = new DisableRangeBroadcast();
     }
 }
-

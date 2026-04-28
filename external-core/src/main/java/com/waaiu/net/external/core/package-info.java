@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -17,13 +17,19 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 /**
- * Provides the core abstractions and runtime infrastructure for external servers, including
- * protocol handling, session management, hooks, and internal communication integration.
+ * Provides the core abstractions and runtime infrastructure for external
+ * servers, including
+ * protocol handling, session management, hooks, and internal communication
+ * integration.
  *
- * <p>See <a href="https://waaiu.github.io/ionet/docs/manual/external_intro">External Server</a> for
+ * <p>
+ * See
+ * <a href="https://waaiu.github.io/wanet/docs/manual/external_intro">External
+ * Server</a> for
  * the architecture overview.
  * <p>
  * Responsibilities of the External Server
+ * 
  * <pre>
  * 1. Maintain long connections with users (players)
  * 2. Help developers abstract away communication and connection details
@@ -35,6 +41,7 @@
  * </pre>
  * <p>
  * Extension Scenario
+ * 
  * <pre>
  * The External Server is primarily responsible for connections with users (players).
  * Suppose a single piece of hardware supports a maximum of 5000 user connections.
@@ -47,6 +54,7 @@
  * </pre>
  * <p>
  * Switching, Support, and Extension of Connection Methods
+ * 
  * <pre>
  * The External Server already provides support for TCP, WebSocket, and UDP connection methods, and offers flexible ways
  * to switch between them.
@@ -61,8 +69,7 @@
  * switching the connection method of existing projects, such as TCP, WebSocket, or UDP, to KCP will also be simple.
  * </pre>
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-04-28
  */
 package com.waaiu.net.external.core;
-

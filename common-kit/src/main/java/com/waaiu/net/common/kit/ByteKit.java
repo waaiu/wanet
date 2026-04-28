@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -22,9 +22,10 @@ import java.nio.charset.*;
 import lombok.experimental.*;
 
 /**
- * Byte array conversion utilities for primitive types using big-endian byte order.
+ * Byte array conversion utilities for primitive types using big-endian byte
+ * order.
  *
- * @author 渔民小镇
+ * @author
  * @date 2024-08-10
  * @since 21.15
  */
@@ -35,19 +36,20 @@ public class ByteKit {
      * Convert a long value to an 8-byte big-endian byte array.
      *
      * @param value the long value to convert
-     * @return an 8-byte array in big-endian order (most significant byte at index 0)
+     * @return an 8-byte array in big-endian order (most significant byte at index
+     *         0)
      */
     public byte[] toBytes(long value) {
         byte[] b = new byte[8];
         // Big-endian: store the least significant byte at the highest index
-        b[7] = (byte) (value & 0xff);         // bits  0-7  (LSB)
-        b[6] = (byte) (value >> 8 & 0xff);    // bits  8-15
-        b[5] = (byte) (value >> 16 & 0xff);   // bits 16-23
-        b[4] = (byte) (value >> 24 & 0xff);   // bits 24-31
-        b[3] = (byte) (value >> 32 & 0xff);   // bits 32-39
-        b[2] = (byte) (value >> 40 & 0xff);   // bits 40-47
-        b[1] = (byte) (value >> 48 & 0xff);   // bits 48-55
-        b[0] = (byte) (value >> 56 & 0xff);   // bits 56-63 (MSB)
+        b[7] = (byte) (value & 0xff); // bits 0-7 (LSB)
+        b[6] = (byte) (value >> 8 & 0xff); // bits 8-15
+        b[5] = (byte) (value >> 16 & 0xff); // bits 16-23
+        b[4] = (byte) (value >> 24 & 0xff); // bits 24-31
+        b[3] = (byte) (value >> 32 & 0xff); // bits 32-39
+        b[2] = (byte) (value >> 40 & 0xff); // bits 40-47
+        b[1] = (byte) (value >> 48 & 0xff); // bits 48-55
+        b[0] = (byte) (value >> 56 & 0xff); // bits 56-63 (MSB)
         return b;
     }
 
@@ -59,14 +61,14 @@ public class ByteKit {
      */
     public long getLong(byte[] array) {
         // Big-endian: most significant byte at index 0, shifted left by 56 bits
-        return ((((long) array[0] & 0xff) << 56)   // MSB → bits 56-63
-                | (((long) array[1] & 0xff) << 48)  // bits 48-55
-                | (((long) array[2] & 0xff) << 40)  // bits 40-47
-                | (((long) array[3] & 0xff) << 32)  // bits 32-39
-                | (((long) array[4] & 0xff) << 24)  // bits 24-31
-                | (((long) array[5] & 0xff) << 16)  // bits 16-23
-                | (((long) array[6] & 0xff) << 8)   // bits  8-15
-                | (((long) array[7] & 0xff)));       // bits  0-7  (LSB)
+        return ((((long) array[0] & 0xff) << 56) // MSB → bits 56-63
+                | (((long) array[1] & 0xff) << 48) // bits 48-55
+                | (((long) array[2] & 0xff) << 40) // bits 40-47
+                | (((long) array[3] & 0xff) << 32) // bits 32-39
+                | (((long) array[4] & 0xff) << 24) // bits 24-31
+                | (((long) array[5] & 0xff) << 16) // bits 16-23
+                | (((long) array[6] & 0xff) << 8) // bits 8-15
+                | (((long) array[7] & 0xff))); // bits 0-7 (LSB)
     }
 
     /**
@@ -78,10 +80,10 @@ public class ByteKit {
     public byte[] toBytes(int value) {
         byte[] b = new byte[4];
         // Big-endian: store the least significant byte at the highest index
-        b[3] = (byte) (value & 0xff);         // bits  0-7  (LSB)
-        b[2] = (byte) (value >> 8 & 0xff);    // bits  8-15
-        b[1] = (byte) (value >> 16 & 0xff);   // bits 16-23
-        b[0] = (byte) (value >> 24 & 0xff);   // bits 24-31 (MSB)
+        b[3] = (byte) (value & 0xff); // bits 0-7 (LSB)
+        b[2] = (byte) (value >> 8 & 0xff); // bits 8-15
+        b[1] = (byte) (value >> 16 & 0xff); // bits 16-23
+        b[0] = (byte) (value >> 24 & 0xff); // bits 24-31 (MSB)
         return b;
     }
 
@@ -93,10 +95,10 @@ public class ByteKit {
      */
     public int getInt(byte[] array) {
         // Big-endian: most significant byte at index 0, shifted left by 24 bits
-        return (((int) array[0] & 0xff) << 24)   // MSB → bits 24-31
+        return (((int) array[0] & 0xff) << 24) // MSB → bits 24-31
                 | (((int) array[1] & 0xff) << 16) // bits 16-23
-                | (((int) array[2] & 0xff) << 8)  // bits  8-15
-                | (((int) array[3] & 0xff));       // bits  0-7  (LSB)
+                | (((int) array[2] & 0xff) << 8) // bits 8-15
+                | (((int) array[3] & 0xff)); // bits 0-7 (LSB)
     }
 
     /**
@@ -106,7 +108,7 @@ public class ByteKit {
      * @return a 1-byte array containing {@code 1} for true, {@code 0} for false
      */
     public byte[] toBytes(boolean value) {
-        return new byte[]{(byte) (value ? 1 : 0)};
+        return new byte[] { (byte) (value ? 1 : 0) };
     }
 
     /**
@@ -171,7 +173,8 @@ public class ByteKit {
     }
 
     /**
-     * Create a byte array of the specified length, returning a shared empty array for length zero.
+     * Create a byte array of the specified length, returning a shared empty array
+     * for length zero.
      *
      * @param length the desired array length
      * @return a new byte array, or an empty array if length is 0
@@ -180,4 +183,3 @@ public class ByteKit {
         return length == 0 ? CommonConst.emptyBytes : new byte[length];
     }
 }
-

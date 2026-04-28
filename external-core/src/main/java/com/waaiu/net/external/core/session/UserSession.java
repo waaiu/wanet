@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -18,7 +18,6 @@
  */
 package com.waaiu.net.external.core.session;
 
-
 import com.waaiu.net.common.kit.attr.*;
 import com.waaiu.net.external.core.config.*;
 import com.waaiu.net.external.core.message.*;
@@ -28,7 +27,7 @@ import com.waaiu.net.framework.protocol.*;
 /**
  * External user session abstraction for one connected client.
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-02-18
  * @see UserSessionOption UserSessionOption for dynamic properties
  */
@@ -84,9 +83,11 @@ public interface UserSession extends AttrOptionDynamic {
 
     /**
      * Adds user info to request.
-     * Developers can extend data via HeadMetadata.setAttachmentData(byte[]), which will be forwarded to the logic server.
+     * Developers can extend data via HeadMetadata.setAttachmentData(byte[]), which
+     * will be forwarded to the logic server.
      *
-     * @param message outbound message to enrich with session identity/attachment data
+     * @param message outbound message to enrich with session identity/attachment
+     *                data
      */
     void employ(CommunicationMessage message);
 
@@ -141,4 +142,3 @@ public interface UserSession extends AttrOptionDynamic {
         return message;
     }
 }
-

@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -29,7 +29,7 @@ import lombok.experimental.*;
  * @param expireTime      Expiration time
  * @param cacheLimit      Cache limit within cmdActionCache
  * @param expireCheckTime Cache expiration check time period
- * @author 渔民小镇
+ * @author
  * @date 2023-07-02
  */
 public record CmdCacheOption(Duration expireTime, int cacheLimit, Duration expireCheckTime) {
@@ -52,6 +52,7 @@ public record CmdCacheOption(Duration expireTime, int cacheLimit, Duration expir
 
         /**
          * Cache expiration check time.
+         * 
          * <pre>
          * Notes:
          * Setting the cache expiration check time is to avoid frequent cache checks, so the cache expiration time will have some deviation.

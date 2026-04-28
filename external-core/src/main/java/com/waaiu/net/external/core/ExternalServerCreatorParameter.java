@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -25,17 +25,13 @@ import lombok.*;
 /**
  * Parameter bundle passed to {@link ExternalServerCreator}.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-10-16
  * @since 25.1
  */
 @Builder(setterPrefix = "set", builderClassName = "InternalBuilder")
 public record ExternalServerCreatorParameter(
-        ExternalSetting setting
-        , MicroBootstrap microBootstrap
-        , MicroBootstrapFlow<?> microBootstrapFlow
-        , Set<Object> injectSet
-) {
+        ExternalSetting setting, MicroBootstrap microBootstrap, MicroBootstrapFlow<?> microBootstrapFlow,
+        Set<Object> injectSet) {
     // Marker record used as a transport-independent factory input.
 }
-

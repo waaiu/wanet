@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.waaiu.net</groupId>
-        <artifactId>ionet</artifactId>
+        <artifactId>wanet</artifactId>
         <version>25.4</version>
     </parent>
 
     <artifactId>external-core</artifactId>
-    <name>external-core for ionet</name>
+    <name>external-core for wanet</name>
 
     <dependencies>
         <dependency>
@@ -21,3 +21,4 @@
     </dependencies>
 
 </project>
+

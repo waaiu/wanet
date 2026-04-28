@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   (
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -22,9 +22,11 @@ import com.waaiu.net.common.kit.concurrent.*;
 import java.util.*;
 
 /**
- * Lightweight controllable delayed task region interface, responsible for operations such as creation, retrieval, cancellation, and counting of lightweight controllable delayed tasks.
+ * Lightweight controllable delayed task region interface, responsible for
+ * operations such as creation, retrieval, cancellation, and counting of
+ * lightweile delayed tasks.
  *
- * @author 渔民小镇
+ * @author
  * @date 2024-09-01
  * @since 21.16
  */
@@ -54,6 +56,7 @@ public interface DelayTaskRegion {
 
     /**
      * Create a controllable delayed task and set the task listener callback.
+     * 
      * <pre>{@code
      * DelayTask delayTask = of(taskListener);
      * // Start the delayed task
@@ -67,7 +70,9 @@ public interface DelayTaskRegion {
     DelayTask of(TaskListener taskListener);
 
     /**
-     * Create a controllable delayed task, and set the taskId and task listener callback
+     * Create a controllable delayed task, and set the taskId and task listener
+     * callback
+     * 
      * <pre>{@code
      * DelayTask delayTask = of(taskId, taskListener);
      * // Start the delayed task
@@ -81,4 +86,3 @@ public interface DelayTaskRegion {
      */
     DelayTask of(String taskId, TaskListener taskListener);
 }
-

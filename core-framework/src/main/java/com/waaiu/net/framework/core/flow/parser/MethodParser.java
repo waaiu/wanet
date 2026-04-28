@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -24,7 +24,7 @@ import com.waaiu.net.framework.core.codec.*;
 /**
  * Action method parsing: parses method parameters, parses method return value
  *
- * @author 渔民小镇
+ * @author
  * @date 2022-06-26
  */
 public interface MethodParser {
@@ -32,8 +32,10 @@ public interface MethodParser {
     /**
      * Get the actual class for the parameter or return type.
      * <p>
-     * For primitive-wrapper parsers this returns the corresponding protocol wrapper class
-     * (e.g. {@code IntValue}, {@code IntValueList}). For the default parser it delegates
+     * For primitive-wrapper parsers this returns the corresponding protocol wrapper
+     * class
+     * (e.g. {@code IntValue}, {@code IntValueList}). For the default parser it
+     * delegates
      * to {@link ActualParameter#getActualTypeArgumentClass()}.
      *
      * @param parameterReturn the parameter or return type metadata
@@ -54,7 +56,8 @@ public interface MethodParser {
     /**
      * Parse a list of data values into the protocol-compatible format.
      * <p>
-     * Wraps the given list into the appropriate value-list wrapper type for serialization.
+     * Wraps the given list into the appropriate value-list wrapper type for
+     * serialization.
      *
      * @param data  the list of values returned by the action method
      * @param codec the data codec for encoding individual elements
@@ -65,7 +68,8 @@ public interface MethodParser {
     /**
      * Parse a single data value into the protocol-compatible format.
      * <p>
-     * Wraps the given value into the appropriate value wrapper type for serialization.
+     * Wraps the given value into the appropriate value wrapper type for
+     * serialization.
      *
      * @param data the value returned by the action method
      * @return the protocol-compatible wrapper object

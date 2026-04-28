@@ -1,6 +1,6 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  waaiu (262610965@qq.com, luoyizhu@gmail.com) . All Rights Reserved.
+ * wanet
+ * Copyright (C) 2021 - present  waaiu () . All Rights Reserved.
  * # waaiu.com
  *
  * This program is free software: you can redistribute it and/or modify
@@ -37,7 +37,7 @@ import org.beetl.core.*;
 @Setter
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public final class TypeScriptDocumentGenerate extends AbstractDocumentGenerate {
-    //    String protoPrefix = "ionet.";
+    // String protoPrefix = "wanet.";
     String protoPrefix = "";
     @Setter(AccessLevel.PRIVATE)
     TypeScriptAnalyseImport analyseImport;
@@ -103,7 +103,8 @@ public final class TypeScriptDocumentGenerate extends AbstractDocumentGenerate {
 
     @Override
     protected void generateAction(Document document) {
-        List<ActionDocument> actionDocumentList = DocumentAnalyseKit.analyseActionDocument(document, typeMappingDocument);
+        List<ActionDocument> actionDocumentList = DocumentAnalyseKit.analyseActionDocument(document,
+                typeMappingDocument);
 
         List<Class<?>> protoMessageClassList = new ArrayList<>(actionDocumentList.size());
         actionDocumentList.forEach(actionDocument -> {
@@ -258,4 +259,3 @@ public final class TypeScriptDocumentGenerate extends AbstractDocumentGenerate {
         }
     }
 }
-

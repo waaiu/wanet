@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -25,7 +25,7 @@ import com.waaiu.net.framework.communication.eventbus.*;
 /**
  * FlowCommunicationEventBus
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-10-09
  * @since 25.1
  */
@@ -59,7 +59,9 @@ public interface FlowCommunicationEventBus extends FlowCommon {
     }
 
     /**
-     * [Async] Sends an event message to subscribers in the current process and remote processes. If multiple logic servers of the same type exist, the event will only be sent to one instance.
+     * [Async] Sends an event message to subscribers in the current process and
+     * remote processes. If multiple logic servers of the same type exist, the event
+     * will only be sent to one instance.
      *
      * @param eventSource The event source
      */
@@ -68,7 +70,9 @@ public interface FlowCommunicationEventBus extends FlowCommon {
     }
 
     /**
-     * Sends an event message to subscribers in the current process and remote processes. If multiple logic servers of the same type exist, the event will only be sent to one instance.
+     * Sends an event message to subscribers in the current process and remote
+     * processes. If multiple logic servers of the same type exist, the event will
+     * only be sent to one instance.
      *
      * @param eventSource The event source
      */
@@ -77,7 +81,8 @@ public interface FlowCommunicationEventBus extends FlowCommon {
     }
 
     /**
-     * [Async] Sends an event message to subscribers of all logic servers in the current process.
+     * [Async] Sends an event message to subscribers of all logic servers in the
+     * current process.
      *
      * @param eventSource The event source
      */
@@ -86,7 +91,8 @@ public interface FlowCommunicationEventBus extends FlowCommon {
     }
 
     /**
-     * [Sync] Sends an event message to subscribers of all logic servers in the current process.
+     * [Sync] Sends an event message to subscribers of all logic servers in the
+     * current process.
      *
      * @param eventSource The event source
      */
@@ -112,4 +118,3 @@ public interface FlowCommunicationEventBus extends FlowCommon {
         throw new EnterpriseSupportException();
     }
 }
-

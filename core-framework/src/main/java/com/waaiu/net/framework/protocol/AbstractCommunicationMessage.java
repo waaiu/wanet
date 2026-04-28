@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -24,15 +24,21 @@ import com.waaiu.net.framework.core.exception.*;
 import lombok.*;
 
 /**
- * Abstract base implementation of {@link CommunicationMessage} for external protocol codecs.
+ * Abstract base implementation of {@link CommunicationMessage} for external
+ * protocol codecs.
  * <p>
- * Stores all routing, identity, and metadata fields as {@code transient} members annotated
- * with {@code @Ignore} so they are excluded from protobuf serialization. Subclasses (e.g.,
- * WebSocket and TCP codec messages) only serialize their protocol-specific wire fields while
- * inheriting the full {@link CommunicationMessage} contract. Provides no-op defaults for
- * fields not used in every codec variant (cmdCode, protocolSwitch, msgId, error fields).
+ * Stores all routing, identity, and metadata fields as {@code transient}
+ * members annotated
+ * with {@code @Ignore} so they are excluded from protobuf serialization.
+ * Subclasses (e.g.,
+ * WebSocket and TCP codec messages) only serialize their protocol-specific wire
+ * fields while
+ * inheriting the full {@link CommunicationMessage} contract. Provides no-op
+ * defaults for
+ * fields not used in every codec variant (cmdCode, protocolSwitch, msgId, error
+ * fields).
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-24
  * @since 25.1
  */
@@ -145,4 +151,3 @@ public abstract class AbstractCommunicationMessage implements CommunicationMessa
     public void setErrorMessage(String errorMessage) {
     }
 }
-

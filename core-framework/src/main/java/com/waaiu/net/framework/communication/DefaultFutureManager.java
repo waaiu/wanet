@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -27,11 +27,12 @@ import java.util.concurrent.atomic.*;
 /**
  * Default implementation of {@link FutureManager} backed by a concurrent map.
  * <p>
- * Manages pending {@link CompletableFuture} instances keyed by auto-incremented IDs.
+ * Manages pending {@link CompletableFuture} instances keyed by auto-incremented
+ * IDs.
  * Each future is automatically timed out after the configured timeout period
  * (from {@link CoreGlobalConfig#getFutureTimeoutMillis()}).
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-16
  * @since 25.1
  */
@@ -84,7 +85,8 @@ public final class DefaultFutureManager implements FutureManager {
      *
      * @param futureId the ID of the future to remove
      * @param <T>      the expected result type
-     * @return the removed future, or {@code null} if no future was registered for the ID
+     * @return the removed future, or {@code null} if no future was registered for
+     *         the ID
      */
     @SuppressWarnings("unchecked")
     public <T> CompletableFuture<T> remove(long futureId) {

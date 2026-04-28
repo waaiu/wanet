@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -24,14 +24,18 @@ import java.util.*;
 import lombok.*;
 
 /**
- * User-facing response message sent back through the external Netty pipeline to the client.
+ * User-facing response message sent back through the external Netty pipeline to
+ * the client.
  * <p>
- * Extends {@link BarMessage} and implements {@link Response} to provide typed data extraction
- * from the serialized payload. Decoding uses the external-facing codec obtained from
- * {@link DataCodecManager}. The factory method {@link #of()} creates a new instance
+ * Extends {@link BarMessage} and implements {@link Response} to provide typed
+ * data extraction
+ * from the serialized payload. Decoding uses the external-facing codec obtained
+ * from
+ * {@link DataCodecManager}. The factory method {@link #of()} creates a new
+ * instance
  * pre-configured with the business command code.
  *
- * @author 渔民小镇
+ * @author
  * @date 2021-12-20
  */
 @Getter
@@ -49,15 +53,15 @@ public final class UserResponseMessage extends BarMessage implements Response {
     @SuppressWarnings("unchecked")
     public <T> List<T> listValue(Class<? extends T> clazz) {
         var codec = DataCodecManager.getInternalDataCodec();
-        return (List<T>) this.getValue(ByteValueList.class)
-                .values
+        return (List<T>) this.getValue(ByteValueList.class).values
                 .stream()
                 .map(v -> DataCodecManager.decode(v, clazz))
                 .toList();
     }
 
     /**
-     * Create a new {@link UserResponseMessage} pre-configured with the business command code.
+     * Create a new {@link UserResponseMessage} pre-configured with the business
+     * command code.
      *
      * @return a new user response message
      */

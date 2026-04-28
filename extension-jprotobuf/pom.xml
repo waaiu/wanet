@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.waaiu.net</groupId>
-        <artifactId>ionet</artifactId>
+        <artifactId>wanet</artifactId>
         <version>25.4</version>
     </parent>
 
     <artifactId>extension-jprotobuf</artifactId>
-    <name>extension-jprotobuf for ionet</name>
+    <name>extension-jprotobuf for wanet</name>
 
     <dependencies>
         <dependency>
@@ -21,3 +21,4 @@
 
     </dependencies>
 </project>
+

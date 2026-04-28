@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -29,16 +29,19 @@ import lombok.*;
 import lombok.experimental.*;
 
 /**
- * Manages the lifecycle of {@link Runner} instances registered with a {@link BarSkeleton}.
+ * Manages the lifecycle of {@link Runner} instances registered with a
+ * {@link BarSkeleton}.
  * <p>
  * Runners are invoked in two phases:
  * <ol>
- *   <li>{@link #onStart()} -- before the network connection is established.</li>
- *   <li>{@link #onStartAfter()} -- after the network connection is established (delayed by one second).</li>
+ * <li>{@link #onStart()} -- before the network connection is established.</li>
+ * <li>{@link #onStartAfter()} -- after the network connection is established
+ * (delayed by one second).</li>
  * </ol>
- * Adding runners after {@link #onStart()} has been called will throw an exception.
+ * Adding r@link #onStart()} has been called will throw an
+ * exception.
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-04-23
  * @see Runner
  */
@@ -73,7 +76,10 @@ public final class Runners {
         this.runnerList.add(Objects.requireNonNull(runner));
     }
 
-    /** Execute all runners' {@link Runner#onStart(BarSkeleton)} callbacks (idempotent). */
+    /**
+     * Execute all runners' {@link Runner#onStart(BarSkeleton)} callbacks
+     * (idempotent).
+     */
     public void onStart() {
         if (this.onStart.get()) {
             return;
@@ -86,7 +92,10 @@ public final class Runners {
         }
     }
 
-    /** Execute all runners' {@link Runner#onStartAfter(BarSkeleton)} callbacks (idempotent, delayed). */
+    /**
+     * Execute all runners' {@link Runner#onStartAfter(BarSkeleton)} callbacks
+     * (idempotent, delayed).
+     */
     public void onStartAfter() {
         if (this.onStartAfter.get()) {
             return;
@@ -112,4 +121,3 @@ public final class Runners {
                 .collect(Collectors.toList());
     }
 }
-

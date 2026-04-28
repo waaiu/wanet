@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   (
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -58,7 +58,8 @@ interface DelayTaskExecutor extends DelayTask {
     /**
      * Get the executor used to run the {@link #onUpdate()} callback.
      *
-     * @return the executor to use, or {@code null} to run on the current thread (default HashedWheelTimer thread)
+     * @return the executor to use, or {@code null} to run on the current thread
+     *         (default HashedWheelTimer thread)
      */
     Executor getExecutor();
 }
@@ -91,10 +92,13 @@ interface DelayTaskRegionEnhance extends DelayTaskRegion {
 }
 
 /**
- * Internal interval task listener that periodically processes all active delay tasks in a region.
+ * Internal interval task listener that periodically processes all active delay
+ * tasks in a region.
  * <p>
- * On each interval tick, iterates over all registered {@link DelayTaskExecutor} instances,
- * dispatching each to its configured executor (or running inline) and removing inactive tasks.
+ * On each interval tick, iterates over all registered {@link DelayTaskExecutor}
+ * instances,
+ * dispatching each to its configured executor (or running inline) and removing
+ * inactive tasks.
  */
 @Getter
 final class DelayIntervalTaskListener implements IntervalTaskListener {
@@ -130,7 +134,8 @@ final class DelayIntervalTaskListener implements IntervalTaskListener {
     }
 
     /**
-     * Execute a single delay task: remove it if inactive, otherwise check and trigger its update.
+     * Execute a single delay task: remove it if inactive, otherwise check and
+     * trigger its update.
      *
      * @param task the delay task executor to process
      */
@@ -152,10 +157,13 @@ final class DelayIntervalTaskListener implements IntervalTaskListener {
 }
 
 /**
- * Default implementation of {@link DelayTask} backed by a simple map-based region.
+ * Default implementation of {@link DelayTask} backed by a simple map-based
+ * region.
  * <p>
- * Tracks remaining delay time via a {@link LongAdder} and uses an {@link AtomicBoolean}
- * for thread-safe active state management. Each tick decrements the remaining time;
+ * Tracks remaining delay time via a {@link LongAdder} and uses an
+ * {@link AtomicBoolean}
+ * for thread-safe active state management. Each tick decrements the remaining
+ * time;
  * when it reaches zero, the task listener is invoked.
  */
 @Getter
@@ -224,7 +232,8 @@ class SimpleDelayTask implements DelayTaskExecutor {
     }
 
     /**
-     * Cancel this task and invoke the underlying task listener's callback if triggered.
+     * Cancel this task and invoke the underlying task listener's callback if
+     * triggered.
      */
     @Override
     public void onUpdate() {
@@ -240,9 +249,11 @@ class SimpleDelayTask implements DelayTaskExecutor {
     static final long INTERVAL_MILLIS_CONSUMER = -SimpleDelayTaskRegion.INTERVAL_MILLIS * 2;
 
     /**
-     * Decrement the remaining delay time and determine whether the task should fire.
+     * Decrement the remaining delay time and determine whether the task should
+     * fire.
      *
-     * @return {@code true} if the task is active and its remaining time has reached zero
+     * @return {@code true} if the task is active and its remaining time has reached
+     *         zero
      */
     @Override
     public boolean triggerUpdate() {
@@ -363,14 +374,17 @@ class SimpleDelayTaskRegion implements DelayTaskRegion, DelayTaskRegionEnhance {
 }
 
 /**
- * Debug-friendly {@link DelayTask} implementation that logs task state transitions.
+ * Debug-friendly {@link DelayTask} implementation that logs task state
+ * transitions.
  * <p>
  * Extends {@link SimpleDelayTask} with additional elapsed-time tracking and
  * logging of remaining task count on each update for diagnostic purposes.
  */
 @Slf4j
 final class DebugDelayTask extends SimpleDelayTask {
-    /** Accumulated total elapsed time in milliseconds since the task was started. */
+    /**
+     * Accumulated total elapsed time in milliseconds since the task was started.
+     */
     final LongAdder sumMillis = new LongAdder();
 
     /**
@@ -395,7 +409,8 @@ final class DebugDelayTask extends SimpleDelayTask {
     }
 
     /**
-     * Execute the task listener callback and log the remaining task count in the region.
+     * Execute the task listener callback and log the remaining task count in the
+     * region.
      */
     @Override
     public void onUpdate() {
@@ -404,9 +419,11 @@ final class DebugDelayTask extends SimpleDelayTask {
     }
 
     /**
-     * Decrement remaining time, accumulate total elapsed time, and check whether to fire.
+     * Decrement remaining time, accumulate total elapsed time, and check whether to
+     * fire.
      *
-     * @return {@code true} if the task is active and its remaining time has reached zero
+     * @return {@code true} if the task is active and its remaining time has reached
+     *         zero
      */
     @Override
     public boolean triggerUpdate() {
@@ -430,8 +447,10 @@ final class DebugDelayTask extends SimpleDelayTask {
 /**
  * Debug-friendly {@link DelayTaskRegion} implementation with logging.
  * <p>
- * Extends {@link SimpleDelayTaskRegion} to produce {@link DebugDelayTask} instances
- * instead of plain {@link SimpleDelayTask}, enabling diagnostic logging of task lifecycle.
+ * Extends {@link SimpleDelayTaskRegion} to produce {@link DebugDelayTask}
+ * instances
+ * instead of plain {@link SimpleDelayTask}, enabling diagnostic logging of task
+ * lifecycle.
  */
 final class DebugDelayTaskRegion extends SimpleDelayTaskRegion {
     /** {@inheritDoc} */

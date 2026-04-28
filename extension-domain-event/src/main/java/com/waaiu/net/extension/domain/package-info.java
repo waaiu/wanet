@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -17,14 +17,23 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 /**
- * Provides domain-event infrastructure based on Disruptor for implementing asynchronous event-driven
+ * Provides domain-event infrastructure based on Disruptor for implementing
+ * asynchronous event-driven
  * workflows, similar in spirit to Guava EventBus or Spring `ApplicationEvent`.
  *
- * <p>See <a href="https://waaiu.github.io/ionet/docs/extension_module/domain_event">domain-event</a>
+ * <p>
+ * See <a href=
+ * "https://waaiu.github.io/wanet/docs/extension_module/domain_event">domain-event</a>
  * for module usage and integration guidance.
- * Disruptor is an open-source concurrent framework. It is a high-performance queue developed by the British foreign exchange trading company LMAX, which greatly simplifies the difficulty of concurrent program development and won the 2011 Duke’s Program Framework Innovation Award. Disruptor can be understood as a single-machine version of MQ (the lightest and fastest single-machine MQ -- disruptor).
+ * Disruptor is an open-source concurrent framework. It is a high-performance
+ * queue developed by the British foreign exchange trading company LMAX, which
+ * greatly simplifies the difficulty of concurrent program development and won
+ * the 2011 Duke’s Program Framework Innovation Award. Disruptor can be
+ * understood as a single-machine version of MQ (the lightest and fastest
+ * single-machine MQ -- disruptor).
  * <p>
  * Advantages of Event Source Domain Events
+ * 
  * <pre>
  * 1. Domain-Driven Design, based on LMAX architecture.
  * 2. Single Responsibility Principle, which can achieve the ultimate in system extensibility, high scalability, and low coupling.
@@ -34,8 +43,7 @@
  * 6. Event domain provided in plugin form, achieving plug-and-play, as interesting as playing Lego bricks.
  * </pre>
  *
- * @author 渔民小镇
+ * @author
  * @date 2021-12-26
  */
 package com.waaiu.net.extension.domain;
-

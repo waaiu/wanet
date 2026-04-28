@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -21,11 +21,13 @@ package com.waaiu.net.framework.core;
 import com.waaiu.net.framework.core.flow.*;
 
 /**
- * Strategy for dispatching a {@link FlowContext} to a thread executor within a {@link BarSkeleton}.
+ * Strategy for dispatching a {@link FlowContext} to a thread executor within a
+ * {@link BarSkeleton}.
  * <p>
- * Implementations decide which executor to use and how to submit the request for processing.
+ * Implementations decide which executor to use and how to submit the request
+ * for proc
  *
- * @author 渔民小镇
+ * @author
  * @date 2022-06-26
  */
 public interface SkeletonThreadPipeline {
@@ -33,8 +35,7 @@ public interface SkeletonThreadPipeline {
      * Dispatch the given flow context for execution on an appropriate thread.
      *
      * @param barSkeleton the skeleton that will handle the request
-     * @param flowContext  the per-request flow context
+     * @param flowContext the per-request flow context
      */
     void execute(BarSkeleton barSkeleton, FlowContext flowContext);
 }
-

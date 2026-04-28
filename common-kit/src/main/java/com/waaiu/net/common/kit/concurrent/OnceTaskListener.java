@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   (
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -24,13 +24,21 @@ import java.util.concurrent.*;
 
 /**
  * Timer listener callback, executed only 1 time.
+ * 
  * <pre>
- * The {@code onUpdate} method will only be executed when {@code triggerUpdate } returns true.
+ * The {@code
+ * onUpdate
+ * } method will only be executed when {@code
+ * triggerUpdate
+ * } returns true.
  *
  * By default, triggerUpdate returns true. Developers can control the execution of the onUpdate method by controlling the return value of the triggerUpdate method.
  * </pre>
+ * 
  * example
- * <pre>{@code
+ * 
+ * <pre>
+ * {@code
  * // Executed once, after 500 and 800 milliseconds
  * TaskKit.runOnce(() -> log.info("500 delayMilliseconds"), 500);
  * TaskKit.runOnce(() -> log.info("800 delayMilliseconds"), 800);
@@ -38,24 +46,25 @@ import java.util.concurrent.*;
  * // Executed once, after 10 seconds
  * TaskKit.runOnce(new YourOnceTaskListener(), 10, TimeUnit.SECONDS);
  *
- * // Executed once, after 1500 Milliseconds, onUpdate is executed only when theTriggerUpdate is true
+ * // Executed once, after 1500 Milliseconds, onUpdate is executed only when
+ * // theTriggerUpdate is true
  * boolean theTriggerUpdate = RandomKit.randomBoolean();
  * TaskKit.runOnce(new OnceTaskListener() {
- * @Override
- * public void onUpdate() {
- * log.info("1500 delayMilliseconds");
- * }
+ *     &#64;Override
+ *     public void onUpdate() {
+ *         log.info("1500 delayMilliseconds");
+ *     }
  *
- * @Override
- * public boolean triggerUpdate() {
- * return theTriggerUpdate;
- * }
+ *     @Override
+ *     public bUpdate() {
+ *         return theTriggerUpdate;
+ *     }
  *
  * }, 1500, TimeUnit.MILLISECONDS);
  * }
  * </pre>
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-12-06
  * @see TaskKit
  * @see IntervalTaskListener
@@ -78,4 +87,3 @@ public interface OnceTaskListener extends TimerTask, TaskListener {
         }
     }
 }
-

@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -18,7 +18,6 @@
  */
 package com.waaiu.net.extension.domain;
 
-
 import com.lmax.disruptor.*;
 import com.lmax.disruptor.dsl.*;
 import java.util.concurrent.atomic.*;
@@ -27,7 +26,7 @@ import lombok.extern.slf4j.*;
 /**
  * Disruptor event handler adapter that delegates to {@link DomainEventHandler}.
  *
- * @author 渔民小镇
+ * @author
  * @date 2021-12-26
  */
 record CommonEventHandler(DomainEventHandler<?> eventHandler) implements EventHandler<CommonEvent> {
@@ -44,13 +43,14 @@ record CommonEventHandler(DomainEventHandler<?> eventHandler) implements EventHa
 /**
  * Default disruptor-backed implementation of {@link CommonEventProducer}.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-10-20
  * @since 25.1
  */
 final class DefaultCommonEventProducer implements CommonEventProducer {
 
-    private static final EventTranslatorOneArg<CommonEvent, DomainEventSource> TRANSLATOR_SOURCE = (commonEvent, _, domainSource) -> {
+    private static final EventTranslatorOneArg<CommonEvent, DomainEventSource> TRANSLATOR_SOURCE = (commonEvent, _,
+            domainSource) -> {
         commonEvent.setDomainEventSource(domainSource);
     };
 
@@ -75,9 +75,10 @@ final class DefaultCommonEventProducer implements CommonEventProducer {
 }
 
 /**
- * Default {@link DisruptorCreator} that creates daemon threads per topic pipeline.
+ * Default {@link DisruptorCreator} that creates daemon threads per topic
+ * pipeline.
  *
- * @author 渔民小镇
+ * @author
  * @date 2021-12-26
  */
 @Slf4j
@@ -86,15 +87,12 @@ class DefaultDisruptorCreator implements DisruptorCreator {
 
     @Override
     public Disruptor<CommonEvent> ofDisruptor(Class<?> topic, DomainEventSetting setting) {
-        
+
         return new Disruptor<>(CommonEvent::new, setting.ringBufferSize, r -> {
             var thread = new Thread(r);
             thread.setDaemon(true);
             thread.setName(String.format("%s-%s-%s",
-                    topic.getSimpleName()
-                    , setting.topicCount
-                    , THREAD_INIT_NUMBER.getAndIncrement()
-            ));
+                    topic.getSimpleName(), setting.topicCount, THREAD_INIT_NUMBER.getAndIncrement()));
 
             return thread;
         }, setting.producerType, setting.waitStrategy);
@@ -104,7 +102,7 @@ class DefaultDisruptorCreator implements DisruptorCreator {
 /**
  * Default disruptor exception handler for domain-event pipelines.
  *
- * @author 渔民小镇
+ * @author
  * @date 2022-01-14
  */
 @Slf4j
@@ -124,4 +122,3 @@ class DefaultDomainEventExceptionHandler implements ExceptionHandler<Object> {
         log.error(ex.getMessage(), ex);
     }
 }
-

@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   (
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -32,16 +32,20 @@ import lombok.experimental.*;
 import lombok.extern.slf4j.*;
 
 /**
- * Internal utility class for task consumption; developers should NOT use it for time-consuming I/O tasks.
+ * Internal utility class for task consumption; developers should NOT use it for
+ * time-consuming I/O tasks.
  * <p>
  * example - Execute task using another thread
+ * 
  * <pre>{@code
- * TaskKit.execute(()->{
+ * TaskKit.execute(() -> {
  *     log.info("Your logic");
  * });
  * }
  * </pre>
+ * 
  * example - netty TimerTask
+ * 
  * <pre>{@code
  * // Execute after 3 seconds
  * TaskKit.newTimeout(new TimerTask() {
@@ -52,7 +56,10 @@ import lombok.extern.slf4j.*;
  * }, 3, TimeUnit.SECONDS);
  * }
  * </pre>
- * example - TaskListener callback. Internally uses HashedWheelTimer to simulate ScheduledExecutorService scheduling
+ * 
+ * example - TaskListener callback. Internally uses HashedWheelTimer to simulate
+ * ScheduledExecutorService scheduling
+ * 
  * <pre>{@code
  * // Execute only once, after 2 seconds
  * TaskKit.runOnce(() -> log.info("2 Seconds"), 2, TimeUnit.SECONDS);
@@ -73,35 +80,42 @@ import lombok.extern.slf4j.*;
  * TaskKit.runInterval(() -> log.info("tick 30 Minute"), 30, TimeUnit.MINUTES);
  * }
  * </pre>
+ * 
  * example - TaskListener - Advanced Usage
- * <pre>{@code
- * //【Example - Remove Task】Called every second. Remove the current Listener when hp is 0.
+ * 
+ * <pre>
+ * {@code
+ * // 【Example - Remove Task】Called every second. Remove the current Listener
+ * // when hp is 0.
  * TaskKit.runInterval(new IntervalTaskListener() {
  *     int hp = 2;
  *
- *     @Override
+ *     &#64;Override
  *     public void onUpdate() {
  *         hp--;
  *         log.info("Remaining hp:2-{}", hp);
  *     }
  *
- *     @Override
+ *     &#64;Override
  *     public boolean isActive() {
- *         // Returning false indicates inactive, and the current Listener will be removed from the listener list
+ *         // Returning false indicates inactive, and the current Listener will be
+ *         // removed from the listener list
  *         return hp != 0;
  *     }
  * }, 1, TimeUnit.SECONDS);
  *
- * //【Example - Skip Execution】Called every second. The onUpdate method is executed only when triggerUpdate returns true (i.e., the condition is met).
+ * // 【Example - Skip Execution】Called every second. The onUpdate method is
+ * // executed only when triggerUpdate returns true (i.e., the condition is
+ * // met).
  * TaskKit.runInterval(new IntervalTaskListener() {
  *     int hp;
  *
- *     @Override
+ *     &#64;Override
  *     public void onUpdate() {
  *         log.info("current hp:{}", hp);
  *     }
  *
- *     @Override
+ *     &#64;Override
  *     public boolean triggerUpdate() {
  *         hp++;
  *         // When the return value is true, the onUpdate method is executed
@@ -109,10 +123,12 @@ import lombok.extern.slf4j.*;
  *     }
  * }, 1, TimeUnit.SECONDS);
  *
- * //【Example - Specify Thread Executor】Called every second
- * // If there are time-consuming tasks, such as those involving I/O operations, it is recommended to specify an executor to run the current callback (onUpdate method) to avoid blocking other tasks.
+ * // 【Example - Specify Thread Executor】Called every second
+ * // If there are time-consuming tasks, such as those involving I/O operations,
+ * // it is recommended to specify an executor to run the current callback
+ * // (onUpdate method) to avoid blocking other tasks.
  * TaskKit.runInterval(new IntervalTaskListener() {
- *     @Override
+ *     &#64;Override
  *     public void onUpdate() {
  *         log.info("Executing time-consuming I/O task, start");
  *
@@ -127,14 +143,15 @@ import lombok.extern.slf4j.*;
  *
  *     @Override
  *     public Executor getExecutor() {
- *         // Specify an executor to run the current callback (onUpdate method) to avoid blocking other tasks.
+ *         // Specify an executor to run the current callback (onUpdate method) to avoid
+ *         // blocking other tasks.
  *         return TaskKit.getCacheExecutor();
  *     }
  * }, 1, TimeUnit.SECONDS);
  * }
  * </pre>
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-12-02
  */
 @Slf4j
@@ -155,6 +172,7 @@ public class TaskKit {
 
     /**
      * set HashedWheelTimer
+     * 
      * <pre>{@code
      * TaskKit.setTimer(new HashedWheelTimer(17, TimeUnit.MILLISECONDS));
      * }
@@ -190,7 +208,9 @@ public class TaskKit {
     }
 
     /**
-     * Returns a CompletableFuture where the task runs asynchronously on the virtualExecutor (virtual thread), and the result is obtained from the Supplier.
+     * Returns a CompletableFuture where the task runs asynchronously on the
+     * virtualExecutor (virtual thread), and the result is obtained from the
+     * Supplier.
      *
      * @param supplier supplier
      * @param <U>      u
@@ -226,7 +246,8 @@ public class TaskKit {
     }
 
     /**
-     * Execute OnceTaskListener callback after one second, will only be executed once.
+     * Execute OnceTaskListener callback after one second, will only be executed
+     * once.
      *
      * @param taskListener taskListener
      */
@@ -248,7 +269,8 @@ public class TaskKit {
      * Add scheduled task listener
      *
      * @param taskListener scheduled task listener
-     * @param tickMinute   The listener will be called once every tickMinute minutes.
+     * @param tickMinute   The listener will be called once every tickMinute
+     *                     minutes.
      */
     public void runIntervalMinute(IntervalTaskListener taskListener, long tickMinute) {
         runInterval(taskListener, tickMinute, TimeUnit.MINUTES);
@@ -256,12 +278,14 @@ public class TaskKit {
 
     /**
      * Add task listener callback
+     * 
      * <pre>
      * The task listener will be called once every tick time unit.
      * </pre>
      *
      * @param taskListener task listener
-     * @param tick         tick time interval; the listener will be called once every tick time interval
+     * @param tick         tick time interval; the listener will be called once
+     *                     every tick time interval
      * @param timeUnit     tick time unit
      */
     public void runInterval(IntervalTaskListener taskListener, long tick, TimeUnit timeUnit) {
@@ -290,7 +314,8 @@ public class TaskKit {
 
                 set.forEach(intervalTaskListener -> {
                     var executor = intervalTaskListener.getExecutor();
-                    // If an executor is specified, the execution flow is placed in the executor, otherwise the current thread is used.
+                    // If an executor is specified, the execution flow is placed in the executor,
+                    // otherwise the current thread is used.
                     MoreKit.execute(executor, () -> executeFlowTimerListener(intervalTaskListener, set));
                 });
 
@@ -325,4 +350,3 @@ public class TaskKit {
         netVirtualExecutor.shutdown();
     }
 }
-

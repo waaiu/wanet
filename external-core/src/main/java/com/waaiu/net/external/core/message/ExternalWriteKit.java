@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -23,9 +23,10 @@ import com.waaiu.net.framework.protocol.*;
 import lombok.experimental.*;
 
 /**
- * Writes outbound messages to a user session resolved from {@link UserSessions}.
+ * Writes outbound messages to a user session resolved from
+ * {@link UserSessions}.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-11-12
  * @since 25.1
  */
@@ -34,7 +35,7 @@ public final class ExternalWriteKit {
     /**
      * Resolve the target user session and flush the message if the session exists.
      *
-     * @param message outbound communication message
+     * @param message      outbound communication message
      * @param userSessions session container used to resolve the user channel
      */
     public void writeAndFlush(CommunicationMessage message, UserSessions<?, ?> userSessions) {
@@ -43,7 +44,8 @@ public final class ExternalWriteKit {
         }
 
         var userId = message.getUserId();
-        // Identity-verified requests are indexed by business userId; otherwise use the channel-scoped id.
+        // Identity-verified requests are indexed by business userId; otherwise use the
+        // channel-scoped id.
         var userSession = message.isVerifyIdentity()
                 ? userSessions.getUserSession(userId)
                 : userSessions.getUserSessionByUserChannelId(userId);
@@ -53,4 +55,3 @@ public final class ExternalWriteKit {
         }
     }
 }
-

@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   (
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -21,8 +21,7 @@
  * replacing the third-party QDox library for extracting Javadoc comments,
  * line numbers, annotations, and enum constant arguments from source files.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-02-27
  */
 package com.waaiu.net.common.kit.source;
-

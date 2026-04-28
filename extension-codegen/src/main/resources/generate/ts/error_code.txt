@@ -4,7 +4,7 @@ import {CmdKit} from "waaiu-sdk";
 
 /**
  * GameCode, ErrorCode.
- * @author https://github.com/waaiu/ionet
+ * @author https://github.com/waaiu/wanet
  */
 export class GameCode {
 <%for(o in errorCodeDocumentList) {%>
@@ -17,3 +17,4 @@ export class GameCode {
         // Call the method once to trigger the initialization of the error code.
     }
 }
+

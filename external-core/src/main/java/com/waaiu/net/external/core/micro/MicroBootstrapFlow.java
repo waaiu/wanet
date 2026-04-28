@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -22,6 +22,7 @@ import com.waaiu.net.external.core.*;
 
 /**
  * The startup process for a server that connects with real players.
+ * 
  * <pre>
  * Developers can use this interface to orchestrate the server, with orchestration divided into two phases: build time and new connection time.
  *
@@ -30,6 +31,7 @@ import com.waaiu.net.external.core.*;
  * </pre>
  * <p>
  * The execution order of the interface methods is:
+ * 
  * <pre>
  * 1. The execution flow for [Build Time], where createFlow calls the option and channelInitializer methods.
  * 1.1 option
@@ -41,19 +43,21 @@ import com.waaiu.net.external.core.*;
  * 2.3 pipelineCustom
  * </pre>
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-05-28
  */
 public interface MicroBootstrapFlow<Bootstrap> extends ExternalSettingAware {
     /**
-     * Configures some options for the server. The server is not yet started at this point.
+     * Configures some options for the server. The server is not yet started at this
+     * point.
      *
      * @param bootstrap The server bootstrap.
      */
     void option(Bootstrap bootstrap);
 
     /**
-     * Arranges some business orchestration for the server. The server is not yet started at this point.
+     * Arranges some business orchestration for the server. The server is not yet
+     * started at this point.
      *
      * @param bootstrap The server bootstrap.
      */
@@ -92,7 +96,8 @@ public interface MicroBootstrapFlow<Bootstrap> extends ExternalSettingAware {
     void pipelineIdle(PipelineContext context);
 
     /**
-     * Custom business orchestration (to arrange some business logic for the server).
+     * Custom business orchestration (to arrange some business logic for the
+     * server).
      *
      * @param context The PipelineContext.
      */

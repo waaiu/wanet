@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -24,13 +24,17 @@ import com.waaiu.net.framework.core.kit.*;
 import java.util.*;
 
 /**
- * Internal flyweight interface and its implementations for caching {@link CmdInfo} instances.
+ * Internal flyweight interface and its implementations for caching
+ * {@link CmdInfo} instances.
  * <p>
  * Three strategies are provided:
  * <ul>
- *   <li>{@code MapCmdInfoFlyweight} -- lazy, concurrent-map-backed cache suitable for large/sparse command spaces.</li>
- *   <li>{@code TwoArrayCmdInfoFlyweight} -- eagerly pre-allocated 2-D array indexed by {@code [cmd][subCmd]}.</li>
- *   <li>{@code SpaceForTimeCmdInfoFlyweight} -- eagerly pre-allocated flat array indexed by the merged command value.</li>
+ * <li>{@code MapCmdInfoFlyweight} -- lazy, concurrent-map-backed cache suitable
+ * for large/sparse command spaces.</li>
+ * <li>{@code TwoArrayCmdInfoFlyweight} -- eagerly pre-allocated 2-D array
+ * indexed by {@code [cmd][subCmd]}.</li>
+ * <li>{@code SpaceForTimeCmdInfoFlyweight} -- eagerly pre-allocated flat array
+ * indexed by the merged command value.</li>
  * </ul>
  */
 
@@ -53,7 +57,10 @@ interface CmdInfoFlyweight {
     CmdInfo of(int cmdMerge);
 }
 
-/** Map-backed flyweight that lazily creates and caches {@link CmdInfo} instances. */
+/**
+ * Map-backed flyweight that lazily creates and caches {@link CmdInfo}
+ * instances.
+ */
 final class MapCmdInfoFlyweight implements CmdInfoFlyweight {
     final Map<Integer, CmdInfo> cmdInfoMap = CollKit.ofConcurrentHashMap();
 
@@ -76,7 +83,10 @@ final class MapCmdInfoFlyweight implements CmdInfoFlyweight {
     }
 }
 
-/** Two-dimensional array flyweight that eagerly pre-allocates all {@link CmdInfo} instances indexed by {@code [cmd][subCmd]}. */
+/**
+ * Two-dimensional array flyweight that eagerly pre-allocates all
+ * {@link CmdInfo} instances indexed by {@code [cmd][subCmd]}.
+ */
 final class TwoArrayCmdInfoFlyweight implements CmdInfoFlyweight {
     final CmdInfo[][] cmdInfoArray = new CmdInfo[CoreGlobalConfig.setting.cmdMaxLen][CoreGlobalConfig.setting.subCmdMaxLen];
 
@@ -102,7 +112,10 @@ final class TwoArrayCmdInfoFlyweight implements CmdInfoFlyweight {
     }
 }
 
-/** Flat-array flyweight that trades memory for O(1) lookup time using the merged command value as the array index. */
+/**
+ * Flat-array flyweight that trades memory for O(1) lookup time using the merged
+ * command value as the array index.
+ */
 final class SpaceForTimeCmdInfoFlyweight implements CmdInfoFlyweight {
     final CmdInfo[] cmdInfoArray;
 
@@ -131,5 +144,3 @@ final class SpaceForTimeCmdInfoFlyweight implements CmdInfoFlyweight {
         return cmdInfoArray[cmdMerge];
     }
 }
-
-

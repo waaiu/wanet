@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -25,34 +25,36 @@ import lombok.experimental.*;
 /**
  * Built-in error codes used by the framework's action processing pipeline.
  * <p>
- * Each constant carries a numeric {@link #code} and a human-readable {@link #message}.
- * When the locale is Chinese the original message is returned; otherwise the enum
- * constant name is used.
+ * Each constant carries a numeric {@link #code} and a human-readable
+ * {@link #message}.
+ * When the locale is Chinese the original message is returned; otherwise the
+ * enum
+ * constant
  *
- * @author 渔民小镇
+ * @author
  * @date 2022-01-14
  */
 @Getter
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public enum ActionErrorEnum implements ErrorInformation {
     /** Generic system error. */
-    systemOtherErrCode(-1000, "系统其它错误"),
+    systemOtherErrCode(-1000, ""),
     /** Parameter validation error. */
-    validateErrCode(-1001, "参数验错误"),
+    validateErrCode(-1001, ""),
     /** Routing / command info error. */
-    cmdInfoErrorCode(-1002, "路由错误"),
+    cmdInfoErrorCode(-1002, ""),
     /** Heartbeat idle timeout. */
-    idleErrorCode(-1003, "心跳超时相关"),
+    idleErrorCode(-1003, ""),
     /** User not logged in. */
-    verifyIdentity(-1004, "请先登录"),
+    verifyIdentity(-1004, ""),
     /** Class does not exist. */
-    classNotExist(-1005, "class 不存在"),
+    classNotExist(-1005, "class "),
     /** Requested data does not exist. */
-    dataNotExist(-1006, "数据不存在"),
+    dataNotExist(-1006, ""),
     /** Force user offline. */
-    forcedOffline(-1007, "强制用户下线"),
+    forcedOffline(-1007, ""),
     /** Bound logic server not found. */
-    findBindingLogicServerNotExist(-1008, "绑定的逻辑服不存在"),
+    findBindingLogicServerNotExist(-1008, ""),
     /** Internal inter-server communication error. */
     internalCommunicationError(-1009, "internalCommunicationError"),
     /** Enterprise-only feature. */
@@ -71,4 +73,3 @@ public enum ActionErrorEnum implements ErrorInformation {
         return LocaleKit.isChina() ? message : name();
     }
 }
-

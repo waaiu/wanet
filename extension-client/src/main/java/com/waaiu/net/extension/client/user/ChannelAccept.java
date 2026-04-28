@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -21,13 +21,13 @@ package com.waaiu.net.extension.client.user;
 import com.waaiu.net.framework.protocol.*;
 
 /**
- * Transport callback used to send a communication message through the active client channel.
+ * Transport callback used to send a communication message through the active
+ * client channel.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-10-08
  * @since 25.1
  */
 public interface ChannelAccept {
     void accept(CommunicationMessage message);
 }
-

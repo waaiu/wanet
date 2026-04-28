@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -29,20 +29,22 @@ import lombok.experimental.*;
 import lombok.extern.slf4j.*;
 
 /**
- * Utility for analysing action documents, error code enums, and Java source files
+ * Utility for analysing action documents, error code enums, and Java source
+ * files
  * to produce structured documentation models.
  *
- * @author 渔民小镇
+ * @author
  * @date 2024-06-26
  */
 @Slf4j
 @UtilityClass
 public class DocumentAnalyseKit {
     /**
-     * Analyse all action documents and produce a list of {@link ActionDocument} models.
+     * Analyse all action documents and produce a list of {@link ActionDocument}
+     * models.
      *
-     * @param document             the raw document containing action doc list
-     * @param typeMappingDocument  the type mapping configuration
+     * @param document            the raw document containing action doc list
+     * @param typeMappingDocument the type mapping configuration
      * @return list of analysed action documents (only those with methods)
      */
     public List<ActionDocument> analyseActionDocument(Document document, TypeMappingDocument typeMappingDocument) {
@@ -63,7 +65,8 @@ public class DocumentAnalyseKit {
 
         var analyseJavaClassRecord = analyseJavaClass(clazz);
         if (!analyseJavaClassRecord.exists) {
-            // Special handling for built-in error codes -- source is unavailable after compilation
+            // Special handling for built-in error codes -- source is unavailable after
+            // compilation
             return analyseActionErrorEnumDocument(clazz);
         }
 
@@ -107,7 +110,7 @@ public class DocumentAnalyseKit {
         SourceClass sourceClass = exists
                 ? SourceParserKit.parseClass(clazz.getName(), file)
                 : new SourceClass(clazz.getName(), null, 0,
-                Collections.emptyList(), Collections.emptyList(), Collections.emptyList());
+                        Collections.emptyList(), Collections.emptyList(), Collections.emptyList());
 
         return new AnalyseJavaClassRecord(exists, sourceClass);
     }
@@ -151,4 +154,3 @@ public class DocumentAnalyseKit {
         }).filter(Objects::nonNull).toList();
     }
 }
-

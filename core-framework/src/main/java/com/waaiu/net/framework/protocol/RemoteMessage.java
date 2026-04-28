@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -22,14 +22,17 @@ import com.waaiu.net.framework.core.*;
 import com.waaiu.net.framework.core.exception.*;
 
 /**
- * Contract for messages transmitted between servers in the ionet cluster.
+ * Contract for messages transmitted between servers in the wanet cluster.
  * <p>
- * Extends {@link FutureMessage} and defines the common wire-level fields shared by all
- * inter-server messages: the merged command route key, trace ID for distributed tracing,
- * server routing IDs (external, logic, source), network identifier, serialized payload,
+ * Extends {@link FutureMessage} and defines the common wire-level fields shared
+ * by all
+ * inter-server messages: the merged command route key, trace ID for distributed
+ * tracing,
+ * server routing IDs (external, logic, source), network identifier, serialized
+ * payload,
  * error output, and nanosecond-precision timing.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-15
  * @since 25.1
  */
@@ -63,7 +66,8 @@ public interface RemoteMessage extends FutureMessage {
     void setTraceId(String traceId);
 
     /**
-     * Get the ID of the external server that originated or will receive this message.
+     * Get the ID of the external server that originated or will receive this
+     * message.
      *
      * @return the external server ID
      */
@@ -154,7 +158,8 @@ public interface RemoteMessage extends FutureMessage {
     void setOutputError(ErrorInformation error);
 
     /**
-     * Get the nanosecond timestamp recorded when this message was created or received.
+     * Get the nanosecond timestamp recorded when this message was created or
+     * received.
      *
      * @return the nano time
      */
@@ -167,4 +172,3 @@ public interface RemoteMessage extends FutureMessage {
      */
     void setNanoTime(long nanoTime);
 }
-

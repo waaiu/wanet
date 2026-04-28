@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.waaiu.net</groupId>
-        <artifactId>ionet</artifactId>
+        <artifactId>wanet</artifactId>
         <version>25.4</version>
     </parent>
 
     <artifactId>extension-codegen</artifactId>
-    <name>extension-generate-code for ionet</name>
+    <name>extension-generate-code for wanet</name>
 
     <dependencies>
         <dependency>
@@ -34,3 +34,4 @@
     </dependencies>
 
 </project>
+

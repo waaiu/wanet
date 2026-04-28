@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -26,10 +26,12 @@ import lombok.extern.slf4j.*;
  * Default exception processor that wraps exceptions into
  * {@link com.waaiu.net.framework.core.exception.MessageException}.
  * <p>
- * If the thrown exception is already a {@link com.waaiu.net.framework.core.exception.MessageException},
- * it is returned as-is. Otherwise, the exception is logged and wrapped with a generic system error code.
+ * If the thrown exception is already a
+ * {@link com.waaiu.net.framework.core.exception.MessageException},
+ * it is returned as-is. Otherwise, the exception is logged and wrapped with a
+ * generic ode.
  *
- * @author 渔民小镇
+ * @author
  * @date 2021-12-20
  */
 @Slf4j
@@ -37,8 +39,10 @@ public final class DefaultActionMethodExceptionProcess implements ActionMethodEx
     /**
      * Process the given exception and convert it to a {@link MessageException}.
      * <p>
-     * If the exception is already a {@link MessageException}, it is returned directly.
-     * Otherwise, the exception is logged and a new {@link MessageException} with a generic
+     * If the exception is already a {@link MessageException}, it is returned
+     * directly.
+     * Otherwise, the exception is logged and a new {@link MessageException} with a
+     * generic
      * system error code is returned.
      *
      * @param e the exception thrown during action method execution
@@ -51,12 +55,12 @@ public final class DefaultActionMethodExceptionProcess implements ActionMethodEx
             return messageException;
         }
 
-        // Not a user-defined error; likely from a third-party library or an uncaught developer error
+        // Not a user-defined error; likely from a third-party library or an uncaught
+        // developer error
         log.error(e.getMessage(), e);
 
         return new MessageException(ActionErrorEnum.systemOtherErrCode);
     }
-
 
     private DefaultActionMethodExceptionProcess() {
     }
@@ -74,4 +78,3 @@ public final class DefaultActionMethodExceptionProcess implements ActionMethodEx
         static final DefaultActionMethodExceptionProcess ME = new DefaultActionMethodExceptionProcess();
     }
 }
-

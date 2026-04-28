@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -23,10 +23,12 @@ import com.waaiu.net.framework.annotations.*;
 import com.waaiu.net.framework.protocol.*;
 
 /**
- * Flow-level communication for binding or unbinding a user session to specific logic servers.
- * This is an enterprise feature; default implementations throw {@link EnterpriseSupportException}.
+ * Flow-level communication for binding or unbinding a user session to specific
+ * logic servers.
+ * This is an enterprise feature; default implementations throw
+ * {@link ErtException}.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-10-09
  * @since 25.1
  */
@@ -53,4 +55,3 @@ public interface FlowBindingLogicServerCommunication extends FlowExternalCommuni
         throw new EnterpriseSupportException();
     }
 }
-

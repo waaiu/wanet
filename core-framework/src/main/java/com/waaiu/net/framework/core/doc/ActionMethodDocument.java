@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -25,10 +25,11 @@ import lombok.*;
 import lombok.experimental.*;
 
 /**
- * Documentation model for a single action method, capturing parameter types, return types,
+ * Documentation model for a single action method, capturing parameter types,
+ * return types,
  * comments, and type-mapping information used for client SDK code generation.
  *
- * @author 渔民小镇
+ * @author
  * @date 2024-06-26
  */
 @Getter
@@ -85,8 +86,8 @@ public final class ActionMethodDocument {
     /**
      * Create a new method document from the given command doc and type mapping.
      *
-     * @param actionCommandDoc     the command-level documentation
-     * @param typeMappingDocument  the type mapping configuration
+     * @param actionCommandDoc    the command-level documentation
+     * @param typeMappingDocument the type mapping configuration
      */
     public ActionMethodDocument(ActionCommandDoc actionCommandDoc, TypeMappingDocument typeMappingDocument) {
         this.actionCommandDoc = actionCommandDoc;

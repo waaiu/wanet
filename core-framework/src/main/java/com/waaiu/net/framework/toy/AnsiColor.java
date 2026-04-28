@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -25,7 +25,7 @@ import lombok.experimental.*;
 /**
  * Lightweight ANSI escape code utility, replacing the external jansi library.
  *
- * @author 渔民小镇
+ * @author
  * @date 2026-02-27
  */
 @UtilityClass
@@ -62,7 +62,8 @@ public class AnsiColor {
     }
 
     /**
-     * Parses jansi-style {@code @|COLOR text |@} markup and replaces it with ANSI escape codes.
+     * Parses jansi-style {@code @|COLOR text |@} markup and replaces it with ANSI
+     * escape codes.
      */
     public String render(String text) {
         var matcher = RENDER_PATTERN.matcher(text);
@@ -122,4 +123,3 @@ public class AnsiColor {
         }
     }
 }
-

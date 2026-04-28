@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -24,14 +24,17 @@ import com.waaiu.net.framework.protocol.*;
 import java.util.*;
 
 /**
- * Decorator interface that provides convenience factory methods for creating {@link RequestMessage}
+ * Decorator interface that provides convenience factory methods for creating
+ * {@link RequestMessage}
  * instances with various data types.
  * <p>
- * Each overload encodes the given data using the internal {@link DataCodec} before delegating
- * to the core {@link #ofRequestMessage(CmdInfo, byte[])} method. This eliminates repetitive
+ * Each overload encodes the given data using the internal {@link DataCodec}
+ * before delegating
+ * to the core {@link #ofRequestMessage(CmdInfo, byte[])} method. This
+ * eliminat
  * codec lookup and encoding boilerplate in calling code.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-10-09
  * @since 25.1
  */
@@ -42,7 +45,8 @@ public interface LogicCommunicationDecorator {
     }
 
     /**
-     * Create a {@link RequestMessage} with raw byte-array data for the given command.
+     * Create a {@link RequestMessage} with raw byte-array data for the given
+     * command.
      *
      * @param cmdInfo   the command routing information
      * @param dataBytes the serialized request data
@@ -123,7 +127,8 @@ public interface LogicCommunicationDecorator {
     }
 
     /**
-     * Create a {@link RequestMessage} with a list of {@link Integer} values as payload.
+     * Create a {@link RequestMessage} with a list of {@link Integer} values as
+     * payload.
      *
      * @param cmdInfo  the command routing information
      * @param dataList the list of integer values
@@ -135,7 +140,8 @@ public interface LogicCommunicationDecorator {
     }
 
     /**
-     * Create a {@link RequestMessage} with a list of {@link Long} values as payload.
+     * Create a {@link RequestMessage} with a list of {@link Long} values as
+     * payload.
      *
      * @param cmdInfo  the command routing information
      * @param dataList the list of long values
@@ -147,7 +153,8 @@ public interface LogicCommunicationDecorator {
     }
 
     /**
-     * Create a {@link RequestMessage} with a list of {@link Boolean} values as payload.
+     * Create a {@link RequestMessage} with a list of {@link Boolean} values as
+     * payload.
      *
      * @param cmdInfo  the command routing information
      * @param dataList the list of boolean values
@@ -159,7 +166,8 @@ public interface LogicCommunicationDecorator {
     }
 
     /**
-     * Create a {@link RequestMessage} with a list of {@link String} values as payload.
+     * Create a {@link RequestMessage} with a list of {@link String} values as
+     * payload.
      *
      * @param cmdInfo  the command routing information
      * @param dataList the list of string values
@@ -170,4 +178,3 @@ public interface LogicCommunicationDecorator {
         return ofRequestMessage(cmdInfo, codec.encodeListString(dataList));
     }
 }
-

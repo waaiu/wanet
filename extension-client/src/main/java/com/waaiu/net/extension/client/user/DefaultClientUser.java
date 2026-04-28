@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -26,6 +26,7 @@ import lombok.experimental.*;
 
 /**
  * Default client-side user model.
+ * 
  * <pre>
  *     Developers can extend business data through dynamic attributes,
  *     such as currency, battle power, HP, and more.
@@ -33,7 +34,7 @@ import lombok.experimental.*;
  *     {@link ClientUser} can also be extended via inheritance.
  * </pre>
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-07-09
  */
 @Setter
@@ -65,4 +66,3 @@ public class DefaultClientUser implements ClientUser {
         this.inputCommandRegions.forEach(InputCommandRegion::loginSuccessCallback);
     }
 }
-

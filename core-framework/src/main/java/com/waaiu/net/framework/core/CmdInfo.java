@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -22,10 +22,12 @@ import com.waaiu.net.framework.core.kit.*;
 import org.jspecify.annotations.*;
 
 /**
- * Command routing information composed of a cmd (module) and subCmd (action) pair.
- * Uses flyweight pattern for instance caching via {@link CmdInfoFlyweightFactory}.
+ * Command routing information composed of a cmd (module) and subCmd (action)
+ * pair.
+ * Uses flyweight pattern for instance caching via
+ * {@link CtFactory}.
  *
- * @author 渔民小镇
+ * @author
  * @date 2021-12-20
  */
 public record CmdInfo(int cmd, int subCmd, int cmdMerge) {
@@ -71,4 +73,3 @@ public record CmdInfo(int cmd, int subCmd, int cmdMerge) {
         return CmdKit.toString(this.cmdMerge);
     }
 }
-

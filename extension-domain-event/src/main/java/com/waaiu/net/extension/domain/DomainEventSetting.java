@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -24,9 +24,10 @@ import java.util.*;
 import lombok.experimental.*;
 
 /**
- * Configuration holder for domain-event disruptor creation and handler registration.
+ * Configuration holder for domain-event disruptor creation and handler
+ * registration.
  *
- * @author 渔民小镇
+ * @author
  * @date 2021-12-26
  */
 public class DomainEventSetting {
@@ -36,14 +37,20 @@ public class DomainEventSetting {
 
     /// Wait strategy
     ///
-    /// | Strategy | Applicable Scenario | Name |
-    /// | :--- | :--- | :--- |
-    /// | **Locking** | Scenario where CPU resources are scarce, and throughput and latency are not critical | `BlockingWaitStrategy` |
-    /// | **Spinning** | Reduces latency by continuously retrying, minimizing system calls caused by thread switching. Recommended for scenarios where threads are bound to a fixed CPU | `BusySpinWaitStrategy` |
-    /// | **Spinning + yield + custom strategy** | Scenario where CPU resources are scarce, and throughput and latency are not critical | `PhasedBackoffWaitStrategy` |
-    /// | **Spinning + yield + sleep** | A good trade-off between performance and CPU resources. Latency is non-uniform | `SleepingWaitStrategy` |
-    /// | **Locking, with timeout limit** | Scenario where CPU resources are scarce, and throughput and latency are not critical | `TimeoutBlockingWaitStrategy` |
-    /// | **Spinning + yield + spinning** | A good trade-off between performance and CPU resources. Latency is relatively uniform | `YieldingWaitStrategy` |
+    /// | Strategy | Applicable Scenario | Name | | :--- | :--- | :--- | |
+    /// **Locking** | Scenario where CPU resources are scarce, and throughput and
+    /// latency are not critical | `BlockingWaitStrategy` | | **Spinning** | Reduces
+    /// latency by continuously retrying, minimizing system calls caused by thread
+    /// switching. Recommended for scenarios where threads are bound to a fixed CPU |
+    /// `BusySpinWaitStrategy` | | **Spinning + yield + custom strategy** | Scenario
+    /// where CPU resources are scarce, and throughput and latency are not critical |
+    /// `PhasedBackoffWaitStrategy` | | **Spinning + yield + sleep** | A good
+    /// trade-off between performance and CPU resources. Latency is non-uniform |
+    /// `SleepingWaitStrategy` | | **Locking, with timeout limit** | Scenario where
+    /// CPU resources are scarce, and throughput and latency are not critical |
+    /// `TimeoutBlockingWaitStrategy` | | **Spinning + yield + spinning** | A good
+    /// trade-off between performance and CPU resources. Latency is relatively
+    /// uniform | `YieldingWaitStrategy` |
     public WaitStrategy waitStrategy = new LiteBlockingWaitStrategy();
     public ProducerType producerType = ProducerType.MULTI;
 
@@ -60,7 +67,8 @@ public class DomainEventSetting {
     int topicCount;
 
     /**
-     * Add domain event handler, topic defaults to the T type of the interface implementation
+     * Add domain event handler, topic defaults to the T type of the interface
+     * implementation
      *
      * @param domainEventHandler domain event handler
      */
@@ -70,4 +78,3 @@ public class DomainEventSetting {
         }
     }
 }
-

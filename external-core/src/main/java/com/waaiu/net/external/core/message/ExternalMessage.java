@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -26,10 +26,12 @@ import lombok.*;
 import lombok.experimental.*;
 
 /**
- * Default external transport message used between clients and the external server.
- * <a href="https://waaiu.github.io/ionet/docs/manual/external_message">Document</a>
+ * Default external transport message used between clients and the external
+ * server.
+ * <a href=
+ * "https://waaiu.github.io/wanet/docs/manual/external_message">Document</a>
  *
- * @author 渔民小镇
+ * @author
  * @date 2023-02-21
  */
 @Getter
@@ -40,7 +42,9 @@ public final class ExternalMessage extends AbstractCommunicationMessage {
     /** Command type: {@code 0} heartbeat, {@code 1} business request. */
     @Protobuf(fieldType = FieldType.INT32, order = 1)
     int cmdCode;
-    /** Protocol-level feature switches, such as encryption or signature validation. */
+    /**
+     * Protocol-level feature switches, such as encryption or signature validation.
+     */
     @Protobuf(fieldType = FieldType.INT32, order = 2)
     int protocolSwitch;
     /** Merged route command (high 16 bits main cmd, low 16 bits sub cmd). */
@@ -72,4 +76,3 @@ public final class ExternalMessage extends AbstractCommunicationMessage {
                 '}';
     }
 }
-

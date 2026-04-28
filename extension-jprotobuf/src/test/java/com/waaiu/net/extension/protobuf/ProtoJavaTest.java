@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -22,7 +22,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
 /**
- * @author 渔民小镇
+ * @author
  * @date 2022-01-24
  */
 @Slf4j
@@ -30,14 +30,14 @@ public class ProtoJavaTest {
     @Test
     public void generate() {
         /*
-         * .proto 文件生成
+         * .proto
          *
-         * 运行该类，会在当前项目 target/proto 目录下生成 .proto 文件
+         * ， target/proto .proto
          */
 
-        // 需要扫描的包名
+        //
         String packagePath = ProtoJavaTest.class.getPackageName();
-        // .proto 文件生成
+        // .proto
         GenerateFileKit.generate(packagePath);
     }
 }

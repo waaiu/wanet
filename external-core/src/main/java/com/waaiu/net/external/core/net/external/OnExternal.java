@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -21,7 +21,7 @@ package com.waaiu.net.external.core.net.external;
 /**
  * Handler for template-based internal external operations.
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-10
  * @since 25.1
  */
@@ -29,9 +29,9 @@ public interface OnExternal {
     /**
      * Process the template payload and write the result into the context response.
      *
-     * @param payload serialized payload
+     * @param payload       serialized payload
      * @param payloadLength valid payload length
-     * @param context execution context
+     * @param context       execution context
      */
     void process(byte[] payload, int payloadLength, OnExternalContext context);
 
@@ -42,4 +42,3 @@ public interface OnExternal {
      */
     int getTemplateId();
 }
-

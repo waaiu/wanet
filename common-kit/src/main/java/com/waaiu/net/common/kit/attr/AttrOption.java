@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   (
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -23,11 +23,12 @@ import java.util.*;
 import java.util.function.*;
 
 /**
- * Type-safe attribute key for use with {@link AttrOptionDynamic}. Supports default values
+ * Type-safe attribute key for use with {@link AttrOptionDynamic}. Supports
+ * default values
  * and lazy initialization via {@link java.util.function.Supplier}.
  *
- * @param <T> The type of the attribute value
- * @author 渔民小镇
+ * @param < the attribute value
+ * @author
  * @date 2022-01-31
  */
 public record AttrOption<T>(String name, T defaultValue, Supplier<T> supplier) implements Serializable {
@@ -62,7 +63,8 @@ public record AttrOption<T>(String name, T defaultValue, Supplier<T> supplier) i
      * Create an attribute option with a lazy default value supplier.
      *
      * @param name     the unique name identifying this attribute option
-     * @param supplier supplier invoked to produce the default value when none is set
+     * @param supplier supplier invoked to produce the default value when none is
+     *                 set
      * @param <T>      the type of the attribute value
      * @return a new {@link AttrOption} instance with the given supplier
      */
@@ -90,4 +92,3 @@ public record AttrOption<T>(String name, T defaultValue, Supplier<T> supplier) i
         return this.name.hashCode();
     }
 }
-

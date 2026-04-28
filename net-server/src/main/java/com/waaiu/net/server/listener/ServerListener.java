@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -22,9 +22,10 @@ import com.waaiu.net.framework.protocol.*;
 import com.waaiu.net.server.*;
 
 /**
- * Listener for net-server peer lifecycle events (before connect, online, offline).
+ * Listener for net-server peer lifecycle events (before connect, online,
+ * offline).
  *
- * @author 渔民小镇
+ * @author
  * @date 2025-09-20
  * @since 25.1
  */
@@ -35,7 +36,7 @@ public interface ServerListener {
     /**
      * Called for servers that are already online or become newly connected.
      *
-     * @param server server metadata
+     * @param server  server metadata
      * @param setting runtime setting
      */
     default void onlineServer(Server server, NetServerSetting setting) {
@@ -44,10 +45,9 @@ public interface ServerListener {
     /**
      * Called when another server goes offline.
      *
-     * @param server server metadata
+     * @param server  server metadata
      * @param setting runtime setting
      */
     default void offlineServer(Server server, NetServerSetting setting) {
     }
 }
-

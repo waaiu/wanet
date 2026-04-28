@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   () . All Rights Reserved.
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -25,7 +25,7 @@ import lombok.experimental.*;
  * Record describing how a Java/protobuf type maps to client-side type names,
  * SDK method names, and result accessor names used during code generation.
  *
- * @author 渔民小镇
+ * @author
  * @date 2024-06-26
  */
 @Setter
@@ -63,7 +63,8 @@ public final class TypeMappingRecord {
     }
 
     /**
-     * Return the SDK factory method name, choosing the list variant when applicable.
+     * Return the SDK factory method name, choosing the list variant when
+     * applicable.
      *
      * @param isList true to return the list method name
      * @return the factory method name
@@ -72,4 +73,3 @@ public final class TypeMappingRecord {
         return isList ? ofMethodListTypeName : ofMethodTypeName;
     }
 }
-

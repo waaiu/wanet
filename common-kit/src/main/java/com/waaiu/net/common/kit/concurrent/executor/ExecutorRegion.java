@@ -1,7 +1,7 @@
 ﻿/*
- * ionet
- * Copyright (C) 2021 - present  渔民小镇 （262610965@qq.com、luoyizhu@gmail.com） . All Rights Reserved.
- * # waaiu.com . 渔民小镇
+ * wanet
+ * Copyright (C) 2021 - present   (
+ * # waaiu.com . 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -19,7 +19,9 @@
 package com.waaiu.net.common.kit.concurrent.executor;
 
 /**
- * Executor region, managing implementations of {@link ThreadExecutorRegion} (Thread Executor Region).
+ * Executor region, managing implementations of {@link ThreadExecutorRegion}
+ * (Thread Executor Region).
+ * 
  * <pre>
  * Manages {@link UserThreadExecutorRegion}, {@link UserVirtualThreadExecutorRegion}, and {@link SimpleThreadExecutorRegion}.
  * Even if multiple logical servers are started in the same process, thread-related resources will be shared
@@ -38,7 +40,7 @@ package com.waaiu.net.common.kit.concurrent.executor;
  * This executor can be used if the business logic is compute-intensive and you don't want to occupy the thread resources of {@link UserThreadExecutorRegion}.
  * </pre>
  *
- * @author 渔民小镇
+ * @author
  * @date 2024-01-11
  * @see UserThreadExecutorRegion User Thread Executor Region
  * @see UserVirtualThreadExecutorRegion User Virtual Thread Executor Region
@@ -96,4 +98,3 @@ public interface ExecutorRegion {
         return this.getSimpleThreadExecutorRegion().getThreadExecutor(index);
     }
 }
-
