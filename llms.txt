@@ -1,4 +1,4 @@
-﻿# wanet
+# wanet
 
 wanet is an open-source Java distributed network programming framework focused on ultra-low latency and high throughput.
 

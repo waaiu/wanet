@@ -1,4 +1,4 @@
-﻿package com.waaiu.net.center;
+package com.waaiu.net.center;
 
 import com.waaiu.net.center.codec.*;
 import com.waaiu.net.center.fragment.*;

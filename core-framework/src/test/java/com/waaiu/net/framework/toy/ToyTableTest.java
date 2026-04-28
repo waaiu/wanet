@@ -1,4 +1,4 @@
-﻿package com.waaiu.net.framework.toy;
+package com.waaiu.net.framework.toy;
 
 import com.waaiu.net.framework.IonetVersion;
 import org.junit.jupiter.api.Test;

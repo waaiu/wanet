@@ -1,4 +1,4 @@
-﻿package com.waaiu.net.server.logic;
+package com.waaiu.net.server.logic;
 
 import com.waaiu.net.common.*;
 import com.waaiu.net.framework.core.*;

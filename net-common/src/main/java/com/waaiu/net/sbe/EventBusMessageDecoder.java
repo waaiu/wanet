@@ -1,4 +1,4 @@
-﻿/* Generated SBE (Simple Binary Encoding) message codec. */
+/* Generated SBE (Simple Binary Encoding) message codec. */
 package com.waaiu.net.sbe;
 
 import org.agrona.*;

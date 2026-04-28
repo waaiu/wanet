@@ -1,4 +1,4 @@
-﻿package com.waaiu.net.common.kit.collect;
+package com.waaiu.net.common.kit.collect;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;

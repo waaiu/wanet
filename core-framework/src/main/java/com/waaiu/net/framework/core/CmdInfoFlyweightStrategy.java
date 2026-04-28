@@ -1,4 +1,4 @@
-﻿package com.waaiu.net.framework.core;
+package com.waaiu.net.framework.core;
 
 /**
  * Strategy options for the {@link CmdInfo} flyweight cache used by {@link CmdInfoFlyweightFactory}.

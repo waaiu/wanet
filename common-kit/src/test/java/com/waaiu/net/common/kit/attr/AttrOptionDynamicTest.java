@@ -1,4 +1,4 @@
-﻿package com.waaiu.net.common.kit.attr;
+package com.waaiu.net.common.kit.attr;
 
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;

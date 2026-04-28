@@ -1,4 +1,4 @@
-﻿package com.waaiu.net.framework.core;
+package com.waaiu.net.framework.core;
 
 /**
  * SPI interface for loading framework configuration at startup.

@@ -1,4 +1,4 @@
-﻿package com.waaiu.net.common.kit.beans.property;
+package com.waaiu.net.common.kit.beans.property;
 
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;

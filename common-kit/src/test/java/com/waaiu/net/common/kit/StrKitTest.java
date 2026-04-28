@@ -1,4 +1,4 @@
-﻿package com.waaiu.net.common.kit;
+package com.waaiu.net.common.kit;
 
 import org.jspecify.annotations.NonNull;
 import org.junit.jupiter.api.Test;

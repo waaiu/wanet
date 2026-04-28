@@ -1,4 +1,4 @@
-﻿package com.waaiu.net.common.kit.concurrent;
+package com.waaiu.net.common.kit.concurrent;
 
 import com.waaiu.net.common.kit.RandomKit;
 import lombok.extern.slf4j.Slf4j;

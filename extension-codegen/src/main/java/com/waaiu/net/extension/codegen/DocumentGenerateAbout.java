@@ -1,4 +1,4 @@
-﻿/*
+/*
  * wanet
  * Copyright (C) 2021 - present  waaiu () . All Rights Reserved.
  * # waaiu.com

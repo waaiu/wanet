@@ -1,4 +1,4 @@
-﻿package com.waaiu.net.server;
+package com.waaiu.net.server;
 
 import com.waaiu.net.common.*;
 import com.waaiu.net.framework.communication.eventbus.*;

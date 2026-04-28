@@ -1,4 +1,4 @@
-﻿/* Generated SBE (Simple Binary Encoding) message codecs.*/
+/* Generated SBE (Simple Binary Encoding) message codecs.*/
 /**
  * wanet SBE.
  */

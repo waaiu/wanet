@@ -1,4 +1,4 @@
-﻿${generateTime}
+${generateTime}
 ${waaiuHome}
 ${imports}
 import {CmdKit, ListenCommand, ResponseResult} from "waaiu-sdk";

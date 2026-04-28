@@ -1,4 +1,4 @@
-﻿package com.waaiu.net.framework.i18n;
+package com.waaiu.net.framework.i18n;
 
 import com.waaiu.net.framework.toy.IonetBanner;
 import org.junit.jupiter.api.Assertions;

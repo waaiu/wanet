@@ -1,4 +1,4 @@
-﻿package com.waaiu.net.common.kit.concurrent.timer.delay;
+package com.waaiu.net.common.kit.concurrent.timer.delay;
 
 import com.waaiu.net.common.kit.RandomKit;
 import com.waaiu.net.common.kit.concurrent.TaskListener;

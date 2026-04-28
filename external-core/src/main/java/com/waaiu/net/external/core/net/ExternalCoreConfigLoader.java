@@ -1,4 +1,4 @@
-﻿package com.waaiu.net.external.core.net;
+package com.waaiu.net.external.core.net;
 
 import com.waaiu.net.common.*;
 import com.waaiu.net.external.core.message.*;

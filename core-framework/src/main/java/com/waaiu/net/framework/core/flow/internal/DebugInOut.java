@@ -1,4 +1,4 @@
-﻿package com.waaiu.net.framework.core.flow.internal;
+package com.waaiu.net.framework.core.flow.internal;
 
 import com.waaiu.net.common.kit.*;
 import com.waaiu.net.common.kit.time.*;

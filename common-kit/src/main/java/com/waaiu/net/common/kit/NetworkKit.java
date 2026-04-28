@@ -1,4 +1,4 @@
-﻿package com.waaiu.net.common.kit;
+package com.waaiu.net.common.kit;
 
 import java.net.*;
 import java.util.*;
