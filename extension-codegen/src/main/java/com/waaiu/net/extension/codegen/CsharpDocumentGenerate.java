@@ -30,7 +30,7 @@ import org.beetl.core.*;
 /**
  * Generate C# code, such as broadcast, error code, action
  *
- * @author waaiu
+ * 
  * @date 2024-11-15
  * @since 21.20
  */

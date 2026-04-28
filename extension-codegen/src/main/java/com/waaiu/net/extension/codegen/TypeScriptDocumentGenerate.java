@@ -29,7 +29,7 @@ import org.beetl.core.*;
 /**
  * Generate TypeScript code, such as broadcast, error code, action
  *
- * @author waaiu
+ * 
  * @date 2024-12-01
  * @since 21.21
  */

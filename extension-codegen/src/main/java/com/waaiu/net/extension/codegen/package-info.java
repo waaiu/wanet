@@ -26,7 +26,7 @@
  * "https://waaiu.github.io/wanet/docs/extension_module/generate_code">Generate-code</a>
  * for examples.
  *
- * @author waaiu
+ * 
  * @date 2025-12-03
  * @since 25.1
  */
