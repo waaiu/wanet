@@ -31,6 +31,7 @@ import lombok.experimental.*;
 @Getter
 @Setter
 @FieldDefaults(level = AccessLevel.PROTECTED)
+@Builder
 public class SimplePlayer implements Player {
     /** userId user id */
     long userId;
